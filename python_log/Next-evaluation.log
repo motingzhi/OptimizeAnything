@@ -1,0 +1,24 @@
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0.0000, 1.0000, 1.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([1.0000, 1.0000, 0.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/Demo/cgi/refine-solution.py", line 231, in <module>
+    train_obj_actual = torch.tensor(objectivesInput, dtype=torch.float64)
+ValueError: expected sequence of length 2 at dim 1 (got 3)
+Traceback (most recent call last):
+  File "/var/www/Demo/cgi/next-evaluation.py", line 252, in <module>
+    solutionNameList.append(solutionName)
+NameError: name 'solutionNameList' is not defined. Did you mean: 'solutionName'?
+Traceback (most recent call last):
+  File "/var/www/Demo/cgi/next-evaluation.py", line 252, in <module>
+    solutionNameList.append(solutionName)
+NameError: name 'solutionNameList' is not defined. Did you mean: 'solutionName'?
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0.0000, 1.0000, 0.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([-3.3307e-16,  0.0000e+00], dtype=torch.float64), std = tensor([1.0000, 0.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([2.2204e-16, 2.2204e-16, 0.0000e+00], dtype=torch.float64), std = tensor([1.0000, 1.0000, 0.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([1.4803e-16, 1.4803e-16, 0.0000e+00], dtype=torch.float64), std = tensor([1., 1., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)

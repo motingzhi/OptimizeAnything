@@ -1,0 +1,541 @@
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 22, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 22, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+  File "/usr/local/lib/python3.10/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 22, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+  File "/usr/local/lib/python3.10/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 16, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 18, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "//Users/fengyu.li/anaconda3/lib/python3.10/site-packages/torch/__init__.py", line 216, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 22, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 22, in <module>
+    import torch
+  File "//Users/fengyu.li/anaconda3/lib/python3.10/site-packages/torch/__init__.py", line 216, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 22, in <module>
+    import torch
+  File "/Users/fengyu.li/anaconda3/lib/python3.10/site-packages/torch/__init__.py", line 216, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 22, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 443, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 443, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 443, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 443, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 19, in <module>
+    import torch
+  File "/usr/local/lib/python3.11/site-packages/torch/__init__.py", line 443, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 20, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 20, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 20, in <module>
+    import torch
+  File "/Users/fengyu.li/anaconda3/lib/python3.10/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 20, in <module>
+    import torch
+  File "/Users/fengyu.li/anaconda3/lib/python3.10/site-packages/torch/__init__.py", line 451, in <module>
+    raise ImportError(textwrap.dedent('''
+ImportError: Failed to load PyTorch C extensions:
+    It appears that PyTorch has loaded the `torch/_C` folder
+    of the PyTorch repository rather than the C extensions which
+    are expected in the `torch._C` namespace. This can occur when
+    using the `install` workflow. e.g.
+        $ python setup.py install && python -c "import torch"
+
+    This error can generally be solved using the `develop` workflow
+        $ python setup.py develop && python -c "import torch"  # This should succeed
+    or by running Python from a different directory.
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 20, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 21, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 21, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 23, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 23, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 23, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 23, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 24, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 23, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 1, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 2, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 2, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 2, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 22, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 22, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 21, in <module>
+    from import_all import *
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/import_all.py", line 22, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 83, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/Users/fengyu.li/anaconda3/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 83, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+                      ~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/cgi.py", line 536, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 149, in <module>
+    obj_normalised[y].append(objectives_list_normalised[i][y])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 150, in <module>
+    sub_list2 = [float(x) for x in objectives_list_normalised[i:i+len(objectiveNames)]]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 150, in <listcomp>
+    sub_list2 = [float(x) for x in objectives_list_normalised[i:i+len(objectiveNames)]]
+                 ^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'list'
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 158, in <module>
+    best_obj_index[z] = np.argsort(obj_normalised[z])
+    ~~~~~~~~~~~~~~^^^
+IndexError: list assignment index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/Demo/cgi/finish-solutions.py", line 160, in <module>
+    best_obj_balance_index = np.argsort(obj_balance_normalised)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 1133, in argsort
+    return _wrapfunc(a, 'argsort', axis=axis, kind=kind, order=order)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 56, in _wrapfunc
+    return _wrapit(obj, method, *args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/numpy/core/fromnumeric.py", line 45, in _wrapit
+    result = getattr(asarray(obj), method)(*args, **kwds)
+                     ^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (3,) + inhomogeneous part.

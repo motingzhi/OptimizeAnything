@@ -163,6 +163,8 @@ for x in range(len(best_obj_index)):
 for x in range(len(best_obj_index)):
     if best_obj_index[x][-1] == best_obj_balance_index[-1]:
         best_obj_balance_index = best_obj_balance_index[:-1]
+    if len(best_obj_balance_index)== 1:
+        break
 #        break
 
 

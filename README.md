@@ -43,3 +43,4 @@ The `Archive` folder includes previous copies of files for testing and reference
 2. Y. -C. Liao et al., "Interaction Design With Multi-Objective Bayesian Optimization," in IEEE Pervasive Computing, vol. 22, no. 1, pp. 29-38, 1 Jan.-March 2023, doi: 10.1109/MPRV.2022.3230597.
 3. Mo, G. D3MOBO, GitHub. Available at: https://github.com/georgemo535/D3MOBO. 
 
+# OptimiseAnything

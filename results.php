@@ -166,7 +166,7 @@
 
         ///以下为了多parameter的情况：
         for (var i = 0; i<parameterNames.length; i++) {
-            generatedSolution3[i] = parameterNames[i] + " : " + bestSolutions[parameterNames.length*2+i];
+            generatedSolution3[i] = parameterNames[i] + " : " + bestSolutions[parameterNames.length*3+i];
         }
 
         // 获取要填充数据的 <ul> 元素

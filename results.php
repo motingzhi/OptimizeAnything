@@ -81,7 +81,7 @@
 
         paras1[0].innerHTML = solutionNameList[solutionNameIndex[0]];
         paras2[0].innerHTML = solutionNameList[solutionNameIndex[1]];
-        paras3[0].innerHTML = solutionNameList[solutionNameIndex[3]];
+        paras3[0].innerHTML = solutionNameList[solutionNameIndex[2]];
 
         // var generatedSolution1 = [];
       

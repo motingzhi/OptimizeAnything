@@ -3,6 +3,34 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #loadingContainer {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        #loadingIcon {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+
+        #loadingText {
+        text-align: center;
+        margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div id="background">
@@ -89,6 +117,11 @@
         <button class="button" id="add-record-button" onclick="addDesignObjectivesTable()" style="color: black; background-color: #D6EEEE;">Add Objectives</button>
     </div>
     <br>
+
+    <div id="loadingContainer">
+    <div id="loadingIcon"></div>
+    <div id="loadingText">Loading...</div>
+    </div>
 
     <div style="text-align: right;">
         <button class="button" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
@@ -256,7 +289,10 @@
                         'objective-names'    :String(objectiveNames), 
                         'objective-bounds'   :String(objectiveBounds),
                         'objective-min-max'  :String(objectiveMinMax)},
-                
+                beforeSend: function() {
+                // 显示 loading 动画和文字
+                $('#loadingContainer').show();
+                },
                 success: function(result) {
                     submitReturned = true;
                     console.log("Success");
@@ -271,6 +307,7 @@
                     //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
                     var url = "existing-solutions_tonewsolution.php";
                     location.href = url;
+                    $('#loadingContainer').hide();
                 },
                 error: function(result){
                     console.log("Error");
@@ -310,5 +347,7 @@
     
     </body>
 </html>
+
+
 
 

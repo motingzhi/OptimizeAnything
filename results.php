@@ -18,16 +18,22 @@
     <p><b>Option 1</b></p>
     <p class="generatedSolution1-name"></p>
     <ul id="generatedSolution1" style="list-style-type: none;"></ul>
+    <ul id="generatedSolution1objective" style="list-style-type: none;"></ul>
+
     <!-- <p id="option_1_text" style="font-style: italic"></p> -->
     <br>
     <p><b>Option 2</b></p>
     <p class="generatedSolution2-name"></p>
     <ul id="generatedSolution2" style="list-style-type: none;"></ul>
+    <ul id="generatedSolution2objective" style="list-style-type: none;"></ul>
+
     <!-- <p id="option_2_text" style="font-style: italic"></p> -->
     <br>
     <p><b>Option 3</b></p>
     <p class="generatedSolution3-name"></p>
     <ul id="generatedSolution3" style="list-style-type: none;"></ul>
+    <ul id="generatedSolution3objective" style="list-style-type: none;"></ul>
+
     <!-- <p id="option_3_text" style="font-style: italic"></p> -->
 
    

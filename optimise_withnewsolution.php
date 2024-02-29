@@ -3,6 +3,35 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #loadingContainer {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        #loadingIcon {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+
+        #loadingText {
+        text-align: center;
+        margin-top: 20px;
+        }
+    </style>
+	
 </head>
 <body>
 
@@ -99,6 +128,11 @@
     <br>
     <div id="done-button" class="done-button" style="text-align: right;">
         <button class="button" id="done" onclick="finishSolutions()">I'm done</button>    
+    </div>
+
+    <div id="loadingContainer">
+    <div id="loadingIcon"></div>
+    <div id="loadingText">Loading...</div>
     </div>
 
     </div>
@@ -254,7 +288,10 @@
                         
                         'solution-name'      :String(solutionName),
                         'objective-measurements'        :String(objectiveMeasurements)},
-
+                beforeSend: function() {
+                // 显示 loading 动画和文字
+                $('#loadingContainer').show();
+                },
                 success: function(result) {
                     submitReturned = true;
                     solutionList = result.solution;
@@ -275,6 +312,8 @@
                     console.log("Success-newSolution_Reply_list_ends");
                     var url = "optimise_withnewsolution.php";
                     location.href = url;
+		    $('#loadingContainer').hide();
+
             
                 },
                 error: function(result){
@@ -452,7 +491,10 @@
                             'solution-name'      :String(solutionName),
                             'solution-name-list'      :String(solutionNameList),
                             'objective-measurements'   :String(objectiveMeasurements)},
-
+	            beforeSend: function() {
+	                // 显示 loading 动画和文字
+	                $('#loadingContainer').show();
+	                },
                     success: function(result) {
                         submitReturned = true;
                         solutionList = result.solution;
@@ -479,6 +521,8 @@
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
+   		        $('#loadingContainer').hide();
+
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);
@@ -583,7 +627,10 @@
                             'solution-name-list'      :String(solutionNameList),
                             'objective-measurements'   :String(objectiveMeasurements)},
 
-
+	            beforeSend: function() {
+	                // 显示 loading 动画和文字
+	                $('#loadingContainer').show();
+	                },
                     success: function(result) {
                         submitReturned = true;
                         solutionList = result.solution
@@ -609,6 +656,7 @@
                         console.log("Success-refineevaluation");
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
+			$('#loadingContainer').hide();
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);
@@ -648,6 +696,10 @@
                             'saved-objectives'   :String(savedObjectives),
                             'objectives-input'   :String(objectivesInput)},
 
+	            beforeSend: function() {
+	                // 显示 loading 动画和文字
+	                $('#loadingContainer').show();
+	                },
                     success: function(result) {
                         submitReturned = true;
                         // solutionList = result.solution;
@@ -677,6 +729,7 @@
                         console.log("Success");
                         var url = "results.php";
                         location.href = url;
+			$('#loadingContainer').hide();
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);

@@ -3,6 +3,7 @@
 #/usr/bin/env python3
 
 import sys
+import os
 #sys.path.append("/usr/local/lib/python3.10/site-packages")
 import json
 import cgi
@@ -11,6 +12,17 @@ import sqlite3
 
 from import_all import *
 
+
+# Define the log file path
+log_file_folder = "../python_log"
+log_file_path = os.path.join(log_file_folder, "log-definitions_u.log")
+
+# Create the log file directory if it doesn't exist
+os.makedirs(log_file_folder, exist_ok=True)
+
+# Redirect stdout and stderr to the log file
+# sys.stdout = open(log_file_path, "a")
+sys.stderr = open(log_file_path, "a")
 
 
 # Initialize the basic reply message
@@ -117,3 +129,5 @@ sys.stdout.write(json.dumps(reply,indent=1))
 sys.stdout.write("\n")
 
 sys.stdout.close()
+sys.stderr.close() 
+

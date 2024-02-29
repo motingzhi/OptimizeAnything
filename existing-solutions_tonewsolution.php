@@ -3,11 +3,44 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        #loadingContainer {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        #loadingIcon {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+
+        #loadingText {
+        text-align: center;
+        margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <div id="background">
-    
+        
+    <div id="loadingContainer">
+        <div id="loadingIcon"></div>
+        <div id="loadingText">Loading...</div>
+        </div>
+
     <div style="display: flex; justify-content: space-between;">
         <h1>One question before we start...</h1>
         <form action="help.php#existing-solutions">
@@ -96,6 +129,8 @@
             <button class="button" id="finish-solutions-button" onclick="finishSolutions()">Finish</button>
         </div>
         -->
+
+
     </div>
 
     <style>
@@ -330,8 +365,14 @@
                             'bad-solutions'      :String(badSolutions),
                             'new-solution'       :String(newSolution),
                             'next-evaluation'    :String(nextEvaluation),
- 			    'solution-name-list'      :String(solutionNameList),
+ 			                'solution-name-list'      :String(solutionNameList),
                             'refine-solution'    :String(refineSolution)},
+
+                    beforeSend: function() {
+                    // 显示 loading 动画和文字
+                    $('#loadingContainer').show();
+                    },
+
                     success: function(result) {
                         submitReturned = true;
                         solution = result.solution;
@@ -358,6 +399,8 @@
                         // console.log(result.parameterNames);
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
+                        $('#loadingContainer').hide();
+
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);
@@ -377,3 +420,4 @@
     
 
 <!-- 学会了用端口debug -->
+

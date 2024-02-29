@@ -145,22 +145,6 @@
         
 
 
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         var generatedSolution3 = [];
       
 
@@ -178,7 +162,95 @@
         listItem.textContent = element;
         generatedSolutionUI3.appendChild(listItem);
         });
+
+
+                var generatedSolution1objective = [];
+        // var generatedSolutionobjective = [];
         
+        ///以下为了多parameter的情况：
+        for (var i = 0; i<objectiveNames.length; i++) {
+            generatedSolution1objective[i] = objectiveNames[i] + " : " + savedObjectives[solutionNameIndex[0]*objectiveNames.length+i];
+        }
+
+        // 获取要填充数据的 <ul> 元素
+        var generatedSolution1objectiveUI = document.getElementById("generatedSolution1objective");
+
+        // 循环遍历数组并将每个元素添加为列表项
+        generatedSolution1objective.forEach(function(element) {
+        var listItem = document.createElement("li");
+        listItem.textContent = element;
+        generatedSolution1objectiveUI.appendChild(listItem);
+        });
+
+
+
+
+
+
+
+
+
+
+
+        var generatedSolution2objective = [];
+        // var generatedSolutionobjective = [];
+        
+        ///以下为了多parameter的情况：
+        for (var i = 0; i<objectiveNames.length; i++) {
+            generatedSolution2objective[i] = objectiveNames[i] + " : " + savedObjectives[solutionNameIndex[1]*objectiveNames.length+i];
+        }
+
+        // 获取要填充数据的 <ul> 元素
+        var generatedSolution2objectiveUI = document.getElementById("generatedSolution2objective");
+
+        // 循环遍历数组并将每个元素添加为列表项
+        generatedSolution2objective.forEach(function(element) {
+        var listItem = document.createElement("li");
+        listItem.textContent = element;
+        generatedSolution2objectiveUI.appendChild(listItem);
+        });
+
+
+
+
+        var generatedSolution3objective = [];
+        // var generatedSolutionobjective = [];
+
+        ///以下为了多parameter的情况：
+        for (var i = 0; i<objectiveNames.length; i++) {
+            generatedSolution3objective[i] = objectiveNames[i] + " : " + savedObjectives[solutionNameIndex[2]*objectiveNames.length+i];
+        }
+
+        // 获取要填充数据的 <ul> 元素
+        var generatedSolution3objectiveUI = document.getElementById("generatedSolution3objective");
+
+        // 循环遍历数组并将每个元素添加为列表项
+        generatedSolution3objective.forEach(function(element) {
+        var listItem = document.createElement("li");
+        listItem.textContent = element;
+        generatedSolution3objectiveUI.appendChild(listItem);
+        });
+
+
+        // var generatedSolutionobjective;
+        // var generatedSolutionobjectiveUI;
+
+        // for  (var x = 0; x<4; x++) {
+        // ///以下为了多parameter的情况：
+        //     for (var i = 0; i<objectiveNames.length; i++) {
+        //         generatedSolutionobjective[x][i] = objectiveNames[i] + " : " + savedObjectives[solutionNameIndex[x]*objectiveNames.length+i];
+        //     }
+
+        //     // 获取要填充数据的 <ul> 元素
+        //     generatedSolutionobjectiveUI[x] = document.getElementById("generatedSolutionobjective");
+
+        //     // 循环遍历数组并将每个元素添加为列表项
+        //     generatedSolutionobjective[x].forEach(function(element) {
+        //     var listItem = document.createElement("li");
+        //     listItem.textContent = element;
+        //     generatedSolutionobjectiveUI[x].appendChild(listItem);
+        //     });
+        // }
 
 
       

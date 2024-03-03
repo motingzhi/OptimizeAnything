@@ -52,36 +52,36 @@ def arrayToCsv(values):
         csv_string += str(values[i])
     return csv_string
 
-# expectedArgs = ['parameter-names', 'parameter-bounds', 'objective-names', 'objective-bounds', 'objective-min-max']
-# formValuesDefined = checkFormData(formData, expectedArgs)
+expectedArgs = ['parameter-names', 'parameter-bounds', 'objective-names', 'objective-bounds', 'objective-min-max']
+formValuesDefined = checkFormData(formData, expectedArgs)
 
-# if not formValuesDefined:
-#     success = False
-#     message = "Form values not defined."
-# else:
-#     conn = sqlite3.connect("../Data/database.db")
-#     c = conn.cursor()
+if not formValuesDefined:
+    success = False
+    message = "Form values not defined."
+else:
+    conn = sqlite3.connect("../Data/database.db")
+    c = conn.cursor()
 
-#     createFunctionTableQuery_1 = '''CREATE TABLE IF NOT EXISTS definitions_parameters (
-#         id INTEGER PRIMARY KEY AUTOINCREMENT, 
-#         param_name TEXT, 
-#         param_lower_bound INTEGER,
-#         param_upper_bound INTEGER  
-#         )'''
+    createFunctionTableQuery_1 = '''CREATE TABLE IF NOT EXISTS definitions_parameters (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, 
+        param_name TEXT, 
+        param_lower_bound INTEGER,
+        param_upper_bound INTEGER  
+        )'''
 
-#     c.execute(createFunctionTableQuery_1)
-#     conn.commit()
+    c.execute(createFunctionTableQuery_1)
+    conn.commit()
 
-#     createFunctionTableQuery_2 = '''CREATE TABLE IF NOT EXISTS definitions_objectives (
-#         id INTEGER PRIMARY KEY AUTOINCREMENT, 
-#         obj_name TEXT, 
-#         obj_lower_bound INTEGER,
-#         obj_upper_bound INTEGER,
-#         obj_min_max TEXT 
-#         )'''
+    createFunctionTableQuery_2 = '''CREATE TABLE IF NOT EXISTS definitions_objectives (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, 
+        obj_name TEXT, 
+        obj_lower_bound INTEGER,
+        obj_upper_bound INTEGER,
+        obj_min_max TEXT 
+        )'''
 
-#     c.execute(createFunctionTableQuery_2)
-#     conn.commit()
+    c.execute(createFunctionTableQuery_2)
+    conn.commit()
 
     parameterNames = (formData['parameter-names'].value).split(',')
     parameterBounds = (formData['parameter-bounds'].value).split(',')

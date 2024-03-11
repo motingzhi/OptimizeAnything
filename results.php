@@ -50,13 +50,7 @@
         // console.log("Best solutions: " + bestSolutions);
 
 
-        
-        // 定义二维数组 data 和 data1
-        var data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-        var data1 = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']];
 
-        // 获取变量 n，这里假设 n 已经定义好了
-        // var n = 2; // 你的变量 n
 
         var displayDiv = document.getElementById("dataDisplay");
         // 循环显示每个数据

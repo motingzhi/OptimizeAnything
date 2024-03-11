@@ -18,6 +18,8 @@ import numpy as np
 # from matplotlib import pyplot as plt
 import torch
 import os
+from botorch.utils.multi_objective.pareto import is_non_dominated
+
 # from botorch.utils.transforms import unnormalize
 # from botorch.utils.sampling import draw_sobol_samples
 # from botorch.optim.optimize import optimize_acqf, optimize_acqf_list
@@ -88,15 +90,28 @@ for i in range (len(objectiveNames)):
     objective_bounds[0][i] = float(objectiveBounds[2*i])
     objective_bounds[1][i] = float(objectiveBounds[2*i + 1])
 
-def normalise_objectives(obj_tensor_actual):
+# def normalise_objectives(obj_tensor_actual):
+#     objectives_min_max = objectiveMinMax
+#     obj_tensor_norm = torch.zeros(obj_tensor_actual.size(), dtype=torch.float64)
+#     for j in range(obj_tensor_actual.size()[0]):
+#         for i in range (obj_tensor_actual.size()[1]):
+#             if (objectives_min_max[i] == "minimise"): # MINIMISE (SMALLER VALUES CLOSER TO 1)
+#                 obj_tensor_norm[j][i] = -2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) + 1
+#             elif (objectives_min_max[i] == "maximise"): # MAXIMISE (LARGER VALUES CLOSER TO -1)
+#                 obj_tensor_norm[j][i] =  2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) - 1
+#     return obj_tensor_norm
+
+
+def Maximise_all_objectives(obj_tensor_actual):
     objectives_min_max = objectiveMinMax
-    obj_tensor_norm = torch.zeros(obj_tensor_actual.size(), dtype=torch.float64)
+    obj_tensor_norm = torch.zeros(obj_tensor_actual.size(), dtype=torch.float64)#生成空位
     for j in range(obj_tensor_actual.size()[0]):
         for i in range (obj_tensor_actual.size()[1]):
             if (objectives_min_max[i] == "minimise"): # MINIMISE (SMALLER VALUES CLOSER TO 1)
-                obj_tensor_norm[j][i] = -2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) + 1
+                obj_tensor_norm[j][i] = -1*obj_tensor_actual[j][i]
             elif (objectives_min_max[i] == "maximise"): # MAXIMISE (LARGER VALUES CLOSER TO -1)
-                obj_tensor_norm[j][i] =  2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) - 1
+                obj_tensor_norm[j][i] = 1*obj_tensor_actual[j][i]
+
     return obj_tensor_norm
 
 # objectivesInputPlaceholder = []
@@ -105,118 +120,122 @@ def normalise_objectives(obj_tensor_actual):
 
 objectivesInputPlaceholder = []
 for i in range(int(len(savedObjectives)/len(objectiveNames))):
-    sub_list = [float(x) for x in savedObjectives[2*i:2*i+len(objectiveNames)]]
+    sub_list = [float(x) for x in savedObjectives[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
     objectivesInputPlaceholder.append(sub_list)
             # objectivesInputPlaceholder.append([float(objectivesInput[2*i]), float(objectivesInput[2*i+1]),float(objectivesInput[2*i+2])])
 
 savedObjectives = objectivesInputPlaceholder
 train_obj_actual = torch.tensor(savedObjectives, dtype=torch.float64)
-train_obj = normalise_objectives(train_obj_actual)
+train_obj_max = Maximise_all_objectives(train_obj_actual)
+pareto_mask = is_non_dominated(train_obj_max)
 
-best_solutions = []
+BestSolutionIndex = []
 
+for i in range(pareto_mask.size()[0]):
+    if pareto_mask[i] ==  True: 
+        BestSolutionIndex.append(i)
 
-# best_obj_normalised = [-100] * len(objectiveNames)
-# best_obj_1_normalised = -100
-# best_obj_2_normalised = -100
-# best_obj_balance_normalised = -100
+# # best_obj_normalised = [-100] * len(objectiveNames)
+# # best_obj_1_normalised = -100
+# # best_obj_2_normalised = -100
+# # best_obj_balance_normalised = -100
 
-objectives_list_normalised = train_obj.tolist()
+# objectives_list_normalised = train_obj.tolist()
 
-obj_normalised = [[] for _ in range(len(objectiveNames))]
+# obj_normalised = [[] for _ in range(len(objectiveNames))]
 
-# obj_1_normalised = []
-# obj_2_normalised = []
+# # obj_1_normalised = []
+# # obj_2_normalised = []
 
-obj_balance_normalised = []
+# obj_balance_normalised = []
 
-for i in range(int(len(objectives_list_normalised))):
-    sum = 0
-    for l in range(len(objectiveNames)):
-        obj_normalised[l].append(objectives_list_normalised[i][l])
-        sum = sum + objectives_list_normalised[i][l]
-    obj_balance_normalised.append(sum)
+# for i in range(int(len(objectives_list_normalised))):
+#     sum = 0
+#     for l in range(len(objectiveNames)):
+#         obj_normalised[l].append(objectives_list_normalised[i][l])
+#         sum = sum + objectives_list_normalised[i][l]
+#     obj_balance_normalised.append(sum)
 
-# best_obj_1_index = np.argsort(obj_1_normalised)
-# best_obj_2_index = np.argsort(obj_2_normalised)
+# # best_obj_1_index = np.argsort(obj_1_normalised)
+# # best_obj_2_index = np.argsort(obj_2_normalised)
 
-best_obj_index = [[] for _ in range(len(objectiveNames))]
-for z in range(len(objectiveNames)):
-    best_obj_index[z] = np.argsort(obj_normalised[z])
-best_obj_balance_index = np.argsort(obj_balance_normalised)
+# best_obj_index = [[] for _ in range(len(objectiveNames))]
+# for z in range(len(objectiveNames)):
+#     best_obj_index[z] = np.argsort(obj_normalised[z])
+# best_obj_balance_index = np.argsort(obj_balance_normalised)
 
-for x in range(len(best_obj_index)):
-    if best_obj_index[0][-1] == best_obj_index[x][-1]:
-         best_obj_index[x] = best_obj_index[x][:-1] 
-#ifEveryObjIndexLastItemEqual = False
+# for x in range(len(best_obj_index)):
+#     if best_obj_index[0][-1] == best_obj_index[x][-1]:
+#          best_obj_index[x] = best_obj_index[x][:-1] 
+# #ifEveryObjIndexLastItemEqual = False
 
-#for x in range(len(best_obj_index)):
- #   if best_obj_index[0][-1] == best_obj_index[x][-1]:
-  #      ifEveryObjIndexLastItemEqual = True
-   # else:
-    #    break
+# #for x in range(len(best_obj_index)):
+#  #   if best_obj_index[0][-1] == best_obj_index[x][-1]:
+#   #      ifEveryObjIndexLastItemEqual = True
+#    # else:
+#     #    break
 
-#if ifEveryObjIndexLastItemEqual == True:
- #   for  x in range(1,len(best_obj_index)):
-  #      best_obj_index[x] = best_obj_index[x][:-1] 
+# #if ifEveryObjIndexLastItemEqual == True:
+#  #   for  x in range(1,len(best_obj_index)):
+#   #      best_obj_index[x] = best_obj_index[x][:-1] 
 
-for x in range(len(best_obj_index)):
-    if best_obj_index[x][-1] == best_obj_balance_index[-1]:
-        best_obj_balance_index = best_obj_balance_index[:-1]
-    if len(best_obj_balance_index)== 1:
-        break
-#        break
+# for x in range(len(best_obj_index)):
+#     if best_obj_index[x][-1] == best_obj_balance_index[-1]:
+#         best_obj_balance_index = best_obj_balance_index[:-1]
+#     if len(best_obj_balance_index)== 1:
+#         break
+# #        break
 
 
     
 
 
 
-# for x in range(len(best_obj_index) - 1):
-#     # 如果相邻元素的最后一个元素相等
-#     if best_obj_index[x+1][-1] == best_obj_index[x][-1]:
-#         # 从相邻元素中移除最后一个元素，直到最后一个元素
-#         for _ in range(len(best_obj_index[x+1]) - len(best_obj_index[x])):
-#             best_obj_index[x+1].pop()
+# # for x in range(len(best_obj_index) - 1):
+# #     # 如果相邻元素的最后一个元素相等
+# #     if best_obj_index[x+1][-1] == best_obj_index[x][-1]:
+# #         # 从相邻元素中移除最后一个元素，直到最后一个元素
+# #         for _ in range(len(best_obj_index[x+1]) - len(best_obj_index[x])):
+# #             best_obj_index[x+1].pop()
 
-# if (best_obj_2_index[-1] == best_obj_1_index[-1]):
-#     best_obj_2_index = best_obj_2_index[:-1] # remove last element
+# # if (best_obj_2_index[-1] == best_obj_1_index[-1]):
+# #     best_obj_2_index = best_obj_2_index[:-1] # remove last element
 
-#for i in range(len(best_obj_index)): 
- #   if best_obj_index[i][-1] == best_obj_balance_index[-1]:
-  #      best_obj_balance_index = best_obj_balance_index[:-1]
-   #     break
+# # for i in range(len(best_obj_index)): 
+# #    if best_obj_index[i][-1] == best_obj_balance_index[-1]:
+# #        best_obj_balance_index = best_obj_balance_index[:-1]
+# #        break
 
-# while (best_obj_balance_index[-1] == best_obj_1_index[-1] or best_obj_balance_index[-1] == best_obj_2_index[-1]):
-#     best_obj_balance_index = best_obj_balance_index[:-1]
+# # while (best_obj_balance_index[-1] == best_obj_1_index[-1] or best_obj_balance_index[-1] == best_obj_2_index[-1]):
+# #     best_obj_balance_index = best_obj_balance_index[:-1]
 
-# Placeholders / Dummy variables for conditioning to avoid same solution being proposed twice
-# best_obj_1_index, best_obj_2_index, best_obj_balance_index = [], [], []
-# best_obj_2_index = 101
-# best_obj_balance_index = 102
+# # Placeholders / Dummy variables for conditioning to avoid same solution being proposed twice
+# # best_obj_1_index, best_obj_2_index, best_obj_balance_index = [], [], []
+# # best_obj_2_index = 101
+# # best_obj_balance_index = 102
 
 
 
-solutionNameIndex = []
+# solutionNameIndex = []
 
-for i in range(len(best_obj_index)): 
-    solutionNameIndex.append(best_obj_index[i][-1])
-    best_solutions.append(savedSolutions[best_obj_index[i][-1]*num_parameters:best_obj_index[i][-1]*num_parameters+num_parameters])
+# for i in range(len(best_obj_index)): 
+#     solutionNameIndex.append(best_obj_index[i][-1])
+#     best_solutions.append(savedSolutions[best_obj_index[i][-1]*num_parameters:best_obj_index[i][-1]*num_parameters+num_parameters])
 
-best_solutions.append(savedSolutions[best_obj_balance_index[-1]*num_parameters:best_obj_balance_index[-1]*num_parameters+num_parameters])
+# best_solutions.append(savedSolutions[best_obj_balance_index[-1]*num_parameters:best_obj_balance_index[-1]*num_parameters+num_parameters])
 
 
 reply2 = {}
-solutionNameIndex = [float(x) for x in solutionNameIndex]
+# solutionNameIndex = [float(x) for x in solutionNameIndex]
 
 
 # reply['objectives'] = objectivesInput
 reply2['saved_solutions'] = savedSolutions
 reply2['saved_objectives'] = savedObjectives
 # reply2['objectives_normalised'] = train_obj.tolist()
-reply2['best_solutions'] = best_solutions
+# reply2['best_solutions'] = best_solutions
 # reply['solutionNameList'] = solutionNameList
-reply2['solutionNameIndex'] = solutionNameIndex
+reply2['BestSolutionIndex'] = BestSolutionIndex
 
 
 reply['success'] = success

@@ -708,23 +708,23 @@
                         savedSolutions = result.saved_solutions;
                         savedObjectives = result.saved_objectives;
                         objectivesNormalised = result.objectives_normalised;
-                        bestSolutions = result.best_solutions;
+                        // bestSolutions = result.best_solutions;
                         // solutionNameList = result.solutionNameList;
-                        solutionNameIndex = result.solutionNameIndex;
-			console.log(solutionNameIndex);
+                        BestSolutionIndex = result.BestSolutionIndex;
+			// console.log(solutionNameIndex);
                         console.log(objectivesInput);
                         console.log(savedSolutions);
                         console.log(objectivesNormalised);
-                        console.log(bestSolutions)
+                        // console.log(bestSolutions)
                         // localStorage.setItem("solution-list", solutionList);
                         // localStorage.setItem("bad-solutions", badSolutions);
                         localStorage.setItem("objectives-input", objectivesInput);
                         localStorage.setItem("saved-solutions", savedSolutions);
                         localStorage.setItem("saved-objectives", savedObjectives);
                         localStorage.setItem("objectives-normalised", objectivesNormalised);
-                        localStorage.setItem("best-solutions", bestSolutions);
+                        // localStorage.setItem("best-solutions", bestSolutions);
                         localStorage.setItem("solution-name-list", solutionNameList);
-                        localStorage.setItem("solution-name-index", solutionNameIndex);
+                        localStorage.setItem("BestSolutionIndex", BestSolutionIndex);
                         console.log("solutionNameList",solutionNameList);
                         console.log("Success");
                         var url = "results.php";

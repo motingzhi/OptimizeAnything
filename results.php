@@ -73,28 +73,19 @@
             {
                 for (var x = 0; x < parameterNames.length; x++) {
                     displayDiv.innerHTML += objectiveNames[x] + ": " + savedObjectives[BestSolutionIndex[i]*objectiveNames.length+x] + "<br>";
-                    displayDiv.innerHTML +=  "<br>";
-                    displayDiv.innerHTML +=  "<br>";
-
-
                 }
 
             }
             else {
                 for (var x = 0; x < parameterNames.length; x++) {
                     displayDiv.innerHTML += objectiveNames[x] + ": " + savedObjectives[BestSolutionIndex[i]*objectiveNames.length+x] + "<br>";
-                    displayDiv.innerHTML +=  "<br>";
-                    displayDiv.innerHTML +=  "<br>";
-
-
-                }
-
-
-
-
-            
+                }                         
             }
-            // displayDiv.innerHTML += "data[" + i + "]<br>" + dataRow + "<br>";
+            
+            displayDiv.innerHTML +=  "<br>";
+            displayDiv.innerHTML +=  "<br>";
+
+
 
 
   

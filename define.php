@@ -289,10 +289,10 @@
                         'objective-names'    :String(objectiveNames), 
                         'objective-bounds'   :String(objectiveBounds),
                         'objective-min-max'  :String(objectiveMinMax)},
-                beforeSend: function() {
-                // 显示 loading 动画和文字
-                $('#loadingContainer').show();
-                },
+                // beforeSend: function() {
+                // // 显示 loading 动画和文字
+                // $('#loadingContainer').show();
+                // },
                 success: function(result) {
                     submitReturned = true;
                     console.log("Success");
@@ -307,7 +307,7 @@
                     //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
                     var url = "existing-solutions_tonewsolution.php";
                     location.href = url;
-                    $('#loadingContainer').hide();
+                    // $('#loadingContainer').hide();
                 },
                 error: function(result){
                     console.log("Error");

@@ -59,7 +59,7 @@
             
             n = i+1
             // var dataRow = data[i].join("<br>"); // 数组逐行显示
-            displayDiv.innerHTML += "Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]+1] + "<br>";
+            displayDiv.innerHTML += "Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "<br>";
             displayDiv.innerHTML +=  "<br>";
 
             for (var x = 0; x < parameterNames.length; x++) {

@@ -242,7 +242,7 @@ for i in range(len(currentSolutions)):
 if (len(objectivesInput) != 0):
     objectivesInputPlaceholder = []
     for i in range(int(len(objectivesInput)/len(objectiveNames))):
-            sub_list = [float(x) for x in objectivesInput[2*i:2*i+len(objectiveNames)]]
+            sub_list = [float(x) for x in objectivesInput[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
             objectivesInputPlaceholder.append(sub_list)
         # objectivesInputPlaceholder.append([float(objectivesInput[2*i]), float(objectivesInput[2*i+1]),float(objectivesInput[2*i+2])])
     objectivesInput = objectivesInputPlaceholder

@@ -368,10 +368,10 @@
  			                'solution-name-list'      :String(solutionNameList),
                             'refine-solution'    :String(refineSolution)},
 
-                    // beforeSend: function() {
-                    // // 显示 loading 动画和文字
-                    // $('#loadingContainer').show();
-                    // },
+                    beforeSend: function() {
+                    // 显示 loading 动画和文字
+                    $('#loadingContainer').show();
+                    },
 
                     success: function(result) {
                         submitReturned = true;
@@ -399,7 +399,7 @@
                         // console.log(result.parameterNames);
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-                        // $('#loadingContainer').hide();
+                        $('#loadingContainer').hide();
 
                     },
                     error: function(result){

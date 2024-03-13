@@ -141,7 +141,7 @@
 
                   svg.append("text")
                     .attr("x", 250)  // 使标签居中
-                    .attr("y", 460)
+                    .attr("y", 470)
                     .attr("text-anchor", "middle")
                     .text(objectiveNames[0]);
                 
@@ -149,7 +149,7 @@
                   svg.append("text")
                     .attr("transform", "rotate(-90)")
                     .attr("x", -250)  // 使标签居中
-                    .attr("y", 10)
+                    .attr("y", 20)
                     .attr("text-anchor", "middle")
                     .text(objectiveNames[1]);
                 

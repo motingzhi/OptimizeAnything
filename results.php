@@ -48,8 +48,8 @@
            
         if (objectiveNames.length <= 2)
             {
-                  const width = 640;
-                  const height = 400;
+                  const width = 680;
+                  const height = 480;
                   const marginTop = 25;
                   const marginRight = 20;
                   const marginBottom = 35;

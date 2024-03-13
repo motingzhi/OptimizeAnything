@@ -28,6 +28,22 @@
      
     </div>
     <script type="module">
+        var parameterNames = localStorage.getItem("parameter-names").split(",");
+        var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
+        var objectiveNames = localStorage.getItem("objective-names").split(",");
+        var objectiveBounds = localStorage.getItem("objective-bounds").split(",");
+        var objectiveMinMax = localStorage.getItem("objective-min-max").split(",");
+        // var goodSolutions = localStorage.getItem("good-solutions").split(",");
+        // var badSolutions = localStorage.getItem("bad-solutions").split(",");
+        // var solutionList = localStorage.getItem("solution-list").split(",");
+        var savedSolutions = localStorage.getItem("saved-solutions").split(",");
+        var savedObjectives = localStorage.getItem("saved-objectives").split(",");
+        // var objectivesInput = localStorage.getItem("objectives-input").split(",");
+        var objectivesNormalised = localStorage.getItem("objectives-normalised").split(",");
+        // var bestSolutions = localStorage.getItem("best-solutions").split(",");
+        var solutionNameList = localStorage.getItem("solution-name-list").split(",");
+        var solutionNameList = localStorage.getItem("solution-name-list").split(",");
+        var BestSolutionIndex = localStorage.getItem("BestSolutionIndex").split(",");
     import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
     

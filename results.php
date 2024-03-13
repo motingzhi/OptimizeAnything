@@ -121,7 +121,8 @@
                         .enter().append("text")
                         .attr("x", function(d) { return x(d.Objective1) - 10; }) // x 方向偏移一定距离
                         .attr("y", function(d) { return y(d.Objective2) - 10; }) // y 方向偏移一定距离
-                        .text(function(d) { return d["Solution name"]; });
+                        .text(function(d) { return d["Solution name"]; })
+                        .text(function(d) { return d["Objective1"]; });
 
                   svg.append("text")
                     .attr("x", 250)  // 使标签居中

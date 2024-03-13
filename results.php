@@ -47,7 +47,7 @@
     
         import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
            
-        if (BestSolutionIndex.length > 1)
+        if (BestSolutionIndex.length == 1)
             {
             // Declare the chart dimensions and margins.
             const width = 640;
@@ -59,15 +59,13 @@
             
             // Declare the x (horizontal position) scale.
             const x = d3.scaleUtc()
-                .domain([new Date("2023-01-01"), new Date("2024-01-01")])
+                .domain([objectiveBounds[0],objectiveBounds[1]])
                 .range([marginLeft, width - marginRight]);
-                                                //.domain([objectiveBounds[0],objectiveBounds[1]])
 
             // Declare the y (vertical position) scale.
             const y = d3.scaleLinear()
-                .domain([0, 100])
+                .domain([objectiveBounds[2], objectiveBounds[3]])
                 .range([height - marginBottom, marginTop]);
-                                            //.domain([objectiveBounds[2], objectiveBounds[3]])
 
             // Create the SVG container.
             const svg = d3.create("svg")

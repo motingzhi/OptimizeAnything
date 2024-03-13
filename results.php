@@ -213,13 +213,13 @@
 
             if (BestSolutionIndex.length == 1)
             {
-                for (var x = 0; x < parameterNames.length; x++) {
+                for (var x = 0; x < objectiveNames.length; x++) {
                     displayDiv.innerHTML += objectiveNames[x] + ": " + savedObjectives[BestSolutionIndex[i]*objectiveNames.length+x] + "<br>";
                 }
 
             }
             else {
-                for (var x = 0; x < parameterNames.length; x++) {
+                for (var x = 0; x < objectiveNames.length; x++) {
                     displayDiv.innerHTML += objectiveNames[x] + ": " + savedObjectives[BestSolutionIndex[i]*objectiveNames.length+x] + "<br>";
                 }                         
             }

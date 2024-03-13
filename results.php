@@ -48,8 +48,8 @@
            
         if (BestSolutionIndex.length == 1)
             {
-                  const width = 640;
-                  const height = 400;
+                  const width = 700;
+                  const height = 500;
                   const marginTop = 25;
                   const marginRight = 20;
                   const marginBottom = 35;
@@ -79,12 +79,12 @@
                   // Define the horizontal scale.
                   const x = d3.scaleLinear()
                       .domain(d3.extent(dataTable, d => d.Objective1)).nice()
-                      .range([marginLeft, width - marginRight]);
+                      .range([objectiveBounds[0]-[objectiveBounds[0]*0.1,  [objectiveBounds[1]+[objectiveBounds[1]*0.1]);
                 
                   // Define the vertical scale.
                   const y = d3.scaleLinear()
                       .domain(d3.extent(dataTable, d => d.Objective2)).nice()
-                      .range([height - marginBottom, marginTop]);
+                      .range([objectiveBounds[2]-[objectiveBounds[2]*0.1,  [objectiveBounds[3]+[objectiveBounds[3]*0.1]);
                 
                   // Create the container SVG.
                   const svg = d3.create("svg")
@@ -124,7 +124,7 @@
 
                   svg.append("text")
                     .attr("x", 250)  // 使标签居中
-                    .attr("y", 390)
+                    .attr("y", 420)
                     .attr("text-anchor", "middle")
                     .text("objectiveNames[0]");
                 

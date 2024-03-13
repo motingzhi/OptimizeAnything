@@ -128,15 +128,15 @@
                         .data(dataTable)
                         .enter().append("text")
                         .attr("x", function(d) { return x(d.Objective1) - 10; }) // x 方向偏移一定距离
-                        .attr("y", function(d) { return y(d.Objective2) - 20; }) // y 方向偏移一定距离
+                        .attr("y", function(d) { return y(d.Objective2) - 40; }) // y 方向偏移一定距离
                         .text(function(d) { return d["Objective1"]; });
 
                     svg.append("g")
                     .selectAll("text")
                         .data(dataTable)
                         .enter().append("text")
-                        .attr("x", function(d) { return x(d.Objective1) +10 ; }) // x 方向偏移一定距离
-                        .attr("y", function(d) { return y(d.Objective2) - 20; }) // y 方向偏移一定距离
+                        .attr("x", function(d) { return x(d.Objective1) + 80 ; }) // x 方向偏移一定距离
+                        .attr("y", function(d) { return y(d.Objective2) - 40; }) // y 方向偏移一定距离
                         .text(function(d) { return d["Objective2"]; });
 
                   svg.append("text")

@@ -77,14 +77,15 @@
                   // ];
                   
                   // Define the horizontal scale.
-                  const x = d3.scaleLinear()
-                      .domain(d3.extent(dataTable, d => d.Objective1)).nice()
-                      .range([objectiveBounds[0]-objectiveBounds[0]*0.1,  objectiveBounds[1]+objectiveBounds[1]*0.1]);
+                  
+                 const x = d3.scaleLinear().domain([objectiveBounds[0]-objectiveBounds[0]*0.1,  objectiveBounds[1]+objectiveBounds[1]*0.1]).range([0, width]),
+                 const y = d3.scaleLinear().domain([objectiveBounds[2]-objectiveBounds[2]*0.1,  objectiveBounds[3]+objectiveBounds[3]*0.1]).range([height, 0]),
+
                 
-                  // Define the vertical scale.
-                  const y = d3.scaleLinear()
-                      .domain(d3.extent(dataTable, d => d.Objective2)).nice()
-                      .range([objectiveBounds[2]-objectiveBounds[2]*0.1,  objectiveBounds[3]+objectiveBounds[3]*0.1]);
+                  // // Define the vertical scale.
+                  // const y = d3.scaleLinear()
+                  //     .domain(d3.extent(dataTable, d => d.Objective2)).nice()
+                  //     .range([objectiveBounds[2]-objectiveBounds[2]*0.1,  objectiveBounds[3]+objectiveBounds[3]*0.1]);
                 
                   // Create the container SVG.
                   const svg = d3.create("svg")

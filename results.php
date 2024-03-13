@@ -18,7 +18,7 @@
 
     <div id="dataDisplay"></div>
 
-    <div id="D3container"></div>
+    <div id="container"></div>
 
         
     <div style="display: flex; justify-content: space-between;">

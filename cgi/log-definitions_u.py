@@ -10,7 +10,7 @@ import cgi
 import numpy as np
 import sqlite3
 
-from import_all import *
+# from import_all import *
 
 
 # Define the log file path

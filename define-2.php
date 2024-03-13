@@ -310,7 +310,7 @@
                     console.log(result.objectiveBounds)
                     //[Log] ["Cost ($)", "Satisfaction (%)", "Goal"] (3) (define.php, line 268)
                     //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
-                    var url = "existing-solutions_test.php";
+                    var url = "existing-solutions_tonewsolution.php";
                     location.href = url;
                     $('#loadingContainer').hide();
                 },

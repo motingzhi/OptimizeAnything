@@ -58,7 +58,7 @@
             const marginLeft = 40;
             
             // Declare the x (horizontal position) scale.
-            const x = d3.scaleUtc()
+            const x = d3.scaleLinear()
                 .domain([objectiveBounds[0],objectiveBounds[1]])
                 .range([marginLeft, width - marginRight]);
 

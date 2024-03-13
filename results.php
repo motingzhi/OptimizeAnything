@@ -59,12 +59,16 @@
             
             // Declare the x (horizontal position) scale.
             const x = d3.scaleUtc()
-                .domain([objectiveBounds[0],objectiveBounds[1]])
+                .domain([1,2])
+                    //.domain([objectiveBounds[0],objectiveBounds[1]])
+
                 .range([marginLeft, width - marginRight]);
             
             // Declare the y (vertical position) scale.
             const y = d3.scaleLinear()
-                .domain([objectiveBounds[2], objectiveBounds[3]])
+                .domain([1,2])
+    
+                //.domain([objectiveBounds[2], objectiveBounds[3]])
                 .range([height - marginBottom, marginTop]);
             
             // Create the SVG container.

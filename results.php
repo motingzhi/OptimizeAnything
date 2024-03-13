@@ -69,7 +69,7 @@
     
     </script>
 
-    <script type="module">
+    <script>
         var parameterNames = localStorage.getItem("parameter-names").split(",");
         var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
         var objectiveNames = localStorage.getItem("objective-names").split(",");

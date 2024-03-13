@@ -42,7 +42,6 @@
         var objectivesNormalised = localStorage.getItem("objectives-normalised").split(",");
         // var bestSolutions = localStorage.getItem("best-solutions").split(",");
         var solutionNameList = localStorage.getItem("solution-name-list").split(",");
-        var solutionNameList = localStorage.getItem("solution-name-list").split(",");
         var BestSolutionIndex = localStorage.getItem("BestSolutionIndex").split(",");
     
         import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
@@ -55,13 +54,27 @@
                   const marginRight = 20;
                   const marginBottom = 35;
                   const marginLeft = 40;
+
+                    // 定义数据数组
+                    var dataTable = [];
+                    
+                    
+                    // 将数据组合成对象数组
+                    for (var i = 0; i < BestSolutionIndex.length; i++) {
+                        var dataRow = {
+                            "Solution name": solutionNameList[BestSolutionIndex[i]],
+                            "Objective1": savedObjectives[BestSolutionIndex[i]*objectiveNames.length],
+                            "Objective2": savedObjectives[BestSolutionIndex[i]*objectiveNames.length+1]
+                        };
+                        dataTable.push(dataRow);
+                    }
                 
-                  var dataTable = [
-                      { "Solution name": "Solution1", "Objective1": 200, "Objective2": 300 },
-                      { "Solution name": "Solution2", "Objective1": 250, "Objective2": 350 },
-                      { "Solution name": "Solution3", "Objective1": 180, "Objective2": 400 },
-                      // 添加更多行数据...
-                  ];
+                  // var dataTable = [
+                  //     { "Solution name": "Solution1", "Objective1": 200, "Objective2": 300 },
+                  //     { "Solution name": "Solution2", "Objective1": 250, "Objective2": 350 },
+                  //     { "Solution name": "Solution3", "Objective1": 180, "Objective2": 400 },
+                  //     // 添加更多行数据...
+                  // ];
                   
                   // Define the horizontal scale.
                   const x = d3.scaleLinear()
@@ -108,6 +121,20 @@
                         .attr("x", function(d) { return x(d.Objective1) - 10; }) // x 方向偏移一定距离
                         .attr("y", function(d) { return y(d.Objective2) - 10; }) // y 方向偏移一定距离
                         .text(function(d) { return d["Solution name"]; });
+
+                  svg.append("text")
+                    .attr("x", 250)  // 使标签居中
+                    .attr("y", 390)
+                    .attr("text-anchor", "middle")
+                    .text("objectiveNames[0]");
+                
+                // 添加 y 轴标签
+                  svg.append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("x", -250)  // 使标签居中
+                    .attr("y", 10)
+                    .attr("text-anchor", "middle")
+                    .text("objectiveNames[1]");
                 
                   
                   container.append(svg.node());

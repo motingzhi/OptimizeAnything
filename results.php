@@ -46,7 +46,7 @@
     
         import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
            
-        if (BestSolutionIndex.length <= 2)
+        if (objectiveNames.length <= 2)
             {
                   const width = 700;
                   const height = 500;
@@ -126,7 +126,7 @@
                     .attr("x", 250)  // 使标签居中
                     .attr("y", 420)
                     .attr("text-anchor", "middle")
-                    .text("objectiveNames[0]");
+                    .text(objectiveNames[0]);
                 
                 // 添加 y 轴标签
                   svg.append("text")
@@ -134,7 +134,7 @@
                     .attr("x", -250)  // 使标签居中
                     .attr("y", 10)
                     .attr("text-anchor", "middle")
-                    .text("objectiveNames[1]");
+                    .text(objectiveNames[1]);
                 
                   
                   container.append(svg.node());

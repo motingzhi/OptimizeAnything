@@ -54,8 +54,9 @@ def arrayToCsv(values):
 
 expectedArgs = ['parameter-names', 'parameter-bounds', 'objective-names', 'objective-bounds', 'objective-min-max']
 formValuesDefined = checkFormData(formData, expectedArgs)
+tester = True
 
-if not formValuesDefined:
+if not tester:
     success = False
     message = "Form values not defined."
 else:
@@ -83,11 +84,32 @@ else:
     # c.execute(createFunctionTableQuery_2)
     # conn.commit()
 
-    parameterNames = (formData['parameter-names'].value).split(',')
-    parameterBounds = (formData['parameter-bounds'].value).split(',')
-    objectiveNames = (formData['objective-names'].value).split(',')
-    objectiveBounds = (formData['objective-bounds'].value).split(',')
-    objectiveMinMax = (formData['objective-min-max'].value).split(',')
+    try:
+        parameterNames = (formData['parameter-names'].value).split(',')
+    except:
+        pass
+    try:
+        parameterBounds = (formData['parameter-bounds'].value).split(',')
+    except:
+        pass   
+    # parameterNames = (formData['parameter-names'].value).split(',')
+    # parameterBounds = (formData['parameter-bounds'].value).split(',')
+    try:
+        objectiveNames = (formData['objective-names'].value).split(',')
+    except:
+        objectiveNames = []
+    try:
+        objectiveBounds = (formData['objective-bounds'].value).split(',')
+    except:
+        objectiveBounds = []
+    try:
+        objectiveMinMax = (formData['objective-min-max'].value).split(',')
+    except:
+        objectiveMinMax = []
+
+    # objectiveNames = (formData['objective-names'].value).split(',')
+    # objectiveBounds = (formData['objective-bounds'].value).split(',')
+    # objectiveMinMax = (formData['objective-min-max'].value).split(',')
     test = True
     reply['parameterNames'] = parameterNames
     reply['parameterBounds'] = parameterBounds
@@ -129,5 +151,4 @@ sys.stdout.write(json.dumps(reply,indent=1))
 sys.stdout.write("\n")
 
 sys.stdout.close()
-sys.stderr.close() 
 

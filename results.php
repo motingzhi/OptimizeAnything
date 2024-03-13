@@ -59,13 +59,13 @@
             
             // Declare the x (horizontal position) scale.
             const x = d3.scaleUtc()
-                .domain([0,2])
+                .domain([new Date("2023-01-01"), new Date("2024-01-01")])
                 .range([marginLeft, width - marginRight]);
                                                 //.domain([objectiveBounds[0],objectiveBounds[1]])
 
             // Declare the y (vertical position) scale.
             const y = d3.scaleLinear()
-                .domain([0,2])
+                .domain([0, 100])
                 .range([height - marginBottom, marginTop]);
                                             //.domain([objectiveBounds[2], objectiveBounds[3]])
 

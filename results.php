@@ -46,7 +46,7 @@
     
         import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
            
-        if (BestSolutionIndex.length == 1)
+        if (BestSolutionIndex.length <= 2)
             {
                   const width = 700;
                   const height = 500;

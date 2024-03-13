@@ -49,41 +49,75 @@
            
         if (BestSolutionIndex.length == 1)
             {
-            // Declare the chart dimensions and margins.
-            const width = 640;
-            const height = 400;
-            const marginTop = 20;
-            const marginRight = 20;
-            const marginBottom = 30;
-            const marginLeft = 40;
-            
-            // Declare the x (horizontal position) scale.
-            const x = d3.scaleLinear()
-                .domain([objectiveBounds[0],objectiveBounds[1]])
-                .range([marginLeft, width - marginRight]);
+                  const width = 640;
+                  const height = 400;
+                  const marginTop = 25;
+                  const marginRight = 20;
+                  const marginBottom = 35;
+                  const marginLeft = 40;
+                
+                  var dataTable = [
+                      { "Solution name": "Solution1", "Objective1": 200, "Objective2": 300 },
+                      { "Solution name": "Solution2", "Objective1": 250, "Objective2": 350 },
+                      { "Solution name": "Solution3", "Objective1": 180, "Objective2": 400 },
+                      // 添加更多行数据...
+                  ];
+                  
+                  // Define the horizontal scale.
+                  const x = d3.scaleLinear()
+                      .domain(d3.extent(dataTable, d => d.Objective1)).nice()
+                      .range([marginLeft, width - marginRight]);
+                
+                  // Define the vertical scale.
+                  const y = d3.scaleLinear()
+                      .domain(d3.extent(dataTable, d => d.Objective2)).nice()
+                      .range([height - marginBottom, marginTop]);
+                
+                  // Create the container SVG.
+                  const svg = d3.create("svg")
+                      .attr("width", width)
+                      .attr("height", height)
+                      .attr("viewBox", [0, 0, width, height])
+                      .attr("style", "max-width: 100%; height: auto;");
+                
+                  // Add the axes.
+                  svg.append("g")
+                      .attr("transform", `translate(0,${height - marginBottom})`)
+                      .call(d3.axisBottom(x));
+                
+                  svg.append("g")
+                      .attr("transform", `translate(${marginLeft},0)`)
+                      .call(d3.axisLeft(y));
+                
+                  //Append a circle for each data point.
+                  svg.append("g")
+                    .selectAll("circle")
+                    .data(dataTable)
+                    .join("circle")
+                      // .filter(d => d.body_mass_g)
+                      .attr("cx", d => x(d.Objective1))
+                      .attr("cy", d => y(d.Objective2))
+                      .attr("r", 3)
+                      .attr("fill", "steelblue");
+                
+                
+                  svg.append("g")
+                    .selectAll("text")
+                        .data(dataTable)
+                        .enter().append("text")
+                        .attr("x", function(d) { return x(d.Objective1) - 10; }) // x 方向偏移一定距离
+                        .attr("y", function(d) { return y(d.Objective2) - 10; }) // y 方向偏移一定距离
+                        .text(function(d) { return d["Solution name"]; });
+                
+                  
+                  container.append(svg.node());
 
-            // Declare the y (vertical position) scale.
-            const y = d3.scaleLinear()
-                .domain([objectiveBounds[2], objectiveBounds[3]])
-                .range([height - marginBottom, marginTop]);
-
-            // Create the SVG container.
-            const svg = d3.create("svg")
-                .attr("width", width)
-                .attr("height", height);
+            // svg.append("g")
+            //     .attr("transform", `translate(${marginLeft},0)`)
+            //     .call(d3.axisLeft(y));
             
-            // Add the x-axis.
-            svg.append("g")
-                .attr("transform", `translate(0,${height - marginBottom})`)
-                .call(d3.axisBottom(x));
-            
-            // Add the y-axis.
-            svg.append("g")
-                .attr("transform", `translate(${marginLeft},0)`)
-                .call(d3.axisLeft(y));
-            
-            // Append the SVG element.
-            container.append(svg.node());
+            // // Append the SVG element.
+            // container.append(svg.node());
             }
     
 

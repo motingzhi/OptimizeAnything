@@ -160,7 +160,7 @@ def checkRepeated(savedSolutions, proposed_solution): # +/- 5% of bad solution p
             break   
   return True
 
-def generate_initial_data(n_samples=1):
+def generate_initial_data(n_samples=len(parameterNames)*3):
     # generate training data
     train_x = draw_sobol_samples(
         bounds=parameter_bounds_normalised, n=1, q=n_samples, seed=torch.randint(1000000, (1,)).item()

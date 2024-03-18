@@ -183,7 +183,7 @@
 
 	
 	var displayDiv = document.getElementById("dataDisplay");
-        displayDiv.innerHTML =  parseInt(savedSolutions.length/parameterNames.length) + "<br>";
+        displayDiv.innerHTML =  "You have evaulated " + parseInt(savedSolutions.length/parameterNames.length) + " solutions." + "<br>";
 
 
 //////////////////自己加的 

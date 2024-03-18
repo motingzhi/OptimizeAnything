@@ -183,7 +183,7 @@
 
 	
 	var displayDiv = document.getElementById("dataDisplay");
-        displayDiv.innerHTML =  savedSolutions.length/parameterNames.length + "<br>";
+        displayDiv.innerHTML =  parseInt(savedSolutions.length/parameterNames.length) + "<br>";
 
 
 //////////////////自己加的 

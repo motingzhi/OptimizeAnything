@@ -44,7 +44,7 @@
         </form>
     </div>
 
-    <p>Let AI suggest solutions with you. Please evaluate at least 3 solutions to proceed.</p>
+    <p>Let AI suggest solutions with you.</p>
     <p>Please evaluate at least 3 solutions to proceed.</p>  
     <div id="dataDisplay"></div>
 
@@ -179,9 +179,9 @@
         // catch(err) {}
 
         
-	DisplaySolutionText = false;
+	var DisplaySolutionText = 0;
 
-	if (DisplaySolutionText == true) {
+	if (DisplaySolutionText == 1) {
 		var displayDiv = document.getElementById("dataDisplay");
             	displayDiv.innerHTML =  savedSolutions.length/parameterNames.length + "<br>";
 
@@ -512,7 +512,7 @@
                         savedObjectives = result.saved_objectives;
                         solutionNameList = result.solutionNameList;
 
-			DisplaySolutionText = true;
+			DisplaySolutionText = 1;
                         
                         localStorage.setItem("solution-list", solutionList);
                         localStorage.setItem("objectives-input", objectivesInput);

@@ -44,8 +44,11 @@
         </form>
     </div>
 
-    <p><i>Let AI suggest solutions with you. Please evaluate at least 3 solutions to proceed.</i></p>
-    
+    <p>Let AI suggest solutions with you. Please evaluate at least 3 solutions to proceed.</p>
+    <p>Please evaluate at least 3 solutions to proceed.</p>  
+    <div id="dataDisplay"></div>
+
+
     <p><b>Solution idea</b><p>
 
     <p class="parameter_1_mobo"></p>
@@ -176,8 +179,13 @@
         // catch(err) {}
 
         
+	DisplaySolutionText = false;
 
+	if (DisplaySolutionText == true) {
+		var displayDiv = document.getElementById("dataDisplay");
+            	displayDiv.innerHTML =  savedSolutions.length/parameterNames.length + "<br>";
 
+	}
 //////////////////自己加的 
 ////用 var = [] 定义一个数组，必须要有[]
         var generatedSolution = [];
@@ -504,6 +512,7 @@
                         savedObjectives = result.saved_objectives;
                         solutionNameList = result.solutionNameList;
 
+			DisplaySolutionText = true;
                         
                         localStorage.setItem("solution-list", solutionList);
                         localStorage.setItem("objectives-input", objectivesInput);

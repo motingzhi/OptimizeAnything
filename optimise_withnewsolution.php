@@ -181,11 +181,11 @@
         
 	var DisplaySolutionText = 0;
 
-	if (DisplaySolutionText == 1) {
-		var displayDiv = document.getElementById("dataDisplay");
-            	displayDiv.innerHTML =  savedSolutions.length/parameterNames.length + "<br>";
+	
+	var displayDiv = document.getElementById("dataDisplay");
+        displayDiv.innerHTML =  savedSolutions.length/parameterNames.length + "<br>";
 
-	}
+
 //////////////////自己加的 
 ////用 var = [] 定义一个数组，必须要有[]
         var generatedSolution = [];

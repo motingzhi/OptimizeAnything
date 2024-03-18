@@ -81,11 +81,11 @@
                  // const x = d3.scaleLinear().domain([0,  objectiveBounds[1]]).range([0, width]);
 
                   const x = d3.scaleLinear()
-      .domain(d3.extent(dataTable, d => d.Objective1)).nice()
+      .domain([0,  objectiveBounds[1]]).nice()
       .range([marginLeft, width - marginRight]);
 
                 const y = d3.scaleLinear()
-      .domain(d3.extent(dataTable, d => d.Objective2)).nice()
+      .domain([0,  objectiveBounds[3]]).nice()
       .range([height - marginBottom, marginTop]);
                 
                  // const y = d3.scaleLinear().domain([0,  objectiveBounds[3]]).range([height, 0]);

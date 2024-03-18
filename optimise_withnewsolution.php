@@ -44,8 +44,7 @@
         </form>
     </div>
 
-    <p>Let AI suggest solutions with you.</p>
-    <p>Please evaluate at least 3 solutions to proceed.</p>  
+    <p>Let AI suggest solutions with you. Please evaluate at least 3 solutions to proceed.</p>
     <div id="dataDisplay"></div>
 
 

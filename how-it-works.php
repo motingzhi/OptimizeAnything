@@ -13,7 +13,7 @@
     <div class="slideshow-container">
 
     <div class="mySlides fade">
-        <img src="Pictures/Picture5.svg" style="width:500px">
+        <img src="Pictures/Picture5.svg" style="width:1000px">
     </div>
     
 <!--     <div class="mySlides fade">

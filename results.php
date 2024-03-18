@@ -150,7 +150,7 @@
 
                   svg.append("text")
                     .attr("x", 250)  // 使标签居中
-                    .attr("y", 480)
+                    .attr("y", 500)
                     .attr("text-anchor", "middle")
                     .text(objectiveNames[0]);
                 

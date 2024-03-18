@@ -86,7 +86,7 @@
 
                 const y = d3.scaleLinear()
       .domain(d3.extent(dataTable, d => d.Objective2)).nice()
-      .range([marginLeft, width - marginRight]);
+      .range([height - marginBottom, marginTop]);
                 
                  // const y = d3.scaleLinear().domain([0,  objectiveBounds[3]]).range([height, 0]);
 

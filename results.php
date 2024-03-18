@@ -51,8 +51,8 @@
                   const width = 720;
                   const height = 500;
                   const marginTop = 25;
-                  const marginRight = 20;
-                  const marginBottom = 35;
+                  const marginRight = 40;
+                  const marginBottom = 50;
                   const marginLeft = 40;
 
                     // 定义数据数组

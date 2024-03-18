@@ -78,8 +78,8 @@
                   
                   // Define the horizontal scale.
                   
-                 const x = d3.scaleLinear().domain([objectiveBounds[0],  objectiveBounds[1]]).range([0, width]);
-                 const y = d3.scaleLinear().domain([objectiveBounds[2],  objectiveBounds[3]]).range([height, 0]);
+                 const x = d3.scaleLinear().domain(0,  objectiveBounds[1]]).range([0, width]);
+                 const y = d3.scaleLinear().domain(0,  objectiveBounds[3]]).range([height, 0]);
 
                 
                   // // Define the vertical scale.

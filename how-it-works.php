@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    <div id="background">
+    <div id="background" style="width:1000px">
     
     <h1>How it works</h1>
     <p><i>AI will propose you solutions one at a time. You evaluate them and tell the AI. You can always propose solutions and steer the AI.</i></p>
@@ -13,7 +13,7 @@
     <div class="slideshow-container">
 
     <div class="mySlides fade">
-        <img src="Pictures/Picture5.svg" style="width:1000px">
+        <img src="Pictures/Picture5.svg" style="width:800px">
     </div>
     
 <!--     <div class="mySlides fade">

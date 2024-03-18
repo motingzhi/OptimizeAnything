@@ -48,8 +48,8 @@
            
         if (objectiveNames.length <= 2)
             {
-                  const width = 680;
-                  const height = 480;
+                  const width = 720;
+                  const height = 500;
                   const marginTop = 25;
                   const marginRight = 20;
                   const marginBottom = 35;
@@ -141,14 +141,14 @@
 
                   svg.append("text")
                     .attr("x", 250)  // 使标签居中
-                    .attr("y", 470)
+                    .attr("y", 480)
                     .attr("text-anchor", "middle")
                     .text(objectiveNames[0]);
                 
                 // 添加 y 轴标签
                   svg.append("text")
                     .attr("transform", "rotate(-90)")
-                    .attr("x", -250)  // 使标签居中
+                    .attr("x", -230)  // 使标签居中
                     .attr("y", 20)
                     .attr("text-anchor", "middle")
                     .text(objectiveNames[1]);

@@ -13,16 +13,16 @@
     <div class="slideshow-container">
 
     <div class="mySlides fade">
-        <img src="Pictures/Picture1.png" style="width:350px">
+        <img src="Pictures/Picture5.svg" style="width:500px">
     </div>
     
-    <div class="mySlides fade">
+<!--     <div class="mySlides fade">
         <img src="Pictures/Picture2.png" style="width:350px">
     </div>
     
     <div class="mySlides fade">
         <img src="Pictures/Picture3.png" style="width:350px">
-    </div>
+    </div> -->
     
     </div>
     <br>

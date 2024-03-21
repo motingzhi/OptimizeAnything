@@ -44,3 +44,35 @@ The `Archive` folder includes previous copies of files for testing and reference
 3. Mo, G. D3MOBO, GitHub. Available at: https://github.com/georgemo535/D3MOBO. 
 
 # OptimiseAnything
+
+
+nano /etc/apache2/sites-available/000-default.conf - 
+<Directory /var/www/OptimiseAnything/>
+    Options +ExecCGI
+    PassEnv LANG
+    AddHandler cgi-script .py
+
+
+nano /etc/apache2/conf-available/serve-cgi-bin.conf -
+<IfModule mod_alias.c>
+        <IfModule mod_cgi.c>
+                Define ENABLE_USR_LIB_CGI_BIN
+        </IfModule>
+
+        <IfModule mod_cgid.c>
+                Define ENABLE_USR_LIB_CGI_BIN
+        </IfModule>
+
+        <IfDefine ENABLE_USR_LIB_CGI_BIN>
+                ScriptAlias /cgi-bin/ /var/www/OptimiseAnything/
+                <Directory "/var/www/OptimiseAnything/">
+                         AllowOverride None
+                         Options +ExecCGI
+                         AddHandler cgi-script. py 
+
+                </Directory>
+        </IfDefine>
+</IfModule>
+</Directory>
+
+文件权限

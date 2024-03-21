@@ -85,7 +85,6 @@ if (isset($_GET['code'])) {
         <li><b>Results. </b>We'll present you the best options with their tradeoffs.</li>
     </ol>
     <br>
-    <p><b>Get started:</b></h2>
     <div style="text-align: center;">
 
     <img src="<?= $userinfo['picture'] ?>" alt="" width="90px" height="90px">
@@ -98,11 +97,11 @@ if (isset($_GET['code'])) {
 
     </div>
 
-    <!-- <div style="text-align: center;">
+    <div style="text-align: center;">
         <form action="how-it-works.php">
             <input type="submit" value="Let's start!" class="button" style="width: 20%;"/>
         </form>
-    </div> -->
+    </div>
     
     </div>
 </body>

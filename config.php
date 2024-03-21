@@ -1,6 +1,6 @@
 <?php
 
-require_once 'google_api/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 session_start();
 

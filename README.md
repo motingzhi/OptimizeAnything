@@ -76,3 +76,7 @@ nano /etc/apache2/conf-available/serve-cgi-bin.conf -
 </Directory>
 
 文件权限
+
+
+
+https://medium.com/@rohan_precise/step-by-step-guide-setting-up-and-connecting-mysql-on-ec2-ubuntu-instance-72c627e6c27f

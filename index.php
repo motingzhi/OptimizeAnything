@@ -1,13 +1,13 @@
 <?php
-require_once 'config.php';
+// require_once 'config.php';
 
-if (isset($_SESSION['user_token'])) {
-  header("Location: index2.php");
-} else {
-    $showGoogleLogin = true;
-//   echo "<a href='" . $client->createAuthUrl() . "'>Google Login</a>";
-}
-?>
+// if (isset($_SESSION['user_token'])) {
+//   header("Location: index2.php");
+// } else {
+//     $showGoogleLogin = true;
+// //   echo "<a href='" . $client->createAuthUrl() . "'>Google Login</a>";
+// }
+// ?>
 
 <!DOCTYPE html>
 <html>
@@ -29,12 +29,7 @@ if (isset($_SESSION['user_token'])) {
     <p><b>Get started:</b></h2>
     <div style="text-align: center;">
 
-    <?php if ($showGoogleLogin): ?>
-            <!-- 只有在 $showGoogleLogin 为 true 时才显示 Google 登录按钮 -->
-            <a href="<?php echo $client->createAuthUrl(); ?>" class="btn btn-danger">Login with Google</a>
 
-            <!-- <button onclick="window.location = '<?php echo "<a href='" . $client->createAuthUrl() . "'>Google Login</a>"; ?>'" type="button" class="btn btn-danger">Login with Google</button> -->
-    <?php endif; ?>
     </div>
 
     <!-- <div style="text-align: center;">

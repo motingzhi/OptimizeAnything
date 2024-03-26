@@ -22,13 +22,13 @@ $client->addScope("profile");
 // $login_url = $client->createAuthUrl();
 
 
-// Connect to database
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "googlelogin";
+// // Connect to database
+// $hostname = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "googlelogin";
 
-$conn = mysqli_connect($hostname, $username, $password, $database);
+// $conn = mysqli_connect($hostname, $username, $password, $database);
 
 // // 检查连接
 // if ($conn->connect_error) {

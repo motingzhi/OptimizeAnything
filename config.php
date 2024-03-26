@@ -7,8 +7,8 @@ session_start();
 unset($_SESSION['user_token']);
 
 // init configuration
-$clientID = '1015807082602-d0pkrcjocmm1u2j3nr259q8ihfg7lur4.apps.googleusercontent.com';
-$clientSecret = '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';
+$clientID = '1015807082602-c5ss5i5fpggfnm4qfvcf5lvebtc0jcq0.apps.googleusercontent.com';
+$clientSecret = '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';
 $redirectUri = 'http://optimize-anything.xyz/index2.php';
 
 // create Client Request to access Google API

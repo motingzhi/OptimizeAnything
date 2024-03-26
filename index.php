@@ -1,12 +1,12 @@
 <?php
-// require_once 'config.php';
+require_once 'config.php';
 
-// if (isset($_SESSION['user_token'])) {
-//   header("Location: index2.php");
-// } else {
-//     $showGoogleLogin = true;
-// //   echo "<a href='" . $client->createAuthUrl() . "'>Google Login</a>";
-// }
+if (isset($_SESSION['user_token'])) {
+  header("Location: index2.php");
+} else {
+    $showGoogleLogin = true;
+//   echo "<a href='" . $client->createAuthUrl() . "'>Google Login</a>";
+}
 // ?>
 
 <!DOCTYPE html>
@@ -32,11 +32,11 @@
 
     </div>
 
-    <!-- <div style="text-align: center;">
+    <div style="text-align: center;">
         <form action="how-it-works.php">
             <input type="submit" value="Let's start!" class="button" style="width: 20%;"/>
         </form>
-    </div> -->
+    </div>
     
     </div>
 </body>

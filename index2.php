@@ -28,24 +28,24 @@ if (isset($_GET['code'])) {
     'token' => $google_account_info['id'],
   ];
 
-  // checking if user is already exists in database
-  $sql = "SELECT * FROM users WHERE email ='{$userinfo['email']}'";
-  $result = mysqli_query($conn, $sql);
-  if (mysqli_num_rows($result) > 0) {
-    // user is exists
-    $userinfo = mysqli_fetch_assoc($result);
-    $token = $userinfo['token'];
-  } else {
-    // user is not exists
-    $sql = "INSERT INTO users (email, first_name, last_name, gender, full_name, picture, verifiedEmail, token) VALUES ('{$userinfo['email']}', '{$userinfo['first_name']}', '{$userinfo['last_name']}', '{$userinfo['gender']}', '{$userinfo['full_name']}', '{$userinfo['picture']}', '{$userinfo['verifiedEmail']}', '{$userinfo['token']}')";
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-      $token = $userinfo['token'];
-    } else {
-      echo "User is not created";
-      die();
-    }
-  }
+  // // checking if user is already exists in database
+  // $sql = "SELECT * FROM users WHERE email ='{$userinfo['email']}'";
+  // $result = mysqli_query($conn, $sql);
+  // if (mysqli_num_rows($result) > 0) {
+  //   // user is exists
+  //   $userinfo = mysqli_fetch_assoc($result);
+  //   $token = $userinfo['token'];
+  // } else {
+  //   // user is not exists
+  //   $sql = "INSERT INTO users (email, first_name, last_name, gender, full_name, picture, verifiedEmail, token) VALUES ('{$userinfo['email']}', '{$userinfo['first_name']}', '{$userinfo['last_name']}', '{$userinfo['gender']}', '{$userinfo['full_name']}', '{$userinfo['picture']}', '{$userinfo['verifiedEmail']}', '{$userinfo['token']}')";
+  //   $result = mysqli_query($conn, $sql);
+  //   if ($result) {
+  //     $token = $userinfo['token'];
+  //   } else {
+  //     echo "User is not created";
+  //     die();
+  //   }
+  // }
 
   // save user data into session
   $_SESSION['user_token'] = $token;
@@ -56,13 +56,13 @@ if (isset($_GET['code'])) {
   }
 
 
-  // checking if user is already exists in database
-  $sql = "SELECT * FROM users WHERE token ='{$_SESSION['user_token']}'";
-  $result = mysqli_query($conn, $sql);
-  if (mysqli_num_rows($result) > 0) {
-    // user is exists
-    $userinfo = mysqli_fetch_assoc($result);
-  }
+  // // checking if user is already exists in database
+  // $sql = "SELECT * FROM users WHERE token ='{$_SESSION['user_token']}'";
+  // $result = mysqli_query($conn, $sql);
+  // if (mysqli_num_rows($result) > 0) {
+  //   // user is exists
+  //   $userinfo = mysqli_fetch_assoc($result);
+  // }
 }
 
 ?>

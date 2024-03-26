@@ -36,18 +36,16 @@
     <div id="background">
 
     <div style="display: flex; justify-content: space-between;">
-        <h1>1. Define</h1>
+        <h1>1. Spicify</h1>
         <form action="help.php#define">
             <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
         </form>
     </div>
-    <p><i>Let us know what you want to optimise. An example is shown below for optimising the travel for a holiday, which you can edit to implement your optimisation.</i></p>
-
-    <h2>Which measurements do you want to optimise?</h2>
+    <h2>What makes an alternative desirable - Specify objectives</h2>
     <p><i>Describe your objectives. You can include also subjective measurements, even opinions. Examples: “cost”, “travel time”.</i></p>
     <div id="objective-table-div" style="text-align: center;">
         <table id="objective-table" class="objective-table" width="100%">
-            <caption><b>Design Objectives<b></caption>
+            <caption><b>Objectives<b></caption>
             <thead>  
                 <tr>  
                 <th id="record-objective-name" width="40%"> Name </th>   

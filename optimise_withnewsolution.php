@@ -44,11 +44,11 @@
         </form>
     </div>
 
-    <p>Let AI suggest solutions with you. Please evaluate at least 3 solutions to proceed.</p>
+    <p>Let AI suggest alternatives with you</p>
     <div id="dataDisplay"></div>
 
 
-    <p><b>Solution idea</b><p>
+    <p><b>New alternative</b><p>
 
     <p class="parameter_1_mobo"></p>
     <p class="parameter_2_mobo"></p>
@@ -68,7 +68,7 @@
     </div>
     <br>
     <div id="evaluate-solution" style="display: none;">
-        <label for="solution_name">Solution name: </label>
+        <label for="solution_name">Name the alternative: </label>
         <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
 
@@ -182,7 +182,7 @@
 
 	
 	var displayDiv = document.getElementById("dataDisplay");
-        displayDiv.innerHTML =  "You have evaulated " + parseInt(savedSolutions.length/parameterNames.length) + " solutions." + "<br>";
+        displayDiv.innerHTML =  "Please evaluate at least 3 alternatives to proceed. You have evaulated " + parseInt(savedSolutions.length/parameterNames.length) + "<br>";
 
 
 //////////////////自己加的 

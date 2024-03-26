@@ -36,19 +36,19 @@
     <div id="background">
 
     <div style="display: flex; justify-content: space-between;">
-        <h1>1. Define</h1>
+        <h1>1. Specify</h1>
         <form action="help.php#define">
             <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
         </form>
     </div>
-    <p><i>Let us know what you want to optimise. An example is shown below for optimising the travel for a holiday, which you can edit to implement your optimisation.</i></p>
+    <h2>What you can change? - Specify variables</h2>
+    <p><i>An optimization scenario is shown below for optimizing the travel for a holiday, which you can edit to implement your optimisation.</i></p>
 
-    <h2>What factors do you need to decide?</h2>
-    <p><i>Describe each factor that you want to decide. Examples: “destination distance”, “number of days” amd "number of flight connections".</i></p>
+    <p><i>Describe each variable that you want to change. Examples: “destination distance”, “number of days” amd "number of flight connections".</i></p>
     
     <div id="parameter-table-div" style="text-align: center;">
         <table id="parameter-table" class="parameter-table" width="100%">
-            <caption><b>Design Parameters</b></caption>
+            <caption><b>Variables</b></caption>
             <thead>  
                 <tr>  
                 <th id="record-parameter-name" width="40%"> Name </th>   
@@ -74,7 +74,7 @@
             </tr> -->
             </tbody>
         </table>
-        <button class="button" id="add-record-button" onclick="addDesignParametersTable()" style="color: black; background-color: #D6EEEE;">Add Parameters</button>
+        <button class="button" id="add-record-button" onclick="addDesignParametersTable()" style="color: black; background-color: #D6EEEE;">Add More Variables</button>
     </div>
 
     <!-- <div id="progressBar"><div class="progress"></div> -->

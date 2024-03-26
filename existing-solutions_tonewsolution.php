@@ -47,7 +47,7 @@
             <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
         </form>
     </div>
-    <p><i>Are there known bad solutions we should include?</i></p>
+    <p><i>Are there known bad alternatives we should exclude?</i></p>
     
     <div class="tooltip">For example
         <span class="tooltiptext" style="display: flex; justify-content: space-between; padding: 0px 5px;">

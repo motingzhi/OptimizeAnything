@@ -32,11 +32,11 @@
         }
     </style>
 </head>
-<body>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
     <div id="background">
 
     <div style="display: flex; justify-content: space-between;">
-        <h1>1. Spicify</h1>
+        <h1>1. Specify</h1>
         <form action="help.php#define">
             <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
         </form>

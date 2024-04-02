@@ -33,8 +33,7 @@
     </style>
 	
 </head>
-<body>
-
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
     <div id="background">
     
     <div style="display: flex; justify-content: space-between;">

@@ -22,3 +22,25 @@ NameError: name 'solutionNameList' is not defined. Did you mean: 'solutionName'?
   warnings.warn(msg, InputDataWarning)
 /usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([1.4803e-16, 1.4803e-16, 0.0000e+00], dtype=torch.float64), std = tensor([1., 1., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
   warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 57, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 57, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 57, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'

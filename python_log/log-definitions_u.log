@@ -10,3 +10,15 @@ Traceback (most recent call last):
   File "/var/www/OptimiseAnything/cgi/log-definitions_u.py", line 114, in <module>
     reply['parameterNames'] = parameterNames
 NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/log-definitions_u.py", line 114, in <module>
+    reply['parameterNames'] = parameterNames
+NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/log-definitions_u.py", line 114, in <module>
+    reply['parameterNames'] = parameterNames
+NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/log-definitions_u.py", line 114, in <module>
+    reply['parameterNames'] = parameterNames
+NameError: name 'parameterNames' is not defined

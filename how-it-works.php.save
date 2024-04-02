@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
-    <div id="background" style="width: 1000px; text-align: center;">
+<body>
+    <div id="background" style="width: 1000px;">
     <h1>How it works</h1>
     <p><i>AI will propose you solutions one at a time. You evaluate them and tell the AI. You can always propose solutions and steer the AI.</i></p>
     

@@ -112,13 +112,13 @@ if (isset($_GET['code'])) {
 <body>
     <div id="background">
     
-    <h1>Optimise Anything!</h1>
-    <p><i>Let AI help you find the best solution</i></p>
+    <h1>Optimize Anything!</h1>
+    <p><i>Let AI help you make the best decision</i></p>
         <p class="text-left"><b>Three steps:</b></p>
         <ol class="text-left">
-            <li><b>Define. </b> Tell us what you want to optimise (5 mins)</li>
-            <li><b>Optimise. </b> Let AI help you find the best options. (Stop when you want.)</li>
-            <li><b>Results. </b>We'll present you the best options with their tradeoffs.</li>
+            <li><b>Specify. </b> Tell us what you want to optimise (5 mins)</li>
+            <li><b>Optimise. </b> Let AI help you find the best alternatives. (Stop when you want.)</li>
+            <li><b>Results. </b>We'll present you the best alternatives with their tradeoffs.</li>
         </ol>
     <br>
         <div style="text-align: center;">

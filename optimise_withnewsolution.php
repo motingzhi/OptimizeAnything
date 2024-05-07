@@ -1,73 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
+        .top-bar {
+            position: fixed;
+            top: calc(100vh / 12);
+            width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none;
+        }
+
+        .centered-content {
+            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            text-align: center;
+            width: 33.33%; /* Content width as 1/3 of the page */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            /* margin-top: 100px; */
+            bottom: 20px;
+            width: 100%;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+            padding: 10px 0;
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
+        }
+
+
+        .custom-card {
+            margin: 40px; /* 外边距 */
+            display: inline-block; /* 使卡片宽度根据内容自适应 */
+        }
+        .custom-card .card-body {
+            padding: 40px; /* 内边距 */
+        }
+
         #loadingContainer {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         #loadingIcon {
-        border: 8px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 8px solid #7EAB55;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #53A451;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         #loadingText {
-        text-align: center;
-        margin-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 	
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
-    <div id="background">
-    
-    <div style="display: flex; justify-content: space-between;">
-        <h1>2. Optimise</h1>
-        <form action="help.php#optimisation">
-            <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
-        </form>
-    </div>
+<body>
+<div id="background">
+<div class="top-bar">
+            <div class="container d-flex justify-content-between align-items-center">
+                <h1>2. Optimize</h1>
+                <form action="help.php#define">
+                    <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+                </form>
+            </div>
+</div>
 
-    <p>Let AI suggest alternatives with you</p>
+ <div class="centered-content">
+    <div id="RequirementDisplay"></div>
     <div id="dataDisplay"></div>
 
-
-    <p><b>New alternative</b><p>
-
-    <p class="parameter_1_mobo"></p>
-    <p class="parameter_2_mobo"></p>
-    <!-- <p class="generatedSolution"></p> -->
-
-
-    <!-- 自己改的 -->
-    <ul id="generatedSolution" style="list-style-type: none;"></ul>
+    <div class="container">
+        <div class="card custom-card">
+            <div class="card-body">
+                <p class="card-title">New Alternative</p>
+                <ul id="generatedSolution" class="list-unstyled">
+                    <!-- List items will be dynamically added here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+<!-- 
+    <h5><b>New Alternative</b></h5>
+    <ul id="generatedSolution" style="list-style-type: none;"></ul> -->
 
     <!-- 自己改的 -->
 
 
     
     <div id="options" style="display: inline-block; margin: 0 auto;">
-        <button class="button" id="evaluate-button" style="width: 40%;" onclick="evaluateSolution()">I want to evaluate this</button>
-        <button class="button" id="skip-button" style="width: 40%;" onclick="newSolution()">Skip. I know it's not good</button>
+        <button class="btn btn-primary" id="evaluate-button" style="width: 40%;" onclick="evaluateSolution()">I want to evaluate this</button>
+        <button class="btn btn-outline-primary" id="skip-button" style="width: 40%;" onclick="newSolution()">Skip. I know it's not good</button>
     </div>
     <br>
     <div id="evaluate-solution" style="display: none;">
-        <label for="solution_name">Name the alternative: </label>
+        <label for="solution_name">Solution name: </label>
         <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
 
@@ -86,7 +130,7 @@
 
         <!-- 我新加的 -->
 
-        <table id="measurement-table" class="measurement-table" width="100%">
+        <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
             <!-- <thead>  
                 <tr>  
                 <th id="record-parameter-name" width="40%"> Name </th>   
@@ -111,23 +155,19 @@
             </tr> -->
             </tbody>
         </table>
-
-
-
-
-        <!-- 我新加的 -->
-
-
-
-
-
-        <div id="form-options" style="display: inline-block; margin: 0 auto;">
-            <button class="button" id="next-button" onclick="nextEvaluation()">Give me the next one</button>
-            <button class="button" id="skip-button" onclick="refineSolution()">I want to refine this</button>
-        </div>
     </div>
+    <div id="form-options-1" style="display: inline-block; margin: 0 auto;">
+            <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Give me the next one</button>
+            <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">I want to refine this</button>
+    </div>
+
+    <div id="form-options-2" style="display: inline-block; margin: 0 auto;">
+            <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
+    </div>
+
+
     <br>
-    <div id="done-button" class="done-button" style="text-align: right;">
+    <div id="done-button" class="btn btn-success" style="text-align: right;">
         <button class="button" id="done" onclick="finishSolutions()">I'm done</button>    
     </div>
 
@@ -136,6 +176,8 @@
     <div id="loadingText">Loading...</div>
     </div>
 
+    </div>
+    </div>
     </div>
 
     <script>
@@ -168,12 +210,18 @@
         try {var solutionNameList = localStorage.getItem("solution-name-list").split(",");}
         catch(err) {}
 
-        console.log("Current solutions: " + solutionList);
-        console.log("Objectives input: " + objectivesInput);
-        console.log("Bad solutions: " + badSolutions);
-        console.log("Saved solutions: " + savedSolutions);
-        console.log("Saved objectives: " + savedObjectives);
-        console.log("Solution name list: " + solutionNameList);
+        console.log("parameterNames",parameterNames)
+        console.log("parameterBounds",parameterBounds)
+        console.log("objectiveNames",objectiveNames)
+        console.log("objectiveBounds",objectiveBounds)
+        console.log("objectiveMinMax",objectiveMinMax)
+
+        console.log("badSolutions",badSolutions)
+        console.log("goodSolutions",goodSolutions)
+        console.log("solutionList",solutionList)
+        console.log("savedSolutions",savedSolutions)
+        console.log("savedObjectives",savedObjectives)
+        console.log("objectivesInput",objectivesInput)
         // catch(err) {}
 
         
@@ -181,15 +229,94 @@
 
 	
 	var displayDiv = document.getElementById("dataDisplay");
-        displayDiv.innerHTML =  "Please evaluate at least 3 alternatives to proceed. You have evaulated " + parseInt(savedSolutions.length/parameterNames.length) + "<br>";
+        displayDiv.innerHTML =  "You have evaluated " + parseInt(savedSolutions.length/parameterNames.length) + " solutions." + "<br>";
+
+    var RequirementDisplay = document.getElementById("RequirementDisplay");
+    RequirementDisplay.innerHTML =  "Let AI suggest solutions with you. Please evaluate at least " + parseInt(2*(parameterNames.length+1)) + " solutions to proceed." + "<br>";
 
 
-//////////////////自己加的 
-////用 var = [] 定义一个数组，必须要有[]
-        var generatedSolution = [];
+    if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)
+    {
+        var x = document.getElementById('evaluate-solution');
+        var y = document.getElementById('options')
+        var z = document.getElementById('form-options-2')
+        var z2 = document.getElementById('form-options-1')
+
+            if (x.style.display == 'none') {
+                x.style.display = 'block';
+                z.style.display = 'block';
+
+                y.style.display = 'none';
+                z2.style.display = 'none';
+            }
+            else {
+                x.style.display = 'none';
+                z.style.display = 'none';
+                y.style.display = 'inline-block';
+                z2.style.display = 'block';
+            }
+        
+           for (i = 0; i < objectiveNames.length; i++) {
+                var htmlNewRow = ""
+                htmlNewRow += "<tr>"
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
+                // htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder='Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")'> </td>"
+                // htmlNewRow += "<td id='record-data-buttons'>"
+                htmlNewRow += "</td></tr>"
+                $("#measurement-table", window.document).append(htmlNewRow);
+            }
+    }
+else{
+    var x = document.getElementById('evaluate-solution');
+        var y = document.getElementById('options')
+        var z = document.getElementById('form-options-2')
+        var z2 = document.getElementById('form-options-1')
+
+    x.style.display = 'none';
+    z.style.display = 'none';
+    z2.style.display = 'none';
+
+}
+
+
+      var solutionsevaulted = parseInt(savedSolutions.length/parameterNames.length);
+
+        
+      var generatedSolution = [];
       
 
 ///以下为了多parameter的情况：
+
+if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
+{
+        for (var i = 0; i<parameterNames.length; i++) {
+            if (savedObjectives.length == 1)
+            {
+                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i-1];
+            }
+            else
+            {
+                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i];
+            }
+        }
+
+        console.log(generatedSolution);
+
+        // 获取要填充数据的 <ul> 元素
+        var generatedSolutionUI = document.getElementById("generatedSolution");
+
+        // 循环遍历数组并将每个元素添加为列表项
+        generatedSolution.forEach(function(element) {
+        var listItem = document.createElement("li");
+        listItem.textContent = element;
+        generatedSolutionUI.appendChild(listItem);
+        });
+        
+    }   
+
+    if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
+{
         for (var i = 0; i<parameterNames.length; i++) {
             generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];
         }
@@ -206,34 +333,11 @@
         generatedSolutionUI.appendChild(listItem);
         });
         
-        // for (var i = 0; i<parameterNames.length; i++) {
-        //     generatedSolutionUI[i].innerHTML = parameterNames[i] + " =  " + solutionList[solutionList.length-2];
-        // }
+    }   
 
 
 
-//////////////////自己加的
-
-        // var paras1 = document.getElementsByClassName("parameter_1_mobo");
-        // var paras2 = document.getElementsByClassName("parameter_2_mobo");
-        // console.log(parameterNamesLength);
-        // var paras3 = document.getElementsByClassName("parameter_3_mobo");
-        
-        // for (i = 0; i < paras1.length; i++) {
-        //     paras1[i].innerHTML = parameterNames[0] + " =  " + solutionList[solutionList.length-2];
-        //     paras2[i].innerHTML = parameterNames[1] + " =  " + solutionList[solutionList.length-1];
-        //     //  paras3[i].innerHTML = parameterNames[2] + " =  " + solutionList[solutionList.length-1];
-        // }
-
-
-        // paras1[0].innerHTML = parameterNames[0] + " =  " + solutionList[solutionList.length-2];
-        // paras2[0].innerHTML = parameterNames[1] + " =  " + solutionList[solutionList.length-1];
-            //  paras3[i].innerHTML = parameterNames[2] + " =  " + solutionList[solutionList.length-1];
-
-
-
-
-        if (savedSolutions.length >= num_parameters*3) {
+        if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1)+1) {
             // document.getElementById("done-button").style.opacity = 1;
             document.getElementById("done-button").style.display = 'block';
         }
@@ -254,6 +358,7 @@
         // document.getElementById("solution_2").innerHTML = solution[1];
         // document.getElementById("solution_3").innerHTML = solution[2];
 
+        
         function newSolution() {
             callNewSolution = true;
             callNextEvaluation = false;
@@ -264,7 +369,19 @@
             solutionName = "";
 
             //console.log("Sending AJAX request to server...");
+            console.log("objectiveMeasurements",objectiveMeasurements)
+                console.log("parameterNames",parameterNames)
+                console.log("parameterBounds",parameterBounds)
+                console.log("objectiveNames",objectiveNames)
+                console.log("objectiveBounds",objectiveBounds)
+                console.log("objectiveMinMax",objectiveMinMax)
 
+                console.log("badSolutions",badSolutions)
+                console.log("goodSolutions",goodSolutions)
+                console.log("current-solutions",solutionList)
+                console.log("savedSolutions",savedSolutions)
+                console.log("savedObjectives",savedObjectives)
+                console.log("objectivesInput",objectivesInput)
 
             //localStorage.setItem("objective-measurements", objectiveMeasurements);
 
@@ -272,7 +389,7 @@
 
 
             $.ajax({
-                url: "./cgi/newSolution_u.py",
+                url: "./cgi/newSolution_u_copy.py",
 
                 type: "post",
                 datatype: "json",
@@ -309,7 +426,7 @@
                     console.log("Success-newSolution_Reply_list");
                     console.log(result.solution);
                     console.log(result.tester);
-                    console.log(result.solution_normalised);
+                    console.log("train_x",result.train_x_actual);
                     localStorage.setItem("solution-list", solutionList);
                     localStorage.setItem("objectives-input", objectivesInput);
                     localStorage.setItem("bad-solutions", badSolutions);
@@ -335,21 +452,48 @@
             });
         }
 
-        function evaluateSolution() {
+        // if (solutionsevaulted < 3) {
+        //   ////////我加的  
+        // var x = document.getElementById('evaluate-solution');
+        // var y = document.getElementById('options')
+        // var z = document.getElementById('refine-button')
+        //     if (x.style.display == 'none') {
+        //         x.style.display = 'block';
+        //         y.style.display = 'none';
+        //         z.style.display = 'none';
+        //     }
+        //     else {
+        //         x.style.display = 'none';
+        //         y.style.display = 'inline-block';
+        //     }
+        
+        //    for (i = 0; i < objectiveNames.length; i++) {
+        //         var htmlNewRow = ""
+        //         htmlNewRow += "<tr>"
+        //         htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
+        //         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
+        //         // htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder='Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")'> </td>"
+        //         // htmlNewRow += "<td id='record-data-buttons'>"
+        //         htmlNewRow += "</td></tr>"
+        //         $("#measurement-table", window.document).append(htmlNewRow);
+        //     }
+        // }
 
-
-          ////////我加的  
-
-
-        var x = document.getElementById('evaluate-solution');
-        var y = document.getElementById('options')
+        function evaluateSolution(){
+            var x = document.getElementById('evaluate-solution');
+            var y = document.getElementById('options');
+            var z = document.getElementById('form-options-1');
             if (x.style.display == 'none') {
                 x.style.display = 'block';
                 y.style.display = 'none';
+                z.style.display = 'block';
+
             }
             else {
                 x.style.display = 'none';
                 y.style.display = 'inline-block';
+                z.style.display = 'none';
+
             }
         
            for (i = 0; i < objectiveNames.length; i++) {
@@ -362,28 +506,14 @@
                 htmlNewRow += "</td></tr>"
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
-
- 
-
-          ////////我加的  
-
-            // var obj1_name = document.getElementsByClassName("objective_1_name");
-            // var obj2_name = document.getElementsByClassName("objective_2_name");
-
-            // for (i = 0; i < paras1.length; i++) {
-            //     obj1_name[i].innerHTML = objectiveNames[0] + " = ";
-            //     obj2_name[i].innerHTML = objectiveNames[1] + " = ";
-            // }
-            
-            // document.getElementById("obj1").placeholder = "Enter measurement ("+objectiveBounds[0]+"-"+objectiveBounds[1]+")";
-            // document.getElementById("obj2").placeholder = "Enter measurement ("+objectiveBounds[2]+"-"+objectiveBounds[3]+")";
-
+        
 
         }
 
 
 
-        function nextEvaluation() {
+
+        function nextEvaluation2() {
 
 
             noError = true;
@@ -395,9 +525,8 @@
             var solutionName = document.getElementById("solution_name").value;
 
 
- 
 
-//////////////自己加的
+
 
             var tableParam = $("#measurement-table tbody");
                 
@@ -415,7 +544,147 @@
             console.log("chatgpt",objectiveMeasurements);
             console.log("Solution name: " , solutionName);
 
-//////////////自己加的
+            for (let i = 0; i < objectiveMeasurements.length; i++) {
+                var validObj1 = (!isNaN(parseFloat(objectiveMeasurements[i])) && isFinite(objectiveMeasurements[i])
+                && parseFloat(objectiveMeasurements[i]) >= objectiveBounds[2*i] && parseFloat(objectiveMeasurements[i]) <= objectiveBounds[2*i+1]);
+                if (validObj1 == false){
+                    noError = false;
+                    break
+                }
+
+            }
+
+            if (noError) {
+                // solutionName.push(solutionNameElement);
+                localStorage.setItem("solution-name", solutionName);
+                localStorage.setItem("objective-measurements", objectiveMeasurements);
+                // localStorage.setItem("solution-list", solutionList);
+                // localStorage.setItem("objectives-input", objectivesInput);
+                // localStorage.setItem("bad-solutions", badSolutions);
+                // localStorage.setItem("saved-solutions", savedSolutions);
+                // localStorage.setItem("saved-objectives", savedObjectives);
+
+                console.log("objectiveMeasurements",objectiveMeasurements)
+                console.log("parameterNames",parameterNames)
+                console.log("parameterBounds",parameterBounds)
+                console.log("objectiveNames",objectiveNames)
+                console.log("objectiveBounds",objectiveBounds)
+                console.log("objectiveMinMax",objectiveMinMax)
+
+                console.log("badSolutions",badSolutions)
+                console.log("goodSolutions",goodSolutions)
+                console.log("solutionList",solutionList)
+                console.log("savedSolutions",savedSolutions)
+                console.log("savedObjectives",savedObjectives)
+                console.log("objectivesInput",objectivesInput)
+
+
+                $.ajax({
+                    url: "./cgi/newSolution_u_forsamplesize2.py",
+                    type: "post",
+                    datatype: "json",
+                    data: { 'parameter-names'    :String(parameterNames),
+                            'parameter-bounds'   :String(parameterBounds),
+                            'objective-names'    :String(objectiveNames), 
+                            'objective-bounds'   :String(objectiveBounds),
+                            'objective-min-max'  :String(objectiveMinMax),
+
+                            'good-solutions'     :String(goodSolutions),
+                            'bad-solutions'      :String(badSolutions),
+                            'current-solutions'  :String(solutionList),
+                            'saved-solutions'    :String(savedSolutions),
+                            'saved-objectives'   :String(savedObjectives),
+                            'objectives-input'   :String(objectivesInput),
+
+                            'new-solution'       :String(callNewSolution),
+                            'next-evaluation'    :String(callNextEvaluation),
+                            'refine-solution'    :String(callRefineSolution),
+
+                            'solution-name'      :String(solutionName),
+                            'solution-name-list'      :String(solutionNameList),
+                            'objective-measurements'   :String(objectiveMeasurements)},
+                beforeSend: function() {
+                    // 显示 loading 动画和文字
+                    $('#loadingContainer').show();
+                    },
+                    success: function(result) {
+                        submitReturned = true;
+                        solutionList = result.solution;
+                        objectivesInput = result.objectives;
+                        badSolutions = result.bad_solutions;
+                        savedSolutions = result.saved_solutions;
+                        savedObjectives = result.saved_objectives;
+                        solutionNameList = result.solutionNameList;
+                        
+                        localStorage.setItem("solution-list", solutionList);
+                        localStorage.setItem("objectives-input", objectivesInput);
+                        localStorage.setItem("bad-solutions", badSolutions);
+                        localStorage.setItem("saved-solutions", savedSolutions);
+                        localStorage.setItem("saved-objectives", savedObjectives);
+                        localStorage.setItem("solution-name-list", solutionNameList);
+
+                        console.log("Success-nextevaluation");
+                        console.log(result.solution);
+                        console.log(result.saved_objectives);
+
+                        // console.log(result.test2);
+                        console.log("Success-nextevaluation-reply-ends");
+
+                        var url = "optimise_withnewsolution.php";
+                        location.href = url;
+                $('#loadingContainer').hide();
+
+                    },
+                    error: function(result){
+                        console.log("Error in finishing experiment: " + result.message);
+                        console.log(parameterBounds);
+                    console.log("Current solutions: " + solutionList);
+                    console.log("Objectives input: " + objectivesInput);
+                    console.log("Bad solutions: " + badSolutions);
+                    console.log("Saved solutions: " + savedSolutions);
+                    console.log("Saved objectives: " + savedObjectives);
+                    console.log("objectiveMeasurements",objectiveMeasurements)
+
+                    }
+                });
+            }
+            else {
+                alert("Invalid entry");
+            }  
+}
+
+
+
+        function nextEvaluation() {
+
+
+            noError = true;
+
+            callNewSolution = false;
+            callNextEvaluation = true;
+            callRefineSolution = false;
+
+            var solutionName = document.getElementById("solution_name").value;
+
+
+ 
+
+
+            var tableParam = $("#measurement-table tbody");
+                
+
+            tableParam.find('tr').each(function(index) {
+                var $paramCols = $(this).find("td");
+
+                // 获取当前行的第二列数据
+                var objElement = $paramCols.eq(1).text();
+
+                // 将第二列数据填充到objectiveMeasurements对应的位置
+                objectiveMeasurements[index] = objElement;
+            });
+
+            console.log("chatgpt",objectiveMeasurements);
+            console.log("Solution name: " , solutionName);
 
             for (let i = 0; i < objectiveMeasurements.length; i++) {
                 var validObj1 = (!isNaN(parseFloat(objectiveMeasurements[i])) && isFinite(objectiveMeasurements[i])

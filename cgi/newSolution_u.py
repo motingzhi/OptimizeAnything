@@ -4,11 +4,30 @@ import sys
 import os
 import json
 import cgi
-import sqlite3
-import requests
+import numpy as np
 
 import torch
+from botorch.utils.multi_objective.hypervolume import Hypervolume
+from botorch.models.gp_regression import SingleTaskGP
+from botorch.models.transforms.outcome import Standardize
+from gpytorch.mlls.exact_marginal_log_likelihood import ExactMarginalLogLikelihood
+from botorch.utils.multi_objective.pareto import is_non_dominated
+from botorch import fit_gpytorch_model
+from botorch.sampling.normal import SobolQMCNormalSampler
+from botorch.utils.multi_objective.box_decompositions.non_dominated import NondominatedPartitioning
+from botorch.acquisition.multi_objective.monte_carlo import qExpectedHypervolumeImprovement
+from botorch.optim.optimize import optimize_acqf
+from botorch.utils.transforms import unnormalize
 from botorch.utils.sampling import draw_sobol_samples # newSolution.py
+
+
+BATCH_SIZE = 1 # Number of design parameter points to query at next iteration
+NUM_RESTARTS = 10 # Used for the acquisition function number of restarts in optimization
+RAW_SAMPLES = 1024 # Initial restart location candidates
+N_ITERATIONS = 35 # Number of optimization iterations
+MC_SAMPLES = 512 # Number of samples to approximate acquisition function
+N_INITIAL = 5
+SEED = 2 
 
 message = "Necessary objects imported."
 success = True
@@ -65,9 +84,9 @@ try:
 except:
     solutionNameList = []
 
-newSolution = (formData['new-solution'].value).split(',')
-nextEvaluation = (formData['next-evaluation'].value).split(',')
-refineSolution = (formData['refine-solution'].value).split(',')
+# newSolution = (formData['new-solution'].value).split(',')
+# nextEvaluation = (formData['next-evaluation'].value).split(',')
+# refineSolution = (formData['refine-solution'].value).split(',')
 
 try:
     solutionName = (formData['solution-name'].value).split(',')
@@ -82,6 +101,7 @@ try:
 except:
     pass
 
+n_sample =  2*(len(parameterNames)+1)
 num_parameters = len(parameterNames)
 parameter_bounds = torch.zeros(2, num_parameters)
 parameter_bounds_normalised = torch.zeros(2, num_parameters)#
@@ -109,9 +129,10 @@ for i in range (len(objectiveNames)):
 ######自己加的
     
 def unnormalise_parameters(x_tensor, x_bounds = parameter_bounds):
-    x_actual = torch.zeros(1, num_parameters)
-    for i in range(num_parameters):
-        x_actual[0][i] = x_tensor[0][i]*(x_bounds[1][i] - x_bounds[0][i]) + x_bounds[0][i]
+    x_actual = torch.zeros(n_sample, num_parameters)#生成n_sample个train_x_actual和
+    for x in range(n_sample):
+        for i in range(num_parameters):
+            x_actual[x][i] = x_tensor[x][i]*(x_bounds[1][i] - x_bounds[0][i]) + x_bounds[0][i]
     return x_actual
 
 def normalise_objectives(obj_tensor_actual):
@@ -146,21 +167,8 @@ def checkForbiddenRegions(bad_solutions, proposed_solution): # +/- 5% of bad sol
     #   return False
   return True
 
-def checkRepeated(savedSolutions, proposed_solution): # +/- 5% of bad solution parameters  
-  for i in range(int(len(savedSolutions)/num_parameters)):
-    # print(proposed_solution[0][1])
-    # print(bad_solutions[i][0])
-    for y in range(len(parameterNames)):
-        if (proposed_solution[0][y]) < float(savedSolutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(savedSolutions[i][0])-parameter_bounds_range[0]*0.05:
-            if y == len(parameterNames)-1:
-                return False
-            else:
-                return True
-        else:
-            break   
-  return True
 
-def generate_initial_data(n_samples=1):
+def generate_initial_data(n_samples=n_sample):
     # generate training data
     train_x = draw_sobol_samples(
         bounds=parameter_bounds_normalised, n=1, q=n_samples, seed=torch.randint(1000000, (1,)).item()
@@ -177,14 +185,6 @@ def generate_initial_data(n_samples=1):
             ).squeeze(0)
             train_x = train_x.type(torch.DoubleTensor)
             train_x_actual = unnormalise_parameters(train_x)
-    while (checkRepeated(savedSolutions, train_x_actual) == False):
-            # print("Proposed solution in forbidden region")
-            train_x = draw_sobol_samples(
-                # bounds=problem_bounds, n=1, q=n_samples, seed=torch.randint(1000000, (1,)).item()
-                bounds=parameter_bounds_normalised, n=1, q=n_samples, seed=torch.randint(1000000, (1,)).item() #Might be the correct version
-            ).squeeze(0)
-            train_x = train_x.type(torch.DoubleTensor)
-            train_x_actual = torch.round(unnormalise_parameters(train_x))
     return train_x, train_x_actual
 
 message = "Necessary objects imported."
@@ -196,7 +196,7 @@ reply2 = {}
 bad_solutions.append(currentSolutions[-1*num_parameters:])
 currentSolutions = []
 train_x, train_x_actual = generate_initial_data()
-currentSolutions.append(train_x_actual.tolist()[0])
+currentSolutions.append(train_x_actual.tolist())#和sample的数目保持一致 用户不能跳过
 reply2['solution'] = currentSolutions
 # reply['newSolution'] = newSolution[0]
 reply2['objectives'] = objectivesInput
@@ -204,7 +204,7 @@ reply2['bad_solutions'] = bad_solutions
 reply2['saved_solutions'] = savedSolutions
 reply2['saved_objectives'] = savedObjectives
 reply2['test'] = xx
-
+reply2['train_x_actual'] = train_x_actual.tolist()
 tester = 9
 
 reply = {}
@@ -225,5 +225,6 @@ sys.stdout.write("\n")
 # Close the log file
 sys.stdout.close()
 sys.stderr.close() 
+
 
 

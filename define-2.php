@@ -1,51 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Define</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
+        .top-bar {
+            position: fixed;
+            top: calc(100vh / 12);
+            width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none;
+        }
+
+        .centered-content {
+            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            text-align: center;
+            width: 33.33%; /* Content width as 1/3 of the page */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            /* margin-top: 100px; */
+            bottom: 20px;
+            width: 100%;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+            padding: 10px 0;
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
+        }
+
         #loadingContainer {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         #loadingIcon {
-        border: 8px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 8px solid #7EAB55;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #53A451;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         #loadingText {
-        text-align: center;
-        margin-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
-    <div id="background">
-
-    <div style="display: flex; justify-content: space-between;">
-        <h1>1. Specify</h1>
-        <form action="help.php#define">
-            <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
-        </form>
+<body>
+<div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>1. Specify</h1>
+            <form action="help.php#define">
+                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+            </form>
+        </div>
     </div>
-    <h2>What makes an alternative desirable - Specify objectives</h2>
-    <p><i>Describe your objectives. You can include also subjective measurements, even opinions. Examples: “cost”, “travel time”.</i></p>
-    <div id="objective-table-div" style="text-align: center;">
-        <table id="objective-table" class="objective-table" width="100%">
-            <caption><b>Objectives<b></caption>
+
+    
+    <div class="centered-content">
+        <h2 style="margin-top: 20px;">What makes an alternative desirable? - Specify objectives</h2>
+        <p><i>Describe your objectives. You can include also subjective measurements, even opinions. Examples: “cost”, “travel time”.</i></p>
+        <h5 style="margin-bottom: 20px;">Objectives</h5>
+        <table class="table table-bordered" id="objective-table" >
             <thead>  
                 <tr>  
                 <th id="record-objective-name" width="40%"> Name </th>   
@@ -76,9 +111,10 @@
                         <option value="maximise" selected="selected">maximise</option>
                     </select>
                 </td>
-            </tr></tbody>
+            </tr>
+        </tbody>
         </table>
-        <button class="button" id="add-record-button" onclick="addDesignObjectivesTable()" style="color: black; background-color: #D6EEEE;">Add Objectives</button>
+        <button class="btn btn-primary" id="add-record-button" onclick="addDesignObjectivesTable()" >Add Objective</button>
     </div>
     <!-- <div id="progressBar"><div class="progress"></div> -->
     <br>
@@ -88,13 +124,15 @@
     <div id="loadingText">Loading...</div>
     </div>
 
-    <div style="text-align: right;">
-        <button class="button" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
+    <div class="bottom-bar">
+    <div class="container text-right">
+        <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
     </div>
-    
+    </div>
 
     </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
         // function updateProgress() {
         //     var progressBar = document.querySelector('#progressBar .progress');
@@ -354,5 +392,6 @@
     
     </body>
 </html>
+
 
 

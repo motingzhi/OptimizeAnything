@@ -1,31 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .top-bar {
+            position: fixed;
+            top: calc(100vh / 12);
+            width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none;
+        }
+
+        .centered-content {
+            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            text-align: center;
+            width: 33.33%; /* Content width as 1/3 of the page */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            /* margin-top: 100px; */
+            bottom: 20px;
+            width: 100%;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+            padding: 10px 0;
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
+        }
+
+    </style>  
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+<body>
     <div id="background">
+
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>3. Results</h1>
+            <form action="help.php#define">
+                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+            </form>
+        </div>
+    </div>   
     
-    <div style="display: flex; justify-content: space-between;">
-        <h1>3. Results</h1>
-        <form action="help.php#results">
-            <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
-        </form>
+    <div class="centered-content">
+
+        <p>Here are the best options we found</p>
+
+
+        <div id="dataDisplay"></div>
+
+        <div id="container"></div>
+
+            
+        <div style="display: flex; justify-content: space-between;">
+            <button class="btn btn-outline-success" id="back-button" onclick="history.back()">Go Back</button>
+            <form action="define.php"><button id="restart-button" class="btn btn-outline-success" type="submit">Restart</button></form>
+        </div>
+    
     </div>
 
-    <p><i>Here are the best options we found</i></p>
-
-
-    <div id="dataDisplay"></div>
-
-    <div id="container"></div>
-
-        
-    <div style="display: flex; justify-content: space-between;">
-        <button class="button" id="back-button" onclick="history.back()">Go Back</button>
-        <form action="define.php"><button id="restart-button" class="button" type="submit">Restart</button></form>
-    </div>
-     
     </div>
     <script type="module">
         var parameterNames = localStorage.getItem("parameter-names").split(",");
@@ -52,8 +90,8 @@
                   const height = 500;
                   const marginTop = 25;
                   const marginRight = 40;
-                  const marginBottom = 50;
-                  const marginLeft = 40;
+                  const marginBottom = 80;
+                  const marginLeft = 80;
 
                     // 定义数据数组
                     var dataTable = [];
@@ -150,7 +188,7 @@
 
                   svg.append("text")
                     .attr("x", 250)  // 使标签居中
-                    .attr("y", 500)
+                    .attr("y", 480)
                     .attr("text-anchor", "middle")
                     .text(objectiveNames[0]);
                 
@@ -210,13 +248,13 @@
             
             n = i+1
             // var dataRow = data[i].join("<br>"); // 数组逐行显示
-            displayDiv.innerHTML += "Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "<br>";
-            displayDiv.innerHTML +=  "<br>";
+            displayDiv.innerHTML += "<b>Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "</b><br>";
+            // displayDiv.innerHTML +=  "<br>";
 
             for (var x = 0; x < parameterNames.length; x++) {
                 displayDiv.innerHTML += parameterNames[x] + ": " + savedSolutions[BestSolutionIndex[i]*parameterNames.length+x] + "<br>";
             }
-            displayDiv.innerHTML +=  "<br>";
+            // displayDiv.innerHTML +=  "<br>";
 
             displayDiv.innerHTML += "Objectives: "+ "<br>";
 
@@ -234,7 +272,7 @@
             }
             
             displayDiv.innerHTML +=  "<br>";
-            displayDiv.innerHTML +=  "<br>";
+            // displayDiv.innerHTML +=  "<br>";
 
 
 
@@ -243,182 +281,6 @@
         }
        
         displayDiv.innerHTML +=  "<br>";
-        displayDiv.innerHTML +=  "<br>";
-        
-
-
-        // var generatedSolution1 = [];
-      
-
-        // ///以下为了多parameter的情况：
-        // for (var i = 0; i<parameterNames.length; i++) {
-        //     generatedSolution1[i] = parameterNames[i] + " : " + bestSolutions[i];
-        // }
-
-        // // 获取要填充数据的 <ul> 元素
-        // var generatedSolutionUI1 = document.getElementById("generatedSolution1");
-
-        // // 循环遍历数组并将每个元素添加为列表项
-        // generatedSolution1.forEach(function(element) {
-        // var listItem = document.createElement("li");
-        // listItem.textContent = element;
-        // generatedSolutionUI1.appendChild(listItem);
-        // });
-      
-
-
-
-        // var generatedSolution2 = [];
-      
-
-        // ///以下为了多parameter的情况：
-        // for (var i = 0; i<parameterNames.length; i++) {
-        //     generatedSolution2[i] = parameterNames[i] + " : " + bestSolutions[parameterNames.length+i];
-        // }
-
-        // // 获取要填充数据的 <ul> 元素
-        // var generatedSolutionUI2 = document.getElementById("generatedSolution2");
-
-        // // 循环遍历数组并将每个元素添加为列表项
-        // generatedSolution2.forEach(function(element) {
-        // var listItem = document.createElement("li");
-        // listItem.textContent = element;
-        // generatedSolutionUI2.appendChild(listItem);
-        // });
-        
-
-        // console.log(savedObjectives);
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // var generatedSolution3 = [];
-      
-
-        // ///以下为了多parameter的情况：
-        // for (var i = 0; i<parameterNames.length; i++) {
-        //     generatedSolution3[i] = parameterNames[i] + " : " + bestSolutions[parameterNames.length*2+i];
-        // }
-
-        // // 获取要填充数据的 <ul> 元素
-        // var generatedSolutionUI3 = document.getElementById("generatedSolution3");
-
-        // // 循环遍历数组并将每个元素添加为列表项
-        // generatedSolution3.forEach(function(element) {
-        // var listItem = document.createElement("li");
-        // listItem.textContent = element;
-        // generatedSolutionUI3.appendChild(listItem);
-        // });
-        
-
-
-
-        // var generatedSolution1objective = [];
-        // // var generatedSolutionobjective = [];
-        
-        // ///以下为了多parameter的情况：
-        // for (var i = 0; i<objectiveNames.length; i++) {
-        //     generatedSolution1objective[i] = objectiveNames[i] + " : " + savedObjectives[BestSolutionIndex[0]*objectiveNames.length+i];
-        // }
-
-        // // 获取要填充数据的 <ul> 元素
-        // var generatedSolution1objectiveUI = document.getElementById("generatedSolution1objective");
-
-        // // 循环遍历数组并将每个元素添加为列表项
-        // generatedSolution1objective.forEach(function(element) {
-        // var listItem = document.createElement("li");
-        // listItem.textContent = element;
-        // generatedSolution1objectiveUI.appendChild(listItem);
-        // });
-
-
-
-
-
-
-
-
-
-
-
-        // var generatedSolution2objective = [];
-        // // var generatedSolutionobjective = [];
-        
-        // ///以下为了多parameter的情况：
-        // for (var i = 0; i<objectiveNames.length; i++) {
-        //     generatedSolution2objective[i] = objectiveNames[i] + " : " + savedObjectives[BestSolutionIndex[1]*objectiveNames.length+i];
-        // }
-
-        // // 获取要填充数据的 <ul> 元素
-        // var generatedSolution2objectiveUI = document.getElementById("generatedSolution2objective");
-
-        // // 循环遍历数组并将每个元素添加为列表项
-        // generatedSolution2objective.forEach(function(element) {
-        // var listItem = document.createElement("li");
-        // listItem.textContent = element;
-        // generatedSolution2objectiveUI.appendChild(listItem);
-        // });
-
-
-
-
-        // var generatedSolution3objective = [];
-        // // var generatedSolutionobjective = [];
-
-        // ///以下为了多parameter的情况：
-        // for (var i = 0; i<objectiveNames.length; i++) {
-        //     generatedSolution3objective[i] = objectiveNames[i] + " : " + savedObjectives[BestSolutionIndex[2]*objectiveNames.length+i];
-        // }
-
-        // // 获取要填充数据的 <ul> 元素
-        // var generatedSolution3objectiveUI = document.getElementById("generatedSolution3objective");
-
-        // // 循环遍历数组并将每个元素添加为列表项
-        // generatedSolution3objective.forEach(function(element) {
-        // var listItem = document.createElement("li");
-        // listItem.textContent = element;
-        // generatedSolution3objectiveUI.appendChild(listItem);
-        // });
-
-
-
-        // var generatedSolutionobjective;
-        // var generatedSolutionobjectiveUI;
-
-        // for  (var x = 0; x<4; x++) {
-        // ///以下为了多parameter的情况：
-        //     for (var i = 0; i<objectiveNames.length; i++) {
-        //         generatedSolutionobjective[x][i] = objectiveNames[i] + " : " + savedObjectives[solutionNameIndex[x]*objectiveNames.length+i];
-        //     }
-
-        //     // 获取要填充数据的 <ul> 元素
-        //     generatedSolutionobjectiveUI[x] = document.getElementById("generatedSolutionobjective");
-
-        //     // 循环遍历数组并将每个元素添加为列表项
-        //     generatedSolutionobjective[x].forEach(function(element) {
-        //     var listItem = document.createElement("li");
-        //     listItem.textContent = element;
-        //     generatedSolutionobjectiveUI[x].appendChild(listItem);
-        //     });
-        // }
-
-      
-
-
 
 
 

@@ -389,7 +389,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
 
             $.ajax({
-                url: "./cgi/newSolution_u.py",
+                url: "./cgi/newSolution_u_copy.py",
 
                 type: "post",
                 datatype: "json",

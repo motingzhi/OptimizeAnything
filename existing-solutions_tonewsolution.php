@@ -1,39 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Define</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <style>
+
+ <style>
+        .top-bar {
+            position: fixed;
+            top: calc(100vh / 12);
+            width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none;
+        }
+
+        .centered-content {
+            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            text-align: center;
+            width: 33.33%; /* Content width as 1/3 of the page */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            /* margin-top: 100px; */
+            bottom: 20px;
+            width: 100%;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+            padding: 10px 0;
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
+        }
+
         #loadingContainer {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         #loadingIcon {
-        border: 8px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 8px solid #7EAB55;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #53A451;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         #loadingText {
-        text-align: center;
-        margin-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+<body>
     <div id="background">
         
     <div id="loadingContainer">
@@ -41,13 +76,17 @@
         <div id="loadingText">Loading...</div>
         </div>
 
-    <div style="display: flex; justify-content: space-between;">
-        <h1>One question before we start...</h1>
-        <form action="help.php#existing-solutions">
-            <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
-        </form>
+<div class="top-bar">
+<div class="container d-flex justify-content-between align-items-center">
+    <h1>One question before we start...</h1>
+            <form action="help.php#define">
+                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+            </form>
     </div>
-    <p><i>Are there known bad alternatives we should exclude?</i></p>
+    </div>
+
+    <div class="centered-content">
+    <p><i>Are there known bad solutions we should include?</i></p>
     
     <div class="tooltip">For example
         <span class="tooltiptext" style="display: flex; justify-content: space-between; padding: 0px 5px;">
@@ -60,12 +99,12 @@
     <br>
     <br>
     <div id="buttons" style="display:block">
-        <div class="add-existing-solutions" style=" margin-right:2%; float: left;">
-            <button id="add-existing-solutions" class="button" onclick="addExistingSolutions()">Yes, some</button>
+        <div class="add-existing-solutions" style="margin-bottom:50px">
+            <button id="add-existing-solutions" class="btn btn-outline-success"  onclick="addExistingSolutions()">Yes, some</button>
         </div>
 
-        <div class="start-button" style=" float: left;">
-            <button id="start" class="button" onclick="finishSolutions()">No let's start</button>
+        <div class="start-button" >
+            <button id="start" class="btn btn-success" onclick="finishSolutions()">No let's start</button>
         </div>
 
         <!-- <div class="start-button">
@@ -132,6 +171,9 @@
 
 
     </div>
+    </div>
+    </div>
+
 
     <style>
         .tooltip {
@@ -353,7 +395,7 @@
                 localStorage.setItem("solution-name-list", solutionNameList);
 
                 $.ajax({
-                    url: "./cgi/newSolution_u.py",
+                    url: "./cgi/newSolution_u_copy.py",
                     type: "post",
                     dataType: "json",
                     data: { 'parameter-names'    :String(parameterNames),
@@ -397,6 +439,7 @@
                         // console.log(result.saved_solutions);
                         // console.log(result.xx);
                         // console.log(result.parameterNames);
+                        // console.log("train_x_actual",result.train_x_actual);
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
                         $('#loadingContainer').hide();
@@ -418,6 +461,10 @@
 </html>
     
     
+
+<!-- 学会了用端口debug -->
+
+ 
 
 <!-- 学会了用端口debug -->
 

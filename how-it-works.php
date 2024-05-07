@@ -1,47 +1,61 @@
+<?php
+// session_start();
+// echo "logged_in";
+// echo $_SESSION['logged_in'];
+// echo "user_info";
+// echo implode(', ', $_SESSION['user_info']);
+// require_once 'config.php';
+// // 检查用户是否已登录
+// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+//     // 如果用户未登录，将其重定向到登录页面
+//     header("Location: login.php");
+//     exit();
+// }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
-    <div id="background" style="width: 1000px; text-align: center;">
-    <h1>How it works</h1>
-    <p><i>AI will propose you solutions one at a time. You evaluate them and tell the AI. You can always propose solutions and steer the AI.</i></p>
-    
-    <div class="slideshow-container">
+<body>
+        <div class="top-bar">   
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>How it works</h1>
+        </div>      
 
-    <div class="mySlides fade">
-        <img src="Pictures/Picture5.svg" style="width:800px">
-    </div>
-    
-<!--     <div class="mySlides fade">
-        <img src="Pictures/Picture2.png" style="width:350px">
-    </div>
-    
-    <div class="mySlides fade">
-        <img src="Pictures/Picture3.png" style="width:350px">
-    </div> -->
-    
-    </div>
-    <br>
-    
-    <div style="text-align:center">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-    </div>
+        </div>
+        <div class="container content">
 
-    <div style="text-align: right;">
-        <form action="define.php">
-            <input type="submit" value="Ready" class="button" style="width: 20%;"/>
-        </form>
-    </div>
-    </div>
- 
+            <p>AI will propose you solutions one at a time. You evaluate them and tell the AI. You can always propose solutions and steer the AI.</p>
+            <img src="Pictures/image.png" class="img-fluid"> <!-- Bootstrap responsive image class -->
+            <br>
+
+            <div class="text-right"> <!-- Bootstrap class for right alignment -->
+                <form action="tutorial.php">
+                    <input type="submit" value="Ready" class="btn btn-success" style="width: 20%;"> <!-- Bootstrap button style -->
+                </form>
+            </div>
+        </div>
+
     <style>
+        .top-bar {
+            position: absolute; /* 更改为绝对定位 */
+            top: calc(100vh / 10); /* 设定距顶部1/6页面高度 */
+            width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none; /* 移除阴影 */
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* 使主内容区占满视口高度 */
+            justify-content: center; /* 垂直居中 */
+        }
         .mySlides {
-            display: none;
+            display: block;
         }
         img {
             display: block;
@@ -60,25 +74,7 @@
     </style>
     
     <script>
-        let slideIndex = 0;
-        showSlides();
-        
-        function showSlides() {
-          let i;
-          let slides = document.getElementsByClassName("mySlides");
-          let dots = document.getElementsByClassName("dot");
-          for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-          }
-          slideIndex++;
-          if (slideIndex > slides.length) {slideIndex = 1}    
-          for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.display = "block";  
-          dots[slideIndex-1].className += " active";
-          setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
+
     </script>
 
     </body>

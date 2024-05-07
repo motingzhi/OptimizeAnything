@@ -1,127 +1,179 @@
+<?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// // 第二个 PHP 页面
+// session_start();
+// echo "logged_in";
+// echo $_SESSION['logged_in'];
+// echo "user_info";
+// echo implode(', ', $_SESSION['user_info']);
+// require_once 'config.php';
+// // 检查用户是否已登录
+// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+//     // 如果用户未登录，将其重定向到登录页面
+//     header("Location: login.php");
+//     exit();
+// }
+// // $google_oauth = new Google_Service_Oauth2($client);
+// // $google_account_info = $google_oauth->userinfo->get();
+// // $userinfo = [
+// //     'token' => $google_account_info['id'],
+// //   ];
+
+// // // // 获取用户 ID
+// // // $user_id = $_SESSION['user_id'];
+// $user_email= $_SESSION['user_info']['email'];
+// echo "user_email";
+// echo $user_email;
+
+// // 处理用户提交的参数名称并存储到数据库中
+
+//   // 检查连接
+//     if ($conn->connect_error) {
+//         die("Connection failed: " . $conn->connect_error);
+//     }
+
+//     // 获取用户输入的参数名称
+//     // $parameterNames = 7;
+//     // 准备 SQL 语句
+//     $sql = "UPDATE users SET locale = 7 WHERE email = ?";
+
+//     // 创建预处理语句
+//     $stmt = $conn->prepare($sql);
+
+//     // 绑定参数
+//     $stmt->bind_param("s", $user_email);
+
+//     // 执行查询
+//     if ($stmt->execute()) {
+//         echo "Locale updated successfully.";
+//     } else {
+//         echo "Error updating locale: " . $conn->error;
+//     }
+
+
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Define</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
+        .top-bar {
+            position: fixed;
+            top: calc(100vh / 12);
+            width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none;
+        }
+
+        .centered-content {
+            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            text-align: center;
+            width: 33.33%; /* Content width as 1/3 of the page */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            /* margin-top: 100px; */
+            bottom: 20px;
+            width: 100%;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+            padding: 10px 0;
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
+        }
+
         #loadingContainer {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         #loadingIcon {
-        border: 8px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 8px solid #7EAB55;
-        width: 50px;
-        height: 50px;
-        animation: spin 1s linear infinite;
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #53A451;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
         }
 
         @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         #loadingText {
-        text-align: center;
-        margin-top: 20px;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
-<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
-    <div id="background">
-
-    <div style="display: flex; justify-content: space-between;">
-        <h1>1. Specify</h1>
-        <form action="help.php#define">
-            <input type="submit" value="Help" class="button" id="help-button" style="color: white; background-color: #0173bc;"/>
-        </form>
+<body>
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>1. Specify</h1>
+            <form action="help.php#define">
+                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+            </form>
+        </div>
     </div>
-    <h2>What you can change? - Specify variables</h2>
-    <p><i>An optimization scenario is shown below for optimizing the travel for a holiday, which you can edit to implement your optimisation.</i></p>
-
-    <p><i>Describe each variable that you want to change. Examples: “destination distance”, “number of days” amd "number of flight connections".</i></p>
     
-    <div id="parameter-table-div" style="text-align: center;">
-        <table id="parameter-table" class="parameter-table" width="100%">
-            <caption><b>Variables</b></caption>
+    <div class="centered-content">
+        <h2 style="margin-top: 20px;">What can you change? - Specify variables</h2>
+        <p><i>Describe each varible that you want to change. Examples: “destination distance”, “number of days” and "number of flight connections".</i></p>
+        
+        <h5 style="margin-bottom: 20px;"> Variables </h5>
+        <table class="table table-bordered" id="parameter-table">
             <thead>  
                 <tr>  
-                <th id="record-parameter-name" width="40%"> Name </th>   
-                <th id="record-parameter-lower-bound"> Minimum </th>  
-                <th id="record-parameter-upper-bound"> Maximum </th>  
+                    <th id="record-parameter-name" width="40%"> Variable Name </th>   
+                    <th id="record-parameter-lower-bound"> Minimum </th>  
+                    <th id="record-parameter-upper-bound"> Maximum </th>  
                 </tr>  
             </thead>  
             <tbody>
-            <tr>
-                <td contenteditable="true" class="record-data" id="record-parameter-name">Destination distance (km)</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">500</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
-            </tr>
-            <tr>
-                <td contenteditable="true" class="record-data" id="record-parameter-name">Number of days</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">3</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">14</td>
-            </tr>
-            <!-- <tr>
-                <td contenteditable="true" class="record-data" id="record-parameter-name">Number of flight connections</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3</td>
-            </tr> -->
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Destination distance (km)</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">500</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Number of days</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">3</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">14</td>
+                </tr>
             </tbody>
         </table>
-        <button class="button" id="add-record-button" onclick="addDesignParametersTable()" style="color: black; background-color: #D6EEEE;">Add More Variables</button>
+        <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
     </div>
-
-    <!-- <div id="progressBar"><div class="progress"></div> -->
-    <br>
-
+    
     <div id="loadingContainer">
-    <div id="loadingIcon"></div>
-    <div id="loadingText">Loading...</div>
+        <div id="loadingIcon"></div>
+        <div id="loadingText">Loading...</div>
     </div>
 
-    <div style="text-align: right;">
-        <button class="button" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
+    <div class="bottom-bar">
+        <div class="container text-right">
+            <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
+        </div>
     </div>
-    
 
-    </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ 
     <script>
-        // function updateProgress() {
-        //     var progressBar = document.querySelector('#progressBar .progress');
-        //     var percentComplete = (performance.now() - startTime) / estimatedLoadTime * 100;
-        //     progressBar.style.width = Math.min(percentComplete, 100) + '%';
-
-        //     if (percentComplete < 100) {
-        //         // 如果进度条未满，则继续更新进度条
-        //         requestAnimationFrame(updateProgress);
-        //     }
-        // }
-
-        // // 获取开始加载页面的时间
-        // var startTime = performance.now();
-
-        // // 预估页面加载时间，这里设置为5秒
-        // var estimatedLoadTime = 500;
-        // // function updateProgress(event) {
-        // // if (event.lengthComputable) {
-        // //   var progressBar = $('#progressBar .progress');
-        // //   var percentComplete = (event.loaded / event.total) * 100;
-        // //   progressBar.css('width', percentComplete + '%');
-        // //   console.log("jiji");
-        // // }}
-
-        // // 监听页面加载完成事件
-        // window.addEventListener('load', function() {
-        // // 更新进度条
-        //     updateProgress();
-        // });
 
 
         function finishObjs() {
@@ -132,11 +184,7 @@
             var objectiveNames = [];
             var objectiveBounds = [];
             var objectiveMinMax = [];
-    
-            /* var participantID = localStorage.getItem("id");
-            var conditionID = localStorage.getItem("exp-condition");
-            var applicationID = localStorage.getItem("app"); */
-            
+
             var tableParam = $("#parameter-table tbody");
                 
             tableParam.find('tr').each(function() {
@@ -151,13 +199,6 @@
                 console.log("haha" + paramName);
                 parameterNames.push(paramName);
 
-                // if (/^[A-Za-z0-9]+$/.test(paramName)){
-                //     parameterNames.push(paramName);
-                // }
-                // else {
-                //     noError = false;
-                // }
-    
                 var paramLowerBound = paramRowEntries[1];
                 var paramUpperBound = paramRowEntries[2];
                 var validLowerBound = (!isNaN(parseFloat(paramLowerBound)) && isFinite(paramLowerBound));
@@ -178,67 +219,7 @@
             });
 
             // // Find all the objective names and bounds
-            // var tableObjs = $("#objective-table tbody");
-                
-            // tableObjs.find('tr').each(function() {
-            //     var $objCols = $(this).find("td");
-            //     var objRowEntries = [];
 
-            //     $.each($objCols, function() {
-            //         objRowEntries.push($(this).text());
-            //     });
-                
-            //     var objName = objRowEntries[0];
-            //     objectiveNames.push(objName);
-
-            //     // if (/^[A-Za-z0-9]+$/.test(objName)){
-            //     //     objectiveNames.push(objName);
-            //     // }
-            //     // else {
-            //     //     noError = false;
-            //     // }
-
-            //     // console.log("objRowEntries[3]",objRowEntries2[3]);
-
-    
-            //     var objLowerBound = objRowEntries[1];
-            //     var objUpperBound = objRowEntries[2];
-            //     var validLowerBound = (!isNaN(parseFloat(objLowerBound)) && isFinite(objLowerBound));
-            //     var validUpperBound = (!isNaN(parseFloat(objUpperBound)) && isFinite(objUpperBound));
-
-            //     if (validLowerBound && validUpperBound){
-            //         if (parseFloat(objLowerBound) < parseFloat(objUpperBound)){
-            //             var rowBounds = [parseFloat(objLowerBound), parseFloat(objUpperBound)];
-            //             objectiveBounds.push(rowBounds);
-            //         }
-            //         else {
-            //            noError = false;
-            //         }
-            //     }
-            //     else {
-            //         noError = false;
-            //     }
-            
-            //     var selectedOption = $(this).find('select option:selected').text();
-            //     objectiveMinMax.push(selectedOption);
-
-            // });
-
-            // var i = 1;
-            // var z = 
-            // Store whether each objective is to be minimised or maximised in a list  这部分可以移到
-            // var min_max_1 = document.getElementById("min-max-1").value;
-            // var min_max_2 = document.getElementById("min-max-2").value;
-            // objectiveMinMax.push(min_max_1, min_max_2);
-
-
-
-
-
-            // console.log(parameterNames);
-            // console.log(parameterBounds);
-            // console.log(objectiveNames);
-            // console.log(objectiveBounds);
             console.log("objectiveMinMax",objectiveMinMax);
 
             if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
@@ -326,6 +307,10 @@
     
     </body>
 </html>
+
+
+
+
 
 
 

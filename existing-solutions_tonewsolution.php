@@ -395,7 +395,7 @@
                 localStorage.setItem("solution-name-list", solutionNameList);
 
                 $.ajax({
-                    url: "./cgi/newSolution_u_copy.py",
+                    url: "./cgi/newSolution_u.py",
                     type: "post",
                     dataType: "json",
                     data: { 'parameter-names'    :String(parameterNames),

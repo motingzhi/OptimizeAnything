@@ -134,6 +134,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
+        var solutionNameList =  "";
+
         // function updateProgress() {
         //     var progressBar = document.querySelector('#progressBar .progress');
         //     var percentComplete = (performance.now() - startTime) / estimatedLoadTime * 100;
@@ -272,7 +274,12 @@
             // var min_max_2 = document.getElementById("min-max-2").value;
             // objectiveMinMax.push(min_max_1, min_max_2);
 
-
+            var noError = true;
+            var newSolution = true;
+            var nextEvaluation = false;
+            var refineSolution = false;
+            var goodSolutions = [];
+            var badSolutions = [];
 
 
 
@@ -296,6 +303,10 @@
                 localStorage.setItem("objective-names", objectiveNames);
                 localStorage.setItem("objective-bounds", objectiveBounds);
                 localStorage.setItem("objective-min-max", objectiveMinMax);
+                localStorage.setItem("good-solutions", goodSolutions);
+                localStorage.setItem("new-solution", newSolution);
+                localStorage.setItem("next-evaluation", nextEvaluation);
+                localStorage.setItem("solution-name-list", solutionNameList);
     
                 // localStorage.setItem("tutorial-done", true);
     
@@ -317,7 +328,7 @@
                 //     }
 
                 $.ajax({
-                url: "./cgi/log-definitions_u.py",
+                url: "./cgi/newSolution_u_copy.py",
                 type: "post",
                 datatype: "json",
                 data: { 
@@ -325,7 +336,14 @@
                         'parameter-bounds'   :String(parameterBounds),
                         'objective-names'    :String(objectiveNames), 
                         'objective-bounds'   :String(objectiveBounds),
-                        'objective-min-max'  :String(objectiveMinMax)},
+                        'objective-min-max'  :String(objectiveMinMax),
+                        'good-solutions'     :String(goodSolutions),
+                        'bad-solutions'      :String(badSolutions),
+                        'new-solution'       :String(newSolution),
+                        'next-evaluation'    :String(nextEvaluation),
+                        'solution-name-list'      :String(solutionNameList),
+                        'refine-solution'    :String(refineSolution),
+                    },
                 beforeSend: function() {
                 // 显示 loading 动画和文字
                 $('#loadingContainer').show();
@@ -336,17 +354,27 @@
                     // var progressBar = $('#progressBar');
                     // progressBar.empty();                    
                     // submitReturned = true;
+                    submitReturned = true;
+                    solution = result.solution;
+                    objectivesInput = result.objectives;
+                    savedSolutions = result.saved_solutions;
+                    savedObjectives = result.saved_objectives;
+                    localStorage.setItem("solution-list", solution);
+                    localStorage.setItem("objectives-input", objectivesInput);
+                    localStorage.setItem("saved-solutions", savedSolutions);
+                    localStorage.setItem("saved-objectives", savedObjectives);
+
                     console.log("Success");
                     console.log(result.success)
                     console.log("result.parameterNames.length");
                     console.log(result.parameterNames.length)
                     console.log("result.parameterBounds.length");
-                    console.log(result.parameterBounds.length)
+                    // console.log(result.parameterBounds.length)
                     console.log(result.objectiveNames)
                     console.log(result.objectiveBounds)
                     //[Log] ["Cost ($)", "Satisfaction (%)", "Goal"] (3) (define.php, line 268)
                     //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
-                    var url = "existing-solutions_tonewsolution.php";
+                    var url = "optimise_withnewsolution.php";
                     location.href = url;
                     $('#loadingContainer').hide();
                 },
@@ -392,6 +420,9 @@
     
     </body>
 </html>
+
+
+
 
 
 

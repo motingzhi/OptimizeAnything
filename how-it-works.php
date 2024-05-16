@@ -34,7 +34,7 @@
 
             <div class="text-right"> <!-- Bootstrap class for right alignment -->
                 <form action="tutorial.php">
-                    <input type="submit" value="Ready" class="btn btn-success" style="width: 20%;"> <!-- Bootstrap button style -->
+                    <input type="submit" value="Tutorial" class="btn btn-success" style="width: 20%;"> <!-- Bootstrap button style -->
                 </form>
             </div>
         </div>

@@ -346,12 +346,12 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             document.getElementById("done-button").style.display = 'none';
         }
 
-        // if (savedSolutions.length < 2) {
-        //     document.getElementById("solution_name").value = 'Solution 1';
-        // }
-        // else {
+        if (savedSolutions.length < 2) {
+            document.getElementById("solution_name").value = 'Solution 1';
+        }
+        else {
             document.getElementById("solution_name").value = 'Solution ' + Math.round(savedSolutions.length/num_parameters + 1);
-        // }
+        }
             
         // Individual solutions
         // document.getElementById("solution_1").innerHTML = solution[0];

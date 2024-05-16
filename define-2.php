@@ -328,7 +328,7 @@
                 //     }
 
                 $.ajax({
-                url: "./cgi/newSolution_u_copy.py",
+                url: "./cgi/newSolution_u.py",
                 type: "post",
                 datatype: "json",
                 data: { 

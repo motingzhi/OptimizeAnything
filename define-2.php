@@ -27,7 +27,7 @@
         .bottom-bar {
             position: fixed;
             /* margin-top: 100px; */
-            bottom: 20px;
+            bottom: 0px;
             width: 100%;
             background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
             padding: 10px 0;
@@ -125,8 +125,10 @@
     </div>
 
     <div class="bottom-bar">
-    <div class="container text-right">
+    <div class="container d-flex justify-content-between">
+        <button class="btn btn-outline-success" id="back-button" style="width: 20%;" onclick="goBack()">Back</button>
         <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
+
     </div>
     </div>
 
@@ -165,9 +167,69 @@
         // // 更新进度条
         //     updateProgress();
         // });
+        function goBack() {
+            saveFormData();
+            location.href = "define.php";
+        }
 
+        function saveFormData() {
+            const table = document.getElementById('objective-table').getElementsByTagName('tbody')[0];
+            const objectives = [];
+            for (let row of table.rows) {
+                const cells = [];
+                for (let cell of row.cells) {
+                    if (cell.querySelector('select')) {
+                        cells.push(cell.querySelector('select').value);
+                    } else {
+                        cells.push(cell.innerText);
+                    }
+                }
+                objectives.push(cells);
+            }
+            localStorage.setItem('objectives', JSON.stringify(objectives));
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadFormData();
+        });
+
+        function loadFormData() {
+            const table = document.getElementById('objective-table').getElementsByTagName('tbody')[0];
+            const storedObjectives = JSON.parse(localStorage.getItem('objectives'));
+
+            if (storedObjectives) {
+                table.innerHTML = '';
+                storedObjectives.forEach(row => {
+                    const newRow = table.insertRow();
+                    row.forEach((cellText, index) => {
+                        const newCell = newRow.insertCell(index);
+                        newCell.contentEditable = 'true';
+                        newCell.className = 'record-data';
+                        if (index === 3) { // select element
+                            const select = document.createElement('select');
+                            select.style.fontFamily = 'calibri';
+                            select.style.fontSize = 'medium';
+                            const option1 = document.createElement('option');
+                            option1.value = 'minimise';
+                            option1.text = 'minimise';
+                            const option2 = document.createElement('option');
+                            option2.value = 'maximise';
+                            option2.text = 'maximise';
+                            select.add(option1);
+                            select.add(option2);
+                            select.value = cellText;
+                            newCell.appendChild(select);
+                        } else {
+                            newCell.innerText = cellText;
+                        }
+                    });
+                });
+            }
+        }
 
         function finishObjs() {
+
+            saveFormData();
 
             var noError = true;
             var parameterNames = localStorage.getItem("parameter-names").split(",");
@@ -328,7 +390,7 @@
                 //     }
 
                 $.ajax({
-                url: "./cgi/newSolution_u.py",
+                url: "./cgi/newSolution_u_copy.py",
                 type: "post",
                 datatype: "json",
                 data: { 
@@ -416,10 +478,13 @@
 
 
         }
+        document.getElementById('objective-table').addEventListener('input', saveFormData);
+        document.getElementById('objective-table').addEventListener('change', saveFormData);
     </script>
     
     </body>
 </html>
+
 
 
 

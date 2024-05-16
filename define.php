@@ -174,9 +174,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  
     <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            loadFormData();
+        });
 
+        function loadFormData() {
+            const table = document.getElementById('parameter-table').getElementsByTagName('tbody')[0];
+            const storedParameters = JSON.parse(localStorage.getItem('parameters'));
+
+            if (storedParameters) {
+                table.innerHTML = '';
+                storedParameters.forEach(row => {
+                    const newRow = table.insertRow();
+                    row.forEach((cellText, index) => {
+                        const newCell = newRow.insertCell(index);
+                        newCell.contentEditable = 'true';
+                        newCell.className = 'record-data';
+                        newCell.innerText = cellText;
+                    });
+                });
+            }
+        }
+        
+        function saveFormData() {
+            const table = document.getElementById('parameter-table').getElementsByTagName('tbody')[0];
+            const parameters = [];
+            for (let row of table.rows) {
+                const cells = [];
+                for (let cell of row.cells) {
+                    cells.push(cell.innerText);
+                }
+                parameters.push(cells);
+            }
+            localStorage.setItem('parameters', JSON.stringify(parameters));
+        }
 
         function finishObjs() {
+            saveFormData();
+
 
             var noError = true;
             var parameterNames = [];
@@ -303,14 +338,12 @@
             htmlNewRow += "</td></tr>"
             $("#objective-table", window.document).append(htmlNewRow);  
         }
+        document.getElementById('parameter-table').addEventListener('input', saveFormData);
+        document.getElementById('parameter-table').addEventListener('change', saveFormData);
     </script>
     
     </body>
 </html>
-
-
-
-
 
 
 

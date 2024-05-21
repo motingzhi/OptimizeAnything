@@ -174,6 +174,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  
     <script>
+        window.onbeforeunload = function() {
+            localStorage.removeItem('parameters');
+        };
         document.addEventListener('DOMContentLoaded', (event) => {
             loadFormData();
         });

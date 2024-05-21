@@ -137,6 +137,9 @@
 
     <script>
         var solutionNameList =  "";
+        window.onbeforeunload = function() {
+            localStorage.removeItem('objectives');
+        };
 
         // function updateProgress() {
         //     var progressBar = document.querySelector('#progressBar .progress');

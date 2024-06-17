@@ -55,10 +55,7 @@
         <div id="dataDisplay"></div>
 
         <div id="container"></div>
-<<<<<<< Updated upstream
-=======
         <button class="btn btn-outline-primary" id="download-button">Download</button>
->>>>>>> Stashed changes
 
             
         <div style="display: flex; justify-content: space-between;">
@@ -77,11 +74,7 @@
         var objectiveMinMax = localStorage.getItem("objective-min-max").split(",");
         // var goodSolutions = localStorage.getItem("good-solutions").split(",");
         // var badSolutions = localStorage.getItem("bad-solutions").split(",");
-<<<<<<< Updated upstream
-        // var solutionList = localStorage.getItem("solution-list").split(",");
-=======
         var solutionList = localStorage.getItem("solution-list").split(",");
->>>>>>> Stashed changes
         var savedSolutions = localStorage.getItem("saved-solutions").split(",");
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
         // var objectivesInput = localStorage.getItem("objectives-input").split(",");
@@ -175,37 +168,23 @@
                         .data(dataTable)
                         .enter().append("text")
                         .attr("x", function(d) { return x(d.Objective1) - 10; }) // x 方向偏移一定距离
-<<<<<<< Updated upstream
-                        .attr("y", function(d) { return y(d.Objective2) - 10; }) // y 方向偏移一定距离
-=======
                         .attr("y", function(d) { return y(d.Objective2) + 20; }) // y 方向偏移一定距离
->>>>>>> Stashed changes
                         .text(function(d) { return d["Solution name"]; });
 
                     svg.append("g")
                     .selectAll("text")
                         .data(dataTable)
                         .enter().append("text")
-<<<<<<< Updated upstream
-                        .attr("x", function(d) { return x(d.Objective1) - 10; }) // x 方向偏移一定距离
-                        .attr("y", function(d) { return y(d.Objective2) - 40; }) // y 方向偏移一定距离
-=======
                         .attr("x", function(d) { return x(d.Objective1) - 60; }) // x 方向偏移一定距离
                         .attr("y", function(d) { return y(d.Objective2) - 10; }) // y 方向偏移一定距离
->>>>>>> Stashed changes
                         .text(function(d) { return d["Objective1"]; });
 
                     svg.append("g")
                     .selectAll("text")
                         .data(dataTable)
                         .enter().append("text")
-<<<<<<< Updated upstream
-                        .attr("x", function(d) { return x(d.Objective1) + 80 ; }) // x 方向偏移一定距离
-                        .attr("y", function(d) { return y(d.Objective2) - 40; }) // y 方向偏移一定距离
-=======
                         .attr("x", function(d) { return x(d.Objective1) - 10 ; }) // x 方向偏移一定距离
                         .attr("y", function(d) { return y(d.Objective2) - 10; }) // y 方向偏移一定距离
->>>>>>> Stashed changes
                         .text(function(d) { return d["Objective2"]; });
 
                   svg.append("text")
@@ -270,17 +249,11 @@
             
             n = i+1
             // var dataRow = data[i].join("<br>"); // 数组逐行显示
-<<<<<<< Updated upstream
-            displayDiv.innerHTML += "<b>Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "</b><br>";
-            // displayDiv.innerHTML +=  "<br>";
-
-=======
             displayDiv.innerHTML +=  solutionNameList[BestSolutionIndex[i]] + "</b><br>";
 
             // displayDiv.innerHTML += "<b>Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "</b><br>";
             // displayDiv.innerHTML +=  "<br>";
 
->>>>>>> Stashed changes
             for (var x = 0; x < parameterNames.length; x++) {
                 displayDiv.innerHTML += parameterNames[x] + ": " + savedSolutions[BestSolutionIndex[i]*parameterNames.length+x] + "<br>";
             }
@@ -311,10 +284,6 @@
         }
        
         displayDiv.innerHTML +=  "<br>";
-<<<<<<< Updated upstream
-
-
-=======
         document.getElementById('download-button').addEventListener('click', function() {
         var solutionList = localStorage.getItem("solution-list");
         var savedSolutions = localStorage.getItem("saved-solutions");
@@ -337,7 +306,6 @@
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
     });
->>>>>>> Stashed changes
 
         
     </script>

@@ -9,13 +9,6 @@
 </head>
 <body>
     <div class="container mt-4">
-<<<<<<< Updated upstream
-        <h1>2. Specify objectives</h1><br>
-        <p>Then add objectives that make an alternative desirable.</p>
-       
-        <div class="text-center mb-4">
-            <img src="Pictures/2.gif" alt="Specify objectives" class="img-fluid">
-=======
         <p><strong>2. Specify objectives:</strong> Then add objectives, based on which you can optimize variables.</p>
 
         <br>
@@ -23,7 +16,6 @@
         <br>       
         <div class="text-center mb-4">
             <img src="Pictures/objective.gif" alt="Specify objectives" class="img-fluid">
->>>>>>> Stashed changes
         </div>
         
         <!-- Navigation Buttons -->

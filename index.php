@@ -1,12 +1,12 @@
 <?php
-require_once 'config.php';
+// require_once 'config.php';
 
-if (isset($_SESSION['user_token'])) {
-  header("Location: index2.php");
-} else {
-    $showGoogleLogin = true;
-//   echo "<a href='" . $client->createAuthUrl() . "'>Google Login</a>";
-}
+// if (isset($_SESSION['user_token'])) {
+//   header("Location: index2.php");
+// } else {
+//     $showGoogleLogin = true;
+// //   echo "<a href='" . $client->createAuthUrl() . "'>Google Login</a>";
+// }
 // ?>
 
 <!DOCTYPE html>
@@ -57,12 +57,12 @@ if (isset($_SESSION['user_token'])) {
 
                 <!-- 显示 profilic ID 输入框和提交按钮 -->
                 <form action="index_2.php" method="post">
-                    <div class="form-group">
-                        <label for="Prolific">Input your Prolific ID:</label>
-                        <input type="text" class="form-control" id="ProlificID" name="Prolific" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick="recordID()">Submit</button>
-                </form>
+                <div class="form-group">
+                    <label for="Prolific">Input your Prolific ID:</label>
+                    <input type="text" class="form-control" id="ProlificID" name="Prolific" required>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="recordID()">Submit</button>
+            </form>
             
         </div>
     </div>

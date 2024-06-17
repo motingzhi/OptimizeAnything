@@ -54,13 +54,25 @@ if (isset($_SESSION['user_token'])) {
     <div class="centered-content">
         <div style="text-align: center;"> <!-- 将内容居中对齐 -->
             <p><b>Get started:</b></p>
-            <?php if ($showGoogleLogin): ?>
-                <!-- 只有在 $showGoogleLogin 为 true 时才显示 Google 登录按钮 -->
-                <a href="<?php echo $client->createAuthUrl(); ?>" class="btn-google">Login with Google</a>
-            <?php endif; ?>
+
+                <!-- 显示 profilic ID 输入框和提交按钮 -->
+                <form action="your_processing_script.php" method="post">
+                    <div class="form-group">
+                        <label for="Prolific">Input your Prolific ID:</label>
+                        <input type="text" class="form-control" id="Prolific" name="Prolific" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            
         </div>
     </div>
 </div>
 
 </body>
 </html>
+
+
+<!-- <?php if ($showGoogleLogin): ?> -->
+                <!-- 只有在 $showGoogleLogin 为 true 时才显示 Google 登录按钮 -->
+                <!-- <a href="<?php echo $client->createAuthUrl(); ?>" class="btn-google">Login with Google</a> -->
+            <!-- <?php endif; ?> -->

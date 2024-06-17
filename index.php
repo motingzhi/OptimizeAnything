@@ -56,7 +56,7 @@ if (isset($_SESSION['user_token'])) {
             <!-- <p><b>Get started:</b></p> -->
 
                 <!-- 显示 profilic ID 输入框和提交按钮 -->
-                <form method="post">
+                <form action="index_2.php" method="post">
                     <div class="form-group">
                         <label for="Prolific">Input your Prolific ID:</label>
                         <input type="text" class="form-control" id="Prolific" name="Prolific" required>
@@ -73,8 +73,8 @@ if (isset($_SESSION['user_token'])) {
                 var ProlificID = document.getElementById("ProlificID").value;
                 localStorage.setItem("ProlificID", ProlificID);
                 console.log(ProlificID);
-                var url = "index_2.php";
-                location.href = url;
+                // var url = "index_2.php";
+                // location.href = url;
             }
 
 

@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-=======
-#!/usr/local/bin/python3
->>>>>>> Stashed changes
 #/usr/bin/python3 
 import sys
 # import logging

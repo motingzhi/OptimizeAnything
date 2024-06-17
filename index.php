@@ -53,7 +53,7 @@ if (isset($_SESSION['user_token'])) {
 
     <div class="centered-content">
         <div style="text-align: center;"> <!-- 将内容居中对齐 -->
-            <p><b>Get started:</b></p>
+            <!-- <p><b>Get started:</b></p> -->
 
                 <!-- 显示 profilic ID 输入框和提交按钮 -->
                 <form action="your_processing_script.php" method="post">
@@ -61,13 +61,24 @@ if (isset($_SESSION['user_token'])) {
                         <label for="Prolific">Input your Prolific ID:</label>
                         <input type="text" class="form-control" id="Prolific" name="Prolific" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" onclick="recordID()">Submit</button>
                 </form>
             
         </div>
     </div>
 </div>
+<script>
 
+            function recordID() {
+                var ProlificID = document.getElementById("ProlificID").value;
+                localStorage.setItem("ProlificID", ProlificID);
+
+                var url = "index_2.php";
+                location.href = url;
+            }
+
+
+</script>
 </body>
 </html>
 

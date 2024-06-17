@@ -38,16 +38,16 @@ tester = 1
 xx = 57
 reply2 = {}
 
-# Define the log file path
-log_file_folder = "../python_log"
-log_file_path = os.path.join(log_file_folder, "newSolution_u.log")
+# # Define the log file path
+# log_file_folder = "../python_log"
+# log_file_path = os.path.join(log_file_folder, "newSolution_u.log")
 
-# Create the log file directory if it doesn't exist
-os.makedirs(log_file_folder, exist_ok=True)
+# # Create the log file directory if it doesn't exist
+# os.makedirs(log_file_folder, exist_ok=True)
 
-# Redirect stdout and stderr to the log file
-# sys.stdout = open(log_file_path, "a")
-sys.stderr = open(log_file_path, "a")
+# # Redirect stdout and stderr to the log file
+# # sys.stdout = open(log_file_path, "a")
+# sys.stderr = open(log_file_path, "a")
 
 # Read provided formData
 formData = cgi.FieldStorage()

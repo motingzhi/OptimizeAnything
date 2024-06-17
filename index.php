@@ -59,7 +59,7 @@ if (isset($_SESSION['user_token'])) {
                 <form action="index_2.php" method="post">
                     <div class="form-group">
                         <label for="Prolific">Input your Prolific ID:</label>
-                        <input type="text" class="form-control" id="Prolific" name="Prolific" required>
+                        <input type="text" class="form-control" id="ProlificID" name="Prolific" required>
                     </div>
                     <button type="submit" class="btn btn-primary" onclick="recordID()">Submit</button>
                 </form>

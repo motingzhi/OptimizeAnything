@@ -176,27 +176,6 @@ def checkForbiddenRegions(bad_solutions, proposed_solution): # +/- 5% of bad sol
     #   return False
   return True
 
-<<<<<<< Updated upstream
-
-def generate_initial_data(n_samples=n_sample):
-    # generate training data
-    train_x = draw_sobol_samples(
-        bounds=parameter_bounds_normalised, n=1, q=n_samples, seed=torch.randint(1000000, (1,)).item()
-    ).squeeze(0)
-    train_x = train_x.type(torch.DoubleTensor)
-    train_x_actual = torch.round(unnormalise_parameters(train_x))
-    # print("Initial solution: ", train_x_actual)
-    if (badSolutions != []):
-        while (checkForbiddenRegions(bad_solutions, train_x_actual) == False):
-            # print("Proposed solution in forbidden region")
-            train_x = draw_sobol_samples(
-                # bounds=problem_bounds, n=1, q=n_samples, seed=torch.randint(1000000, (1,)).item()
-                bounds=parameter_bounds_normalised, n=1, q=n_samples, seed=torch.randint(1000000, (1,)).item() #Might be the correct version
-            ).squeeze(0)
-            train_x = train_x.type(torch.DoubleTensor)
-            train_x_actual = unnormalise_parameters(train_x)
-    return train_x, train_x_actual
-=======
 # def checkRepeated(savedSolutions, proposed_solution): # +/- 5% of bad solution parameters  
 #   for i in range(int(len(savedSolutions)/num_parameters)):
 #     # print(proposed_solution[0][1])
@@ -310,7 +289,6 @@ train_x = torch.cat([train_x, new_x])
 train_x_actual = torch.cat([train_x_actual, new_x_actual])
 # train_obj = torch.cat([train_obj, new_obj])
 # train_obj_actual = torch.cat([train_obj_actual, new_obj_actual])
->>>>>>> Stashed changes
 
 message = "Necessary objects imported."
 success = True
@@ -320,12 +298,7 @@ reply2 = {}
 
 bad_solutions.append(currentSolutions[-1*num_parameters:])
 currentSolutions = []
-<<<<<<< Updated upstream
-train_x, train_x_actual = generate_initial_data()
-currentSolutions.append(train_x_actual.tolist())#和sample的数目保持一致 用户不能跳过
-=======
 currentSolutions.append(train_x_actual.tolist())
->>>>>>> Stashed changes
 reply2['solution'] = currentSolutions
 # reply['newSolution'] = newSolution[0]
 objectivesInput = objectivesInput[:-len(objectiveNames)]

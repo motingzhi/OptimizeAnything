@@ -53,10 +53,6 @@
 
 
 ?>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,22 +82,13 @@
         .bottom-bar {
             position: fixed;
             /* margin-top: 100px; */
-<<<<<<< Updated upstream
-            bottom: 20px;
-=======
             bottom: 0px;
->>>>>>> Stashed changes
             width: 100%;
             background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
             padding: 10px 0;
             /* box-shadow: none; */
              /* Shadow for the bottom bar */
-<<<<<<< Updated upstream
-
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
-=======
             box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
->>>>>>> Stashed changes
         }
 
         #loadingContainer {
@@ -130,13 +117,10 @@
             text-align: center;
             margin-top: 20px;
         }
-<<<<<<< Updated upstream
-=======
 
         /* .record-data {
             color: black;
         } */
->>>>>>> Stashed changes
     </style>
 </head>
 <body>
@@ -150,47 +134,30 @@
     </div>
     
     <div class="centered-content">
-<<<<<<< Updated upstream
-        <h2 style="margin-top: 20px;">What can you change? - Specify variables</h2>
-        <p><i>Describe each varible that you want to change. Examples: “destination distance”, “number of days” and "number of flight connections".</i></p>
-        
-        <h5 style="margin-bottom: 20px;"> Variables </h5>
-=======
         <h2 style="margin-top: 20px;">Specify variables</h2>
         <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p>
         <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
 
         <h5 style="margin-bottom: 20px;">Variables</h5>
->>>>>>> Stashed changes
         <table class="table table-bordered" id="parameter-table">
             <thead>  
                 <tr>  
                     <th id="record-parameter-name" width="40%"> Variable Name </th>   
-<<<<<<< Updated upstream
-=======
                     <th id="record-parameter-unit" width="40%"> Unit(if have) </th>   
->>>>>>> Stashed changes
                     <th id="record-parameter-lower-bound"> Minimum </th>  
                     <th id="record-parameter-upper-bound"> Maximum </th>  
                 </tr>  
             </thead>  
             <tbody>
                 <tr>
-<<<<<<< Updated upstream
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Destination distance (km)</td>
-=======
                     <td contenteditable="true" class="record-data" id="record-parameter-name">Destination distance</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit">km</td>
->>>>>>> Stashed changes
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">500</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
                 </tr>
                 <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">Number of days</td>
-<<<<<<< Updated upstream
-=======
                     <td contenteditable="true" class="record-data" id="record-parameter-unit">None</td>
->>>>>>> Stashed changes
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">3</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">14</td>
                 </tr>
@@ -213,46 +180,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  
     <script>
-<<<<<<< Updated upstream
-        window.onbeforeunload = function() {
-            localStorage.removeItem('parameters');
-        };
-        document.addEventListener('DOMContentLoaded', (event) => {
-            loadFormData();
-        });
-
-        function loadFormData() {
-            const table = document.getElementById('parameter-table').getElementsByTagName('tbody')[0];
-            const storedParameters = JSON.parse(localStorage.getItem('parameters'));
-
-            if (storedParameters) {
-                table.innerHTML = '';
-                storedParameters.forEach(row => {
-                    const newRow = table.insertRow();
-                    row.forEach((cellText, index) => {
-                        const newCell = newRow.insertCell(index);
-                        newCell.contentEditable = 'true';
-                        newCell.className = 'record-data';
-                        newCell.innerText = cellText;
-                    });
-                });
-            }
-        }
-        
-        function saveFormData() {
-            const table = document.getElementById('parameter-table').getElementsByTagName('tbody')[0];
-            const parameters = [];
-            for (let row of table.rows) {
-                const cells = [];
-                for (let cell of row.cells) {
-                    cells.push(cell.innerText);
-                }
-                parameters.push(cells);
-            }
-            localStorage.setItem('parameters', JSON.stringify(parameters));
-        }
-
-=======
         $(document).ready(function() {
             const firstCell = $('#parameter-table tbody tr:first td:first');
             firstCell.focus();
@@ -264,7 +191,6 @@
             });
         });
 
->>>>>>> Stashed changes
         function finishObjs() {
             saveFormData();
 
@@ -272,12 +198,6 @@
             var noError = true;
             var parameterNames = [];
             var parameterBounds = [];
-<<<<<<< Updated upstream
-            var objectiveNames = [];
-            var objectiveBounds = [];
-            var objectiveMinMax = [];
-=======
->>>>>>> Stashed changes
 
             var tableParam = $("#parameter-table tbody");
                 
@@ -297,15 +217,10 @@
                 else {
                     parameterNames.push(paramName+"/"+unit);
 
-<<<<<<< Updated upstream
-                var paramLowerBound = paramRowEntries[1];
-                var paramUpperBound = paramRowEntries[2];
-=======
                 }
 
                 var paramLowerBound = paramRowEntries[2];
                 var paramUpperBound = paramRowEntries[3];
->>>>>>> Stashed changes
                 var validLowerBound = (!isNaN(parseFloat(paramLowerBound)) && isFinite(paramLowerBound));
                 var validUpperBound = (!isNaN(parseFloat(paramUpperBound)) && isFinite(paramUpperBound));
 
@@ -323,33 +238,13 @@
                 }
             });
 
-<<<<<<< Updated upstream
-            // // Find all the objective names and bounds
-
-            console.log("objectiveMinMax",objectiveMinMax);
-
             if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
                 noError = false;
             }
-
-            // if (objectiveBounds.length != objectiveNames.length){
-            //     noError = false;
-            // }
-=======
-            if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
-                noError = false;
-            }
->>>>>>> Stashed changes
     
             if (noError){
                 localStorage.setItem("parameter-names", parameterNames);
                 localStorage.setItem("parameter-bounds", parameterBounds);
-<<<<<<< Updated upstream
-                // localStorage.setItem("objective-names", objectiveNames);
-                // localStorage.setItem("objective-bounds", objectiveBounds);
-                // localStorage.setItem("objective-min-max", objectiveMinMax);
-=======
->>>>>>> Stashed changes
     
                 $.ajax({
                 url: "./cgi/log-definitions_u.py",
@@ -361,26 +256,7 @@
                 // 显示 loading 动画和文字
                 $('#loadingContainer').show();
                 },
-<<<<<<< Updated upstream
-
-
                 success: function(result) {
-                    // var progressBar = $('#progressBar');
-                    // progressBar.empty();                    
-                    // submitReturned = true;
-                    console.log("Success");
-                    console.log(result.success)
-                    console.log("result.parameterNames.length");
-                    console.log(result.parameterNames.length)
-                    console.log("result.parameterBounds.length");
-                    console.log(result.parameterBounds.length)
-                    console.log(result.objectiveNames)
-                    console.log(result.objectiveBounds)
-                    //[Log] ["Cost ($)", "Satisfaction (%)", "Goal"] (3) (define.php, line 268)
-                    //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
-=======
-                success: function(result) {
->>>>>>> Stashed changes
                     var url = "define-2.php";
                     location.href = url;
                     $('#loadingContainer').hide();
@@ -388,14 +264,6 @@
                 error: function(result){
                     console.log("Error");
                 }
-<<<<<<< Updated upstream
-                // complete: function() {
-                // // 隐藏 loading 动画和文字
-                
-                // }
-
-=======
->>>>>>> Stashed changes
                 });
             }
             else {
@@ -414,31 +282,7 @@
             $("#parameter-table", window.document).append(htmlNewRow);  
         }
 
-<<<<<<< Updated upstream
-        function addDesignObjectivesTable(){
-            var htmlNewRow = ""
-            htmlNewRow += "<tr>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
-            htmlNewRow += "</td></tr>"
-            $("#objective-table", window.document).append(htmlNewRow);  
-        }
-        document.getElementById('parameter-table').addEventListener('input', saveFormData);
-        document.getElementById('parameter-table').addEventListener('change', saveFormData);
-=======
->>>>>>> Stashed changes
     </script>
     
     </body>
 </html>
-<<<<<<< Updated upstream
-
-
-
-
-
-
-=======
->>>>>>> Stashed changes

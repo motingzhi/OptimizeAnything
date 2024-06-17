@@ -28,22 +28,13 @@
         </div>
         <div class="container content">
 
-<<<<<<< Updated upstream
-            <p>AI will propose you solutions one at a time. You evaluate them and tell the AI. You can always propose solutions and steer the AI.</p>
-            <img src="Pictures/image.png" class="img-fluid"> <!-- Bootstrap responsive image class -->
-=======
             <!-- <p>AI will propose you solutions one at a time. You evaluate them and tell the AI. You can always propose solutions and steer the AI.</p> -->
             <img src="Pictures/image2.png" class="img-fluid"> <!-- Bootstrap responsive image class -->
->>>>>>> Stashed changes
             <br>
 
             <div class="text-right"> <!-- Bootstrap class for right alignment -->
                 <form action="tutorial.php">
-<<<<<<< Updated upstream
-                    <input type="submit" value="Tutorial" class="btn btn-success" style="width: 20%;"> <!-- Bootstrap button style -->
-=======
                     <input type="submit" value="Ready" class="btn btn-success" style="width: 20%;"> <!-- Bootstrap button style -->
->>>>>>> Stashed changes
                 </form>
             </div>
         </div>

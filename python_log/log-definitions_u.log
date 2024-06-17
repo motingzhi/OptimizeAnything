@@ -1,4 +1,5 @@
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/var/www/OptimiseAnything/cgi/log-definitions_u.py", line 114, in <module>
     reply['parameterNames'] = parameterNames
 NameError: name 'parameterNames' is not defined
@@ -21,4 +22,34 @@ NameError: name 'parameterNames' is not defined
 Traceback (most recent call last):
   File "/var/www/OptimiseAnything/cgi/log-definitions_u.py", line 114, in <module>
     reply['parameterNames'] = parameterNames
+=======
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/log-definitions_u.py", line 115, in <module>
+    reply['parameterNames'] = parameterNames
+                              ^^^^^^^^^^^^^^
+NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/log-definitions_u.py", line 115, in <module>
+    reply['parameterNames'] = parameterNames
+                              ^^^^^^^^^^^^^^
+NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/log-definitions_u.py", line 115, in <module>
+    reply['parameterNames'] = parameterNames
+                              ^^^^^^^^^^^^^^
+NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/log-definitions_u.py", line 115, in <module>
+    reply['parameterNames'] = parameterNames
+                              ^^^^^^^^^^^^^^
+NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/log-definitions_u.py", line 115, in <module>
+    reply['parameterNames'] = parameterNames
+                              ^^^^^^^^^^^^^^
+NameError: name 'parameterNames' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/log-definitions_u.py", line 115, in <module>
+    reply['parameterNames'] = parameterNames
+                              ^^^^^^^^^^^^^^
+>>>>>>> Stashed changes
 NameError: name 'parameterNames' is not defined

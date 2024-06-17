@@ -5,6 +5,7 @@ Traceback (most recent call last):
     raise KeyError(key)
 KeyError: 'parameter-names'
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/var/www/OptimiseAnything/cgi/newSolution_u.py", line 33, in <module>
     parameterNames = (formData['parameter-names'].value).split(',')
   File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
@@ -22,3 +23,1139 @@ Traceback (most recent call last):
   File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
     raise KeyError(key)
 KeyError: 'parameter-names'
+=======
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 230, in <module>
+    obj = [float(x) for x in objective_Measurements]
+                             ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'objective_Measurements' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 230, in <module>
+    obj = [float(x) for x in objective_Measurements]
+                             ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'objective_Measurements' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 230, in <module>
+    obj = [float(x) for x in objective_Measurements]
+                             ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'objective_Measurements' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 230, in <module>
+    obj = [float(x) for x in objective_Measurements]
+                             ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'objective_Measurements' is not defined
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 246, in <module>
+    solutionNameList.append(solutionName)
+                            ^^^^^^^^^^^^
+NameError: name 'solutionName' is not defined. Did you mean: 'solutionNameList'?
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 268, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 193, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 268, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 193, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 268, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 193, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 268, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 193, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 256, in <module>
+    savedSolutions.append(train_x_actual.tolist()[-1])
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 266, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 191, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 247, in <module>
+    train_obj_actual = torch.tensor(objectivesInput, dtype=torch.float64)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: must be real number, not NoneType
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 248, in <module>
+    train_obj_actual = torch.tensor(newobjectives, dtype=torch.float64)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: must be real number, not NoneType
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 248, in <module>
+    train_obj_actual = torch.tensor(newobjectives, dtype=torch.float64)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: must be real number, not NoneType
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 2]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 2]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 2]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 2]).
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 267, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 191, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 267, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 191, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 229, in <module>
+    currentSolutions = currentSolutions[:-len(num_parameters)]
+                                          ^^^^^^^^^^^^^^^^^^^
+TypeError: object of type 'int' has no len()
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 267, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 191, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 160, in __init__
+    train_Y, train_Yvar = outcome_transform(train_Y, train_Yvar)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/transforms/outcome.py", line 304, in forward
+    stdvs = Y.std(dim=-2, keepdim=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: Dimension out of range (expected to be in range of [-1, 0], but got -2)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 5]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 5]).
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 244, in <module>
+    objectivesInput.append(1000,20)
+TypeError: list.append() takes exactly one argument (2 given)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 5]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 5]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 2]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 2]).
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 267, in <module>
+    mll, model = initialize_model(train_x, train_obj)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u.py", line 191, in initialize_model
+    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gp_regression.py", line 161, in __init__
+    self._validate_tensor_args(X=transformed_X, Y=train_Y, Yvar=train_Yvar)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 97, in _validate_tensor_args
+    raise BotorchTensorDimensionError(message)
+botorch.exceptions.errors.BotorchTensorDimensionError: Expected X and Y to have the same number of dimensions (got X with dimension 1 and Y with dimension 2).
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 221, in <module>
+    sys.stdout.write(json.dumps(reply,indent=1))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Tensor is not JSON serializable
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 199, in <module>
+    train_x, train_x_actual = generate_initial_data()
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 178, in generate_initial_data
+    train_x_actual = torch.round(unnormalise_parameters(train_x))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 134, in unnormalise_parameters
+    for x in range():
+             ^^^^^^^
+TypeError: range expected at least 1 argument, got 0
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 199, in <module>
+    train_x, train_x_actual = generate_initial_data()
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 178, in generate_initial_data
+    train_x_actual = torch.round(unnormalise_parameters(train_x))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 134, in unnormalise_parameters
+    for x in range():
+             ^^^^^^^
+TypeError: range expected at least 1 argument, got 0
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 199, in <module>
+    train_x, train_x_actual = generate_initial_data()
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 178, in generate_initial_data
+    train_x_actual = torch.round(unnormalise_parameters(train_x))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 136, in unnormalise_parameters
+    x_actual[x][i] = x_tensor[0][i]*(x_bounds[1][i] - x_bounds[0][i]) + x_bounds[0][i]
+    ~~~~~~~~^^^
+IndexError: index 1 is out of bounds for dimension 0 with size 1
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 199, in <module>
+    train_x, train_x_actual = generate_initial_data()
+                              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 178, in generate_initial_data
+    train_x_actual = torch.round(unnormalise_parameters(train_x))
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_copy.py", line 136, in unnormalise_parameters
+    x_actual[x][i] = x_tensor[x][i]*(x_bounds[1][i] - x_bounds[0][i]) + x_bounds[0][i]
+    ~~~~~~~~^^^
+IndexError: index 1 is out of bounds for dimension 0 with size 1
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 148, in <module>
+    savedSolutions.append(currentSolutions[len(savedObjectives)/len(objectiveNames)-1])
+                          ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not float
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 8]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 8]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 8]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 8]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 8]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 8]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 8]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 8]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 8]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 8]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 10]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 10]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 11]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 11]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 11]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 11]).
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+    train_labels = train_labels.reshape(
+                   ^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[2, 8]' is invalid for input of size 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 280, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/newSolution_u.py", line 206, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+                    ^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+                 ^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+    posterior = self.model.posterior(X)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+    mvn = self(X)
+          ^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+    self.prediction_strategy = prediction_strategy(
+                               ^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+    return cls(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+    return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+    return exact_prediction_strategies.DefaultPredictionStrategy(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+    raise RuntimeError(
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 8]).
+>>>>>>> Stashed changes

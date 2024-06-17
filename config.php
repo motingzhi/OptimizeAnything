@@ -35,4 +35,8 @@ $client->addScope("profile");
 //     die("Connection failed: " . $conn->connect_error);
 // }
 // echo "Connected successfully";
+<<<<<<< Updated upstream
 // ?>
+=======
+// ?>
+>>>>>>> Stashed changes

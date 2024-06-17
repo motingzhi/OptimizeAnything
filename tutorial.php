@@ -42,7 +42,11 @@
     <div class="top-bar">
         <div class="container d-flex justify-content-between align-items-center">
             <h1>Onboarding tutorial</h1>
+<<<<<<< Updated upstream
             <button class="btn btn-outline-primary">Skip</button>
+=======
+            <a href="define.php" class="btn btn-outline-primary">Skip</a>
+>>>>>>> Stashed changes
         </div>
     </div>
     <div class="container content">

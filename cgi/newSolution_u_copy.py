@@ -38,7 +38,7 @@ reply2 = {}
 
 # Define the log file path
 log_file_folder = "../python_log"
-log_file_path = os.path.join(log_file_folder, "newSolution2.log")
+log_file_path = os.path.join(log_file_folder, "newSolution4.log")
 
 # Create the log file directory if it doesn't exist
 os.makedirs(log_file_folder, exist_ok=True)
@@ -80,18 +80,14 @@ try:
     objectivesInput = (formData['objectives-input'].value).split(',')
 except:
     objectivesInput = []
-
 try:
     solutionNameList = (formData['solution-name-list'].value).split(',')
 except:
     solutionNameList = []
 
-<<<<<<< Updated upstream
 # newSolution = (formData['new-solution'].value).split(',')
 # nextEvaluation = (formData['next-evaluation'].value).split(',')
 # refineSolution = (formData['refine-solution'].value).split(',')
-=======
->>>>>>> Stashed changes
 
 try:
     solutionName = (formData['solution-name'].value).split(',')
@@ -131,7 +127,7 @@ objective_bounds = torch.zeros(2,len(objectiveNames))
 for i in range (len(objectiveNames)):
     objective_bounds[0][i] = float(objectiveBounds[2*i])
     objective_bounds[1][i] = float(objectiveBounds[2*i + 1])
-######
+######自己加的
     
 def unnormalise_parameters(x_tensor, x_bounds = parameter_bounds):
     x_actual = torch.zeros(n_sample, num_parameters)#生成n_sample个train_x_actual和
@@ -139,14 +135,6 @@ def unnormalise_parameters(x_tensor, x_bounds = parameter_bounds):
         for i in range(num_parameters):
             x_actual[x][i] = x_tensor[x][i]*(x_bounds[1][i] - x_bounds[0][i]) + x_bounds[0][i]
     return x_actual
-
-
-def normalise_parameters(x_tensor, x_bounds = parameter_bounds):
-    x_norm = torch.zeros(x_tensor.size(), dtype=torch.float64)
-    for j in range(x_tensor.size()[0]): # TESTING INDEX ERROR
-        for i in range(x_tensor.size()[1]):
-            x_norm[j][i] = (x_tensor[j][i] - x_bounds[0][i])/(x_bounds[1][i] - x_bounds[0][i]) 
-    return x_norm
 
 def normalise_objectives(obj_tensor_actual):
     objectives_min_max = objectiveMinMax
@@ -180,7 +168,6 @@ def checkForbiddenRegions(bad_solutions, proposed_solution): # +/- 5% of bad sol
     #   return False
   return True
 
-<<<<<<< Updated upstream
 
 def generate_initial_data(n_samples=n_sample):
     # generate training data
@@ -200,121 +187,6 @@ def generate_initial_data(n_samples=n_sample):
             train_x = train_x.type(torch.DoubleTensor)
             train_x_actual = unnormalise_parameters(train_x)
     return train_x, train_x_actual
-=======
-# def checkRepeated(savedSolutions, proposed_solution): # +/- 5% of bad solution parameters  
-#   for i in range(int(len(savedSolutions)/num_parameters)):
-#     # print(proposed_solution[0][1])
-#     # print(bad_solutions[i][0])
-#     for y in range(len(parameterNames)):
-#         if (proposed_solution[0][y]) < float(savedSolutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(savedSolutions[i][0])-parameter_bounds_range[0]*0.05:
-#             if y == len(parameterNames)-1:
-#                 return False
-#             else:
-#                 return True
-#         else:
-#             break   
-#   return True
-
-def initialize_model(train_x, train_obj):
-    # define models for objective and constraint
-    model = SingleTaskGP(train_x, train_obj, outcome_transform=Standardize(m=train_obj.shape[-1]))
-    mll = ExactMarginalLogLikelihood(model.likelihood, model)
-    return mll, model
-
-def optimize_qehvi(model, train_obj, sampler, parameter_bounds=parameter_bounds):
-    """Optimizes the qEHVI acquisition function, and returns a new candidate and observation."""
-    # partition non-dominated space into disjoint rectangles
-    partitioning = NondominatedPartitioning(ref_point=obj_ref_point, Y=train_obj)
-    acq_func = qExpectedHypervolumeImprovement(
-        model=model,
-        ref_point=obj_ref_point.tolist(),  # use known reference point
-        partitioning=partitioning,
-        sampler=sampler,
-    )
-    # optimize
-    candidates, _ = optimize_acqf(
-        acq_function=acq_func,
-        bounds=parameter_bounds_normalised,
-        q=BATCH_SIZE,
-        num_restarts=NUM_RESTARTS,
-        raw_samples=RAW_SAMPLES,  # used for intialization heuristic
-        options={"batch_limit": 5, "maxiter": 200, "nonnegative": True},
-        sequential=True,
-    )
-    # observe new values
-    new_x =  unnormalize(candidates.detach(), bounds=parameter_bounds_normalised)
-    new_x_actual = unnormalise_parameters(new_x, parameter_bounds)
-
-    if (badSolutions != []):
-        while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
-            new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
-            new_x = normalise_objectives(new_x_actual)
-    # while (checkRepeated(bad_solutions, new_x_actual) == False):
-    #     new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
-    #     new_x = normalise_objectives(new_x_actual)
-    return new_x, new_x_actual
-
-# obj = [float(x) for x in objective_Measurements]
-# currentSolutions = currentSolutions[:-num_parameters]
-obj = [1000,30]
-for i in range(len(currentSolutions)):
-    currentSolutions[i] = float(currentSolutions[i])
-
-# train_obj_actual = torch.tensor([[obj1, obj2]], dtype=torch.float64)
-if (len(objectivesInput) != 0):
-    objectivesInputPlaceholder = []
-    for i in range(int(len(objectivesInput)/len(objectiveNames))):
-            sub_list = [float(x) for x in objectivesInput[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
-            objectivesInputPlaceholder.append(sub_list)
-        # objectivesInputPlaceholder.append([float(objectivesInput[2*i]), float(objectivesInput[2*i+1]),float(objectivesInput[2*i+2])])
-    objectivesInput = objectivesInputPlaceholder
-# objectivesInput.append([None] * len(objectiveNames) )
-savedObjectives.append(obj)
-objectivesInput.append(obj)
-
-# solutionNameList.append(solutionName)
-
-
-train_obj_actual = torch.tensor(objectivesInput, dtype=torch.float64)
-train_obj = normalise_objectives(train_obj_actual)
-parametersPlaceholder = []
-for i in range(int(len(currentSolutions)/num_parameters)):
-    parametersPlaceholder.append(currentSolutions[i*num_parameters:i*num_parameters+num_parameters])
-train_x_actual = torch.tensor(parametersPlaceholder, dtype=torch.float64)
-# savedSolutions.append(train_x_actual.tolist()[-1])
-# train_x_actual = torch.zeros(1,num_parameters, dtype=torch.float64)
-# for i in range(1, num_parameters+1):
-#     train_x_actual[0][-1*i] = float(currentSolutions[-1*i])
-train_x = normalise_parameters(train_x_actual)
-
-torch.manual_seed(SEED)
-
-hv = Hypervolume(ref_point=obj_ref_point)
-# Hypervolumes
-hvs_qehvi = []
-# Initialize GP models
-mll, model = initialize_model(train_x, train_obj)
-# Compute Pareto front and hypervolume
-pareto_mask = is_non_dominated(train_obj)
-pareto_y = train_obj[pareto_mask]
-volume = hv.compute(pareto_y)
-hvs_qehvi.append(volume)
-
-# Fit Models
-fit_gpytorch_model(mll)
-# Define qEI acquisition modules using QMC sampler
-qehvi_sampler = SobolQMCNormalSampler(sample_shape=torch.Size([MC_SAMPLES]))
-# qehvi_sampler = SobolQMCNormalSampler(num_samples=MC_SAMPLES) #original
-# Optimize acquisition functions and get new observations
-new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
-new_x_actual = torch.round(new_x_actual)
-
-# Update training points
-train_x = torch.cat([train_x, new_x])
-train_x_actual = torch.cat([train_x_actual, new_x_actual])
-# train_obj = torch.cat([train_obj, new_obj])
-# train_obj_actual = torch.cat([train_obj_actual, new_obj_actual])
->>>>>>> Stashed changes
 
 message = "Necessary objects imported."
 success = True
@@ -324,17 +196,10 @@ reply2 = {}
 
 bad_solutions.append(currentSolutions[-1*num_parameters:])
 currentSolutions = []
-<<<<<<< Updated upstream
 train_x, train_x_actual = generate_initial_data()
 currentSolutions.append(train_x_actual.tolist())#和sample的数目保持一致 用户不能跳过
-=======
-currentSolutions.append(train_x_actual.tolist())
->>>>>>> Stashed changes
 reply2['solution'] = currentSolutions
 # reply['newSolution'] = newSolution[0]
-objectivesInput = objectivesInput[:-len(objectiveNames)]
-savedObjectives = savedObjectives[:-len(objectiveNames)]
-
 reply2['objectives'] = objectivesInput
 reply2['bad_solutions'] = bad_solutions
 reply2['saved_solutions'] = savedSolutions
@@ -361,6 +226,5 @@ sys.stdout.write("\n")
 # Close the log file
 sys.stdout.close()
 sys.stderr.close() 
-
 
 

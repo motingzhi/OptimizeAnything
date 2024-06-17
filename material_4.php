@@ -9,11 +9,22 @@
 </head>
 <body>
     <div class="container mt-4">
+<<<<<<< Updated upstream
         <h1>4. Get results: </h1><br>
         <!-- <p>Evaluate alternatives proposed by AI with objectives you defined, until you find the optimal one.</p> -->
        
         <div class="text-center mb-4">
             <img src="Pictures/4.gif" alt="Specify objectives" class="img-fluid">
+=======
+        <p><strong>4. Get results:</strong></p>
+        <br>
+        <br>
+        <br> 
+        <!-- <p>Evaluate alternatives proposed by AI with objectives you defined, until you find the optimal one.</p> -->
+       
+        <div class="text-center mb-4">
+            <img src="Pictures/result.gif" alt="Specify objectives" class="img-fluid">
+>>>>>>> Stashed changes
         </div>
         
         <!-- Navigation Buttons -->

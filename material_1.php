@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container mt-4">
+<<<<<<< Updated upstream
         <h1>1. Specify variables</h1><br>
         <p>An example below show how to optimize the design of car material:</p>
         <p>First add variables that are necessary for material design, which are values that you can change.</p>
@@ -16,12 +17,28 @@
         <!-- Placeholder for the GIF image -->
         <div class="text-center mb-4">
             <img src="Pictures/1.gif" alt="Specify variables" class="img-fluid">
+=======
+        <h2>Let us learn how to use this service.</h2><br>
+        <p><strong>1. Specify variables:</strong> You will need to add variables into the form.</p>
+        <br>
+        <br>
+        <br>
+
+        
+        <!-- Placeholder for the GIF image -->
+        <div class="text-center mb-4">
+            <img src="Pictures/varible.gif" alt="Specify variables" class="img-fluid">
+>>>>>>> Stashed changes
         </div>
         
         <!-- Navigation Buttons -->
         <div class="row">
             <div class="col text-left">
+<<<<<<< Updated upstream
                 <a href="tutorial.php" class="btn btn-outline-primary">Previous</a>
+=======
+                <a href="tutorial_1.php" class="btn btn-outline-primary">Previous</a>
+>>>>>>> Stashed changes
             </div>
             <div class="col text-right">
                 <a href="material_2.php" class="btn btn-primary">Next</a>

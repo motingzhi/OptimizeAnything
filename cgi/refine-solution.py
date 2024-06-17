@@ -1,4 +1,5 @@
-#!/usr/bin/python3 
+#!/usr/local/bin/python3
+#/usr/bin/python3 
 
 import sys
 # import logging
@@ -99,6 +100,10 @@ try:
     # obj_measurements = float((formData['objective-measurements'].value))
 except:
     pass
+try:
+    solutionNameList = (formData['solution-name-list'].value).split(',')
+except:
+    solutionNameList = []
 
 num_parameters = len(parameterNames)
 parameter_bounds = torch.zeros(2, num_parameters)
@@ -150,26 +155,26 @@ def normalise_objectives(obj_tensor_actual):
                 obj_tensor_norm[j][i] =  2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) - 1
     return obj_tensor_norm
 
-
 def checkForbiddenRegions(bad_solutions, proposed_solution): # +/- 5% of bad solution parameters  
   for i in range(int(len(badSolutions)/num_parameters)):
-    # print(proposed_solution[0][1])
-    # print(bad_solutions[i][0])
     for y in range(len(parameterNames)):
         if (proposed_solution[0][y]) < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05:
             return True
-        if y == len(parameterNames):
-            return False
-        else:
             break   
-    # if (proposed_solution[0][0] < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 
-    #     and proposed_solution[0][0] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05 
-    #     and proposed_solution[0][1] < float(bad_solutions[i][1])+parameter_bounds_range[1]*0.05 
-    #     and proposed_solution[0][1] > float(bad_solutions[i][1])-parameter_bounds_range[1]*0.05):
-    #   return False
-    # if (proposed_solution[0][0] < float(bad_solutions[i][0])*1.05 and proposed_solution[0][0] > float(bad_solutions[i][0])*0.95 and proposed_solution[0][1] < float(bad_solutions[i][1])*1.05 and proposed_solution[0][1] > float(bad_solutions[i][1])*0.95):
-    #   return False
-  return True
+  return False
+##我觉得checkForbiddenRegions可能写错了。
+# def checkForbiddenRegions(bad_solutions, proposed_solution): # +/- 5% of bad solution parameters  
+#   for i in range(int(len(badSolutions)/num_parameters)):
+#     # print(proposed_solution[0][1])
+#     # print(bad_solutions[i][0])
+#     for y in range(len(parameterNames)):
+#         if (proposed_solution[0][y]) < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05:
+#             return True
+#         if y == len(parameterNames):
+#             return False
+#         else:
+#             break   
+#   return True
 
 def unnormalise_parameters(x_tensor, x_bounds = parameter_bounds):
     x_actual = torch.zeros(1, num_parameters)
@@ -225,17 +230,21 @@ for i in range(len(currentSolutions)):
 if (len(objectivesInput) != 0):
     objectivesInputPlaceholder = []
     for i in range(int(len(objectivesInput)/len(objectiveNames))):
-            sub_list = [float(x) for x in objectivesInput[2*i:2*i+len(objectiveNames)]]
+            sub_list = [float(x) for x in objectivesInput[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
             objectivesInputPlaceholder.append(sub_list)
+        # objectivesInputPlaceholder.append([float(objectivesInput[2*i]), float(objectivesInput[2*i+1]),float(objectivesInput[2*i+2])])
     objectivesInput = objectivesInputPlaceholder
 objectivesInput.append(obj)
 savedObjectives.append(obj)
+
+solutionNameList.append(solutionName)
+
 train_obj_actual = torch.tensor(objectivesInput, dtype=torch.float64)
 train_obj = normalise_objectives(train_obj_actual)
 
 parametersPlaceholder = []
-for i in range(int(len(currentSolutions)/num_parameters)):
-    parametersPlaceholder.append(currentSolutions[i*num_parameters:i*num_parameters+num_parameters])
+m = int(len(currentSolutions)/num_parameters)-1
+parametersPlaceholder.append(currentSolutions[m*num_parameters:m*num_parameters+num_parameters]) 
 train_x_actual = torch.tensor(parametersPlaceholder, dtype=torch.float64)
 savedSolutions.append(train_x_actual.tolist()[-1])
 
@@ -290,14 +299,13 @@ reply2['solution_normalised'] = train_x.tolist()
 reply2['bad_solutions'] = bad_solutions
 reply2['saved_solutions'] = savedSolutions
 reply2['saved_objectives'] = savedObjectives
-tester = 4
+reply2['solutionNameList'] = solutionNameList
 
 
 
 reply = {}
 reply['success'] = success
 reply['message'] = message
-reply['tester'] = tester
 reply['parameterNames']= parameterNames
 reply.update(reply2)
 

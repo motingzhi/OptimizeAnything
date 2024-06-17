@@ -9,11 +9,21 @@
 </head>
 <body>
     <div class="container mt-4">
+<<<<<<< Updated upstream
         <h1>3. Start optimization process</h1><br>
         <p>Evaluate alternatives proposed by AI with objectives you defined, until you find the optimal one.</p>
        
         <div class="text-center mb-4">
             <img src="Pictures/3.gif" alt="Specify objectives" class="img-fluid">
+=======
+        <p><strong>3. Start optimization process:</strong> Evaluate alternatives proposed by AI with objectives you defined, until you find the optimal one</p>
+        <br>
+        <br>
+        <br> 
+       
+        <div class="text-center mb-4">
+            <img src="Pictures/optimize.gif" alt="Specify objectives" class="img-fluid">
+>>>>>>> Stashed changes
         </div>
         
         <!-- Navigation Buttons -->

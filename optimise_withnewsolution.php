@@ -111,24 +111,11 @@
     </div>
     <br>
     <div id="evaluate-solution" style="display: none;">
-        <label for="solution_name">Solution name: </label>
+        <label for="solution_name">Name the alternative: </label>
         <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
 
 
-        <!-- 原有的用来显示measurement的代码  -->
-
-        <!-- <label for="obj1" class="objective_1_name"></label>
-        <input size="30" type="text" id="obj1" name="obj1" placeholder="Enter measurement"><br>
-        <label for="obj2" class="objective_2_name"></label>
-        <input size="30" type="text" id="obj2" name="obj2" placeholder="Enter measurement"><br>
-        <br> -->
-
-        <!-- 原有的用来显示measurement的代码  -->
-
-
-
-        <!-- 我新加的 -->
 
         <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
             <!-- <thead>  
@@ -162,14 +149,20 @@
     </div>
 
     <div id="form-options-2" style="display: inline-block; margin: 0 auto;">
-            <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
+            <button class="btn btn-success" id="submit-button">Submit</button>
     </div>
 
 
     <br>
-    <div id="done-button" class="btn btn-success" style="text-align: right;">
+    <!-- <div id="done-button" class="btn btn-success" style="text-align: right;">
         <button class="button" id="done" onclick="finishSolutions()">I'm done</button>    
-    </div>
+    </div> -->
+
+
+
+
+
+
 
     <div id="loadingContainer">
     <div id="loadingIcon"></div>
@@ -178,6 +171,13 @@
 
     </div>
     </div>
+
+    <div id="done-button" class="bottom-bar">
+        <div id="done-button" class="container text-right">
+            <button class="btn btn-success" id="done" style="width: 20%;" onclick="finishSolutions()">I'm done</button>
+        </div>
+    </div>
+
     </div>
 
     <script>
@@ -191,7 +191,8 @@
         var solutionList = localStorage.getItem("solution-list").split(",");
         var savedSolutions = localStorage.getItem("saved-solutions").split(",");
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
-        
+        var generatedsolutionList = [];
+
         try {
         var objectiveMeasurements = localStorage.getItem("objective-Measurements").split(",");
         } catch (err) {
@@ -209,6 +210,8 @@
 
         try {var solutionNameList = localStorage.getItem("solution-name-list").split(",");}
         catch(err) {}
+
+        console.log("initial")
 
         console.log("parameterNames",parameterNames)
         console.log("parameterBounds",parameterBounds)
@@ -229,13 +232,13 @@
 
 	
 	var displayDiv = document.getElementById("dataDisplay");
-        displayDiv.innerHTML =  "You have evaluated " + parseInt(savedSolutions.length/parameterNames.length) + " solutions." + "<br>";
+        displayDiv.innerHTML =  "You have evaluated " + parseInt(savedSolutions.length/parameterNames.length) + " alternatives." + "<br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
-    RequirementDisplay.innerHTML =  "Let AI suggest solutions with you. Please evaluate at least " + parseInt(2*(parameterNames.length+1)) + " solutions to proceed." + "<br>";
+    RequirementDisplay.innerHTML =  "Let AI suggest alternatives of solutions with you. Please evaluate at least " + parseInt(2*(parameterNames.length+1)) + " alternatives to proceed. After you see Done button, you can choose to continue or finish." + "<br>";
 
 
-    if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)
+    if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
     {
         var x = document.getElementById('evaluate-solution');
         var y = document.getElementById('options')
@@ -267,17 +270,33 @@
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
     }
-else{
-    var x = document.getElementById('evaluate-solution');
-        var y = document.getElementById('options')
-        var z = document.getElementById('form-options-2')
-        var z2 = document.getElementById('form-options-1')
+    else{
+        var x = document.getElementById('evaluate-solution');
+            var y = document.getElementById('options')
+            var z = document.getElementById('form-options-2')
+            var z2 = document.getElementById('form-options-1')
 
-    x.style.display = 'none';
-    z.style.display = 'none';
-    z2.style.display = 'none';
+        x.style.display = 'none';
+        z.style.display = 'none';
+        z2.style.display = 'none';
 
-}
+    }
+
+    document.getElementById('submit-button').addEventListener('click', function() {
+            var savedSolutionsLength = savedSolutions.length;
+            var parameterNamesLength = parameterNames.length;
+            var condition1 = savedSolutionsLength / parameterNamesLength < 2 * (parameterNamesLength + 1) - 1;
+            var condition2 = savedSolutionsLength / parameterNamesLength == 2 * (parameterNamesLength + 1) - 1;
+
+            if (condition1) {
+                nextEvaluation2();
+            } else if (condition2) {
+                nextEvaluation();
+            } 
+            // else {
+            //     console.log('Conditions not met');
+            // }
+        });
 
 
       var solutionsevaulted = parseInt(savedSolutions.length/parameterNames.length);
@@ -301,7 +320,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             }
         }
 
-        console.log(generatedSolution);
+        // console.log(generatedSolution);
 
         // 获取要填充数据的 <ul> 元素
         var generatedSolutionUI = document.getElementById("generatedSolution");
@@ -318,7 +337,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
     if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
 {
         for (var i = 0; i<parameterNames.length; i++) {
-            generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];
+            generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];//取最后一个solution
         }
 
         console.log(generatedSolution);
@@ -369,6 +388,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             solutionName = "";
 
             //console.log("Sending AJAX request to server...");
+            console.log("newSolutions：")
             console.log("objectiveMeasurements",objectiveMeasurements)
                 console.log("parameterNames",parameterNames)
                 console.log("parameterBounds",parameterBounds)
@@ -389,7 +409,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
 
             $.ajax({
-                url: "./cgi/newSolution_u.py",
+                url: "./cgi/newSolution_u_2.py",
 
                 type: "post",
                 datatype: "json",
@@ -434,9 +454,12 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     localStorage.setItem("saved-objectives", savedObjectives);
                     console.log("Success-newSolution_Reply_list_ends");
                     var url = "optimise_withnewsolution.php";
-                    location.href = url;
-		    $('#loadingContainer').hide();
-
+                    // location.href = url;
+                    $('#loadingContainer').hide();
+                    // var url = "optimise_withnewsolution.php";
+                    setTimeout(function() {
+                        location.href = url;
+                    }, 10)
             
                 },
                 error: function(result){

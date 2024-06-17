@@ -7,17 +7,20 @@ require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prolificID = $_POST['Prolific'];
+    $solutionlist = ''; // 默认值
+    $savedsolutions = ''; // 默认值
+    $savedobjectives = ''; // 默认值
 
     if (empty($prolificID)) {
         die("Prolific ID is required");
     }
 
-    $stmt = $conn->prepare("INSERT INTO data (ID) VALUES (?)");
+    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives) VALUES (?, ?, ?, ?)");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("s", $prolificID);
+    $stmt->bind_param("ssss", $prolificID, $solutionlist, $savedsolutions, $savedobjectives);
     if ($stmt->execute()) {
         echo "New record created successfully";
     } else {
@@ -28,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
 
 <!-- <!DOCTYPE html>
 <html lang="en">

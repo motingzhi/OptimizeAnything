@@ -1,12 +1,23 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prolificID = $_POST['Prolific'];
 
-    $stmt = $conn->prepare("INSERT INTO data (ID) VALUES (?)");
-    $stmt->bind_param("s", $prolificID);
+    if (empty($prolificID)) {
+        die("Prolific ID is required");
+    }
 
+    $stmt = $conn->prepare("INSERT INTO data (ID) VALUES (?)");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("s", $prolificID);
     if ($stmt->execute()) {
         echo "New record created successfully";
     } else {
@@ -17,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
 <!-- <!DOCTYPE html>
 <html lang="en">

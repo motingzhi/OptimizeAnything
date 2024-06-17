@@ -1,4 +1,23 @@
 
+<?php
+require_once 'config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $prolificID = $_POST['Prolific'];
+
+    $stmt = $conn->prepare("INSERT INTO data (ID) VALUES (?)");
+    $stmt->bind_param("s", $prolificID);
+
+    if ($stmt->execute()) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

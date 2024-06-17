@@ -1,4 +1,4 @@
-#!/usr/bin/python3 
+#/usr/bin/python3 
 import sys
 # import logging
 import os
@@ -155,39 +155,14 @@ def normalise_objectives(obj_tensor_actual):
                 obj_tensor_norm[j][i] =  2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) - 1
     return obj_tensor_norm
 
-def checkRepeated(savedSolutions, proposed_solution): # +/- 5% of bad solution parameters  
-  for i in range(int(len(savedSolutions)/num_parameters)):
-    # print(proposed_solution[0][1])
-    # print(bad_solutions[i][0])
-    for y in range(len(parameterNames)):
-        if (proposed_solution[0][y]) < float(savedSolutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(savedSolutions[i][0])-parameter_bounds_range[0]*0.05:
-            if y == len(parameterNames)-1:
-                return False
-            else:
-                return True
-        else:
-            break   
-  return True
 
 def checkForbiddenRegions(bad_solutions, proposed_solution): # +/- 5% of bad solution parameters  
   for i in range(int(len(badSolutions)/num_parameters)):
-    # print(proposed_solution[0][1])
-    # print(bad_solutions[i][0])
     for y in range(len(parameterNames)):
         if (proposed_solution[0][y]) < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05:
             return True
-        if y == len(parameterNames):
-            return False
-        else:
             break   
-    # if (proposed_solution[0][0] < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 
-    #     and proposed_solution[0][0] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05 
-    #     and proposed_solution[0][1] < float(bad_solutions[i][1])+parameter_bounds_range[1]*0.05 
-    #     and proposed_solution[0][1] > float(bad_solutions[i][1])-parameter_bounds_range[1]*0.05):
-    #   return False
-    # if (proposed_solution[0][0] < float(bad_solutions[i][0])*1.05 and proposed_solution[0][0] > float(bad_solutions[i][0])*0.95 and proposed_solution[0][1] < float(bad_solutions[i][1])*1.05 and proposed_solution[0][1] > float(bad_solutions[i][1])*0.95):
-    #   return False
-  return True
+  return False
 
 
 def initialize_model(train_x, train_obj):
@@ -196,11 +171,11 @@ def initialize_model(train_x, train_obj):
     mll = ExactMarginalLogLikelihood(model.likelihood, model)
     return mll, model
 
-
+# tester9 = True
 def optimize_qehvi(model, train_obj, sampler, parameter_bounds=parameter_bounds):
     """Optimizes the qEHVI acquisition function, and returns a new candidate and observation."""
     # partition non-dominated space into disjoint rectangles
-    partitioning = NondominatedPartitioning(ref_point=obj_ref_point, Y=train_obj)
+    partitioning = NondominatedPartitioning(ref_point=obj_ref_point, Y=train_obj)#和Pareto前沿有关
     acq_func = qExpectedHypervolumeImprovement(
         model=model,
         ref_point=obj_ref_point.tolist(),  # use known reference point
@@ -221,13 +196,13 @@ def optimize_qehvi(model, train_obj, sampler, parameter_bounds=parameter_bounds)
     new_x =  unnormalize(candidates.detach(), bounds=parameter_bounds_normalised)
     new_x_actual = unnormalise_parameters(new_x, parameter_bounds)
 
-    if (badSolutions != []):
-        while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
-            new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
-            new_x = normalise_objectives(new_x_actual)
-    while (checkRepeated(bad_solutions, new_x_actual) == False):
-        new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
-        new_x = normalise_objectives(new_x_actual)
+    # if (badSolutions != []):
+    #     while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
+    #         new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
+    #         new_x = normalise_objectives(new_x_actual)
+    # while (checkRepeated(bad_solutions, new_x_actual) == False):
+    #     new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
+    #     new_x = normalise_objectives(new_x_actual)
     return new_x, new_x_actual
 
 
@@ -235,9 +210,14 @@ def optimize_qehvi(model, train_obj, sampler, parameter_bounds=parameter_bounds)
 obj = [float(x) for x in objective_Measurements]
 # logging.debug(obj)
 
+
 for i in range(len(currentSolutions)):
     currentSolutions[i] = float(currentSolutions[i])
 
+for i in range(len(savedSolutions)):
+    savedSolutions[i] = float(savedSolutions[i])
+
+#处理objective
 # train_obj_actual = torch.tensor([[obj1, obj2]], dtype=torch.float64)
 if (len(objectivesInput) != 0):
     objectivesInputPlaceholder = []
@@ -246,18 +226,44 @@ if (len(objectivesInput) != 0):
             objectivesInputPlaceholder.append(sub_list)
         # objectivesInputPlaceholder.append([float(objectivesInput[2*i]), float(objectivesInput[2*i+1]),float(objectivesInput[2*i+2])])
     objectivesInput = objectivesInputPlaceholder
+
+if len(savedSolutions)/len(parameterNames) >= 2*(len(parameterNames)+1):
+    objectivesInput = []
+
 objectivesInput.append(obj)
 savedObjectives.append(obj)
 
 solutionNameList.append(solutionName)
 
+# objectivesInput = [(333,33,33)]
 
 train_obj_actual = torch.tensor(objectivesInput, dtype=torch.float64)
 train_obj = normalise_objectives(train_obj_actual)
 
+# parametersPlaceholder = []
+# if len(savedSolutions)/len(parameterNames) <= 2*(len(parameterNames)+1):
+#     for i in range(int(len(savedSolutions)/num_parameters)):
+#         parametersPlaceholder.append(savedSolutions[i*num_parameters:i*num_parameters+num_parameters])
+# m = int(len(currentSolutions)/num_parameters)-1
+# parametersPlaceholder.append(currentSolutions[m*num_parameters:m*num_parameters+num_parameters]) #搞清用作训练的到底是current solutions里的哪些。
+
+
 parametersPlaceholder = []
-for i in range(int(len(currentSolutions)/num_parameters)):
-    parametersPlaceholder.append(currentSolutions[i*num_parameters:i*num_parameters+num_parameters])
+
+if len(savedSolutions)/len(parameterNames) < 2*(len(parameterNames)+1):
+    for i in range(int(len(currentSolutions)/num_parameters)):
+        parametersPlaceholder.append(currentSolutions[i*num_parameters:i*num_parameters+num_parameters]) #切片[2:4] 是 2，3，
+        # parametersPlaceholder.append(currentSolutions[m*num_parameters:m*num_parameters+num_parameters]) #搞清用作训练的到底是current solutions里的哪些。
+else:
+        parametersPlaceholder.append(currentSolutions[-num_parameters:])
+        # parametersPlaceholder.append([121,2])
+
+#搞清用作训练的到底是current solutions里的哪些。
+
+
+
+
+ #搞清用作训练的到底是current solutions里的哪些,是最后一个，还是全部
 train_x_actual = torch.tensor(parametersPlaceholder, dtype=torch.float64)
 savedSolutions.append(train_x_actual.tolist()[-1])
 # train_x_actual = torch.zeros(1,num_parameters, dtype=torch.float64)
@@ -305,12 +311,10 @@ reply2['saved_solutions'] = savedSolutions
 reply2['saved_objectives'] = savedObjectives
 reply2['solutionNameList'] = solutionNameList
 
-tester = 3
 
 reply = {}
 reply['success'] = success
 reply['message'] = message
-reply['tester'] = tester
 reply['parameterNames']= parameterNames
 reply.update(reply2)
 
@@ -325,3 +329,4 @@ sys.stdout.write("\n")
 # Close the log file
 sys.stdout.close()
 sys.stderr.close() 
+

@@ -191,6 +191,8 @@
         var solutionList = localStorage.getItem("solution-list").split(",");
         var savedSolutions = localStorage.getItem("saved-solutions").split(",");
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
+        var ProlificID = localStorage.getItem("ProlificID");
+
         var generatedsolutionList = [];
 
         try {
@@ -212,6 +214,7 @@
         catch(err) {}
 
         console.log("initial")
+        console.log("ProlificID",ProlificID)
 
         console.log("parameterNames",parameterNames)
         console.log("parameterBounds",parameterBounds)

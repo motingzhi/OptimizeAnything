@@ -45,11 +45,11 @@ if (isset($_SESSION['user_token'])) {
     </style>
 </head>
 <body>
-     <div class="top-bar">
+     <!-- <div class="top-bar">
         <div class="container text-center">
             <h1>Optimize Anything!</h1>
         </div>
-    </div>
+    </div> -->
 
     <div class="centered-content">
         <div style="text-align: center;"> <!-- 将内容居中对齐 -->

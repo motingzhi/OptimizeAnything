@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimization Page 1</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .inline-input {
+            width: auto;
+            display: inline-block;
+            min-width: 100px;
+            max-width: 200px;
+        }
+        .colored-placeholder::placeholder {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card" id="initialCard">
+        <div class="card-body">
+            <p class="card-title" id="typewriter1"></p>
+            <p class="card-text" id="typewriter2"></p>
+            <div id="inputSection" class="hidden">
+                <label for="optimizeInput">So, try to form an example yourself, what is the <strong style="color: blue;">"something"</strong> you want to optimize?</label>
+                <label > <em style="color: grey;"> No need to define it in detail, you can redefine it later.</em></label>
+                <input type="text" id="optimizeInput" class="form-control" placeholder="Input something and press enter">
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-3 hidden" id="secondCard">
+        <div class="card-body">
+            <p class="card-title">Let's go through a short practice to learn what is "Variable" and what is "Objective" in optimization.</p>
+            <!-- <p class="card-text">“Optimize: to make <strong style="color: blue;">something</strong> as <strong style="color: green;">good</strong> as possible - Cambridge dictionary.”</p> -->
+
+            <p class="card-text">“Optimize: to make something as good as possible - Cambridge dictionary.”</p>
+            <div>
+                <label for="optimizeInput2">So, try to form an example yourself, what is the <strong style="color: blue;">"something"</strong> you want to optimize?</label>
+                <label> <em style="color: grey;"> No need to define it in detail, you can redefine it later.</em></label>
+                <input type="text" id="optimizeInput2" class="form-control" readonly>
+            </div>
+            <div class="mt-3">
+                <label>How will you define <strong style="color: red;">"good"</strong>?</label>
+                <div>
+                    <p>You want to make 
+                        <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="what"> 
+                        as 
+                        <input type="text" id="defineGood" class="form-control mb-2 inline-input" placeholder="i.e.'low'/ 'high'"> 
+                        as possible for 
+                        <input type="text" id="defineFor" class="form-control mb-2 inline-input" readonly>
+                        that you just input.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const text1 = 'Let\'s go through a short practice to learn what is "Variable" and what is "Objective" in optimization.';
+        const text2 = '“Optimize: to make <strong style="color: blue;">something</strong> as <strong style="color: green;">good</strong> as possible” - Cambridge dictionary.';
+        const typewriterElement1 = document.getElementById('typewriter1');
+        const typewriterElement2 = document.getElementById('typewriter2');
+        const inputSection = document.getElementById('inputSection');
+        let index1 = 0;
+        let index2 = 0;
+        let tag = false;
+        let htmlContent = "";
+
+        function typeWriter1() {
+            if (index1 < text1.length) {
+                typewriterElement1.innerHTML += text1.charAt(index1);
+                index1++;
+                setTimeout(typeWriter1, 15); // Adjust the typing speed here
+            } else {
+                setTimeout(typeWriter2, 1000);; // Start the second text typing
+            }
+        }
+
+        function typeWriter2() {
+            if (index2 < text2.length) {
+                if (text2.charAt(index2) === '<') {
+                    tag = true;
+                }
+                if (tag) {
+                    htmlContent += text2.charAt(index2);
+                    if (text2.charAt(index2) === '>') {
+                        tag = false;
+                        typewriterElement2.innerHTML += htmlContent;
+                        htmlContent = "";
+                    }
+                } else {
+                    typewriterElement2.innerHTML += text2.charAt(index2);
+                }
+                index2++;
+                setTimeout(typeWriter2, 15); // Adjust the typing speed here
+            } else {
+                inputSection.classList.remove('hidden'); // Show the input section
+            }
+        }
+
+        typeWriter1();
+    });
+
+    function handleInputChange() {
+        const input = document.getElementById('optimizeInput');
+        const placeholderSpan = document.getElementById('placeholderSpan');
+        if (input.value) {
+            placeholderSpan.style.display = 'none';
+        } else {
+            placeholderSpan.style.display = 'block';
+        }
+    }
+
+    document.getElementById('optimizeInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            const value = e.target.value;
+            document.getElementById('optimizeInput2').value = value;
+            document.getElementById('defineFor').value = value;
+            document.getElementById('initialCard').classList.add('hidden');
+            document.getElementById('secondCard').classList.remove('hidden');
+        }
+    });
+
+    document.getElementById('defineGood').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            const optimizeValue = document.getElementById('optimizeInput2').value;
+            const defineWhat = document.getElementById('defineWhat').value;
+            const defineGood = document.getElementById('defineGood').value;
+            const defineFor = document.getElementById('defineFor').value;
+
+            if (defineWhat && defineGood) {
+                localStorage.setItem('optimize', optimizeValue);
+                localStorage.setItem('what', defineWhat);
+                localStorage.setItem('good', defineGood);
+                localStorage.setItem('for', defineFor);
+
+                window.location.href = '2.html';
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

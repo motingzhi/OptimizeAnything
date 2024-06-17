@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimization Page 2</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .inline-input {
+            width: auto;
+            display: inline-block;
+            min-width: 100px;
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <ol style="display: none;">
+                <li class="card-text">“Optimize: to make <em>something</em> as good as possible - Cambridge dictionary”, so</li>
+                <li>
+                    <div>
+                        <label for="optimizeInput2">What do you want to optimize?</label>
+                        <input type="text" id="optimizeInput2" class="form-control inline-input" readonly>
+                    </div>
+                </li>
+                <li>
+                    <label>How will you define good?</label>
+                    <div class="mt-3">
+                        <p>You want to make 
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" readonly> 
+                            as 
+                            <input type="text" id="defineGood" class="form-control mb-2 inline-input" readonly> 
+                            as possible for 
+                            <input type="text" id="defineFor" class="form-control mb-2 inline-input" readonly>
+                            that you just input.
+                        </p>
+                    </div>
+                </li>
+            </ol>
+            <p class="mt-3">So in your example, the "<span id="variable" style="font-weight: bold;"></span>" will contain the <strong style="color: blue;">Variables</strong> you need to define in details later.</p>
+            <p>The "<span id="objective" style="font-weight: bold;"></span>" is the <strong style="color: blue;">Objective</strong> you need to evaluate <strong style="color: blue;">Variables</strong> in the optimization process later.</p>
+            <button class="btn btn-primary" id="startButton">Start</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const optimize = localStorage.getItem('optimize');
+        const what = localStorage.getItem('what');
+        const good = localStorage.getItem('good');
+        const forValue = localStorage.getItem('for');
+
+        document.getElementById('optimizeInput2').value = optimize;
+        document.getElementById('defineWhat').value = what;
+        document.getElementById('defineGood').value = good;
+        document.getElementById('defineFor').value = forValue;
+
+        document.getElementById('variable').innerText = optimize;
+        document.getElementById('objective').innerText = `${good} ${what}`;
+        // document.getElementById('objective').innerText = `${what}`;
+
+    });
+
+    document.getElementById('startButton').addEventListener('click', function () {
+        window.location.href = 'define.php';
+    });
+</script>
+</body>
+</html>

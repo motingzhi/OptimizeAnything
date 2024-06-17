@@ -77,13 +77,26 @@
 
     
     <div class="centered-content">
+<<<<<<< Updated upstream
         <h2 style="margin-top: 20px;">What makes an alternative desirable? - Specify objectives</h2>
         <p><i>Describe your objectives. You can include also subjective measurements, even opinions. Examples: “cost”, “travel time”.</i></p>
+=======
+        <h2 style="margin-top: 20px;">Specify objectives of optimization</h2>
+        <p><i>Describe your objectives for optimization. You can include also subjective measurements, even opinions.</i></p>
+        <p><i>Here is a pre-filled example for the travel scenario, objectives are “Cost”, “Satisfaction”. You can modify those values in the form directly to your own objective</i></p>
+
+
+>>>>>>> Stashed changes
         <h5 style="margin-bottom: 20px;">Objectives</h5>
         <table class="table table-bordered" id="objective-table" >
             <thead>  
                 <tr>  
+<<<<<<< Updated upstream
                 <th id="record-objective-name" width="40%"> Name </th>   
+=======
+                <th id="record-objective-name" width="40%"> Name </th> 
+                <th id="record-objective-unit" width="40%"> Unit(if have) </th>     
+>>>>>>> Stashed changes
                 <th id="record-objective-lower-bound"> Minimum </th>  
                 <th id="record-objective-upper-bound"> Maximum </th> 
                 <th id="record-objective-min-max"> Minimise or Maximise </th>  
@@ -91,7 +104,12 @@
             </thead>  
             <tbody>
             <tr>
+<<<<<<< Updated upstream
                 <td contenteditable="true" class="record-data" id="record-objective-name">Cost ($)</td>
+=======
+                <td contenteditable="true" class="record-data" id="record-objective-name">Cost</td>
+                <td contenteditable="true" class="record-data" id="record-objective-unit">euro</td>
+>>>>>>> Stashed changes
                 <td contenteditable="true" class="record-data" id="record-objective-lower-bound">100</td>
                 <td contenteditable="true" class="record-data" id="record-objective-upper-bound">1000</td>
                 <td contenteditable="false" class="record-data" id="record-objective-min-max">
@@ -102,7 +120,12 @@
                 </td>
             </tr>
             <tr>
+<<<<<<< Updated upstream
                 <td contenteditable="true" class="record-data" id="record-objective-name">Satisfaction (%)</td>
+=======
+                <td contenteditable="true" class="record-data" id="record-objective-name">Satisfaction</td>
+                <td contenteditable="true" class="record-data" id="record-objective-unit">%</td>
+>>>>>>> Stashed changes
                 <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
                 <td contenteditable="true" class="record-data" id="record-objective-upper-bound">100</td>
                 <td contenteditable="false" class="record-data" id="record-objective-min-max">
@@ -137,9 +160,12 @@
 
     <script>
         var solutionNameList =  "";
+<<<<<<< Updated upstream
         window.onbeforeunload = function() {
             localStorage.removeItem('objectives');
         };
+=======
+>>>>>>> Stashed changes
 
         // function updateProgress() {
         //     var progressBar = document.querySelector('#progressBar .progress');
@@ -171,6 +197,7 @@
         //     updateProgress();
         // });
         function goBack() {
+<<<<<<< Updated upstream
             saveFormData();
             location.href = "define.php";
         }
@@ -233,6 +260,70 @@
         function finishObjs() {
 
             saveFormData();
+=======
+            // saveFormData();
+            location.href = "define.php";
+        }
+
+        // function saveFormData() {
+        //     const table = document.getElementById('objective-table').getElementsByTagName('tbody')[0];
+        //     const objectives = [];
+        //     for (let row of table.rows) {
+        //         const cells = [];
+        //         for (let cell of row.cells) {
+        //             if (cell.querySelector('select')) {
+        //                 cells.push(cell.querySelector('select').value);
+        //             } else {
+        //                 cells.push(cell.innerText);
+        //             }
+        //         }
+        //         objectives.push(cells);
+        //     }
+        //     localStorage.setItem('objectives', JSON.stringify(objectives));
+        // }
+
+        // document.addEventListener('DOMContentLoaded', (event) => {
+        //     loadFormData();
+        // });
+
+        // function loadFormData() {
+        //     const table = document.getElementById('objective-table').getElementsByTagName('tbody')[0];
+        //     const storedObjectives = JSON.parse(localStorage.getItem('objectives'));
+
+        //     if (storedObjectives) {
+        //         table.innerHTML = '';
+        //         storedObjectives.forEach(row => {
+        //             const newRow = table.insertRow();
+        //             row.forEach((cellText, index) => {
+        //                 const newCell = newRow.insertCell(index);
+        //                 newCell.contentEditable = 'true';
+        //                 newCell.className = 'record-data';
+        //                 if (index === 3) { // select element
+        //                     const select = document.createElement('select');
+        //                     select.style.fontFamily = 'calibri';
+        //                     select.style.fontSize = 'medium';
+        //                     const option1 = document.createElement('option');
+        //                     option1.value = 'minimise';
+        //                     option1.text = 'minimise';
+        //                     const option2 = document.createElement('option');
+        //                     option2.value = 'maximise';
+        //                     option2.text = 'maximise';
+        //                     select.add(option1);
+        //                     select.add(option2);
+        //                     select.value = cellText;
+        //                     newCell.appendChild(select);
+        //                 } else {
+        //                     newCell.innerText = cellText;
+        //                 }
+        //             });
+        //         });
+        //     }
+        // }
+
+        function finishObjs() {
+
+            // saveFormData();
+>>>>>>> Stashed changes
 
             var noError = true;
             var parameterNames = localStorage.getItem("parameter-names").split(",");
@@ -240,7 +331,12 @@
             var objectiveNames = [];
             var objectiveBounds = [];
             var objectiveMinMax = [];
+<<<<<<< Updated upstream
     
+=======
+            var badSolutions = [];
+
+>>>>>>> Stashed changes
             /* var participantID = localStorage.getItem("id");
             var conditionID = localStorage.getItem("exp-condition");
             var applicationID = localStorage.getItem("app"); */
@@ -297,8 +393,19 @@
                 });
                 
                 var objName = objRowEntries[0];
+<<<<<<< Updated upstream
                 objectiveNames.push(objName);
 
+=======
+                var unit = objRowEntries[1];
+                if ((unit === "None") || (unit === "")) {
+                    objectiveNames.push(objName);
+                }
+                else {
+                    objectiveNames.push(objName+"/"+unit);
+
+                }
+>>>>>>> Stashed changes
                 // if (/^[A-Za-z0-9]+$/.test(objName)){
                 //     objectiveNames.push(objName);
                 // }
@@ -309,8 +416,13 @@
                 // console.log("objRowEntries[3]",objRowEntries2[3]);
 
     
+<<<<<<< Updated upstream
                 var objLowerBound = objRowEntries[1];
                 var objUpperBound = objRowEntries[2];
+=======
+                var objLowerBound = objRowEntries[2];
+                var objUpperBound = objRowEntries[3];
+>>>>>>> Stashed changes
                 var validLowerBound = (!isNaN(parseFloat(objLowerBound)) && isFinite(objLowerBound));
                 var validUpperBound = (!isNaN(parseFloat(objUpperBound)) && isFinite(objUpperBound));
 
@@ -372,7 +484,12 @@
                 localStorage.setItem("new-solution", newSolution);
                 localStorage.setItem("next-evaluation", nextEvaluation);
                 localStorage.setItem("solution-name-list", solutionNameList);
+<<<<<<< Updated upstream
     
+=======
+                localStorage.setItem("bad-solutions", badSolutions);
+
+>>>>>>> Stashed changes
                 // localStorage.setItem("tutorial-done", true);
     
                 // $.ajax({
@@ -393,7 +510,11 @@
                 //     }
 
                 $.ajax({
+<<<<<<< Updated upstream
                 url: "./cgi/newSolution_u.py",
+=======
+                url: "./cgi/newSolution_u_copy.py",
+>>>>>>> Stashed changes
                 type: "post",
                 datatype: "json",
                 data: { 
@@ -473,6 +594,10 @@
             var htmlNewRow = ""
             htmlNewRow += "<tr>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'></td>"
+<<<<<<< Updated upstream
+=======
+            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
+>>>>>>> Stashed changes
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
@@ -481,16 +606,24 @@
 
 
         }
+<<<<<<< Updated upstream
         document.getElementById('objective-table').addEventListener('input', saveFormData);
         document.getElementById('objective-table').addEventListener('change', saveFormData);
+=======
+        // document.getElementById('objective-table').addEventListener('input', saveFormData);
+        // document.getElementById('objective-table').addEventListener('change', saveFormData);
+>>>>>>> Stashed changes
     </script>
     
     </body>
 </html>
 
 
+<<<<<<< Updated upstream
 
 
 
 
 
+=======
+>>>>>>> Stashed changes

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 #!/usr/bin/python3
+=======
+#!/usr/local/bin/python3
+>>>>>>> Stashed changes
 #/usr/bin/python3 
 import sys 
 
@@ -190,6 +194,10 @@ sys.stdout.write("\n")
 
 # Close the log file
 sys.stdout.close()
+<<<<<<< Updated upstream
 sys.stderr.close() 
 
 
+=======
+sys.stderr.close() 
+>>>>>>> Stashed changes

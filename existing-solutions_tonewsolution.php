@@ -209,7 +209,7 @@
         var objectiveNames = localStorage.getItem("objective-names").split(",");
         var objectiveBounds = localStorage.getItem("objective-bounds").split(",");
         var objectiveMinMax = localStorage.getItem("objective-min-max").split(",");
-	var solutionNameList =  "";
+	    var solutionNameList =  "";
 
 
 
@@ -395,7 +395,7 @@
                 localStorage.setItem("solution-name-list", solutionNameList);
 
                 $.ajax({
-                    url: "./cgi/newSolution_u.py",
+                    url: "./cgi/newSolution_u_copy.py",
                     type: "post",
                     dataType: "json",
                     data: { 'parameter-names'    :String(parameterNames),
@@ -464,7 +464,10 @@
 
 <!-- 学会了用端口debug -->
 
+<<<<<<< Updated upstream
  
 
 <!-- 学会了用端口debug -->
 
+=======
+>>>>>>> Stashed changes

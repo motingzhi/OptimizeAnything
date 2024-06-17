@@ -1,4 +1,3 @@
-#!/usr/local/bin/python3
 #/usr/bin/python3 
 import sys 
 
@@ -86,12 +85,9 @@ try:
 except:
     solutionNameList = []
 
-<<<<<<< Updated upstream
 # newSolution = (formData['new-solution'].value).split(',')
 # nextEvaluation = (formData['next-evaluation'].value).split(',')
 # refineSolution = (formData['refine-solution'].value).split(',')
-=======
->>>>>>> Stashed changes
 
 try:
     solutionName = (formData['solution-name'].value).split(',')

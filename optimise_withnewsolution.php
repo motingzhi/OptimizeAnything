@@ -1042,8 +1042,4 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
     </script>
 </body>
-<<<<<<< Updated upstream
 </html>
-=======
-</html>
->>>>>>> Stashed changes

@@ -192,10 +192,4 @@ sys.stdout.write("\n")
 
 # Close the log file
 sys.stdout.close()
-<<<<<<< Updated upstream
 sys.stderr.close() 
-
-
-=======
-sys.stderr.close() 
->>>>>>> Stashed changes

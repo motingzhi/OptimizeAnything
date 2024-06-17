@@ -40,7 +40,7 @@ reply2 = {}
 
 # Define the log file path
 log_file_folder = "../python_log"
-log_file_path = os.path.join(log_file_folder, "newSolution3.log")
+log_file_path = os.path.join(log_file_folder, "newSolution_u.log")
 
 # Create the log file directory if it doesn't exist
 os.makedirs(log_file_folder, exist_ok=True)

@@ -1,4 +1,4 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 
 # /Users/fengyu.li/anaconda3/bin/python3
 # /usr/bin/env python3

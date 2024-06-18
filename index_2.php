@@ -7,12 +7,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $solutionlist = ''; // 默认值
     $savedsolutions = ''; // 默认值
     $savedobjectives = ''; // 默认值
+    $parameterNames = ''; // 默认值
+    $parameterBounds = '';
+    $defineTimestamp = '';
 
     if (empty($prolificID)) {
         die("Prolific ID is required");
     }
 
-    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives, parameternames, parameterbounds, definetimestamp ) VALUES (?, ?, ?, ?,?,?,?)");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }

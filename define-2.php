@@ -1,3 +1,36 @@
+<?php
+session_start();
+require_once 'config.php';
+
+if (!isset($_SESSION['ProlificID'])) {
+    // 如果会话中没有 Prolific ID，则重定向到初始页面
+    header("Location: index.php");
+    exit();
+}
+
+$userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
+
+$defineTimestamp = date("Y-m-d H:i:s");
+
+$stmt = $conn->prepare("UPDATE data SET definetimestamp = ? WHERE ID = ?");
+if ($stmt === false) {
+    die("Prepare failed: " . $conn->error);
+}
+
+$stmt->bind_param("si", $defineTimestamp, $userID);
+if ($stmt->execute()) {
+    echo "Timestamp updated successfully";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

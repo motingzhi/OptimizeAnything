@@ -1,8 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
+session_start();
 require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->bind_param("ssss", $prolificID, $solutionlist, $savedsolutions, $savedobjectives);
     if ($stmt->execute()) {
+        $_SESSION['ProlificID'] = $prolificID; // 存储 Prolific ID 到会话中
         echo "New record created successfully";
     } else {
         echo "Error: " . $stmt->error;
@@ -31,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

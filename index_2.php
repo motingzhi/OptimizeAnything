@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
             <div class="col-md-4 mb-3">
-                <a href="tutorial_1.php" class="card-link">
+                <a href="define.php" class="card-link">
                     <div class="card fixed-size-card">
                         <div class="card-body">
                             <h4 class="card-title">Optimize car material</h4>

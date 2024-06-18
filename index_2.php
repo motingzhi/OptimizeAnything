@@ -15,12 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Prolific ID is required");
     }
 
-    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives, parametername, parameterbounds, definetimestamp ) VALUES (?, ?, ?, ?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives, parametername, parameterbounds, definetimestamp ) VALUES (?, ?, ?, ?, ?, ?, ?)");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("ssss", $prolificID, $solutionlist, $savedsolutions, $savedobjectives);
+    $stmt->bind_param("ssss", $prolificID, $solutionlist, $savedsolutions, $savedobjectives, $parameterNames, $parameterBounds, $defineTimestamp);
     if ($stmt->execute()) {
         $_SESSION['ProlificID'] = $prolificID; // 存储 Prolific ID 到会话中
         echo "New record created successfully";

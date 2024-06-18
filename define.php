@@ -1,58 +1,37 @@
 <?php
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
-// // 第二个 PHP 页面
-// session_start();
-// echo "logged_in";
-// echo $_SESSION['logged_in'];
-// echo "user_info";
-// echo implode(', ', $_SESSION['user_info']);
-// require_once 'config.php';
-// // 检查用户是否已登录
-// if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-//     // 如果用户未登录，将其重定向到登录页面
-//     header("Location: login.php");
-//     exit();
-// }
-// // $google_oauth = new Google_Service_Oauth2($client);
-// // $google_account_info = $google_oauth->userinfo->get();
-// // $userinfo = [
-// //     'token' => $google_account_info['id'],
-// //   ];
+session_start();
+require_once 'config.php';
 
-// // // // 获取用户 ID
-// // // $user_id = $_SESSION['user_id'];
-// $user_email= $_SESSION['user_info']['email'];
-// echo "user_email";
-// echo $user_email;
+if (!isset($_SESSION['ProlificID'])) {
+    // 如果会话中没有 Prolific ID，则重定向到初始页面
+    header("Location: index.php");
+    exit();
+}
 
-// // 处理用户提交的参数名称并存储到数据库中
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $parameterNames = $_POST['parameter-names'];
+    $parameterBounds = $_POST['parameter-bounds'];
+    $defineTimestamp = date("Y-m-d H:i:s");
 
-//   // 检查连接
-//     if ($conn->connect_error) {
-//         die("Connection failed: " . $conn->connect_error);
-//     }
+    $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
-//     // 获取用户输入的参数名称
-//     // $parameterNames = 7;
-//     // 准备 SQL 语句
-//     $sql = "UPDATE users SET locale = 7 WHERE email = ?";
+    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, definetimestamp = ? WHERE ID = ?");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
 
-//     // 创建预处理语句
-//     $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $defineTimestamp, $userID);
+    if ($stmt->execute()) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
 
-//     // 绑定参数
-//     $stmt->bind_param("s", $user_email);
-
-//     // 执行查询
-//     if ($stmt->execute()) {
-//         echo "Locale updated successfully.";
-//     } else {
-//         echo "Error updating locale: " . $conn->error;
-//     }
-
-
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

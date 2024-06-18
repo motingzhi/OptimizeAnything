@@ -2,7 +2,7 @@
 session_start();
 require_once 'config.php';
 
-if (!isset($_SESSION['prolificID'])) {
+if (!isset($_SESSION['ProlificID'])) {
     // 如果会话中没有 Prolific ID，则重定向到初始页面
     header("Location: index.php");
     exit();
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $parameterBounds = $_POST['parameter-bounds'];
     $defineTimestamp = date("Y-m-d H:i:s");
 
-    $userID = $_SESSION['prolificID']; // 从会话中获取用户 ID
+    $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, definetimestamp = ? WHERE ID = ?");
     if ($stmt === false) {

@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Prolific ID is required");
     }
 
-    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives, parameternames, parameterbounds, definetimestamp ) VALUES (?, ?, ?, ?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives, parametername, parameterbounds, definetimestamp ) VALUES (?, ?, ?, ?,?,?,?)");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }

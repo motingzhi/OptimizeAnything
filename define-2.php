@@ -2,13 +2,13 @@
 session_start();
 require_once 'config.php';
 
-if (!isset($_SESSION['ProlificID'])) {
+if (!isset($_SESSION['prolificID'])) {
     // 如果会话中没有 Prolific ID，则重定向到初始页面
     header("Location: index.php");
     exit();
 }
 
-$userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
+$userID = $_SESSION['prolificID']; // 从会话中获取用户 ID
 
 $defineTimestamp = date("Y-m-d H:i:s");
 

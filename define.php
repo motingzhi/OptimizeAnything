@@ -8,29 +8,31 @@ if (!isset($_SESSION['ProlificID'])) {
     exit();
 }
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $parameterNames = $_POST['parameter-names'];
-//     $parameterBounds = $_POST['parameter-bounds'];
-//     $defineTimestamp = date("Y-m-d H:i:s");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $parameterNames = $_POST['parameter-names'];
+    $parameterBounds = $_POST['parameter-bounds'];
+    $defineTimestamp = date("Y-m-d H:i:s");
 
-//     $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
+    $userID = $_SESSION['ProlificID'];
 
-//     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, definetimestamp = ? WHERE ID = ?");
-//     if ($stmt === false) {
-//         die("Prepare failed: " . $conn->error);
-//     }
+    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, definetimestamp = ? WHERE ID = ?");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
 
-//     $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $defineTimestamp, $userID);
-//     if ($stmt->execute()) {
-//         echo "Record updated successfully";
-//     } else {
-//         echo "Error: " . $stmt->error;
-//     }
+    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $defineTimestamp, $userID);
+    if ($stmt->execute()) {
+        header("Location: define-2.php");
+        exit();
+    } else {
+        echo "Error: " . $stmt->error;
+    }
 
-//     $stmt->close();
-//     $conn->close();
-// }
+    $stmt->close();
+    $conn->close();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -222,6 +224,9 @@ if (!isset($_SESSION['ProlificID'])) {
             }
     
             if (noError){
+                
+
+
                 localStorage.setItem("parameter-names", parameterNames);
                 localStorage.setItem("parameter-bounds", parameterBounds);
     
@@ -236,9 +241,22 @@ if (!isset($_SESSION['ProlificID'])) {
                 $('#loadingContainer').show();
                 },
                 success: function(result) {
-                    var url = "define-2.php";
-                    location.href = url;
-                    $('#loadingContainer').hide();
+                    $.ajax({
+                            url: "define-2.php",
+                            type: "post",
+                            data: {
+                                'parameter-names': parameterNames.join(','),
+                                'parameter-bounds': parameterBounds.join(',')
+                            },
+                            success: function(response) {
+                                var url = "define-2.php";
+                                window.location.href = url;
+                            },
+                            error: function(response) {
+                                console.log("Error sending data to define-2.php");
+                            }
+                        });
+                        $('#loadingContainer').hide();
                 },
                 error: function(result){
                     console.log("Error");

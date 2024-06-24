@@ -137,16 +137,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </thead>  
             <tbody>
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Destination distance</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit">km</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">500</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Fruit</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
                 </tr>
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Number of days</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit">None</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">3</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">14</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Lean meat</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">2000</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Fat</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">500</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Carbohydrate</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Fiber Foods</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">1500</td>
                 </tr>
             </tbody>
         </table>

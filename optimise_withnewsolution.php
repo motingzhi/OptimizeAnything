@@ -674,6 +674,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                                                 ("0" + date.getSeconds()).slice(-2);
 
                         saved_timestamp.push(formattedTimestamp);
+                        localStorage.setItem("saved_timestamp", saved_timestamp);
 
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
@@ -852,6 +853,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                                                 ("0" + date.getSeconds()).slice(-2);
 
                         saved_timestamp.push(formattedTimestamp);
+                        localStorage.setItem("saved_timestamp", saved_timestamp);
+
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
    		        $('#loadingContainer').hide();
@@ -1008,7 +1011,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             if (savedSolutions.length/num_parameters < 3) {
                 noError = false;
             }
-            localStorage.setItem("saved_timestamp", saved_timestamp);
+            var saved_timestamp = localStorage.getItem("saved_timestamp").split(",");
 
             if (noError) {
                 $.ajax({

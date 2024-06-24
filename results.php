@@ -11,9 +11,9 @@ if (!isset($_SESSION['ProlificID'])) {
 $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $savedSolutions = $_POST['saved-solutions'];
-    $savedObjectives = $_POST['saved-objectives'];
-    $solutionList = $_POST['solution-list'];
+    $savedsolutions = $_POST['saved-solutions'];
+    $savedobjectives = $_POST['saved-objectives'];
+    $solutionlist = $_POST['solution-list'];
     $saved_timestamp = $_POST['saved_timestamp'];
 
     $stmt = $conn->prepare("UPDATE data SET Savedsolutions = ?, Savedobjectives = ?, Solutionlist = ?, saved_timestamp =? WHERE prolific_ID = ?");
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("sssss", $savedSolutions, $savedObjectives, $solutionList, $saved_timestamp, $userID);
+    $stmt->bind_param("sssss", $savedsolutions, $savedobjectives, $solutionlist, $saved_timestamp, $userID);
     if ($stmt->execute()) {
         echo "Record updated successfully";
     } else {

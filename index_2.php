@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objectiveNames = ''; // 默认值
     $objectiveBounds = ''; // 默认值
     $objective_timestamp = '';
-
+    $saved_timestamp = '';
 
 
     if (empty($prolificID)) {
@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'parameter_timestamp' => $parameter_timestamp,
         'objectivename' => $objectiveNames,
         'objectivebounds' => $objectiveBounds,
-        'objective_timestamp' => $objective_timestamp
+        'objective_timestamp' => $objective_timestamp,
+        'saved_timestamp' => $saved_timestamp
     ];
 
     // 动态生成列名和占位符

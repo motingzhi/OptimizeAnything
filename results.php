@@ -1,3 +1,39 @@
+<?php
+session_start();
+require_once 'config.php';
+
+if (!isset($_SESSION['ProlificID'])) {
+    // 如果会话中没有 Prolific ID，则重定向到初始页面
+    header("Location: index.php");
+    exit();
+}
+
+$userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $savedSolutions = $_POST['saved-solutions'];
+    $savedObjectives = $_POST['saved-objectives'];
+    $solutionList = $_POST['solution-list'];
+    $saved_timestamp = $_POST['saved_timestamp'];
+
+    $stmt = $conn->prepare("UPDATE data SET Savedsolutions = ?, Savedobjectives = ?, Solutionlist = ?, saved_timestamp =? WHERE prolific_ID = ?");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("sssss", $savedSolutions, $savedObjectives, $solutionList, $saved_timestamp, $userID);
+    if ($stmt->execute()) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>

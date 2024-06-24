@@ -226,9 +226,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var solutionList = localStorage.getItem("solution-list").split(",");
         var savedSolutions = localStorage.getItem("saved-solutions").split(",");
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
-        var ProlificID = localStorage.getItem("ProlificID");
+        // var ProlificID = localStorage.getItem("ProlificID");
 
         var generatedsolutionList = [];
+        var saved_timestamp = [];
 
         try {
         var objectiveMeasurements = localStorage.getItem("objective-Measurements").split(",");
@@ -249,7 +250,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         catch(err) {}
 
         console.log("initial")
-        console.log("ProlificID",ProlificID)
+        // console.log("ProlificID",ProlificID)
 
         console.log("parameterNames",parameterNames)
         console.log("parameterBounds",parameterBounds)
@@ -688,6 +689,18 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         console.log(result.solution);
                         console.log(result.saved_objectives);
 
+                        //记录时间
+                        var date = new Date();
+                        var formattedTimestamp = date.getFullYear() + "-" + 
+                                                ("0" + (date.getMonth() + 1)).slice(-2) + "-" +
+                                                ("0" + date.getDate()).slice(-2) + " " +
+                                                ("0" + date.getHours()).slice(-2) + ":" +
+                                                ("0" + date.getMinutes()).slice(-2) + ":" +
+                                                ("0" + date.getSeconds()).slice(-2);
+
+                        saved_timestamp.push(formattedTimestamp);
+
+
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
 
@@ -855,6 +868,18 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
+
+                        //记录时间
+                        var date = new Date();
+                        var formattedTimestamp = date.getFullYear() + "-" + 
+                                                ("0" + (date.getMonth() + 1)).slice(-2) + "-" +
+                                                ("0" + date.getDate()).slice(-2) + " " +
+                                                ("0" + date.getHours()).slice(-2) + ":" +
+                                                ("0" + date.getMinutes()).slice(-2) + ":" +
+                                                ("0" + date.getSeconds()).slice(-2);
+
+                        saved_timestamp.push(formattedTimestamp);
+
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
@@ -1064,8 +1089,27 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         localStorage.setItem("BestSolutionIndex", BestSolutionIndex);
                         console.log("solutionNameList",solutionNameList);
                         console.log("Success");
-                        var url = "results.php";
-                        location.href = url;
+
+                        $.ajax({
+                            url: "results.php",
+                            type: "post",
+                            data: {
+                            'saved-solutions'    :String(savedSolutions),
+                            'saved-objectives'   :String(savedObjectives),
+                            'solution-list'  :String(solutionList),
+                            'saved_timestamp'  :String(saved_timestamp)                           
+                            },
+                            success: function(response) {
+                                var url = "results.php";
+                                window.location.href = url;
+                            },
+                            error: function(response) {
+                                console.log("Error sending data");
+                            }
+                        });
+
+                        // var url = "results.php";
+                        // location.href = url;
 			$('#loadingContainer').hide();
                     },
                     error: function(result){

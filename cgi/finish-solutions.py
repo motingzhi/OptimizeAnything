@@ -52,16 +52,16 @@ reply = {}
 message = "Necessary objects imported."
 success = True
 
-# # Define the log file path
-# log_file_folder = "../python_log"
-# log_file_path = os.path.join(log_file_folder, "finish_solutions2.log")
+# Define the log file path
+log_file_folder = "../python_log"
+log_file_path = os.path.join(log_file_folder, "finish_solutions3.log")
 
-# # Create the log file directory if it doesn't exist
-# os.makedirs(log_file_folder, exist_ok=True)
+# Create the log file directory if it doesn't exist
+os.makedirs(log_file_folder, exist_ok=True)
 
-# # Redirect stdout and stderr to the log file
-# # sys.stdout = open(log_file_path, "a")
-# sys.stderr = open(log_file_path, "a")
+# Redirect stdout and stderr to the log file
+# sys.stdout = open(log_file_path, "a")
+sys.stderr = open(log_file_path, "a")
 
 # Read provided formData
 formData = cgi.FieldStorage()
@@ -73,7 +73,7 @@ objectiveBounds = (formData['objective-bounds'].value).split(',')
 objectiveMinMax = (formData['objective-min-max'].value).split(',')
 savedSolutions = (formData['saved-solutions'].value).split(',')
 savedObjectives = (formData['saved-objectives'].value).split(',')
-saved_timestamp = (formData['saved_timestamp'].value).split(',')
+saved_timestamp = formData['saved_timestamp']
 # objectivesInput = (formData['objectives-input'].value).split(',')
 
 num_parameters = len(parameterNames)

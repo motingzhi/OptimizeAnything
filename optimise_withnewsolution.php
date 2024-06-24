@@ -226,6 +226,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var solutionList = localStorage.getItem("solution-list").split(",");
         var savedSolutions = localStorage.getItem("saved-solutions").split(",");
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
+        
         var saved_timestamp = [];
 
         try {
@@ -551,8 +552,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
 
         function nextEvaluation2() {
-
-
+            var saved_timestamp = localStorage.getItem("saved_timestamp").split(",");
             noError = true;
 
             callNewSolution = false;
@@ -664,8 +664,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         console.log(result.solution);
                         console.log(result.saved_objectives);
 
-                                                //记录时间
-                                                var date = new Date();
+                        //记录时间
+                        var date = new Date();
                         var formattedTimestamp = date.getFullYear() + "-" + 
                                                 ("0" + (date.getMonth() + 1)).slice(-2) + "-" +
                                                 ("0" + date.getDate()).slice(-2) + " " +
@@ -705,6 +705,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
 
         function nextEvaluation() {
+            var saved_timestamp = localStorage.getItem("saved_timestamp").split(",");
 
 
             noError = true;

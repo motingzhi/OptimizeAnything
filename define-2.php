@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $parameterBounds = $_POST['parameter-bounds'];
     $parameter_timestamp = date("Y-m-d H:i:s"); // 格式化时间戳为字符串
 
-    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ？");
+    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }

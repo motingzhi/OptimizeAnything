@@ -11,16 +11,16 @@ if (!isset($_SESSION['ProlificID'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $parameterNames = $_POST['parameter-names'];
     $parameterBounds = $_POST['parameter-bounds'];
-    $defineTimestamp = date("Y-m-d H:i:s");
+    $parameter_timestamp = date("Y-m-d H:i:s");
 
     $userID = $_SESSION['ProlificID'];
 
-    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, definetimestamp = ? WHERE ID = ?");
+    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE ID = ?");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $defineTimestamp, $userID);
+    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
     if ($stmt->execute()) {
         header("Location: define-2.php");
         exit();
@@ -224,9 +224,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
     
             if (noError){
-                
-
-
                 localStorage.setItem("parameter-names", parameterNames);
                 localStorage.setItem("parameter-bounds", parameterBounds);
     

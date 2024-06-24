@@ -9,24 +9,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $savedobjectives = ''; // 默认值
     $parameterNames = ''; // 默认值
     $parameterBounds = '';
-    $defineTimestamp = '';
+    $parameter_timestamp = '';
+    $objectiveNames = ''; // 默认值
+    $objectiveBounds = ''; // 默认值
+    $objective_timestamp = '';
+
+
 
     if (empty($prolificID)) {
         die("Prolific ID is required");
     }
 
-    $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives, parametername, parameterbounds, definetimestamp ) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        // 构建列名和相应的值
+    $columns = [
+        'ID' => $prolificID,
+        'Solutionlist' => $solutionlist,
+        'Savedsolutions' => $savedsolutions,
+        'Savedobjectives' => $savedobjectives,
+        'parametername' => $parameterNames,
+        'parameterbounds' => $parameterBounds,
+        'parameter_timestamp' => $parameter_timestamp,
+        'objectivename' => $objectiveNames,
+        'objectivebounds' => $objectiveBounds,
+        'objective_timestamp' => $objective_timestamp
+    ];
+
+    // 动态生成列名和占位符
+    $columnNames = implode(", ", array_keys($columns));
+    $placeholders = implode(", ", array_fill(0, count($columns), "?"));
+
+    $stmt = $conn->prepare("INSERT INTO data ($columnNames) VALUES ($placeholders)");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("sssssss", $prolificID, $solutionlist, $savedsolutions, $savedobjectives, $parameterNames, $parameterBounds, $defineTimestamp);
+    // 动态生成参数类型和值
+    $types = str_repeat("s", count($columns)); // 假设所有参数都是字符串类型
+    $values = array_values($columns);
+
+    // 使用 splat 操作符将参数数组传递给 bind_param
+    $stmt->bind_param($types, ...$values);
+
     if ($stmt->execute()) {
         $_SESSION['ProlificID'] = $prolificID; // 存储 Prolific ID 到会话中
         echo "New record created successfully";
     } else {
         echo "Error: " . $stmt->error;
     }
+
+
+    // $stmt = $conn->prepare("INSERT INTO data (ID, Solutionlist, Savedsolutions, Savedobjectives, parametername, parameterbounds, parameter_timestamp, objectivename,objectivebounds, objective_timestamp ) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    // if ($stmt === false) {
+    //     die("Prepare failed: " . $conn->error);
+    // }
+
+    // $stmt->bind_param("sssssss", $prolificID, $solutionlist, $savedsolutions, $savedobjectives, $parameterNames, $parameterBounds, $defineTimestamp);
+    // if ($stmt->execute()) {
+    //     $_SESSION['ProlificID'] = $prolificID; // 存储 Prolific ID 到会话中
+    //     echo "New record created successfully";
+    // } else {
+    //     echo "Error: " . $stmt->error;
+    // }
 
     $stmt->close();
     $conn->close();

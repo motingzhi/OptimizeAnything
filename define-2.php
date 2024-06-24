@@ -10,22 +10,42 @@ if (!isset($_SESSION['ProlificID'])) {
 
 $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
-$defineTimestamp = date("Y-m-d H:i:s");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $parameterNames = $_POST['parameter-names'];
+    $parameterBounds = $_POST['parameter-bounds'];
+    $defineTimestamp = date("Y-m-d H:i:s"); // 格式化时间戳为字符串
 
-$stmt = $conn->prepare("UPDATE data SET definetimestamp = ? WHERE ID = ?");
-if ($stmt === false) {
-    die("Prepare failed: " . $conn->error);
+    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, definetimestamp = ? WHERE ID = ?");
+    if ($stmt === false) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $defineTimestamp, $userID);
+    if ($stmt->execute()) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
 }
+// $defineTimestamp = date("Y-m-d H:i:s");
 
-$stmt->bind_param("si", $defineTimestamp, $userID);
-if ($stmt->execute()) {
-    echo "Timestamp updated successfully";
-} else {
-    echo "Error: " . $stmt->error;
-}
+// $stmt = $conn->prepare("UPDATE data SET definetimestamp = ? WHERE ID = ?");
+// if ($stmt === false) {
+//     die("Prepare failed: " . $conn->error);
+// }
 
-$stmt->close();
-$conn->close();
+// $stmt->bind_param("si", $defineTimestamp, $userID);
+// if ($stmt->execute()) {
+//     echo "Timestamp updated successfully";
+// } else {
+//     echo "Error: " . $stmt->error;
+// }
+
+// $stmt->close();
+// $conn->close();
 ?>
 
 

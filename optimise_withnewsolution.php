@@ -355,7 +355,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             }
             else
             {
-                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length+i];
+                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i];
             }
         }
 

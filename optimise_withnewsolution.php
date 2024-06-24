@@ -349,9 +349,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 {
         for (var i = 0; i<parameterNames.length; i++) {
-            if (savedObjectives.length <= 1)
+            if (savedObjectives.length == 1)
             {
-                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i-1];
+                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length];
             }
             else
             {

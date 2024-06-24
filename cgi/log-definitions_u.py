@@ -121,7 +121,7 @@ sys.stdout.write("""
 <html>
 <head>
     <script>
-        function sendToDefinePHP() {
+        function sendToDefinePHP(parameterNames, parameterBounds) {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/define-2.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -130,11 +130,13 @@ sys.stdout.write("""
                     console.log("Data sent to define-2.php successfully");
                 }
             };
-            var parameterNames = "{}";
-            var parameterBounds = "{}";
             xhr.send("parameter-names=" + encodeURIComponent(parameterNames) + "&parameter-bounds=" + encodeURIComponent(parameterBounds));
         }
-        window.onload = sendToDefinePHP;
+
+        // 获取参数数据并发送
+        var parameterNames = '{}';
+        var parameterBounds = '{}';
+        sendToDefinePHP(parameterNames, parameterBounds);
     </script>
 </head>
 <body>

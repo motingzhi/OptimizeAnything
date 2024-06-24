@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </select>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td contenteditable="true" class="record-data" id="record-objective-name">Nutritional Index: </td>
                 <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
                 <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="maximise" selected="selected">maximise</option>
                     </select>
                 </td>
-            </tr>
+            </tr> -->
         </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignObjectivesTable()" >Add Objective</button>

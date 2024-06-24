@@ -115,35 +115,35 @@ sys.stdout.write("\n")
 sys.stdout.write(json.dumps(reply,indent=1))
 sys.stdout.write("\n")
 
-# 生成 HTML 页面发送数据到 define-2.php
-sys.stdout.write("""
-<!DOCTYPE html>
-<html>
-<head>
-    <script>
-        function sendToDefinePHP(parameterNames, parameterBounds) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/define-2.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log("Data sent to define-2.php successfully");
-                }
-            };
-            xhr.send("parameter-names=" + encodeURIComponent(parameterNames) + "&parameter-bounds=" + encodeURIComponent(parameterBounds));
-        }
+# # 生成 HTML 页面发送数据到 define-2.php
+# sys.stdout.write("""
+# <!DOCTYPE html>
+# <html>
+# <head>
+#     <script>
+#         function sendToDefinePHP(parameterNames, parameterBounds) {
+#             var xhr = new XMLHttpRequest();
+#             xhr.open("POST", "/define-2.php", true);
+#             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+#             xhr.onreadystatechange = function () {
+#                 if (xhr.readyState === 4 && xhr.status === 200) {
+#                     console.log("Data sent to define-2.php successfully");
+#                 }
+#             };
+#             xhr.send("parameter-names=" + encodeURIComponent(parameterNames) + "&parameter-bounds=" + encodeURIComponent(parameterBounds));
+#         }
 
-        // 获取参数数据并发送
-        var parameterNames = '{}';
-        var parameterBounds = '{}';
-        sendToDefinePHP(parameterNames, parameterBounds);
-    </script>
-</head>
-<body>
-    <p>Data processed successfully. Redirecting...</p>
-</body>
-</html>
-""".format(','.join(parameterNames), ','.join(parameterBounds)))
+#         // 获取参数数据并发送
+#         var parameterNames = '{}';
+#         var parameterBounds = '{}';
+#         sendToDefinePHP(parameterNames, parameterBounds);
+#     </script>
+# </head>
+# <body>
+#     <p>Data processed successfully. Redirecting...</p>
+# </body>
+# </html>
+# """.format(','.join(parameterNames), ','.join(parameterBounds)))
 
 
 sys.stdout.close()

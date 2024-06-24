@@ -73,7 +73,7 @@ objectiveBounds = (formData['objective-bounds'].value).split(',')
 objectiveMinMax = (formData['objective-min-max'].value).split(',')
 savedSolutions = (formData['saved-solutions'].value).split(',')
 savedObjectives = (formData['saved-objectives'].value).split(',')
-saved_timestamp = formData['saved_timestamp']
+# saved_timestamp = formData['saved_timestamp']
 # objectivesInput = (formData['objectives-input'].value).split(',')
 
 num_parameters = len(parameterNames)
@@ -237,7 +237,7 @@ reply2['saved_objectives'] = savedObjectives
 # reply2['best_solutions'] = best_solutions
 # reply['solutionNameList'] = solutionNameList
 reply2['BestSolutionIndex'] = BestSolutionIndex
-reply2['saved_timestamp'] = saved_timestamp
+# reply2['saved_timestamp'] = saved_timestamp
 
 
 reply['success'] = success

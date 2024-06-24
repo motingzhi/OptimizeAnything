@@ -13,14 +13,14 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $parameterNames = $_POST['parameter-names'];
     $parameterBounds = $_POST['parameter-bounds'];
-    $defineTimestamp = date("Y-m-d H:i:s"); // 格式化时间戳为字符串
+    $parameter_timestamp = date("Y-m-d H:i:s"); // 格式化时间戳为字符串
 
-    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, definetimestamp = ? WHERE ID = ?");
+    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE ID = ?");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $defineTimestamp, $userID);
+    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
     if ($stmt->execute()) {
         echo "Record updated successfully";
     } else {
@@ -30,22 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
-// $defineTimestamp = date("Y-m-d H:i:s");
-
-// $stmt = $conn->prepare("UPDATE data SET definetimestamp = ? WHERE ID = ?");
-// if ($stmt === false) {
-//     die("Prepare failed: " . $conn->error);
-// }
-
-// $stmt->bind_param("si", $defineTimestamp, $userID);
-// if ($stmt->execute()) {
-//     echo "Timestamp updated successfully";
-// } else {
-//     echo "Error: " . $stmt->error;
-// }
-
-// $stmt->close();
-// $conn->close();
 ?>
 
 
@@ -477,8 +461,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // 显示 loading 动画和文字
                 $('#loadingContainer').show();
                 },
-
-
                 success: function(result) {
                     // var progressBar = $('#progressBar');
                     // progressBar.empty();                    
@@ -492,7 +474,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     localStorage.setItem("objectives-input", objectivesInput);
                     localStorage.setItem("saved-solutions", savedSolutions);
                     localStorage.setItem("saved-objectives", savedObjectives);
-
+                    //向下一个页面传数据
+                    $.ajax({
+                            url: "optimise_withnewsolution.php",
+                            type: "post",
+                            data: {
+                            'objective-names'    :String(objectiveNames),
+                            'objective-bounds'   :String(objectiveBounds)
+                            },
+                            success: function(response) {
+                                var url = "optimise_withnewsolution.php";
+                                window.location.href = url;
+                            },
+                            error: function(response) {
+                                console.log("Error sending data to define-2.php");
+                            }
+                        });
                     console.log("Success");
                     console.log(result.success)
                     console.log("result.parameterNames.length");
@@ -503,8 +500,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     console.log(result.objectiveBounds)
                     //[Log] ["Cost ($)", "Satisfaction (%)", "Goal"] (3) (define.php, line 268)
                     //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
-                    var url = "optimise_withnewsolution.php";
-                    location.href = url;
+                    // var url = "optimise_withnewsolution.php";
+                    // location.href = url;
                     $('#loadingContainer').hide();
                 },
                 error: function(result){
@@ -522,16 +519,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }    
         }
 
-        function addDesignParametersTable(){
-            var htmlNewRow = ""
-            htmlNewRow += "<tr>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-name'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-lower-bound'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-upper-bound'></td>"
-            // htmlNewRow += "<td id='record-data-buttons'>"
-            htmlNewRow += "</td></tr>"
-            $("#parameter-table", window.document).append(htmlNewRow);  
-        }
 
         function addDesignObjectivesTable(){
             var htmlNewRow = ""

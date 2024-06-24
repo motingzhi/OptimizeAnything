@@ -57,11 +57,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .centered-content {
-            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
-            text-align: center;
-            width: 33.33%; /* Content width as 1/3 of the page */
-            margin-left: auto;
-            margin-right: auto;
+            overflow-y: auto; /* 添加垂直滚动条 */
+            max-height: calc(100vh - 150px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+            padding-bottom: 20px; /* 添加下内边距以确保内容不会被底部按钮遮挡 */
         }
 
         .bottom-bar {
@@ -109,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <div class="top-bar">
+    <!-- <div class="top-bar">
         <div class="container d-flex justify-content-between align-items-center">
             <h1>1. Specify</h1>
             <form action="help.php#define">
@@ -149,8 +147,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
-    </div>
-    
+    </div> -->
+<!--     
     <div id="loadingContainer">
         <div id="loadingIcon"></div>
         <div id="loadingText">Loading...</div>
@@ -160,7 +158,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container text-right">
             <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
         </div>
+    </div> -->
+
+    <div class="top-bar">
+    <div class="container d-flex justify-content-between align-items-center">
+        <h1>1. Specify</h1>
+        <form action="help.php#define">
+            <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+        </form>
     </div>
+</div>
+
+<div class="centered-content">
+    <h2 style="margin-top: 20px;">Specify variables</h2>
+    <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p>
+    <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
+
+    <h5 style="margin-bottom: 20px;">Variables</h5>
+    <table class="table table-bordered" id="parameter-table">
+        <thead>
+            <tr>
+                <th id="record-parameter-name" width="40%"> Variable Name </th>
+                <th id="record-parameter-unit" width="40%"> Unit(if have) </th>
+                <th id="record-parameter-lower-bound"> Minimum </th>
+                <th id="record-parameter-upper-bound"> Maximum </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td contenteditable="true" class="record-data" id="record-parameter-name">Destination distance</td>
+                <td contenteditable="true" class="record-data" id="record-parameter-unit">km</td>
+                <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">500</td>
+                <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
+            </tr>
+            <tr>
+                <td contenteditable="true" class="record-data" id="record-parameter-name">Number of days</td>
+                <td contenteditable="true" class="record-data" id="record-parameter-unit">None</td>
+                <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">3</td>
+                <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">14</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
+</div>
+
+<div id="loadingContainer">
+    <div id="loadingIcon"></div>
+    <div id="loadingText">Loading...</div>
+</div>
+
+<div class="bottom-bar">
+    <div class="container text-right">
+        <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
+    </div>
+</div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  

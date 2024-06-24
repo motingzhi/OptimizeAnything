@@ -9,18 +9,22 @@ if (!isset($_SESSION['ProlificID'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $userID = $_SESSION['ProlificID'];
     $parameterNames = $_POST['parameter-names'];
     $parameterBounds = $_POST['parameter-bounds'];
     $parameter_timestamp = date("Y-m-d H:i:s");
-
-    $userID = $_SESSION['ProlificID'];
+  // 输出调试信息
+    echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
+    echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
+    echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
+    echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
 
     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("sssi", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
+    $stmt->bind_param("ssss", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
     if ($stmt->execute()) {
         header("Location: define-2.php");
         exit();

@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("sssi", $objectiveNames, $objectiveBounds, $objective_timestamp, $userID);
+    $stmt->bind_param("ssss", $objectiveNames, $objectiveBounds, $objective_timestamp, $userID);
     if ($stmt->execute()) {
         echo "Record updated successfully";
     } else {

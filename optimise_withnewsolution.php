@@ -1030,9 +1030,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                             'saved-objectives'   :String(savedObjectives),
                             'objectives-input'   :String(objectivesInput),
                             'objectives-input'   :String(objectivesInput),
-                            'saved_timestamp'    :String(saved_timestamp)
-                        
-                        },
+                            'saved_timestamp'    :String(saved_timestamp)},
 
 	            beforeSend: function() {
 	                // 显示 loading 动画和文字

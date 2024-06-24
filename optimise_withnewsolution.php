@@ -8,28 +8,28 @@ if (!isset($_SESSION['ProlificID'])) {
     exit();
 }
 
-$userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
+// $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $objectiveNames = $_POST['objective-names'];
-    $objectiveBounds = $_POST['objective-bounds'];
-    $objective_timestamp = date("Y-m-d H:i:s"); // 格式化时间戳为字符串
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $objectiveNames = $_POST['objective-names'];
+//     $objectiveBounds = $_POST['objective-bounds'];
+//     $objective_timestamp = date("Y-m-d H:i:s"); // 格式化时间戳为字符串
 
-    $stmt = $conn->prepare("UPDATE data SET objectivename = ?, objectivebounds = ?, objective_timestamp = ? WHERE prolific_ID = ?");
-    if ($stmt === false) {
-        die("Prepare failed: " . $conn->error);
-    }
+//     $stmt = $conn->prepare("UPDATE data SET objectivename = ?, objectivebounds = ?, objective_timestamp = ? WHERE prolific_ID = ?");
+//     if ($stmt === false) {
+//         die("Prepare failed: " . $conn->error);
+//     }
 
-    $stmt->bind_param("ssss", $objectiveNames, $objectiveBounds, $objective_timestamp, $userID);
-    if ($stmt->execute()) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+//     $stmt->bind_param("ssss", $objectiveNames, $objectiveBounds, $objective_timestamp, $userID);
+//     if ($stmt->execute()) {
+//         echo "Record updated successfully";
+//     } else {
+//         echo "Error: " . $stmt->error;
+//     }
 
-    $stmt->close();
-    $conn->close();
-}
+//     $stmt->close();
+//     $conn->close();
+// }
 ?>
 
 
@@ -151,6 +151,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
+        <!-- 原有的用来显示measurement的代码  -->
+
+        <!-- <label for="obj1" class="objective_1_name"></label>
+        <input size="30" type="text" id="obj1" name="obj1" placeholder="Enter measurement"><br>
+        <label for="obj2" class="objective_2_name"></label>
+        <input size="30" type="text" id="obj2" name="obj2" placeholder="Enter measurement"><br>
+        <br> -->
+
+        <!-- 原有的用来显示measurement的代码  -->
+
+
+
+        <!-- 我新加的 -->
 
         <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
             <!-- <thead>  
@@ -184,20 +197,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div id="form-options-2" style="display: inline-block; margin: 0 auto;">
-            <button class="btn btn-success" id="submit-button">Submit</button>
+            <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
     </div>
 
 
     <br>
-    <!-- <div id="done-button" class="btn btn-success" style="text-align: right;">
+    <div id="done-button" class="btn btn-success" style="text-align: right;">
         <button class="button" id="done" onclick="finishSolutions()">I'm done</button>    
-    </div> -->
-
-
-
-
-
-
+    </div>
 
     <div id="loadingContainer">
     <div id="loadingIcon"></div>
@@ -206,13 +213,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </div>
     </div>
-
-    <div id="done-button" class="bottom-bar">
-        <div id="done-button" class="container text-right">
-            <button class="btn btn-success" id="done" style="width: 20%;" onclick="finishSolutions()">I'm done</button>
-        </div>
-    </div>
-
     </div>
 
     <script>
@@ -226,9 +226,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var solutionList = localStorage.getItem("solution-list").split(",");
         var savedSolutions = localStorage.getItem("saved-solutions").split(",");
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
-        // var ProlificID = localStorage.getItem("ProlificID");
-
-        var generatedsolutionList = [];
         var saved_timestamp = [];
 
         try {
@@ -248,9 +245,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {var solutionNameList = localStorage.getItem("solution-name-list").split(",");}
         catch(err) {}
-
-        console.log("initial")
-        // console.log("ProlificID",ProlificID)
 
         console.log("parameterNames",parameterNames)
         console.log("parameterBounds",parameterBounds)
@@ -277,7 +271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     RequirementDisplay.innerHTML =  "Let AI suggest alternatives of solutions with you. Please evaluate at least " + parseInt(2*(parameterNames.length+1)) + " alternatives to proceed. After you see Done button, you can choose to continue or finish." + "<br>";
 
 
-    if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
+    if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)
     {
         var x = document.getElementById('evaluate-solution');
         var y = document.getElementById('options')
@@ -309,33 +303,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
     }
-    else{
-        var x = document.getElementById('evaluate-solution');
-            var y = document.getElementById('options')
-            var z = document.getElementById('form-options-2')
-            var z2 = document.getElementById('form-options-1')
+else{
+    var x = document.getElementById('evaluate-solution');
+        var y = document.getElementById('options')
+        var z = document.getElementById('form-options-2')
+        var z2 = document.getElementById('form-options-1')
 
-        x.style.display = 'none';
-        z.style.display = 'none';
-        z2.style.display = 'none';
+    x.style.display = 'none';
+    z.style.display = 'none';
+    z2.style.display = 'none';
 
-    }
-
-    document.getElementById('submit-button').addEventListener('click', function() {
-            var savedSolutionsLength = savedSolutions.length;
-            var parameterNamesLength = parameterNames.length;
-            var condition1 = savedSolutionsLength / parameterNamesLength < 2 * (parameterNamesLength + 1) - 1;
-            var condition2 = savedSolutionsLength / parameterNamesLength == 2 * (parameterNamesLength + 1) - 1;
-
-            if (condition1) {
-                nextEvaluation2();
-            } else if (condition2) {
-                nextEvaluation();
-            } 
-            // else {
-            //     console.log('Conditions not met');
-            // }
-        });
+}
 
 
       var solutionsevaulted = parseInt(savedSolutions.length/parameterNames.length);
@@ -348,7 +326,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 {
-        for (var i = 0; i<parameterNames.length; i++) {
+    for (var i = 0; i<parameterNames.length; i++) {
             if (savedObjectives[0] == '')
             {
                 generatedSolution[i] = parameterNames[i] + " =  " + solutionList[i];
@@ -359,7 +337,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             }
         }
 
-        // console.log(generatedSolution);
+        console.log(generatedSolution);
 
         // 获取要填充数据的 <ul> 元素
         var generatedSolutionUI = document.getElementById("generatedSolution");
@@ -373,10 +351,10 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
         
     }   
 
-if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
+    if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
 {
         for (var i = 0; i<parameterNames.length; i++) {
-            generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];//取最后一个solution
+            generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];
         }
 
         console.log(generatedSolution);
@@ -427,7 +405,6 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
             solutionName = "";
 
             //console.log("Sending AJAX request to server...");
-            console.log("newSolutions：")
             console.log("objectiveMeasurements",objectiveMeasurements)
                 console.log("parameterNames",parameterNames)
                 console.log("parameterBounds",parameterBounds)
@@ -448,6 +425,7 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
 
 
             $.ajax({
+                // url: "./cgi/newSolution_u_copy.py",
                 url: "./cgi/newSolution_u_2.py",
 
                 type: "post",
@@ -493,12 +471,9 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
                     localStorage.setItem("saved-objectives", savedObjectives);
                     console.log("Success-newSolution_Reply_list_ends");
                     var url = "optimise_withnewsolution.php";
-                    // location.href = url;
-                    $('#loadingContainer').hide();
-                    // var url = "optimise_withnewsolution.php";
-                    setTimeout(function() {
-                        location.href = url;
-                    }, 10)
+                    location.href = url;
+		    $('#loadingContainer').hide();
+
             
                 },
                 error: function(result){
@@ -689,8 +664,8 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
                         console.log(result.solution);
                         console.log(result.saved_objectives);
 
-                        //记录时间
-                        var date = new Date();
+                                                //记录时间
+                                                var date = new Date();
                         var formattedTimestamp = date.getFullYear() + "-" + 
                                                 ("0" + (date.getMonth() + 1)).slice(-2) + "-" +
                                                 ("0" + date.getDate()).slice(-2) + " " +
@@ -699,7 +674,6 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
                                                 ("0" + date.getSeconds()).slice(-2);
 
                         saved_timestamp.push(formattedTimestamp);
-
 
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
@@ -853,7 +827,7 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
                         savedObjectives = result.saved_objectives;
                         solutionNameList = result.solutionNameList;
 
-			            DisplaySolutionText = 1;
+			DisplaySolutionText = 1;
                         
                         localStorage.setItem("solution-list", solutionList);
                         localStorage.setItem("objectives-input", objectivesInput);
@@ -868,7 +842,6 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
 
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
-
                         //记录时间
                         var date = new Date();
                         var formattedTimestamp = date.getFullYear() + "-" + 
@@ -879,22 +852,20 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
                                                 ("0" + date.getSeconds()).slice(-2);
 
                         saved_timestamp.push(formattedTimestamp);
-
-
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-   		                 $('#loadingContainer').hide();
+   		        $('#loadingContainer').hide();
 
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);
                         console.log(parameterBounds);
-                        console.log("Current solutions: " + solutionList);
-                        console.log("Objectives input: " + objectivesInput);
-                        console.log("Bad solutions: " + badSolutions);
-                        console.log("Saved solutions: " + savedSolutions);
-                        console.log("Saved objectives: " + savedObjectives);
-                        console.log("objectiveMeasurements",objectiveMeasurements)
+                    console.log("Current solutions: " + solutionList);
+                    console.log("Objectives input: " + objectivesInput);
+                    console.log("Bad solutions: " + badSolutions);
+                    console.log("Saved solutions: " + savedSolutions);
+                    console.log("Saved objectives: " + savedObjectives);
+                    console.log("objectiveMeasurements",objectiveMeasurements)
 
                     }
                 });
@@ -1089,27 +1060,8 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
                         localStorage.setItem("BestSolutionIndex", BestSolutionIndex);
                         console.log("solutionNameList",solutionNameList);
                         console.log("Success");
-
-                        $.ajax({
-                            url: "results.php",
-                            type: "post",
-                            data: {
-                            'saved-solutions'    :String(savedSolutions),
-                            'saved-objectives'   :String(savedObjectives),
-                            'solution-list'  :String(solutionList),
-                            'saved_timestamp'  :String(saved_timestamp)                           
-                            },
-                            success: function(response) {
-                                var url = "results.php";
-                                window.location.href = url;
-                            },
-                            error: function(response) {
-                                console.log("Error sending data");
-                            }
-                        });
-
-                        // var url = "results.php";
-                        // location.href = url;
+                        var url = "results.php";
+                        location.href = url;
 			$('#loadingContainer').hide();
                     },
                     error: function(result){
@@ -1125,3 +1077,20 @@ if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
     </script>
 </body>
 </html>
+<!-- $.ajax({
+                            url: "results.php",
+                            type: "post",
+                            data: {
+                            'saved-solutions'    :String(savedSolutions),
+                            'saved-objectives'   :String(savedObjectives),
+                            'solution-list'  :String(solutionList),
+                            'saved_timestamp'  :String(saved_timestamp)                           
+                            },
+                            success: function(response) {
+                                var url = "results.php";
+                                window.location.href = url;
+                            },
+                            error: function(response) {
+                                console.log("Error sending data");
+                            }
+                        }); -->

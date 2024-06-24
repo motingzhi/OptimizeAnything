@@ -1027,7 +1027,11 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                             'current-solutions'  :String(solutionList),
                             'saved-solutions'    :String(savedSolutions),
                             'saved-objectives'   :String(savedObjectives),
-                            'objectives-input'   :String(objectivesInput)},
+                            'objectives-input'   :String(objectivesInput),
+                            'objectives-input'   :String(objectivesInput),
+                            'saved_timestamp'    :String(saved_timestamp)
+                        
+                        },
 
 	            beforeSend: function() {
 	                // 显示 loading 动画和文字
@@ -1044,6 +1048,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         // bestSolutions = result.best_solutions;
                         // solutionNameList = result.solutionNameList;
                         BestSolutionIndex = result.BestSolutionIndex;
+                        saved_timestamp = result.saved_timestamp;
 			// console.log(solutionNameIndex);
                         console.log(objectivesInput);
                         console.log(savedSolutions);
@@ -1058,6 +1063,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         // localStorage.setItem("best-solutions", bestSolutions);
                         localStorage.setItem("solution-name-list", solutionNameList);
                         localStorage.setItem("BestSolutionIndex", BestSolutionIndex);
+                        localStorage.setItem("saved_timestamp", saved_timestamp);
 
                         $.ajax({
                             url: "results.php",

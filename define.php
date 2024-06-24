@@ -142,13 +142,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">Lean meat</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">2000</td>
-                </tr> -->
-                <!-- <tr>
+                </tr>
+                <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">Fat</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">1500</td>
-                </tr> -->
+                </tr>
             </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>

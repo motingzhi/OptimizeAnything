@@ -137,35 +137,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </thead>  
             <tbody>
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Fruit</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">apple</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">10</td>
                 </tr>
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Lean meat</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Chicken breast</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">PCS</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">2000</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">30</td>
                 </tr>
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Fat</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Avocado</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">PCS</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">500</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">10</td>
                 </tr>
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Carbohydrate</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Rice</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">bowl</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3000</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">10</td>
                 </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Fiber Foods</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit">g</td>
+                <!-- <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">broccoli</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit">pcs</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">1500</td>
-                </tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">30</td>
+                </tr> -->
             </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>

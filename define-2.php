@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <tr>
                 <td contenteditable="true" class="record-data" id="record-objective-name">Cost</td>
                 <td contenteditable="true" class="record-data" id="record-objective-unit">euro</td>
-                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">100</td>
+                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
                 <td contenteditable="true" class="record-data" id="record-objective-upper-bound">1000</td>
                 <td contenteditable="false" class="record-data" id="record-objective-min-max">
                     <select id="min-max-1" style="font-family: calibri; font-size: medium;">
@@ -146,10 +146,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </td>
             </tr>
             <tr>
-                <td contenteditable="true" class="record-data" id="record-objective-name">Satisfaction</td>
-                <td contenteditable="true" class="record-data" id="record-objective-unit">%</td>
+                <td contenteditable="true" class="record-data" id="record-objective-name">Nutritional Index: </td>
+                <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
                 <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
-                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">100</td>
+                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">10</td>
+                <td contenteditable="false" class="record-data" id="record-objective-min-max">
+                    <select id="min-max-2" style="font-family: calibri; font-size: medium;">
+                        <option value="minimise">minimise</option>
+                        <option value="maximise" selected="selected">maximise</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td contenteditable="true" class="record-data" id="record-objective-name">Weight loss possibility: </td>
+                <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
+                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
+                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">10</td>
+                <td contenteditable="false" class="record-data" id="record-objective-min-max">
+                    <select id="min-max-2" style="font-family: calibri; font-size: medium;">
+                        <option value="minimise">minimise</option>
+                        <option value="maximise" selected="selected">maximise</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td contenteditable="true" class="record-data" id="record-objective-name">Taste preference: </td>
+                <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
+                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
+                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">10</td>
                 <td contenteditable="false" class="record-data" id="record-objective-min-max">
                     <select id="min-max-2" style="font-family: calibri; font-size: medium;">
                         <option value="minimise">minimise</option>

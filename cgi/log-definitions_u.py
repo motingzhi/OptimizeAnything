@@ -104,7 +104,7 @@ else:
 
 reply['success'] = success
 reply['message'] = message
-reply['test'] = test
+# reply['test'] = test
 
 
 sys.stdout.write("Content-Type: application/json")

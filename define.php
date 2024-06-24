@@ -245,8 +245,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             url: "define-2.php",
                             type: "post",
                             data: {
-                                'parameter-names': parameterNames.join(','),
-                                'parameter-bounds': parameterBounds.join(',')
+                            'parameter-names'    :String(parameterNames),
+                            'parameter-bounds'   :String(parameterBounds)
                             },
                             success: function(response) {
                                 var url = "define-2.php";

@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // 构建列名和相应的值
     $columns = [
-        'ID' => $prolificID,
+        'prolific_ID' => $prolificID,
         'Solutionlist' => $solutionlist,
         'Savedsolutions' => $savedsolutions,
         'Savedobjectives' => $savedobjectives,

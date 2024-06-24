@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $solutionlist = $_POST['solution-list'];
     $saved_timestamp = $_POST['saved_timestamp'];
 
-    $stmt = $conn->prepare("UPDATE data SET Savedsolutions = ?, Savedobjectives = ?, Solutionlist = ?, saved_timestamp =? WHERE prolific_ID = ?");
+    $stmt = $conn->prepare("UPDATE data SET Savedsolutions = ?, Savedobjectives = ?, Solutionlist = ?, saved_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
@@ -32,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>

@@ -1058,26 +1058,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         // localStorage.setItem("best-solutions", bestSolutions);
                         localStorage.setItem("solution-name-list", solutionNameList);
                         localStorage.setItem("BestSolutionIndex", BestSolutionIndex);
-                        console.log("solutionNameList",solutionNameList);
-                        console.log("Success");
-                        var url = "results.php";
-                        location.href = url;
-			$('#loadingContainer').hide();
-                    },
-                    error: function(result){
-                        console.log("Error in finishing experiment: " + result.message);
-                    }
-                });
-            }
-            else {
-                alert("Please ensure you have evaluated at least 3 solutions");
-            }  
-        }
 
-    </script>
-</body>
-</html>
-<!-- $.ajax({
+                        $.ajax({
                             url: "results.php",
                             type: "post",
                             data: {
@@ -1093,4 +1075,23 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                             error: function(response) {
                                 console.log("Error sending data");
                             }
-                        }); -->
+                        });
+                        // var url = "results.php";
+                        // location.href = url;
+                    console.log("solutionNameList",solutionNameList);
+                    console.log("Success");
+                    $('#loadingContainer').hide();
+                    },
+                    error: function(result){
+                        console.log("Error in finishing experiment: " + result.message);
+                    }
+                });
+            }
+            else {
+                alert("Please ensure you have evaluated at least 3 solutions");
+            }  
+        }
+
+    </script>
+</body>
+</html>

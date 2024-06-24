@@ -1008,6 +1008,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             if (savedSolutions.length/num_parameters < 3) {
                 noError = false;
             }
+            localStorage.setItem("saved_timestamp", saved_timestamp);
 
             if (noError) {
                 $.ajax({

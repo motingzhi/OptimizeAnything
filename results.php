@@ -11,10 +11,10 @@ if (!isset($_SESSION['ProlificID'])) {
 $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $savedsolutions = $_POST['saved-solutions'];
-    $savedobjectives = $_POST['saved-objectives'];
-    $solutionlist = $_POST['solution-list'];
-    $saved_timestamp = $_POST['saved_timestamp'];
+    $savedsolutions = json_encode($_POST['saved-solutions']);
+    $savedobjectives = json_encode($_POST['saved-objectives']);
+    $solutionlist = json_encode($_POST['solution-list']);
+    $saved_timestamp = json_encode(date("Y-m-d H:i:s"));
 
     $stmt = $conn->prepare("UPDATE data SET Savedsolutions = ?, Savedobjectives = ?, Solutionlist = ?, saved_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {

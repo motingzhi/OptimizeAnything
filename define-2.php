@@ -11,9 +11,9 @@ if (!isset($_SESSION['ProlificID'])) {
 $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $parameterNames = $_POST['parameter-names'];
-    $parameterBounds = $_POST['parameter-bounds'];
-    $parameter_timestamp = date("Y-m-d H:i:s"); // 格式化时间戳为字符串
+    $parameterNames = json_encode($_POST['parameter-names']);
+    $parameterBounds = json_encode($_POST['parameter-bounds']);
+    $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));// 格式化时间戳为字符串
 
     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {

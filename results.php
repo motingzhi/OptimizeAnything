@@ -284,7 +284,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             n = i+1
             // var dataRow = data[i].join("<br>"); // 数组逐行显示
-            displayDiv.innerHTML +=  solutionNameList[BestSolutionIndex[i]] + "</b><br>";
+            displayDiv.innerHTML +=  solutionNameList[BestSolutionIndex[i]-1] + "</b><br>";
 
             // displayDiv.innerHTML += "<b>Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "</b><br>";
             // displayDiv.innerHTML +=  "<br>";

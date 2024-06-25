@@ -235,7 +235,7 @@ if (len(savedObjectives) != 0):
 objectivesInput.append(obj)
 savedObjectives.append(obj)
 # print(len(objectivesInput))
-# solutionNameList.append(solutionName)
+solutionNameList.append(solutionName)
 
 # objectivesInput = [(333,33,33)]
 

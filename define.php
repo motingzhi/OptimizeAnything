@@ -160,12 +160,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">10</td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">broccoli</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit">pcs</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">30</td>
-                </tr> -->
+                </tr>
             </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>

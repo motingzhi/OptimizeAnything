@@ -282,9 +282,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         for (var i = 0; i < BestSolutionIndex.length; i++) {
             // 显示 data[i]
             
-            n = i+1
+            // n = i+1
             // var dataRow = data[i].join("<br>"); // 数组逐行显示
-            displayDiv.innerHTML +=  solutionNameList[BestSolutionIndex[i]-5] + "</b><br>";
+            displayDiv.innerHTML +=  solutionNameList + "</b><br>";
 
             // displayDiv.innerHTML += "<b>Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "</b><br>";
             // displayDiv.innerHTML +=  "<br>";

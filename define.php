@@ -10,14 +10,16 @@ if (!isset($_SESSION['ProlificID'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userID = $_SESSION['ProlificID'];
-    $parameterNames = $_POST['parameter-names'];
-    $parameterBounds = $_POST['parameter-bounds'];
-    $parameter_timestamp = date("Y-m-d H:i:s");
-  // 输出调试信息
-    echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
-    echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
-    echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
-    echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
+    $parameterNames = json_encode($_POST['parameter-names']);
+    $parameterBounds = json_encode($_POST['parameter-bounds']);
+    $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));
+
+    
+//   // 输出调试信息
+//     echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
+//     echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
+//     echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
+//     echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
 
     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {

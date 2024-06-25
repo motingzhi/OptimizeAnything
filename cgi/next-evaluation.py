@@ -221,21 +221,21 @@ for i in range(len(savedSolutions)):
 
 #处理objective
 # train_obj_actual = torch.tensor([[obj1, obj2]], dtype=torch.float64)
-if (len(objectivesInput) != 0):
+if (len(savedObjectives) != 0):
     objectivesInputPlaceholder = []
-    for i in range(int(len(objectivesInput)/len(objectiveNames))):
-            sub_list = [float(x) for x in objectivesInput[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
+    for i in range(int(len(savedObjectives)/len(objectiveNames))):
+            sub_list = [float(x) for x in savedObjectives[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
             objectivesInputPlaceholder.append(sub_list)
         # objectivesInputPlaceholder.append([float(objectivesInput[2*i]), float(objectivesInput[2*i+1]),float(objectivesInput[2*i+2])])
     objectivesInput = objectivesInputPlaceholder
 
-if len(savedSolutions)/len(parameterNames) >= 2*(len(parameterNames)+1):
-    objectivesInput = []
+# if len(savedSolutions)/len(parameterNames) >= 2*(len(parameterNames)+1):
+#     objectivesInput = []
 
 objectivesInput.append(obj)
 savedObjectives.append(obj)
-
-solutionNameList.append(solutionName)
+# print(len(objectivesInput))
+# solutionNameList.append(solutionName)
 
 # objectivesInput = [(333,33,33)]
 
@@ -252,13 +252,13 @@ train_obj = normalise_objectives(train_obj_actual)
 
 parametersPlaceholder = []
 
-if len(savedSolutions)/len(parameterNames) < 2*(len(parameterNames)+1):
-    for i in range(int(len(currentSolutions)/num_parameters)):
-        parametersPlaceholder.append(currentSolutions[i*num_parameters:i*num_parameters+num_parameters]) #切片[2:4] 是 2，3，
+# if len(savedSolutions)/len(parameterNames) < 2*(len(parameterNames)+1):
+for i in range(int(len(savedSolutions)/num_parameters)):
+    parametersPlaceholder.append(savedSolutions[i*num_parameters:i*num_parameters+num_parameters]) #切片[2:4] 是 2，3，
         # parametersPlaceholder.append(currentSolutions[m*num_parameters:m*num_parameters+num_parameters]) #搞清用作训练的到底是current solutions里的哪些。
-else:
-        parametersPlaceholder.append(currentSolutions[-num_parameters:])
-        # parametersPlaceholder.append([121,2])
+# else:
+parametersPlaceholder.append(currentSolutions[-num_parameters:])
+#         # parametersPlaceholder.append([121,2])
 
 #搞清用作训练的到底是current solutions里的哪些。
 

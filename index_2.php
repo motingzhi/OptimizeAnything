@@ -15,7 +15,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objective_timestamp = '';
     $saved_timestamp = '';
 
-    
+    $solutionlist = ''; // 默认值
+    $savedsolutions = ''; // 默认值
+    $savedobjectives = ''; // 默认值
+    $parameterNames = ''; // 默认值
+    $parameterBounds = '';
+    $parameter_timestamp = '';
+    $objectiveNames = ''; // 默认值
+    $objectiveBounds = ''; // 默认值
+    $objective_timestamp = '';
+    $saved_timestamp = '';
+
+   // 将数组转换为 JSON 格式
+   $solutionlist = json_encode($solutionList);
+   $savedsolutions = json_encode($savedSolutions);
+   $savedobjectives = json_encode($savedObjectives);
+   $parameterNames = json_encode($parameterNames);
+   $parameterBounds = json_encode($parameterBounds);
+   $objectiveNames = json_encode($objectiveNames);
+   $objectiveBounds = json_encode($objectiveBounds);
+   $parameter_timestamp = json_encode($parameter_timestamp);
+   $objective_timestamp = json_encode($objective_timestamp);
+   $saved_timestamp = json_encode($saved_timestamp);
+
 
     if (empty($prolificID)) {
         die("Prolific ID is required");

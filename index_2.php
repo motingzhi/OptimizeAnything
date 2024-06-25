@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objective_timestamp = '';
     $saved_timestamp = '';
 
+    
 
     if (empty($prolificID)) {
         die("Prolific ID is required");

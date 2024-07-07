@@ -698,7 +698,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-parameterNames.length+1), savedObjectives.slice(-objectiveNames.length+1), formattedTimestamp);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp);
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
 
@@ -878,7 +878,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-parameterNames.length+1), savedObjectives.slice(-objectiveNames.length+1), formattedTimestamp);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp);
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;

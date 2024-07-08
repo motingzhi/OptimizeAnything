@@ -300,7 +300,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 htmlNewRow += "<tr>"
                 htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
                 htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder=''> </td>"
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' style='width: 25%;' placeholder=''> </td>"
                 // htmlNewRow += "<td id='record-data-buttons'>"
                 htmlNewRow += "</td></tr>"
                 $("#measurement-table", window.document).append(htmlNewRow);
@@ -562,7 +562,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 htmlNewRow += "<tr>"
                 htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
                 htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder=''> </td>"
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' style='width: 25%;' placeholder=''> </td>"
                 // htmlNewRow += "<td id='record-data-buttons'>"
                 htmlNewRow += "</td></tr>"
                 $("#measurement-table", window.document).append(htmlNewRow);

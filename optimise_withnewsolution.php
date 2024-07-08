@@ -299,8 +299,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 var htmlNewRow = ""
                 htmlNewRow += "<tr>"
                 htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
-                // htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder='Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")'> </td>"
+                htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder=''> </td>"
                 // htmlNewRow += "<td id='record-data-buttons'>"
                 htmlNewRow += "</td></tr>"
                 $("#measurement-table", window.document).append(htmlNewRow);
@@ -561,8 +561,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 var htmlNewRow = ""
                 htmlNewRow += "<tr>"
                 htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
-                // htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder='Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")'> </td>"
+                htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' placeholder=''> </td>"
                 // htmlNewRow += "<td id='record-data-buttons'>"
                 htmlNewRow += "</td></tr>"
                 $("#measurement-table", window.document).append(htmlNewRow);
@@ -595,7 +595,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 var $paramCols = $(this).find("td");
 
                 // 获取当前行的第二列数据
-                var objElement = $paramCols.eq(1).text();
+                var objElement = $paramCols.eq(2).text();
 
                 // 将第二列数据填充到objectiveMeasurements对应的位置
                 objectiveMeasurements[index] = objElement;
@@ -750,7 +750,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 var $paramCols = $(this).find("td");
 
                 // 获取当前行的第二列数据
-                var objElement = $paramCols.eq(1).text();
+                var objElement = $paramCols.eq(2).text();
 
                 // 将第二列数据填充到objectiveMeasurements对应的位置
                 objectiveMeasurements[index] = objElement;
@@ -921,7 +921,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     var $paramCols = $(this).find("td");
     
                     // 获取当前行的第二列数据
-                    var objElement = $paramCols.eq(1).text();
+                    var objElement = $paramCols.eq(2).text();
     
                     // 将第二列数据填充到objectiveMeasurements对应的位置
                     objectiveMeasurements[index] = objElement;

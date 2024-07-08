@@ -23,12 +23,12 @@ from botorch.utils.transforms import unnormalize
 
 # logging.basicConfig(filename='next-evaluation.log', level=logging.DEBUG)  # 将日志级别设置为 DEBUG，并输出到 example.log 文件中
 
-
+device_map="auto"
 BATCH_SIZE = 1 # Number of design parameter points to query at next iteration
 NUM_RESTARTS = 5 # Used for the acquisition function number of restarts in optimization
-RAW_SAMPLES = 512 # Initial restart location candidates
+RAW_SAMPLES = 8 # Initial restart location candidates
 N_ITERATIONS = 21 # Number of optimization iterations
-MC_SAMPLES = 256 # Number of samples to approximate acquisition function
+MC_SAMPLES = 8 # Number of samples to approximate acquisition function
 N_INITIAL = 5
 SEED = 2 
 

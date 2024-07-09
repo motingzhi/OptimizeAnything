@@ -20,7 +20,7 @@ require_once 'config.php';
     <style>
         .pdf-viewer {
             width: 100%;
-            height: 500px;
+            height: 1000px;
         }
         .container {
             margin-top: 50px;

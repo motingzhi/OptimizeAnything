@@ -203,7 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <br>
     <div id="done-button" class="btn btn-success" style="text-align: right;">
-        <button class="button" id="done" onclick="finishSolutions()">I'm done</button>    
+        <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
     </div>
 
     <div id="loadingContainer">

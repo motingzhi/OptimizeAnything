@@ -11,80 +11,55 @@ require_once 'config.php';
 // ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEVSC7VEKC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JEVSC7VEKC');
-</script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Consent Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .top-bar {
-            position: fixed;
-            top: calc(100vh / 12);
+        .pdf-viewer {
             width: 100%;
-            background: transparent;
-            padding: 10px 0;
-            box-shadow: none;
-            z-index: 1000; 
+            height: 500px;
         }
-        .centered-content {
-            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
-            text-align: center;
-            width: 33.33%; /* Content width as 1/3 of the page */
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .text-left-align {
-            text-align: left; /* Ensure text within this div is left-aligned */
+        .container {
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-     <!-- <div class="top-bar">
-        <div class="container text-center">
-            <h1>Optimize Anything!</h1>
+
+    <div class="container">
+        <h1 class="text-center">User Consent Form</h1>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <iframe src="InformedConsentForm 1.pdf" class="pdf-viewer" frameborder="0"></iframe>
+            </div>
         </div>
-    </div> -->
-
-    <div class="centered-content">
-        <div style="text-align: center;"> <!-- 将内容居中对齐 -->
-            <!-- <p><b>Get started:</b></p> -->
-
-                <!-- 显示 profilic ID 输入框和提交按钮 -->
-                <form action="index_2.php" method="post">
-                <div class="form-group">
-                    <label for="Prolific">Input your Prolific ID:</label>
-                    <input type="text" class="form-control" id="ProlificID" name="Prolific" required>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mt-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="consentCheckbox">
+                    <label class="form-check-label" for="consentCheckbox">
+                        By checking this I give my consent
+                    </label>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="recordID()">Submit</button>
-            </form>
-            
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mt-3">
+                <button id="startButton" class="btn btn-primary" action="index_id.php" disabled>Start</button>
+            </div>
         </div>
     </div>
-</div>
-<script>
 
-            function recordID() {
-                var ProlificID = document.getElementById("ProlificID").value;
-                localStorage.setItem("ProlificID", ProlificID);
-                console.log(ProlificID);
-                // var url = "index_2.php";
-                // location.href = url;
-            }
-
-
-</script>
+    <script>
+        document.getElementById('consentCheckbox').addEventListener('change', function() {
+            document.getElementById('startButton').disabled = !this.checked;
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
-<!-- <?php if ($showGoogleLogin): ?> -->
-                <!-- 只有在 $showGoogleLogin 为 true 时才显示 Google 登录按钮 -->
-                <!-- <a href="<?php echo $client->createAuthUrl(); ?>" class="btn-google">Login with Google</a> -->
-            <!-- <?php endif; ?> -->

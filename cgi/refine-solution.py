@@ -227,6 +227,10 @@ obj = [float(x) for x in objective_Measurements]
 for i in range(len(currentSolutions)):
     currentSolutions[i] = float(currentSolutions[i])
 
+for i in range(len(savedSolutions)):
+    savedSolutions[i] = float(savedSolutions[i])
+
+
 # train_obj_actual = torch.tensor([[obj1, obj2]], dtype=torch.float64)
 if (len(objectivesInput) != 0):
     objectivesInputPlaceholder = []
@@ -244,10 +248,16 @@ train_obj_actual = torch.tensor(objectivesInput, dtype=torch.float64)
 train_obj = normalise_objectives(train_obj_actual)
 
 parametersPlaceholder = []
-m = int(len(currentSolutions)/num_parameters)-1
-parametersPlaceholder.append(currentSolutions[m*num_parameters:m*num_parameters+num_parameters]) 
+
+for i in range(int(len(savedSolutions)/num_parameters)):
+    parametersPlaceholder.append(savedSolutions[i*num_parameters:i*num_parameters+num_parameters]) #切片[2:4] 是 2，3，
+
+parametersPlaceholder.append(currentSolutions[-num_parameters:])
+
 train_x_actual = torch.tensor(parametersPlaceholder, dtype=torch.float64)
 savedSolutions.append(train_x_actual.tolist()[-1])
+train_x = normalise_parameters(train_x_actual)
+torch.manual_seed(SEED)
 
 # train_x_actual = torch.zeros(1,num_parameters, dtype=torch.float64)
 # for i in range(1, num_parameters+1):
@@ -263,9 +273,7 @@ for i in range(num_parameters):
         parameter_bounds_refined[1][i] = parameter_bounds[1][i]
     parameter_bounds_range_refined.append(parameter_bounds_refined[1][i] - parameter_bounds_refined[0][i])
 
-train_x = normalise_parameters(train_x_actual)
 
-torch.manual_seed(SEED)
 
 hv = Hypervolume(ref_point=obj_ref_point)
 # Hypervolumes

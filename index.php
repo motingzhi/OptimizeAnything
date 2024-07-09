@@ -48,7 +48,7 @@ require_once 'config.php';
         </div>
         <div class="row justify-content-center">
             <div class="col-12 text-center mt-3">
-                <button id="startButton" class="btn btn-primary" action="index_id.php" disabled>Start</button>
+                <button id="startButton" class="btn btn-primary" disabled>Start</button>
             </div>
         </div>
     </div>
@@ -56,6 +56,9 @@ require_once 'config.php';
     <script>
         document.getElementById('consentCheckbox').addEventListener('change', function() {
             document.getElementById('startButton').disabled = !this.checked;
+        });
+        document.getElementById('startButton').addEventListener('click', function() {
+            window.location.href = 'index_id.php';  // 跳转到index.php页面
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

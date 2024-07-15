@@ -203,10 +203,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">I want to refine this</button>
     </div>
 
+    
     <div id="form-options-2" style="display: inline-block; margin: 0 auto;">
             <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
     </div>
 
+    <div id="form-options-3" style="display: inline-block; margin: 0 auto;">
+            <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Submit</button>
+    </div>
 
     <br>
     <div id="done-button" class="btn btn-success" style="text-align: right;">
@@ -284,9 +288,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)
     {
         var x = document.getElementById('evaluate-solution');
-        var y = document.getElementById('options')
-        var z = document.getElementById('form-options-2')
-        var z2 = document.getElementById('form-options-1')
+        var y = document.getElementById('options');
+        var z = document.getElementById('form-options-2');
+        var z2 = document.getElementById('form-options-1');
+        var z3 = document.getElementById('form-options-3');
 
             if (x.style.display == 'none') {
                 x.style.display = 'block';
@@ -313,6 +318,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
     }
+    else  if (savedSolutions.length/parameterNames.length = 2*(parameterNames.length+1)-1)
+    {
+        var x = document.getElementById('evaluate-solution');
+        var y = document.getElementById('options');
+        var z = document.getElementById('form-options-2');
+        var z2 = document.getElementById('form-options-1');
+        var z3 = document.getElementById('form-options-3');
+
+        if (x.style.display == 'none') {
+                    x.style.display = 'block';
+                    z3.style.display = 'block';
+                    z.style.display = 'none';
+
+                    y.style.display = 'none';
+                    z2.style.display = 'none';
+                }
+    }
+
+
 else{
     var x = document.getElementById('evaluate-solution');
         var y = document.getElementById('options')

@@ -337,18 +337,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     }
 
-    // else if (savedSolutions.length/parameterNames.length = 2*(parameterNames.length+1)-1) {
+    if (savedSolutions.length/parameterNames.length = 2*(parameterNames.length+1)-1) {
 
-// var x = document.getElementById('evaluate-solution');
-//     var y = document.getElementById('options')
-//     var z = document.getElementById('form-options-2')
-//     var z2 = document.getElementById('form-options-1')
+var x = document.getElementById('evaluate-solution');
+    var y = document.getElementById('options')
+    var z = document.getElementById('form-options-2')
+    var z2 = document.getElementById('form-options-1')
 
-// x.style.display = 'none';
-// z.style.display = 'none';
-// z2.style.display = 'none';
+x.style.display = 'none';
+z.style.display = 'none';
+z2.style.display = 'none';
 
-// }
+}
 
 
 

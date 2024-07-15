@@ -289,22 +289,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         var x = document.getElementById('evaluate-solution');
         var y = document.getElementById('options');
-        var z = document.getElementById('form-options-2');
-        var z2 = document.getElementById('form-options-1');
+        var z = document.getElementById('form-options-1');
+        var z2 = document.getElementById('form-options-2');
         var z3 = document.getElementById('form-options-3');
 
             if (x.style.display == 'none') {
                 x.style.display = 'block';
-                z.style.display = 'block';
+                z2.style.display = 'block';
 
                 y.style.display = 'none';
-                z2.style.display = 'none';
+                z.style.display = 'none';
+                z3.style.display = 'none';
+
             }
             else {
                 x.style.display = 'none';
-                z.style.display = 'none';
+                z2.style.display = 'none';
+                z3.style.display = 'none';
+
                 y.style.display = 'inline-block';
-                z2.style.display = 'block';
+                z.style.display = 'block';
             }
         
            for (i = 0; i < objectiveNames.length; i++) {

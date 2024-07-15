@@ -318,7 +318,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
     }
-    else  if (savedSolutions.length/parameterNames.length = 2*(parameterNames.length+1)-1)
+ 
+
+
+else{
+    if (savedSolutions.length/parameterNames.length = 2*(parameterNames.length+1)-1)
     {
         var x = document.getElementById('evaluate-solution');
         var y = document.getElementById('options');
@@ -335,9 +339,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     z2.style.display = 'none';
                 }
     }
-
-
-else{
+    
     var x = document.getElementById('evaluate-solution');
         var y = document.getElementById('options')
         var z = document.getElementById('form-options-2')

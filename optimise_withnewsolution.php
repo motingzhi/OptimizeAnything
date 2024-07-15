@@ -327,26 +327,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      
 
         var x = document.getElementById('evaluate-solution');
-            var y = document.getElementById('options')
-            var z = document.getElementById('form-options-2')
-            var z2 = document.getElementById('form-options-1')
+        var y = document.getElementById('options');
+        var z = document.getElementById('form-options-1');
+        var z2 = document.getElementById('form-options-2');
+        var z3 = document.getElementById('form-options-3');
 
         x.style.display = 'none';
         z.style.display = 'none';
         z2.style.display = 'none';
+        z3.style.display = 'none';
+
 
     }
 
     if (savedSolutions.length/parameterNames.length == 2*(parameterNames.length+1)-1) {
 
         var x = document.getElementById('evaluate-solution');
-            var y = document.getElementById('options')
-            var z = document.getElementById('form-options-2')
-            var z2 = document.getElementById('form-options-1')
+        var y = document.getElementById('options');
+        var z = document.getElementById('form-options-1');
+        var z2 = document.getElementById('form-options-2');
+        var z3 = document.getElementById('form-options-3');
 
-        x.style.display = 'none';
-        z.style.display = 'none';
-        z2.style.display = 'none';
+        if (x.style.display == 'none') {
+                x.style.display = 'block'
+                z3.style.display = 'block'
+
+                y.style.display = 'none'
+                z.style.display = 'none'
+                z2.style.display = 'none'
+
+            }
+            else {
+                x.style.display = 'none'
+                z2.style.display = 'none'
+                z3.style.display = 'none'
+
+                y.style.display = 'inline-block'
+                z.style.display = 'block'
+            }
+        
+           for (i = 0; i < objectiveNames.length; i++) {
+                var htmlNewRow = "" 
+                htmlNewRow += "<tr>" 
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>" 
+                htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>" // placeholder的效果怎么做
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' style='width: 25%;' placeholder=''> </td>"
+                htmlNewRow += "</td></tr>"
+                $("#measurement-table", window.document).append(htmlNewRow);
+            }
 
     }
 

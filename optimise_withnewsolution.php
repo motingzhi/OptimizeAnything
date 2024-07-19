@@ -462,7 +462,7 @@ function setButtonProperties(sideMargin, confirmFontSize, buttonRadius, checkmar
     confirmText.style.fontSize = confirmFontSize + 'px';
 
     const confirmTextWidth = confirmText.offsetWidth;
-    const totalContentWidth = parseInt(checkmarkSize) + parseInt(checkmarkMargin) + confirmTextWidth;
+    const totalContentWidth = checkmarkSize.offsetWidth + parseInt(checkmarkMargin) + confirmTextWidth;
     const buttonWidth = totalContentWidth + 2 * sideMargin;
 
     button.style.width = buttonWidth + 'px';

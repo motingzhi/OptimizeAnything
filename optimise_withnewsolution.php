@@ -157,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p class="card-title">New Alternative</p>
                 <div id="customButton">
                 <div class="checkmark">
-                    <svg viewBox="-40 -40 180 180" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="40 40 180 180" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 50 L40 80 L90 20" stroke="black" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
@@ -447,7 +447,7 @@ function setButtonProperties(sideMargin, confirmFontSize, buttonRadius, checkmar
     const svg = checkmark.querySelector('svg');
     svg.setAttribute('width', checkmarkSize + 'px');
     svg.setAttribute('height', checkmarkSize + 'px');
-    // svg.setAttribute('viewBox', `0 0 ${checkmarkSize} ${checkmarkSize}`); // Dynamic viewBox
+    svg.setAttribute('viewBox', `-50 -50 ${checkmarkSize} ${checkmarkSize}`); // Dynamic viewBox
 
     const path = svg.querySelector('path');
     path.setAttribute('stroke-width', checkmarkWeight + 'px');

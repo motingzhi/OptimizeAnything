@@ -109,6 +109,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             width: 100px;
             height: 100px;
         }
+
+                /* for ui optimization */
+                #customButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .checkmark {
+            position: relative;
+            width: var(--checkmark-size, 30px);
+            height: var(--checkmark-size, 30px);
+            margin-right: calc(var(--checkmark-size, 30px) / 2 + var(--confirm-font-size, 16px) / 4);
+        }
+
+        .checkmark-line {
+            position: absolute;
+            background-color: black;
+            border-radius: 0;
+        }
+
+        .checkmark-line.long {
+            width: calc(var(--checkmark-weight, 5px));
+            height: calc(var(--checkmark-size, 30px)*2);
+            bottom: 0;
+            /* right: calc(var(--checkmark-size, 30px) * 0.5); */
+            right: var(--checkmark-margin, 30px);
+            transform: rotate(45deg);
+            transform-origin: bottom left;
+            border-bottom-right-radius: var(--checkmark-radius, 0px);
+            border-top-right-radius: var(--checkmark-radius, 0px);
+            border-top-left-radius: var(--checkmark-radius, 0px);
+        
+        }
+
+        .checkmark-line.short {
+            width: calc(var(--checkmark-weight, 5px));
+            height: var(--checkmark-size, 30px);
+            bottom: 0;
+            right: var(--checkmark-margin, 30px);
+            transform: rotate(-45deg);
+            transform-origin: bottom left;
+            border-top-left-radius: var(--checkmark-radius, 0px);
+            border-top-right-radius: var(--checkmark-radius, 0px);
+        }
+
+        #confirmText {
+            font-size: var(--confirm-font-size, 16px);
+            font-family: inter;
+        }
     </style>
 	
 </head>
@@ -131,7 +186,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card custom-card">
             <div class="card-body">
                 <p class="card-title">New Alternative</p>
-                <div id="colorBlock"></div>
+                <div id="customButton">
+                        <div class="checkmark">
+                            <div class="checkmark-line long"></div>
+                            <div class="checkmark-line short"></div>
+                        </div>
+                        <div id="confirmText">Confirm</div>
+                    </div>
+                <!-- <div id="colorBlock"></div> -->
 
                 <!-- <ul id="generatedSolution" class="list-unstyled"> -->
                     <!-- List items will be dynamically added here -->
@@ -387,11 +449,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
 
 
-// 使用apply方法将颜色数组应用到色块
-function setColor(r, g, b) {
-    const colorBlock = document.getElementById('colorBlock');
-    colorBlock.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-}      
+// // 使用apply方法将颜色数组应用到色块
+// function setColor(r, g, b) {
+//     const colorBlock = document.getElementById('colorBlock');
+//     colorBlock.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+// }      
+
+function setButtonProperties(buttonWidth, confirmFontSize, buttonRadius, checkmarkSize, checkmarkMargin, checkmarkRadius, checkmarkWeight) {
+            const button = document.getElementById('customButton');
+            const checkmark = document.querySelector('.checkmark');
+            const confirmText = document.getElementById('confirmText');
+
+            button.style.width = buttonWidth + 'px';
+            button.style.borderRadius = buttonRadius + 'px';
+
+            confirmText.style.fontSize = confirmFontSize + 'px';
+
+            checkmark.style.setProperty('--checkmark-size', checkmarkSize + 'px');
+            checkmark.style.setProperty('--checkmark-radius', checkmarkRadius + 'px');
+            checkmark.style.setProperty('--checkmark-weight', checkmarkWeight + 'px');
+            checkmark.style.setProperty('--checkmark-margin', checkmarkMargin + 'px');
+
+        }
 
 ///以下为了多parameter的情况：
 
@@ -411,7 +490,9 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 // generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i];
             }
         }
-        setColor.apply(null, generatedSolution);
+        setButtonProperties.apply(null, generatedSolution); 
+
+        // setColor.apply(null, generatedSolution);
         // console.log(generatedSolution);
 
         // // 获取要填充数据的 <ul> 元素
@@ -433,7 +514,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
             // generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];
         }
-        setColor.apply(null, generatedSolution);
+        // setColor.apply(null, generatedSolution);
+        setButtonProperties.apply(null, generatedSolution);
 
         console.log(generatedSolution);
 

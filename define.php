@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>  
             </thead>  
             <tbody>
-                <tr>
+                <!-- <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">R</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
@@ -155,8 +155,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">255</td>
-                </tr>
+                </tr> -->
 
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">button width</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">200</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">font size</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">100</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">button radius</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark size</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">100</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark margin</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmoark radius</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
+                </tr>
+                <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark weight</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
+                </tr>
             </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>

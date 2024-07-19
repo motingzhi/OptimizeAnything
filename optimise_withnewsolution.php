@@ -454,23 +454,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //     const colorBlock = document.getElementById('colorBlock');
 //     colorBlock.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 // }      
+function setButtonProperties(sideMargin, confirmFontSize, buttonRadius, checkmarkSize, checkmarkMargin, checkmarkRadius, checkmarkWeight) {
+    const button = document.getElementById('customButton');
+    const checkmark = document.querySelector('.checkmark');
+    const confirmText = document.getElementById('confirmText');
 
-function setButtonProperties(buttonWidth, confirmFontSize, buttonRadius, checkmarkSize, checkmarkMargin, checkmarkRadius, checkmarkWeight) {
-            const button = document.getElementById('customButton');
-            const checkmark = document.querySelector('.checkmark');
-            const confirmText = document.getElementById('confirmText');
+    confirmText.style.fontSize = confirmFontSize + 'px';
 
-            button.style.width = buttonWidth + 'px';
-            button.style.borderRadius = buttonRadius + 'px';
+    const confirmTextWidth = confirmText.offsetWidth;
+    const totalContentWidth = parseInt(checkmarkSize) + parseInt(checkmarkMargin) + confirmTextWidth;
+    const buttonWidth = totalContentWidth + 2 * sideMargin;
 
-            confirmText.style.fontSize = confirmFontSize + 'px';
+    button.style.width = buttonWidth + 'px';
+    button.style.borderRadius = buttonRadius + 'px';
 
-            checkmark.style.setProperty('--checkmark-size', checkmarkSize + 'px');
-            checkmark.style.setProperty('--checkmark-radius', checkmarkRadius + 'px');
-            checkmark.style.setProperty('--checkmark-weight', checkmarkWeight + 'px');
-            checkmark.style.setProperty('--checkmark-margin', checkmarkMargin + 'px');
+    checkmark.style.setProperty('--checkmark-size', checkmarkSize + 'px');
+    checkmark.style.setProperty('--checkmark-radius', checkmarkRadius + 'px');
+    checkmark.style.setProperty('--checkmark-weight', checkmarkWeight + 'px');
+    checkmark.style.setProperty('--checkmark-margin', checkmarkMargin + 'px');
+}
 
-        }
 
 ///以下为了多parameter的情况：
 

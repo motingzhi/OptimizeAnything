@@ -192,13 +192,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
                 </tr>
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmoark radius</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
-                </tr>
-                <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark weight</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
 

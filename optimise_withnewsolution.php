@@ -71,11 +71,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         .custom-card {
-            margin: 40px; /* 外边距 */
+            margin: 10px; /* 外边距 */
             display: inline-block; /* 使卡片宽度根据内容自适应 */
         }
         .custom-card .card-body {
-            padding: 40px; /* 内边距 */
+            padding: 10px; /* 内边距 */
         }
 
         #loadingContainer {

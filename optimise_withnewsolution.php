@@ -447,7 +447,7 @@ function setButtonProperties(sideMargin, confirmFontSize, buttonRadius, checkmar
     const svg = checkmark.querySelector('svg');
     svg.setAttribute('width', checkmarkSize + 'px');
     svg.setAttribute('height', checkmarkSize + 'px');
-    svg.setAttribute('viewBox', `-50 -50 ${checkmarkSize} ${checkmarkSize}`); // Dynamic viewBox
+    svg.setAttribute('viewBox', `50 50 ${checkmarkSize} ${checkmarkSize}`); // Dynamic viewBox
 
     const path = svg.querySelector('path');
     path.setAttribute('stroke-width', checkmarkWeight + 'px');

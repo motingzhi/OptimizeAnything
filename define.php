@@ -160,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">button width</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">30</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">200</td>
                 </tr>
                 <tr>
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
 
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">100</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
                 </tr>
                 <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark margin</td>

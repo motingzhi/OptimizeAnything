@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .checkmark-line.long {
             width: calc(var(--checkmark-weight, 5px));
             /* 如果 --checkmark-weight 被设置为 10px，那么 width 将被计算为 10px。如果未设置，width 将使用默认值 5px。 */
-            height: calc(var(--checkmark-size, 30px));
+            height: calc(var(--checkmark-size));
             bottom: 0;
             /* right: calc(var(--checkmark-size, 30px) * 0.5); */
             right: var(--checkmark-margin, 30px);
@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .checkmark-line.short {
             width: calc(var(--checkmark-weight, 5px));
-            height: calc(var(--checkmark-size, 30px)/2);
+            height: calc(var(--checkmark-size)/2);
             bottom: 0;
             right: var(--checkmark-margin, 30px);
             transform: rotate(-45deg);

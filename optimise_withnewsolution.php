@@ -111,13 +111,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
                 /* for ui optimization */
-                #customButton {
+        #customButton {
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid #000;
-            padding: 10px;
-            margin: 20px;
+            padding: 0px;
+            margin: 0px;
             box-sizing: border-box;
             position: relative;
         }

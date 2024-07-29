@@ -79,12 +79,22 @@ try:
     savedSolutions = (formData['saved-solutions'].value).split(',')
 except:
     savedSolutions = []
+# try:
+#     savedObjectives = (formData['saved-objectives'].value).split(',')
+# except:
+#     savedObjectives = []
+# try:
+#     objectivesInput = (formData['objectives-input'].value).split(',')
+# except:
+#     objectivesInput = []
+
+
 try:
     savedObjectives = (formData['saved-objectives'].value).split(',')
 except:
     savedObjectives = []
 try:
-    objectivesInput = (formData['objectives-input'].value).split(',')
+    objectivesInput = (formData['saved-objectives'].value).split(',')
 except:
     objectivesInput = []
 

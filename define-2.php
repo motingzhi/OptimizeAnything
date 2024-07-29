@@ -126,7 +126,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p><i>Here is a pre-filled example for the travel scenario, objectives are “Cost”, “Satisfaction”. You can modify those values in the form directly to your own objective</i></p> -->
 
 
-        <label style="margin-bottom: 20px;">Objectives</label>
+        <label style="margin-bottom: 20px;">Objectives</label></br>
+        <!-- <label style="margin-bottom: 20px;">For example, you can input possibility to lose weight, cost, satisfication, etc</label> -->
+
         <table class="table table-bordered" id="objective-table" >
             <thead>  
                 <tr>  

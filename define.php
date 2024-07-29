@@ -343,7 +343,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-unit'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-lower-bound'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-upper-bound'></td>"
-            htmlNewRow += "<button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></button>"
+            htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
             htmlNewRow += "</td></tr>"
             $("#parameter-table", window.document).append(htmlNewRow);  
             $(window.document).on('click', ".record-delete", deleteParameterTable);

@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var nextEvaluation = localStorage.getItem("next-evaluation").split(",");
             var solutionNameList = localStorage.getItem("solution-name-list").split(",");
 
-            console.log(parameterNames);
+            console.log(parameterBounds);
 
             parameterNames = document.getElementById('defineWhat').value;
             objectiveNames = document.getElementById('defineGood').value;

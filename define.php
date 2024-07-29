@@ -123,9 +123,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     
     <div class="centered-content">
+
+        <label for="optimizeScenario">Your optimization task: </label><br>
+        <label > <em style="color: grey;"> Imagine you are an athelete prepare for a marathon contest. You want to optimize your diet to lose weight and keep fit at the same time. What kind of variables and objectives you will input here?</em></label>
+
         <h2 style="margin-top: 20px;">Specify variables</h2>
-        <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p>
-        <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
+        <!-- <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p> -->
+        <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
+        <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p> -->
 
         <h5 style="margin-bottom: 20px;">Variables</h5>
         <table class="table table-bordered" id="parameter-table">
@@ -135,6 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <th id="record-parameter-unit" width="40%"> Unit(if have) </th>   
                     <th id="record-parameter-lower-bound"> Minimum </th>  
                     <th id="record-parameter-upper-bound"> Maximum </th>  
+                    <th class="delete"> Delete </th>   
                 </tr>  
             </thead>  
             <tbody>
@@ -158,12 +164,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr> -->
 
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">button side margin</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name">Input variable here</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">100</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">Input number</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">Input number</td>
+                    <button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></button>
                 </tr>
                 <tr>
+                    <td contenteditable="true" class="record-data" id="record-parameter-name"> Input variable here</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">Input number</td>
+                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">Input number</td>
+                    <button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></button>
+                </tr>
+                
+                <!-- <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">font size</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
 
@@ -197,7 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
@@ -328,10 +343,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-unit'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-lower-bound'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-upper-bound'></td>"
+            htmlNewRow += "<button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></button>"
             htmlNewRow += "</td></tr>"
             $("#parameter-table", window.document).append(htmlNewRow);  
+            $(window.document).on('click', ".record-delete", deleteParameterTable);
         }
-
+        function deleteParameterTable(){
+            $(this).parents('tr').remove();
+        }
     </script>
     
     </body>

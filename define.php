@@ -124,7 +124,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <div class="centered-content">
 
-        <label for="optimizeScenario">Your optimization task: </label><br>
+
+        <h5 for="optimizeScenario">Your optimization task: </h5>
+
         <label > <strong class="text-primary">Imagine you are an athlete preparing for a marathon contest. You want to optimize your diet to lose weight and keep fit at the same time. What kind of variables and objectives you will input here?</strong>
 
         <!-- <h2 style="margin-top: 20px;">Specify variables</h2> -->
@@ -132,7 +134,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
         <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p> -->
 
-        <h5 style="margin-bottom: 20px;">Variables</h5>
+        <label style="margin-bottom: 20px;">Variables</label>
         <table class="table table-bordered" id="parameter-table">
             <thead>  
                 <tr>  

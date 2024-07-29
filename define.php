@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="top-bar">
         <div class="container d-flex justify-content-between align-items-center">
             <h1>1. Specify</h1>
-            <form action="help.php#define">
+            <form action="tutorial_1.php">
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
             </form>
         </div>

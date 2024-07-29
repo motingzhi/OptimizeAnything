@@ -314,8 +314,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
     
             if (noError){
-                // localStorage.setItem("parameter-names", parameterNames);
-                // localStorage.setItem("parameter-bounds", parameterBounds);
+                localStorage.setItem("parameter-names", parameterNames);
+                localStorage.setItem("parameter-bounds", parameterBounds);
                 localStorage.setItem("objective-names", objectiveNames);
                 localStorage.setItem("objective-bounds", objectiveBounds);
                 localStorage.setItem("objective-min-max", objectiveMinMax);

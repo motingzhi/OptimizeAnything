@@ -291,7 +291,7 @@ fit_gpytorch_model(mll)
 # Define qEI acquisition modules using QMC sampler
 qehvi_sampler = SobolQMCNormalSampler(sample_shape=torch.Size([MC_SAMPLES]))
 # Optimize acquisition functions and get new observations
-new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler, parameter_bounds_refined)
+new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler, parameter_bounds_range_refined)
 new_x_actual = torch.round(new_x_actual)
 
 # Update training points

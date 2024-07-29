@@ -75,7 +75,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button class="button" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
 
         <script>
-
+            var newSolution = true;
+            var nextEvaluation = false;
+            var refineSolution = false;
+            var goodSolutions = [];
+            var badSolutions = [];
+            var solutionNameList =  "";
+            
             var parameterNames = localStorage.getItem("parameter-names").split(",");
             var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
             var objectiveNames = localStorage.getItem("objective-names").split(",");
@@ -96,12 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // localStorage.setItem("objective-names", objectiveNames);
             // localStorage.setItem("objective-bounds", objectiveBounds);
             // localStorage.setItem("objective-min-max", objectiveMinMax);
-            var newSolution = true;
-            var nextEvaluation = false;
-            var refineSolution = false;
-            var goodSolutions = [];
-            var badSolutions = [];
-            var solutionNameList =  "";
+
 
 
             localStorage.setItem("objective-names", objectiveNames);

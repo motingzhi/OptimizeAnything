@@ -31,9 +31,15 @@ require_once 'config.php';
 
     <div class="container">
         <h1 class="text-center">User Consent Form</h1>
+        <h2 class="text-center">Please read the form carefully</h2>
+
+        <h2 class="text-center">In this task, you need:</h2>
+        <h2 class="text-center">1. You need to perform an optimization task through using the service "optimize anything"  </h2>
+        <h2 class="text-center"> 2. Answer the questionnaire after the task is completed. </h2>
+
         <div class="row justify-content-center">
             <div class="col-12">
-                <iframe src="InformedConsentForm 1.pdf" class="pdf-viewer" frameborder="0"></iframe>
+                <iframe src="InformedConsentForm (2).pdf" class="pdf-viewer" frameborder="0"></iframe>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -41,7 +47,7 @@ require_once 'config.php';
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="consentCheckbox">
                     <label class="form-check-label" for="consentCheckbox">
-                        By checking this I give my consent
+                        By checking this I give my consent.
                     </label>
                 </div>
             </div>

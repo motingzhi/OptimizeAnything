@@ -33,7 +33,7 @@ require_once 'config.php';
         <h1 class="text-center">User Consent Form</h1>
         <h2 class="text-center">Please read the form carefully</h2>
 
-        <h2 class="text-center">In this task, you need:</h2>
+        <h2 class="text-center">In this task:</h2>
         <h2 class="text-center">1. You need to perform an optimization task through using the service "optimize anything"  </h2>
         <h2 class="text-center"> 2. Answer the questionnaire after the task is completed. </h2>
 

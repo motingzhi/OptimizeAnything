@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var goodSolutions = [];
             var badSolutions = [];
             var solutionNameList =  "";
-            
+
             var parameterNames = localStorage.getItem("parameter-names").split(",");
             var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
             var objectiveNames = localStorage.getItem("objective-names").split(",");
@@ -91,6 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var nextEvaluation = localStorage.getItem("next-evaluation").split(",");
             var solutionNameList = localStorage.getItem("solution-name-list").split(",");
 
+            console.log(parameterNames);
 
             parameterNames = document.getElementById('defineWhat').value;
             objectiveNames = document.getElementById('defineGood').value;
@@ -105,14 +106,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-            localStorage.setItem("objective-names", objectiveNames);
-            localStorage.setItem("objective-bounds", objectiveBounds);
-            localStorage.setItem("objective-min-max", objectiveMinMax);
-            localStorage.setItem("good-solutions", goodSolutions);
-            localStorage.setItem("new-solution", newSolution);
-            localStorage.setItem("next-evaluation", nextEvaluation);
-            localStorage.setItem("solution-name-list", solutionNameList);
-            localStorage.setItem("bad-solutions", badSolutions);
+                localStorage.setItem("objective-names", objectiveNames);
+                localStorage.setItem("objective-bounds", objectiveBounds);
+                localStorage.setItem("objective-min-max", objectiveMinMax);
+                localStorage.setItem("good-solutions", goodSolutions);
+                localStorage.setItem("new-solution", newSolution);
+                localStorage.setItem("next-evaluation", nextEvaluation);
+                localStorage.setItem("solution-name-list", solutionNameList);
+                localStorage.setItem("bad-solutions", badSolutions);
 
 
                 $.ajax({

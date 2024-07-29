@@ -273,6 +273,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
         
         var saved_timestamp = [];
+        localStorage.setItem("saved_timestamp", saved_timestamp);
 
         try {
         var objectiveMeasurements = localStorage.getItem("objective-Measurements").split(",");

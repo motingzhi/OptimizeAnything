@@ -96,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div style="display: flex; justify-content: space-between;">
             <!-- <button class="btn btn-outline-success" id="back-button" onclick="history.back()">Go Back</button> -->
             <form action="define.php"><button id="restart-button" class="btn btn-outline-success" type="submit">Restart</button></form>
-            <form action="https://link.webropolsurveys.com/S/645BAC578DBFDD62"><button id="restart-button" class="btn btn-outline-success" type="submit">Continue to the questionnaire</button></form>
+            <form action="https://link.webropolsurveys.com/S/645BAC578DBFDD62"><button id="restart-button" class="btn btn-success" type="submit">Continue to the questionnaire</button></form>
 
         </div>
     

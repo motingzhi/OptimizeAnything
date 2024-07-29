@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <h5 for="optimizeScenario">Your optimization task: </h5>
     <label > <strong class="text-primary">Imagine you are an athlete preparing for a marathon contest. You want to optimize your diet to lose weight and keep fit at the same time. What kind of variables and objectives you will input here?</strong>
-        </label>
+        </label></br>
 <!-- 
         <h2 style="margin-top: 20px;">Specify objectives of optimization</h2>
         <p><i>Describe your objectives for optimization. You can include also subjective measurements, even opinions.</i></p>
@@ -521,7 +521,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             'objective-bounds'   :String(objectiveBounds)
                             },
                             success: function(response) {
-                                var url = "optimise_withnewsolution.php";
+                                var url = "confirm.php";
                                 window.location.href = url;
                             },
                             error: function(response) {

@@ -134,7 +134,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
         <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p> -->
 
-        <label style="margin-bottom: 20px;">Variables</label>
+        <label style="margin-bottom: 20px;">Variables</label></br>
+        <!-- <label style="margin-bottom: 20px;">For example, you can input gram of fruit, or portions of spagetti, or gram of carbon, etc</label> -->
+
         <table class="table table-bordered" id="parameter-table">
             <thead>  
                 <tr>  

@@ -171,13 +171,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="container card-section">
         <div class="row text-center">
-            <div class="col-md-4 mb-3">
+            <!-- <div class="col-md-4 mb-3">
                 <div class="card fixed-size-card">
                     <div class="card-body">
                         <h4 class="card-title">Build a rocket</h4>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-4 mb-3">
                 <a href="tutorial_1.php" class="card-link">
                     <div class="card fixed-size-card">
@@ -187,13 +187,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 mb-3">
+            <!-- <div class="col-md-4 mb-3">
                 <div class="card fixed-size-card">
                     <div class="card-body">
                         <h4 class="card-title">Plan a trip</h4>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 

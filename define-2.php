@@ -116,9 +116,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     <div class="centered-content">
+
+        <label for="optimizeScenario">Your optimization task: </label><br>
+        <label > <strong style="color: blue;"> Imagine you are an athelete prepare for a marathon contest. You want to optimize your diet to lose weight and keep fit at the same time. What kind of variables and objectives you will input here?</strong></label>
+<!-- 
         <h2 style="margin-top: 20px;">Specify objectives of optimization</h2>
         <p><i>Describe your objectives for optimization. You can include also subjective measurements, even opinions.</i></p>
-        <p><i>Here is a pre-filled example for the travel scenario, objectives are “Cost”, “Satisfaction”. You can modify those values in the form directly to your own objective</i></p>
+        <p><i>Here is a pre-filled example for the travel scenario, objectives are “Cost”, “Satisfaction”. You can modify those values in the form directly to your own objective</i></p> -->
 
 
         <h5 style="margin-bottom: 20px;">Objectives</h5>
@@ -130,32 +134,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <th id="record-objective-lower-bound"> Minimum </th>  
                 <th id="record-objective-upper-bound"> Maximum </th> 
                 <th id="record-objective-min-max"> Minimise or Maximise </th>  
+                <th class="delete"> Delete </th>   
+
                 </tr>  
             </thead>  
             <tbody>
             <tr>
-                <td contenteditable="true" class="record-data" id="record-objective-name">Eligibility</td>
-                <td contenteditable="true" class="record-data" id="record-objective-unit">%</td>
-                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
-                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">10</td>
+                <td contenteditable="true" class="record-data" id="record-objective-name">Input objective name here</td>
+                <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
+                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">Input valid number</td>
+                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">Input valid number</td>
                 <td contenteditable="false" class="record-data" id="record-objective-min-max">
                     <select id="min-max-1" style="font-family: calibri; font-size: medium;">
                         <option value="minimise" selected="selected">minimise</option>
                         <option value="maximise">maximise</option>
                     </select>
+                <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
+
                 </td>
             </tr>
             
             <tr>
-            <td contenteditable="true" class="record-data" id="record-objective-name">UI style preference</td>
-                <td contenteditable="true" class="record-data" id="record-objective-unit">%</td>
-                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">0</td>
-                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">10</td>
+                <td contenteditable="true" class="record-data" id="record-objective-name">Input objective name here</td>
+                <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
+                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">Input valid number</td>
+                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">Input valid number</td>
                 <td contenteditable="false" class="record-data" id="record-objective-min-max">
                     <select id="min-max-1" style="font-family: calibri; font-size: medium;">
                         <option value="minimise" selected="selected">minimise</option>
                         <option value="maximise">maximise</option>
                     </select>
+                <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
+
                 </td>
             </tr>
             <!-- <tr>
@@ -555,10 +565,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'></td>"
             htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+            htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
+
             htmlNewRow += "</td></tr>"
             $("#objective-table", window.document).append(htmlNewRow);  
+            $(window.document).on('click', ".record-delete", deleteObjectiveTable);
 
 
+        }
+        function deleteObjectiveTable(){
+            $(this).parents('tr').remove();
         }
         // document.getElementById('objective-table').addEventListener('input', saveFormData);
         // document.getElementById('objective-table').addEventListener('change', saveFormData);

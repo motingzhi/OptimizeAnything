@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="centered-content">
 
         <label for="optimizeScenario">Your optimization task: </label><br>
-        <label > <strong style="color: blue;"> Imagine you are an athelete prepare for a marathon contest. You want to optimize your diet to lose weight and keep fit at the same time. What kind of variables and objectives you will input here?</strong></label>
+        <label > <strong style="color: sky-blue;"> Imagine you are an athelete prepare for a marathon contest. You want to optimize your diet to lose weight and keep fit at the same time. What kind of variables and objectives you will input here?</strong></label>
 <!-- 
         <h2 style="margin-top: 20px;">Specify objectives of optimization</h2>
         <p><i>Describe your objectives for optimization. You can include also subjective measurements, even opinions.</i></p>

@@ -519,7 +519,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 // }
 
 
-        if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1)+1) {
+        if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1)+parameterNames.length) {
             // document.getElementById("done-button").style.opacity = 1;
             document.getElementById("done-button").style.display = 'block';
         }

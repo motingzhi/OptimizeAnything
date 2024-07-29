@@ -199,10 +199,10 @@ def optimize_qehvi(model, train_obj, sampler, parameter_bounds=parameter_bounds)
     new_x =  unnormalize(candidates.detach(), bounds=parameter_bounds_normalised)
     new_x_actual = unnormalise_parameters(new_x, parameter_bounds)
 
-    if (badSolutions != []):
-        while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
-            new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
-            new_x = normalise_objectives(new_x_actual)
+    # if (badSolutions != []):
+    #     while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
+    #         new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
+    #         new_x = normalise_objectives(new_x_actual)
     # while (checkRepeated(bad_solutions, new_x_actual) == False):
     #     new_x_actual = torch.tensor([[np.random.randint(parameter_bounds[0][0], parameter_bounds[1][0]), np.random.randint(parameter_bounds[0][1], parameter_bounds[1][1])]])
     #     new_x = normalise_objectives(new_x_actual)

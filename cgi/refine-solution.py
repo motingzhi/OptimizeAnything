@@ -249,8 +249,8 @@ train_obj = normalise_objectives(train_obj_actual)
 
 parametersPlaceholder = []
 
-for i in range(int(len(savedSolutions)/num_parameters)):
-    parametersPlaceholder.append(savedSolutions[i*num_parameters:i*num_parameters+num_parameters]) #切片[2:4] 是 2，3，
+# for i in range(int(len(savedSolutions)/num_parameters)):
+#     parametersPlaceholder.append(savedSolutions[i*num_parameters:i*num_parameters+num_parameters]) #切片[2:4] 是 2，3，
 
 parametersPlaceholder.append(currentSolutions[-num_parameters:])
 

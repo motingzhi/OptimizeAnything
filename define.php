@@ -299,40 +299,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (noError){
                 localStorage.setItem("parameter-names", parameterNames);
                 localStorage.setItem("parameter-bounds", parameterBounds);
-                var url = "define-2.php";
-                window.location.href = url;
-                // $.ajax({
-                // url: "./cgi/log-definitions_u.py",
-                // type: "post",
-                // datatype: "json",
-                // data: { 'parameter-names'    :String(parameterNames),
-                //         'parameter-bounds'   :String(parameterBounds)},
-                // beforeSend: function() {
-                // // 显示 loading 动画和文字
-                // $('#loadingContainer').show();
-                // },
-                // success: function(result) {
-                //     $.ajax({
-                //             url: "define-2.php",
-                //             type: "post",
-                //             data: {
-                //             'parameter-names'    :String(parameterNames),
-                //             'parameter-bounds'   :String(parameterBounds)
-                //             },
-                //             success: function(response) {
-                //                 var url = "define-2.php";
-                //                 window.location.href = url;
-                //             },
-                //             error: function(response) {
-                //                 console.log("Error sending data to define-2.php");
-                //             }
-                //         });
-                //         $('#loadingContainer').hide();
-                // },
-                // error: function(result){
-                //     console.log("Error");
-                // }
-                // });
+    
+                $.ajax({
+                url: "./cgi/log-definitions_u.py",
+                type: "post",
+                datatype: "json",
+                data: { 'parameter-names'    :String(parameterNames),
+                        'parameter-bounds'   :String(parameterBounds)},
+                beforeSend: function() {
+                // 显示 loading 动画和文字
+                $('#loadingContainer').show();
+                },
+                success: function(result) {
+                    $.ajax({
+                            url: "define-2.php",
+                            type: "post",
+                            data: {
+                            'parameter-names'    :String(parameterNames),
+                            'parameter-bounds'   :String(parameterBounds)
+                            },
+                            success: function(response) {
+                                var url = "define-2.php";
+                                window.location.href = url;
+                            },
+                            error: function(response) {
+                                console.log("Error sending data to define-2.php");
+                            }
+                        });
+                        $('#loadingContainer').hide();
+                },
+                error: function(result){
+                    console.log("Error");
+                }
+                });
             }
             else {
                 alert("Invalid entry");

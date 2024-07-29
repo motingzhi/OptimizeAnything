@@ -207,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="bottom-bar">
     <div class="container d-flex justify-content-between">
-        <button class="btn btn-outline-success" id="back-button" style="width: 20%;" onclick="history.back()">Back</button>
+        <button class="btn btn-outline-success" id="back-button" style="width: 20%;" onclick="goBack()">Back</button>
         <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
 
     </div>
@@ -218,6 +218,95 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script>
         var solutionNameList =  "";
+
+        // function updateProgress() {
+        //     var progressBar = document.querySelector('#progressBar .progress');
+        //     var percentComplete = (performance.now() - startTime) / estimatedLoadTime * 100;
+        //     progressBar.style.width = Math.min(percentComplete, 100) + '%';
+
+        //     if (percentComplete < 100) {
+        //         // 如果进度条未满，则继续更新进度条
+        //         requestAnimationFrame(updateProgress);
+        //     }
+        // }
+
+        // // 获取开始加载页面的时间
+        // var startTime = performance.now();
+
+        // // 预估页面加载时间，这里设置为5秒
+        // var estimatedLoadTime = 500;
+        // // function updateProgress(event) {
+        // // if (event.lengthComputable) {
+        // //   var progressBar = $('#progressBar .progress');
+        // //   var percentComplete = (event.loaded / event.total) * 100;
+        // //   progressBar.css('width', percentComplete + '%');
+        // //   console.log("jiji");
+        // // }}
+
+        // // 监听页面加载完成事件
+        // window.addEventListener('load', function() {
+        // // 更新进度条
+        //     updateProgress();
+        // });
+        function goBack() {
+            // saveFormData();
+            location.href = "define.php";
+        }
+
+        // function saveFormData() {
+        //     const table = document.getElementById('objective-table').getElementsByTagName('tbody')[0];
+        //     const objectives = [];
+        //     for (let row of table.rows) {
+        //         const cells = [];
+        //         for (let cell of row.cells) {
+        //             if (cell.querySelector('select')) {
+        //                 cells.push(cell.querySelector('select').value);
+        //             } else {
+        //                 cells.push(cell.innerText);
+        //             }
+        //         }
+        //         objectives.push(cells);
+        //     }
+        //     localStorage.setItem('objectives', JSON.stringify(objectives));
+        // }
+
+        // document.addEventListener('DOMContentLoaded', (event) => {
+        //     loadFormData();
+        // });
+
+        // function loadFormData() {
+        //     const table = document.getElementById('objective-table').getElementsByTagName('tbody')[0];
+        //     const storedObjectives = JSON.parse(localStorage.getItem('objectives'));
+
+        //     if (storedObjectives) {
+        //         table.innerHTML = '';
+        //         storedObjectives.forEach(row => {
+        //             const newRow = table.insertRow();
+        //             row.forEach((cellText, index) => {
+        //                 const newCell = newRow.insertCell(index);
+        //                 newCell.contentEditable = 'true';
+        //                 newCell.className = 'record-data';
+        //                 if (index === 3) { // select element
+        //                     const select = document.createElement('select');
+        //                     select.style.fontFamily = 'calibri';
+        //                     select.style.fontSize = 'medium';
+        //                     const option1 = document.createElement('option');
+        //                     option1.value = 'minimise';
+        //                     option1.text = 'minimise';
+        //                     const option2 = document.createElement('option');
+        //                     option2.value = 'maximise';
+        //                     option2.text = 'maximise';
+        //                     select.add(option1);
+        //                     select.add(option2);
+        //                     select.value = cellText;
+        //                     newCell.appendChild(select);
+        //                 } else {
+        //                     newCell.innerText = cellText;
+        //                 }
+        //             });
+        //         });
+        //     }
+        // }
 
         function finishObjs() {
 
@@ -231,6 +320,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var objectiveMinMax = [];
             var badSolutions = [];
 
+            /* var participantID = localStorage.getItem("id");
+            var conditionID = localStorage.getItem("exp-condition");
+            var applicationID = localStorage.getItem("app"); */
+            
+            // var tableParam = $("#parameter-table tbody");
+                
+            // tableParam.find('tr').each(function() {
+            //     var $paramCols = $(this).find("td");
+            //     var paramRowEntries = [];
+    
+            //     $.each($paramCols, function() {
+            //         paramRowEntries.push($(this).text());
+            //     });
+                
+            //     var paramName = paramRowEntries[0];
+            //     console.log("haha" + paramName);
+            //     parameterNames.push(paramName);
+
+            //     // if (/^[A-Za-z0-9]+$/.test(paramName)){
+            //     //     parameterNames.push(paramName);
+            //     // }
+            //     // else {
+            //     //     noError = false;
+            //     // }
+    
+            //     var paramLowerBound = paramRowEntries[1];
+            //     var paramUpperBound = paramRowEntries[2];
+            //     var validLowerBound = (!isNaN(parseFloat(paramLowerBound)) && isFinite(paramLowerBound));
+            //     var validUpperBound = (!isNaN(parseFloat(paramUpperBound)) && isFinite(paramUpperBound));
+
+            //     if (validLowerBound && validUpperBound){
+            //         if (parseFloat(paramLowerBound) < parseFloat(paramUpperBound)){
+            //             var rowBounds = [parseFloat(paramLowerBound), parseFloat(paramUpperBound)];
+            //             parameterBounds.push(rowBounds);
+            //         }
+            //         else {
+            //            noError = false;
+            //         }
+            //     }
+            //     else {
+            //         noError = false;
+            //     }
+            // });
+
+            // Find all the objective names and bounds
             var tableObjs = $("#objective-table tbody");
                 
             tableObjs.find('tr').each(function() {
@@ -314,8 +448,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
     
             if (noError){
-                localStorage.setItem("parameter-names", parameterNames);
-                localStorage.setItem("parameter-bounds", parameterBounds);
+                // localStorage.setItem("parameter-names", parameterNames);
+                // localStorage.setItem("parameter-bounds", parameterBounds);
                 localStorage.setItem("objective-names", objectiveNames);
                 localStorage.setItem("objective-bounds", objectiveBounds);
                 localStorage.setItem("objective-min-max", objectiveMinMax);
@@ -324,8 +458,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 localStorage.setItem("next-evaluation", nextEvaluation);
                 localStorage.setItem("solution-name-list", solutionNameList);
                 localStorage.setItem("bad-solutions", badSolutions);
-                var url = "confirm.php";
-                window.location.href = url;
+
                 // localStorage.setItem("tutorial-done", true);
     
                 // $.ajax({
@@ -345,79 +478,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 //         console.log("Error in finishing experiment: " + result.message);
                 //     }
 
-                // $.ajax({
-                // url: "./cgi/newSolution_u_copy.py",
-                // type: "post",
-                // datatype: "json",
-                // data: { 
-                //         'parameter-names'    :String(parameterNames),
-                //         'parameter-bounds'   :String(parameterBounds),
-                //         'objective-names'    :String(objectiveNames), 
-                //         'objective-bounds'   :String(objectiveBounds),
-                //         'objective-min-max'  :String(objectiveMinMax),
-                //         'good-solutions'     :String(goodSolutions),
-                //         'bad-solutions'      :String(badSolutions),
-                //         'new-solution'       :String(newSolution),
-                //         'next-evaluation'    :String(nextEvaluation),
-                //         'solution-name-list'      :String(solutionNameList),
-                //         'refine-solution'    :String(refineSolution),
-                //     },
-                // beforeSend: function() {
-                // // 显示 loading 动画和文字
-                // $('#loadingContainer').show();
-                // },
-                // success: function(result) {
-                //     // var progressBar = $('#progressBar');
-                //     // progressBar.empty();                    
-                //     // submitReturned = true;
-                //     submitReturned = true;
-                //     solution = result.solution;
-                //     objectivesInput = result.objectives;
-                //     savedSolutions = result.saved_solutions;
-                //     savedObjectives = result.saved_objectives;
-                //     localStorage.setItem("solution-list", solution);
-                //     localStorage.setItem("objectives-input", objectivesInput);
-                //     localStorage.setItem("saved-solutions", savedSolutions);
-                //     localStorage.setItem("saved-objectives", savedObjectives);
-                //     //向下一个页面传数据
-                //     $.ajax({
-                //             url: "optimise_withnewsolution.php",
-                //             type: "post",
-                //             data: {
-                //             'objective-names'    :String(objectiveNames),
-                //             'objective-bounds'   :String(objectiveBounds)
-                //             },
-                //             success: function(response) {
-                //                 var url = "confirm.php";
-                //                 window.location.href = url;
-                //             },
-                //             error: function(response) {
-                //                 console.log("Error sending data to define-2.php");
-                //             }
-                //         });
-                //     console.log("Success");
-                //     console.log(result.success)
-                //     console.log("result.parameterNames.length");
-                //     console.log(result.parameterNames.length)
-                //     console.log("result.parameterBounds.length");
-                //     // console.log(result.parameterBounds.length)
-                //     console.log(result.objectiveNames)
-                //     console.log(result.objectiveBounds)
-                //     //[Log] ["Cost ($)", "Satisfaction (%)", "Goal"] (3) (define.php, line 268)
-                //     //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
-                //     // var url = "optimise_withnewsolution.php";
-                //     // location.href = url;
-                //     $('#loadingContainer').hide();
-                // },
-                // error: function(result){
-                //     console.log("Error");
-                // }
-                // // complete: function() {
-                // // // 隐藏 loading 动画和文字
+                $.ajax({
+                url: "./cgi/newSolution_u_copy.py",
+                type: "post",
+                datatype: "json",
+                data: { 
+                        'parameter-names'    :String(parameterNames),
+                        'parameter-bounds'   :String(parameterBounds),
+                        'objective-names'    :String(objectiveNames), 
+                        'objective-bounds'   :String(objectiveBounds),
+                        'objective-min-max'  :String(objectiveMinMax),
+                        'good-solutions'     :String(goodSolutions),
+                        'bad-solutions'      :String(badSolutions),
+                        'new-solution'       :String(newSolution),
+                        'next-evaluation'    :String(nextEvaluation),
+                        'solution-name-list'      :String(solutionNameList),
+                        'refine-solution'    :String(refineSolution),
+                    },
+                beforeSend: function() {
+                // 显示 loading 动画和文字
+                $('#loadingContainer').show();
+                },
+                success: function(result) {
+                    // var progressBar = $('#progressBar');
+                    // progressBar.empty();                    
+                    // submitReturned = true;
+                    submitReturned = true;
+                    solution = result.solution;
+                    objectivesInput = result.objectives;
+                    savedSolutions = result.saved_solutions;
+                    savedObjectives = result.saved_objectives;
+                    localStorage.setItem("solution-list", solution);
+                    localStorage.setItem("objectives-input", objectivesInput);
+                    localStorage.setItem("saved-solutions", savedSolutions);
+                    localStorage.setItem("saved-objectives", savedObjectives);
+                    //向下一个页面传数据
+                    $.ajax({
+                            url: "optimise_withnewsolution.php",
+                            type: "post",
+                            data: {
+                            'objective-names'    :String(objectiveNames),
+                            'objective-bounds'   :String(objectiveBounds)
+                            },
+                            success: function(response) {
+                                var url = "confirm.php";
+                                window.location.href = url;
+                            },
+                            error: function(response) {
+                                console.log("Error sending data to define-2.php");
+                            }
+                        });
+                    console.log("Success");
+                    console.log(result.success)
+                    console.log("result.parameterNames.length");
+                    console.log(result.parameterNames.length)
+                    console.log("result.parameterBounds.length");
+                    // console.log(result.parameterBounds.length)
+                    console.log(result.objectiveNames)
+                    console.log(result.objectiveBounds)
+                    //[Log] ["Cost ($)", "Satisfaction (%)", "Goal"] (3) (define.php, line 268)
+                    //[Log] ["100", "1000", "0", "100", "50", "600"] (6) (define.php, line 269)
+                    // var url = "optimise_withnewsolution.php";
+                    // location.href = url;
+                    $('#loadingContainer').hide();
+                },
+                error: function(result){
+                    console.log("Error");
+                }
+                // complete: function() {
+                // // 隐藏 loading 动画和文字
                 
-                // // }
+                // }
 
-                // });
+                });
             }
             else {
                 alert("Invalid entry");

@@ -521,7 +521,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             'objective-bounds'   :String(objectiveBounds)
                             },
                             success: function(response) {
-                                var url = "confirm.php";
+                                var url = "optimise_withnewsolution.php";
                                 window.location.href = url;
                             },
                             error: function(response) {

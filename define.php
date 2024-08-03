@@ -340,7 +340,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 });
             }
             else {
-                alert("Invalid entry");
+                // alert("Invalid entry");
                 alert(tester1,tester2,tester3);
 
             }    

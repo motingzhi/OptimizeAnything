@@ -275,6 +275,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 var paramUpperBound = paramRowEntries[3];
                 var validLowerBound = (!isNaN(parseFloat(paramLowerBound)) && isFinite(paramLowerBound));
                 var validUpperBound = (!isNaN(parseFloat(paramUpperBound)) && isFinite(paramUpperBound));
+                var tester1 = 0;
+                var tester2 = 0;
+                var tester3 = 0;
 
                 if (validLowerBound && validUpperBound){
                     if (parseFloat(paramLowerBound) < parseFloat(paramUpperBound)){
@@ -283,19 +286,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     else {
                        noError = false;
-                       console.log("rowBounds");
+                        tester1 = 1;
                     }
                 }
                 else {
                     noError = false;
-                    console.log("validLowerBound");
+                     tester2 = 2;
 
                 }
             });
 
             if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
                 noError = false;
-                console.log("parameterBounds.length");
+                 tester3 = 3;
 
             }
     
@@ -338,6 +341,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             else {
                 alert("Invalid entry");
+                alert(tester1,tester2,tester3);
+
             }    
         }
 

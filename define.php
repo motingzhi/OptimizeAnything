@@ -254,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // var parameterBounds = [];
 
             var tableParam = $("#parameter-table tbody");
-                
+            var paramLowerBound2 = []
             tableParam.find('tr').each(function() {
                 var $paramCols = $(this).find("td");
                 var paramRowEntries = [];
@@ -274,6 +274,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 var paramLowerBound = paramRowEntries[2];
+                var paramLowerBound2 = paramRowEntries[2];
+
                 var paramUpperBound = paramRowEntries[3];
                 var validLowerBound = (!isNaN(parseFloat(paramLowerBound)) && isFinite(paramLowerBound));
                 var validUpperBound = (!isNaN(parseFloat(paramUpperBound)) && isFinite(paramUpperBound));
@@ -286,12 +288,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     else {
                        noError = false;
-                        tester1 = 1;
+                       tester1 = 1;
                     }
                 }
                 else {
                     noError = false;
-                     tester2 = 2;
+                    tester2 = 2;
 
                 }
             });
@@ -341,7 +343,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             else {
                 // alert("Invalid entry");
-                alert(tester2);
+                alert(paramLowerBound2);
 
             }    
         }

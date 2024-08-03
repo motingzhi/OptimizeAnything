@@ -249,7 +249,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // var parameterNames = [];
             // var parameterBounds = [];
 
-            // var tableParam = $("#parameter-table tbody");
+            var tableParam = $("#parameter-table tbody");
                 
             tableParam.find('tr').each(function() {
                 var $paramCols = $(this).find("td");

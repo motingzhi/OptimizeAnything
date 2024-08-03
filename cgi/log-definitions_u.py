@@ -23,85 +23,83 @@ test = False
 formData = cgi.FieldStorage()
 
 # Define function for checking that required parameters have been submitted
-# def checkFormData(data, expectedArgs):
-#     argsDefined = True
-#     for i in range(0,len(expectedArgs)):
-#         if expectedArgs[i] not in data:
-#             argsDefined = False
-#             break
-#     return argsDefined
+def checkFormData(data, expectedArgs):
+    argsDefined = True
+    for i in range(0,len(expectedArgs)):
+        if expectedArgs[i] not in data:
+            argsDefined = False
+            break
+    return argsDefined
 
-# # Define function for converting param points to csv string
-# def arrayToCsv(values):
-#     csv_string = ""
-#     n = values.shape[0]
-#     for i in range(0,n):
-#         if (i > 0):
-#             csv_string += ","
-#         csv_string += str(values[i])
-#     return csv_string
+# Define function for converting param points to csv string
+def arrayToCsv(values):
+    csv_string = ""
+    n = values.shape[0]
+    for i in range(0,n):
+        if (i > 0):
+            csv_string += ","
+        csv_string += str(values[i])
+    return csv_string
 
-# expectedArgs = ['parameter-names', 'parameter-bounds', 'objective-names', 'objective-bounds', 'objective-min-max']
-# formValuesDefined = checkFormData(formData, expectedArgs)
+expectedArgs = ['parameter-names', 'parameter-bounds', 'objective-names', 'objective-bounds', 'objective-min-max']
+formValuesDefined = checkFormData(formData, expectedArgs)
 
-# if not formValuesDefined:
-#     success = False
-#     message = "Form values not defined."
-# else:
-#     conn = sqlite3.connect("../Data/database.db")
-#     c = conn.cursor()
+if not formValuesDefined:
+    success = False
+    message = "Form values not defined."
+else:
+    conn = sqlite3.connect("../Data/database.db")
+    c = conn.cursor()
 
-#     createFunctionTableQuery_1 = '''CREATE TABLE IF NOT EXISTS definitions_parameters (
-#         id INTEGER PRIMARY KEY AUTOINCREMENT, 
-#         param_name TEXT, 
-#         param_lower_bound INTEGER,
-#         param_upper_bound INTEGER  
-#         )'''
+    createFunctionTableQuery_1 = '''CREATE TABLE IF NOT EXISTS definitions_parameters (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, 
+        param_name TEXT, 
+        param_lower_bound INTEGER,
+        param_upper_bound INTEGER  
+        )'''
 
-#     c.execute(createFunctionTableQuery_1)
-#     conn.commit()
+    c.execute(createFunctionTableQuery_1)
+    conn.commit()
 
-#     createFunctionTableQuery_2 = '''CREATE TABLE IF NOT EXISTS definitions_objectives (
-#         id INTEGER PRIMARY KEY AUTOINCREMENT, 
-#         obj_name TEXT, 
-#         obj_lower_bound INTEGER,
-#         obj_upper_bound INTEGER,
-#         obj_min_max TEXT 
-#         )'''
+    createFunctionTableQuery_2 = '''CREATE TABLE IF NOT EXISTS definitions_objectives (
+        id INTEGER PRIMARY KEY AUTOINCREMENT, 
+        obj_name TEXT, 
+        obj_lower_bound INTEGER,
+        obj_upper_bound INTEGER,
+        obj_min_max TEXT 
+        )'''
 
-#     c.execute(createFunctionTableQuery_2)
-#     conn.commit()
+    c.execute(createFunctionTableQuery_2)
+    conn.commit()
+
+    parameterNames = (formData['parameter-names'].value).split(',')
+    parameterBounds = (formData['parameter-bounds'].value).split(',')
+    objectiveNames = (formData['objective-names'].value).split(',')
+    objectiveBounds = (formData['objective-bounds'].value).split(',')
+    objectiveMinMax = (formData['objective-min-max'].value).split(',')
+    test = True
+    reply['parameterNames'] = parameterNames
+    reply['parameterBounds'] = parameterBounds
+    reply['objectiveNames'] = objectiveNames
+    reply['objectiveBounds'] = objectiveBounds
 
 
+    # typeStr = "start"
+    # timeStr = str(time.time())
 
-    # # typeStr = "start"
-    # # timeStr = str(time.time())
+    for i in range(len(parameterNames)):
+        query = '''INSERT INTO definitions_parameters (param_name,param_lower_bound,param_upper_bound) VALUES (?, ?, ?)'''
+        c.execute(query, (parameterNames[i], parameterBounds[2*i], parameterBounds[2*i+1]))
 
-    # for i in range(len(parameterNames)):
-    #     query = '''INSERT INTO definitions_parameters (param_name,param_lower_bound,param_upper_bound) VALUES (?, ?, ?)'''
-    #     c.execute(query, (parameterNames[i], parameterBounds[2*i], parameterBounds[2*i+1]))
+        if (i<2):
+            query = '''INSERT INTO definitions_objectives (obj_name,obj_lower_bound,obj_upper_bound,obj_min_max) VALUES (?, ?, ?, ?)'''
+            c.execute(query, (objectiveNames[i], objectiveBounds[2*i], objectiveBounds[2*i+1], objectiveMinMax[i]))
 
-    #     if (i<2):
-    #         query = '''INSERT INTO definitions_objectives (obj_name,obj_lower_bound,obj_upper_bound,obj_min_max) VALUES (?, ?, ?, ?)'''
-    #         c.execute(query, (objectiveNames[i], objectiveBounds[2*i], objectiveBounds[2*i+1], objectiveMinMax[i]))
-
-    #     conn.commit()
+        conn.commit()
     
-    # conn.close()
+    conn.close()
 
-parameterNames = (formData['parameter-names'].value).split(',')
-parameterBounds = (formData['parameter-bounds'].value).split(',')
-objectiveNames = (formData['objective-names'].value).split(',')
-objectiveBounds = (formData['objective-bounds'].value).split(',')
-objectiveMinMax = (formData['objective-min-max'].value).split(',')
-test = True
-reply['parameterNames'] = parameterNames
-reply['parameterBounds'] = parameterBounds
-reply['objectiveNames'] = objectiveNames
-reply['objectiveBounds'] = objectiveBounds
-reply['objectiveMinMax'] = objectiveMinMax
-
-message = json.dumps("success")
+    message = json.dumps("success")
 
 
 reply['success'] = success

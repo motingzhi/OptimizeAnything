@@ -312,23 +312,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 localStorage.setItem("parameter-names", parameterNames);
                 localStorage.setItem("parameter-bounds", parameterBounds);
     
-                $.ajax({
-                url: "./cgi/log-definitions_u.py",
-                type: "post",
-                datatype: "json",
-                data: { 'parameter-names'    :String(parameterNames),
-                        'parameter-bounds'   :String(parameterBounds)},
-                beforeSend: function() {
-                // 显示 loading 动画和文字
-                $('#loadingContainer').show();
-                },
-                success: function(result) {
+                // $.ajax({
+                // url: "./cgi/log-definitions_u.py",
+                // type: "post",
+                // datatype: "json",
+                // data: { 'parameter-names'    :String(parameterNames),
+                //         'parameter-bounds'   :String(parameterBounds)},
+                // beforeSend: function() {
+                // // 显示 loading 动画和文字
+                // $('#loadingContainer').show();
+                // },
+                // success: function(result) {
                     $.ajax({
                             url: "define-2.php",
                             type: "post",
                             data: {
                             'parameter-names'    :String(parameterNames),
                             'parameter-bounds'   :String(parameterBounds)
+                            },
+                            beforeSend: function() {
+                            // 显示 loading 动画和文字
+                            $('#loadingContainer').show();
                             },
                             success: function(response) {
                                 var url = "define-2.php";
@@ -340,16 +344,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         });
                         $('#loadingContainer').hide();
                 },
-                error: function(result){
-                    console.log("Error");
-                }
-                });
+                // error: function(result){
+                //     console.log("Error");
+                // }
+                // });
             }
             else {
                 alert("Invalid entry");
 
             }    
-        }
+        
 
         function addDesignParametersTable(){
             var htmlNewRow = ""

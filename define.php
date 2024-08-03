@@ -283,15 +283,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     else {
                        noError = false;
+                       console.log("rowBounds");
                     }
                 }
                 else {
                     noError = false;
+                    console.log("validLowerBound");
+
                 }
             });
 
             if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
                 noError = false;
+                console.log("parameterBounds.length");
+
             }
     
             if (noError){

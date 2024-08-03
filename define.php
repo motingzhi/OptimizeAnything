@@ -251,9 +251,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var parameterBounds = [];
 
             var noError = true;
-            var tester1 = 0;
-                var tester2 = 0;
-                var tester3 = 0;
+ 
 
 
             //根据local storage填充表格：
@@ -274,7 +272,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 var paramName = paramRowEntries[0];
                 var unit = paramRowEntries[1];
                 if (unit === "None"){
-                parameterNames.push(paramName);
+                    parameterNames.push(paramName);
                 } 
                 else {
                     parameterNames.push(paramName+"/"+unit);
@@ -311,18 +309,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (noError){
                 localStorage.setItem("parameter-names", parameterNames);
                 localStorage.setItem("parameter-bounds", parameterBounds);
-    
-                // $.ajax({
-                // url: "./cgi/log-definitions_u.py",
-                // type: "post",
-                // datatype: "json",
-                // data: { 'parameter-names'    :String(parameterNames),
-                //         'parameter-bounds'   :String(parameterBounds)},
-                // beforeSend: function() {
-                // // 显示 loading 动画和文字
-                // $('#loadingContainer').show();
-                // },
-                // success: function(result) {
+
                 $.ajax({
                         url: "define-2.php",
                         type: "post",
@@ -343,11 +330,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                         });
                         $('#loadingContainer').hide();
-                
-                // error: function(result){
-                //     console.log("Error");
-                // }
-                // });
+
             }
             else {
                 alert("Invalid entry");
@@ -368,6 +351,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $("#parameter-table", window.document).append(htmlNewRow);  
             $(window.document).on('click', ".record-delete", deleteParameterTable);
         }
+
+
         function addExampleParametersTable(){
             var htmlNewRow = ""
             htmlNewRow += "<tr>"

@@ -10,16 +10,16 @@ if (!isset($_SESSION['ProlificID'])) {
 $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $parameterNames = json_encode($_POST['parameter-names']);
-    $parameterBounds = json_encode($_POST['parameter-bounds']);
-    $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));// 格式化时间戳为字符串
+    $objectiveNames = json_encode($_POST['objective-names']);
+    $objectiveBounds = json_encode($_POST['objective-bounds']);
+    $objective_timestamp = json_encode(date("Y-m-d H:i:s")); // 将时间戳转换为JSON格式/ 格式化时间戳为字符串
 
-    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
+    $stmt = $conn->prepare("UPDATE data SET objectivename = ?, objectivebounds = ?, objective_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("ssss", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
+    $stmt->bind_param("ssss", $objectiveNames, $objectiveBounds, $objective_timestamp, $userID);
     if ($stmt->execute()) {
         echo "Record updated successfully";
     } else {
@@ -70,9 +70,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
 
-        <button class="button" id="back-button" onclick="history.back()" style="width: 20%;">Go back</button>
+        <button class="btn btn-outline-success" id="back-button" onclick="history.back()" style="width: 20%;">Go back</button>
 
-        <button class="button" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
+        <button class="btn btn-success" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -89,15 +89,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var objectiveNames = localStorage.getItem("objective-names").split(",");
             var objectiveBounds = localStorage.getItem("objective-bounds").split(",");
             var objectiveMinMax = localStorage.getItem("objective-min-max").split(",");
-            var badSolutions = localStorage.getItem("new-solution").split(",");
-            var nextEvaluation = localStorage.getItem("next-evaluation").split(",");
-            var solutionNameList = localStorage.getItem("solution-name-list").split(",");
 
             console.log(parameterBounds);
 
-            parameterNames = document.getElementById('defineWhat').value;
-            objectiveNames = document.getElementById('defineGood').value;
-            objectiveMinMax = document.getElementById('defineFor').value;
+            // parameterNames = document.getElementById('defineWhat').value;
+            // objectiveNames = document.getElementById('defineGood').value;
+            // objectiveMinMax = document.getElementById('defineFor').value;
 
             function confirmDefinitions() {
             // localStorage.setItem("parameter-names", parameterNames);
@@ -114,6 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 localStorage.setItem("good-solutions", goodSolutions);
                 localStorage.setItem("new-solution", newSolution);
                 localStorage.setItem("next-evaluation", nextEvaluation);
+                localStorage.setItem("refine-solution", refineSolution);
                 localStorage.setItem("solution-name-list", solutionNameList);
                 localStorage.setItem("bad-solutions", badSolutions);
 
@@ -161,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             'objective-bounds'   :String(objectiveBounds)
                             },
                             success: function(response) {
-                                var url = "confirm.php";
+                                var url = "optimise_withnewsolution.php";
                                 window.location.href = url;
                             },
                             error: function(response) {

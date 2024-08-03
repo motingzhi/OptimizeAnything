@@ -242,7 +242,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             var noError = true;
-
+            var tester1 = 0;
+                var tester2 = 0;
+                var tester3 = 0;
 
 
             //根据local storage填充表格：
@@ -275,9 +277,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 var paramUpperBound = paramRowEntries[3];
                 var validLowerBound = (!isNaN(parseFloat(paramLowerBound)) && isFinite(paramLowerBound));
                 var validUpperBound = (!isNaN(parseFloat(paramUpperBound)) && isFinite(paramUpperBound));
-                var tester1 = 0;
-                var tester2 = 0;
-                var tester3 = 0;
+
 
                 if (validLowerBound && validUpperBound){
                     if (parseFloat(paramLowerBound) < parseFloat(paramUpperBound)){

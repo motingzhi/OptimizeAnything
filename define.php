@@ -244,7 +244,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         function finishObjs() {
             // saveFormData();
+            var parameterNames = [];
 
+            var parameterBounds = [];
 
             var noError = true;
             var tester1 = 0;
@@ -259,7 +261,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // var parameterBounds = [];
 
             var tableParam = $("#parameter-table tbody");
-            var paramLowerBound2 = []
             tableParam.find('tr').each(function() {
                 var $paramCols = $(this).find("td");
                 var paramRowEntries = [];
@@ -279,7 +280,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
 
                 var paramLowerBound = paramRowEntries[2];
-                var paramLowerBound2 = paramRowEntries[2];
 
                 var paramUpperBound = paramRowEntries[3];
                 var validLowerBound = (!isNaN(parseFloat(paramLowerBound)) && isFinite(paramLowerBound));
@@ -293,19 +293,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     else {
                        noError = false;
-                       tester1 = 1;
                     }
                 }
                 else {
                     noError = false;
-                    tester2 = 2;
 
                 }
             });
 
             if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
                 noError = false;
-                 tester3 = 3;
 
             }
     
@@ -347,8 +344,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 });
             }
             else {
-                // alert("Invalid entry");
-                alert(paramLowerBound2);
+                alert("Invalid entry");
 
             }    
         }

@@ -186,34 +186,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  
     <script>
-        $(document).ready(function() {
-            const firstCell = $('#parameter-table tbody tr:first td:first');
-            firstCell.focus();
-
-            $('.record-data').on('focus', function() {
-                if ($(this).css('color') === 'rgb(128, 128, 128)') { // gray color in rgb
-                    $(this).css('color', 'black');
-                }
-            });
-        });
-
 
         try {
-            var parameterNames = localStorage.getItem("parameter-names").split(",");
-            } catch (err) {
-            // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
-            var parameterNames = [];
-            }
+        var parameterNames = localStorage.getItem("parameter-names").split(",");
+        } catch (err) {
+        // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
+        var parameterNames = [];
+        }
 
-            try {
-            var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
-            } catch (err) {
-            // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
-            var parameterBounds = [];
-            }
+        try {
+        var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
+        } catch (err) {
+        // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
+        var parameterBounds = [];
+        }
     
-        if (parameterNames.length > 0) {
-                // Clear existing rows in the table body
+
+        if (JSON.stringify(parameterNames) !== '[]') {                // Clear existing rows in the table body
                 $('#parameter-table tbody').empty();
                 // Add rows based on parameterNames and parameterBounds
                 for (let i = 0; i < parameterNames.length; i++) {
@@ -232,10 +221,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $("#parameter-table tbody").append(htmlNewRow);
                 }
             }
-            // else{
-            //     addExampleParametersTable();
-            //     addExampleParametersTable();
-            // }
+        else{
+                addExampleParametersTable();
+                addExampleParametersTable();
+            }
+
+
+
+
+        $(document).ready(function() {
+            const firstCell = $('#parameter-table tbody tr:first td:first');
+            firstCell.focus();
+
+            $('.record-data').on('focus', function() {
+                if ($(this).css('color') === 'rgb(128, 128, 128)') { // gray color in rgb
+                    $(this).css('color', 'black');
+                }
+            });
+        });
+
+
 
         function finishObjs() {
             // saveFormData();

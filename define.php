@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
             margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
             text-align: center;
-            width: 33.33%; /* Content width as 1/3 of the page */
+            width: 60%; /* Content width as 1/3 of the page */
             margin-left: auto;
             margin-right: auto;
         }
@@ -148,25 +148,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>  
             </thead>  
             <tbody>
-                <!-- <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">R</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">255</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">G</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">255</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">B</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">255</td>
-                </tr> -->
 
+<!-- 
                 <tr>
                     <td contenteditable="true" class="record-data" id="record-parameter-name">Input variable here</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
@@ -181,42 +164,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">Input number</td>
                     <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
                 </tr>
-                
-                <!-- <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">font size</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
+                 -->
 
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">100</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">button radius</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark size</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark-font margin</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">checkmark weight</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">50</td>
-                </tr> -->
+  
             </tbody>
         </table>
         <button class="btn btn-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
@@ -252,10 +202,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             var noError = true;
-            var parameterNames = [];
-            var parameterBounds = [];
 
-            var tableParam = $("#parameter-table tbody");
+            try {
+            var parameterNames = localStorage.getItem("parameter-names").split(",");
+            } catch (err) {
+            // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
+            var parameterNames = [];
+            }
+
+            try {
+            var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
+            } catch (err) {
+            // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
+            var parameterBounds = [];
+            }
+
+    
+            if (parameterNames.length > 0) {
+                // Clear existing rows in the table body
+                $('#parameter-table tbody').empty();
+                // Add rows based on parameterNames and parameterBounds
+                for (let i = 0; i < parameterNames.length; i++) {
+                    let nameParts = parameterNames[i].split('/');
+                    let lowerBound = parameterBounds[2 * i];
+                    let upperBound = parameterBounds[2 * i + 1];
+                    
+                    let htmlNewRow = "<tr>";
+                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-name'>${nameParts[0]}</td>`;
+                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-unit'>${nameParts[1] || ''}</td>`;
+                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-lower-bound'>${lowerBound}</td>`;
+                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-upper-bound'>${upperBound}</td>`;
+                    htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>";
+                    htmlNewRow += "</td></tr>";
+                    
+                    $("#parameter-table tbody").append(htmlNewRow);
+                }
+            }
+            else{
+                addExampleParametersTable();
+                addExampleParametersTable();
+            }
+
+            //根据local storage填充表格：
+
+
+            // var parameterNames = [];
+            // var parameterBounds = [];
+
+            // var tableParam = $("#parameter-table tbody");
                 
             tableParam.find('tr').each(function() {
                 var $paramCols = $(this).find("td");
@@ -352,6 +346,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $("#parameter-table", window.document).append(htmlNewRow);  
             $(window.document).on('click', ".record-delete", deleteParameterTable);
         }
+        function addExampleParametersTable(){
+            var htmlNewRow = ""
+            htmlNewRow += "<tr>"
+            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-name'>Input variable here</td>"
+            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-unit'></td>"
+            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-lower-bound'>Input number</td>"
+            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-parameter-upper-bound'>Input number</td>"
+            htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
+            htmlNewRow += "</td></tr>"
+            $("#parameter-table", window.document).append(htmlNewRow);  
+            $(window.document).on('click', ".record-delete", deleteParameterTable);
+        }
+
         function deleteParameterTable(){
             $(this).parents('tr').remove();
         }
@@ -359,3 +366,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     </body>
 </html>
+
+

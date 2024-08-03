@@ -149,9 +149,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </thead>  
             <tbody>
 
-<!-- 
+
                 <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Input variable here</td>
+                    <!-- <td contenteditable="true" class="record-data" id="record-parameter-name">Input variable here</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">Input number</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">Input number</td>
@@ -162,9 +162,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
                     <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">Input number</td>
                     <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">Input number</td>
-                    <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
+                    <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td> -->
                 </tr>
-                 -->
+                
 
   
             </tbody>

@@ -197,13 +197,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             });
         });
 
-        function finishObjs() {
-            // saveFormData();
 
-
-            var noError = true;
-
-            try {
+        try {
             var parameterNames = localStorage.getItem("parameter-names").split(",");
             } catch (err) {
             // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
@@ -216,9 +211,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
             var parameterBounds = [];
             }
-
     
-            if (parameterNames.length > 0) {
+        if (parameterNames.length > 0) {
                 // Clear existing rows in the table body
                 $('#parameter-table tbody').empty();
                 // Add rows based on parameterNames and parameterBounds
@@ -242,6 +236,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 addExampleParametersTable();
                 addExampleParametersTable();
             }
+
+        function finishObjs() {
+            // saveFormData();
+
+
+            var noError = true;
+
+
 
             //根据local storage填充表格：
 

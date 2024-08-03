@@ -60,6 +60,9 @@ require_once 'config.php';
     </div>
 
     <script>
+        window.onload = function() {
+            localStorage.clear();
+        };
         document.getElementById('consentCheckbox').addEventListener('change', function() {
             document.getElementById('startButton').disabled = !this.checked;
         });

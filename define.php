@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
             margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
             text-align: center;
-            width: 60%; /* Content width as 1/3 of the page */
+            width: 50%; /* Content width as 1/3 of the page */
             margin-left: auto;
             margin-right: auto;
         }

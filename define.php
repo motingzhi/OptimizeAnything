@@ -114,10 +114,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            width: 50%;
         }
 
         .step {
-            flex-grow: 2;
+            flex-grow: 1;
             text-align: center;
             position: relative;
         }

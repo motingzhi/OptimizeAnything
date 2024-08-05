@@ -129,13 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             position: absolute;
             top: 50%;
             right: 0;
-            width: 100%;
+            width:50%;
             z-index: -1;
-        }
-
-        .step.active span {
-            font-weight: bold;
-            color: #007bff;
         }
 
         .step span {
@@ -147,6 +142,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .step.active span {
+            font-weight: bold;
+            color: #007bff;
             border-color: #007bff;
             background: white;
         }
@@ -162,16 +159,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="stepper">
                 <div class="step active">
+                <div>Define Variables</div>
+
                     <span>1</span>
-                    <div>Define Variables</div>
                 </div>
                 <div class="step">
+                <div>Define Objectives</div>
+
                     <span>2</span>
-                    <div>Define Objectives</div>
                 </div>
                 <div class="step">
+                <div>Confirm Definition</div>
+
                     <span>3</span>
-                    <div>Confirm Definition</div>
                 </div>
         </div>
 

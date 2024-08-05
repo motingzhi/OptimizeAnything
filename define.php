@@ -173,11 +173,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
             </div>
 
-            <form action="tutorial_1.php">
-                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
-            </form>    
         </div>
 
+        <form action="tutorial_1.php">
+                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+            </form>    
     </div>
     
     <div class="centered-content">

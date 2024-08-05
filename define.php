@@ -160,19 +160,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="stepper">
                     <div class="step active">
+                    <span>1</span>
                     <div>Define Variables</div>
-
-                        <span>1</span>
                     </div>
                     <div class="step">
+                    <span>2</span>
                     <div>Define Objectives</div>
-
-                        <span>2</span>
                     </div>
                     <div class="step">
+                    <span>3</span>
                     <div>Confirm Definition</div>
-
-                        <span>3</span>
                     </div>
             </div>
 

@@ -110,12 +110,69 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         /* .record-data {
             color: black;
         } */
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .step.active span {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .step span {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+
+        .step.active span {
+            border-color: #007bff;
+            background: white;
+        }
+
+
+
     </style>
 </head>
 <body>
     <div class="top-bar">
         <div class="container d-flex justify-content-between align-items-center">
-            <h1>1. Define</h1>
+        <div class="stepper">
+                <div class="step active">
+                    <span>1</span>
+                    <div>Define Variables</div>
+                </div>
+                <div class="step">
+                    <span>2</span>
+                    <div>Define Objectives</div>
+                </div>
+                <div class="step">
+                    <span>3</span>
+                    <div>Confirm Definition</div>
+                </div>
+        </div>
+
             <form action="tutorial_1.php">
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
             </form>

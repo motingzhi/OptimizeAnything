@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .step span {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 20px 40px;
             background: #f8f9fa;
             border-radius: 50%;
             border: 2px solid #ddd;

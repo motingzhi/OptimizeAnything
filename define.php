@@ -173,15 +173,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
             </div>
 
-            
+            <form action="tutorial_1.php">
+                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+            </form>    
         </div>
 
     </div>
     
     <div class="centered-content">
-    <form action="tutorial_1.php">
-                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
-            </form>
+
 
         <h5 for="optimizeScenario">Your optimization task: </h5>
 

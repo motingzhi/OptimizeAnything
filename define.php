@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .step {
-            flex-grow: 1;
+            flex-grow: 2;
             text-align: center;
             position: relative;
         }
@@ -136,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .step span {
             display: inline-block;
-            padding: 20px 40px;
+            padding: 10px 20px;
             background: #f8f9fa;
             border-radius: 50%;
             border: 2px solid #ddd;

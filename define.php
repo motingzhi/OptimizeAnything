@@ -140,6 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #f8f9fa;
             border-radius: 50%;
             border: 2px solid #ddd;
+            font-weight: normal;
         }
 
         .step.active span {

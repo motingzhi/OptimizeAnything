@@ -127,8 +127,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             height: 2px;
             background: #ddd;
             position: absolute;
-            top: 50%;
-            left:0;
+            top: 30%;
+            right:100;
             /* right: 0%; */
             width:100%;
             z-index: -1;

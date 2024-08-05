@@ -102,6 +102,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             margin-top: 20px;
         }
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .step.active span {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .step span {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+
+        .step.active span {
+            border-color: #007bff;
+            background: white;
+        }
+
+
     </style>
 </head>
 <body>

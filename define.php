@@ -128,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #ddd;
             position: absolute;
             top: 30%;
-            right:100;
+            right: 100;
             /* right: 0%; */
             width:100%;
             z-index: -1;
@@ -158,23 +158,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- <div class="container d-flex justify-content-between align-items-center"> -->
         <div class="container">
 
-        <div class="stepper">
-                <div class="step active">
-                <div>Define Variables</div>
+            <div class="stepper">
+                    <div class="step active">
+                    <div>Define Variables</div>
 
-                    <span>1</span>
-                </div>
-                <div class="step">
-                <div>Define Objectives</div>
+                        <span>1</span>
+                    </div>
+                    <div class="step">
+                    <div>Define Objectives</div>
 
-                    <span>2</span>
-                </div>
-                <div class="step">
-                <div>Confirm Definition</div>
+                        <span>2</span>
+                    </div>
+                    <div class="step">
+                    <div>Confirm Definition</div>
 
-                    <span>3</span>
-                </div>
-        </div>
+                        <span>3</span>
+                    </div>
+            </div>
 
             
         </div>

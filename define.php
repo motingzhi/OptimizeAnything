@@ -179,7 +179,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <div class="container">
 
-        <div class="container d-flex justify-content-between align-items-center">
 
 
         <h5 for="optimizeScenario">Your optimization task: </h5>
@@ -193,7 +192,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="tutorial_1.php">
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
         </form> 
-        </div>  
 
         <label style="margin-bottom: 20px;">Variables</label></br>
         <!-- <label style="margin-bottom: 20px;">For example, you can input gram of fruit, or portions of spagetti, or gram of carbon, etc</label> -->

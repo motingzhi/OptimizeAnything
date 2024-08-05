@@ -177,10 +177,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </div>
-    <form action="tutorial_1.php">
-                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
-            </form>    
-    <div class="centered-content">
+    <div class="container">
+
+        <div class="container d-flex justify-content-between align-items-center">
 
 
         <h5 for="optimizeScenario">Your optimization task: </h5>
@@ -191,6 +190,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p> -->
         <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
         <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p> -->
+        <form action="tutorial_1.php">
+                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+        </form> 
+        </div>  
 
         <label style="margin-bottom: 20px;">Variables</label></br>
         <!-- <label style="margin-bottom: 20px;">For example, you can input gram of fruit, or portions of spagetti, or gram of carbon, etc</label> -->

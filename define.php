@@ -155,8 +155,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="top-bar">
-        <!-- <div class="container d-flex justify-content-between align-items-center"> -->
-        <div class="container">
+        <div class="container d-flex justify-content-between align-items-center">
+        <!-- <div class="container"> -->
 
             <div class="stepper">
                     <div class="step active">
@@ -173,11 +173,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
             </div>
 
-        </div>
-
-        <form action="tutorial_1.php">
+            <form action="tutorial_1.php">
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
             </form>    
+        </div>
+
     </div>
     
     <div class="centered-content">

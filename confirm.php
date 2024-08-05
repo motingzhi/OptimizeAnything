@@ -56,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
         <div class="card-body" id="secondCard">
-
                 <div>
                     <p>You want to make 
                         <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="what"> 
@@ -68,9 +67,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </p>
                 </div>
 
-        </div>
+            </div>
 
-        <button class="btn btn-outline-success" id="back-button" onclick="history.back()" style="width: 20%;">Go back</button>
+        <button class="btn btn-outline-success" id="back-button" onclick="history.back()" style="width: 20%;">Redefine</button>
 
         <button class="btn btn-success" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
 

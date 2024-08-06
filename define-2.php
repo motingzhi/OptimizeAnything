@@ -188,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card custom-card">
             <div class="card-body">
                 <p class="text-primary"> Your optimization task:</p>
-                    <label > Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</label></br>
+                    <label> Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</label></br>
             </div>
         </div>
         </div>
@@ -259,7 +259,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="bottom-bar">
     <div class="container d-flex justify-content-between">
-        <button class="btn btn-outline-success" id="back-button" style="width: 20%;" onclick="goBack()">Back</button>
+        <button class="btn btn-outline-success" id="back-button" style="width: 20%;" onclick="goBack()">Modify the variables</button>
         <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
 
     </div>

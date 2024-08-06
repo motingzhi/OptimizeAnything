@@ -208,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="top-bar">
         <!-- <div class="container d-flex justify-content-between align-items-center"> -->
-        <div class="container">
+        <!-- <div class="container">
 
             <div class="stepper">
                     <div class="step active">
@@ -226,7 +226,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
 
-        </div>
+        </div> -->
 
     </div>
     
@@ -245,10 +245,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="container">
-            <div class="card custom-card">
 
                         <div class="description">
-                            Optimize: By changing 
+                            Solve the optimization task: By changing 
                             <span class="highlight"><span class="underline variables">Variables</span></span>
                             ,
                             <span class="highlight"><span class="underline normal">minimize/maximize</span></span> 
@@ -256,7 +255,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                            .
                         </div>
                         
-            </div>
 
             <div class="card custom-card">
                 <p class="text-primary">Hints</p>

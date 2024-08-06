@@ -280,7 +280,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             by
                             <span class="normal">minimizing/maximizing</span></span> 
                             <span class="tooltip-container">
-                                    <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
+                                    <input type="text" id="defineFor" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
                                     <span class="tooltip-text">to be specified</span>
                             </span>
                 </div>
@@ -349,7 +349,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var paraString = parameterNames.join(', ');
     // document.querySelector('.variables').innerText = paraString;
 
-    document.getElementById('defineFor').value = paraString;
+    document.getElementById('defineWhat').value = paraString;
 
 
     function goBack() {

@@ -284,16 +284,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="loadingText">Loading...</div>
     </div>
 
-    <div class="bottom-bar">
+
+</div>
+<div class="bottom-bar">
         <div class="container d-flex justify-content-between">
             <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify Variables</button>
             <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
-
         </div>
-
-
     </div>
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>

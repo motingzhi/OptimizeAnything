@@ -347,16 +347,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
 
-        $(document).ready(function() {
-            const firstCell = $('#objective-table tbody tr:first td:first');
-            firstCell.focus();
+        // $(document).ready(function() {
+        //     const firstCell = $('#objective-table tbody tr:first td:first');
+        //     firstCell.focus();
 
-            $('.record-data').on('focus', function() {
-                if ($(this).css('color') === 'rgb(128, 128, 128)') { // gray color in rgb
-                    $(this).css('color', 'black');
-                }
-            });
-        });
+        //     $('.record-data').on('focus', function() {
+        //         if ($(this).css('color') === 'rgb(128, 128, 128)') { // gray color in rgb
+        //             $(this).css('color', 'black');
+        //         }
+        //     });
+        // });
 
 
         function finishObjs() {

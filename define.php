@@ -186,9 +186,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="card custom-card">
                 <div class="card-body">
-                    <p class="card-title"> Your optimization task:</p>
-                        <label > <strong class="text-primary">Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</strong>
-                        </label></br>
+                    <p class="card-title" class="text-primary"> Your optimization task:</p>
+                        <label > Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</label></br>
                 </div>
             </div>
         </div>

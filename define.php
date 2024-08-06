@@ -307,32 +307,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
 
-        
-    </div>
-    <div class="bottom-bar">
-
         <label style="margin-bottom: 20px;">Variables</label></br>
-            <!-- <label style="margin-bottom: 20px;">For example, you can input gram of fruit, or portions of spagetti, or gram of carbon, etc</label> -->
+        <!-- <label style="margin-bottom: 20px;">For example, you can input gram of fruit, or portions of spagetti, or gram of carbon, etc</label> -->
 
-            <table class="table table-bordered" id="parameter-table">
-                <thead>  
-                    <tr>  
-                        <th id="record-parameter-name" width="40%"> Variable Name </th>   
-                        <th id="record-parameter-unit" width="40%"> Unit(if have) </th>   
-                        <th id="record-parameter-lower-bound"> Minimum </th>  
-                        <th id="record-parameter-upper-bound"> Maximum </th>  
-                        <th class="delete"> Delete </th>   
-                    </tr>  
-                </thead>  
-                <tbody>
+        <table class="table table-bordered" id="parameter-table">
+            <thead>  
+                <tr>  
+                    <th id="record-parameter-name" width="40%"> Variable Name </th>   
+                    <th id="record-parameter-unit" width="40%"> Unit(if have) </th>   
+                    <th id="record-parameter-lower-bound"> Minimum </th>  
+                    <th id="record-parameter-upper-bound"> Maximum </th>  
+                    <th class="delete"> Delete </th>   
+                </tr>  
+            </thead>  
+            <tbody>
 
-    
-                </tbody>
-            </table>
-            <button class="btn btn-outline-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
+  
+            </tbody>
+        </table>
+        <button class="btn btn-outline-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
     </div>
-
-
+    
     <div id="loadingContainer">
         <div id="loadingIcon"></div>
         <div id="loadingText">Loading...</div>

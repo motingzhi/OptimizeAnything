@@ -231,7 +231,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <tbody>                        
                         </tbody>
                     </table>
-                    <p>to</p>
+                    <p>by</p>
                     <table class="table table-bordered" id="objective-table" >
                         <tbody>                        
                         </tbody>

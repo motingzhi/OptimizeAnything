@@ -200,13 +200,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-bottom-color: #000000;
             color: #000000;
         }
-        .inline-input {
+        /* .inline-input {
             width: auto;
             display: inline-block;
             min-width: 100px;
             max-width: 200px;
-
-        }
+        } */
         .colored-placeholder::placeholder {
             color: blue;
         }
@@ -336,7 +335,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="bottom-bar">
         <div class="container text-right">
-            <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
+            <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Save</button>
         </div>
     </div>
 

@@ -217,16 +217,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="centered-content">
         <div class="card-body" id="secondCard">
                 <div>
-                    <p>You want to </p><br>
+                    <p>You want to</p><br>
                     <table class="table table-bordered" id="objective-table" >
-                        <thead>   
-                        </thead>  
                         <tbody>                        
                         </tbody>
                     </table>
-                        for 
-                        <input type="text" id="defineFor" class="form-control mb-2 inline-input" readonly>
-                    </p>
+                    <p>for</p><br> 
+                    <table class="table table-bordered" id="parameter-table" >
+                        <tbody>                        
+                        </tbody>
+                    </table>
                 </div>
 
         </div>
@@ -263,7 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // objectiveMinMax = document.getElementById('defineFor').value;
 
             for (let i = 0; i < objectiveNames.length; i++) {
-                let nameParts = objectiveNames[i]
+                let nameParts = objectiveNames[i];
                 let minmax = objectiveMinMax[i];
                 
                 let htmlNewRow = "<tr>";
@@ -275,7 +275,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             }
 
+            for (let i = 0; i < parameterNames.length; i++) {
+                    let nameParts = parameterNames[i];
+                      
+                    let htmlNewRow = "<tr>";
+                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-name'>${nameParts}</td>`;
+                    htmlNewRow += "</td></tr>";
 
+                    $("#parameter-table tbody").append(htmlNewRow);
+
+            }
 
 
 

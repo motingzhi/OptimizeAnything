@@ -152,9 +152,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .custom-card {
             margin: 10px; /* 外边距 */
             display: inline-block; /* 使卡片宽度根据内容自适应 */
+            width: 60%;
         }
         .custom-card .card-body {
             padding: 10px; /* 内边距 */
+            width: 60%;
+
         }
 
 

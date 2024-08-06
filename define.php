@@ -248,10 +248,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                             You want to optimize
-                            <span class="underline variables">Variables: To be specified</span>
+                            <span class="underline">Variables: To be specified</span>
                             to
                             <span class="highlight"><span class="normal">minimize/maximize</span></span> 
-                           <span class="underline objectives">Objectives: To be specified</span>
+                           <span class="underline">Objectives: To be specified</span>
                            
                 </div>
                         

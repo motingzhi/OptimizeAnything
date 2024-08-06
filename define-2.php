@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /* box-shadow: none; */
              /* Shadow for the bottom bar */
 
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
         }
 
         #loadingContainer {
@@ -195,8 +194,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: #000000;
         }
 
-
-
     </style>
 </head>
 <body>
@@ -278,35 +275,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>  
             </thead>  
             <tbody>
-            <!-- <tr>
-                <td contenteditable="true" class="record-data" id="record-objective-name">Input objective name here</td>
-                <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
-                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">Input valid number</td>
-                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">Input valid number</td>
-                <td contenteditable="false" class="record-data" id="record-objective-min-max">
-                    <select id="min-max-1" style="font-family: calibri; font-size: medium;">
-                        <option value="minimise" selected="selected">minimise</option>
-                        <option value="maximise">maximise</option>
-                    </select>
-                <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
-
-                </td>
-            </tr>
-            
-            <tr>
-                <td contenteditable="true" class="record-data" id="record-objective-name">Input objective name here</td>
-                <td contenteditable="true" class="record-data" id="record-objective-unit"></td>
-                <td contenteditable="true" class="record-data" id="record-objective-lower-bound">Input valid number</td>
-                <td contenteditable="true" class="record-data" id="record-objective-upper-bound">Input valid number</td>
-                <td contenteditable="false" class="record-data" id="record-objective-min-max">
-                    <select id="min-max-1" style="font-family: calibri; font-size: medium;">
-                        <option value="minimise" selected="selected">minimise</option>
-                        <option value="maximise">maximise</option>
-                    </select>
-                <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
-
-                </td>
-            </tr> -->
  
         </tbody>
         </table>
@@ -321,230 +289,214 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="bottom-bar">
-    <div class="container d-flex justify-content-between">
-        <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify the variables</button>
-        <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
-
+        <div class="container d-flex justify-content-between">
+            <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify the variables</button>
+            <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
+        </div>
     </div>
-    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script>
-        var solutionNameList =  "";
-        var badSolutions = [];
-        var newSolution = true;
-        var nextEvaluation = false;
-        var refineSolution = false;
-        var goodSolutions = [];
-        var badSolutions = [];
+<script>
+    var solutionNameList =  "";
+    var badSolutions = [];
+    var newSolution = true;
+    var nextEvaluation = false;
+    var refineSolution = false;
+    var goodSolutions = [];
+    var badSolutions = [];
 
 
-        function goBack() {
-            // saveFormData();
-            location.href = "define.php";
-        }
+    function goBack() {
+        // saveFormData();
+        location.href = "define.php";
+    }
 
-        try {
+    try {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
-        } catch (err) {
+    } catch (err) {
         // 如果发生异常，例如   不存在，赋值一个空数组
         var objectiveNames = [];
-        }
+    }
 
-        try {
+    try {
         var objectiveBounds = localStorage.getItem("objective-bounds").split(",");
-        } catch (err) {
+    } catch (err) {
         // 如果发生异常，例如 不存在，赋值一个空数组
         var objectiveBounds = [];
-        }
+    }
 
-        try {
+    try {
         var objectiveMinMax = localStorage.getItem("objective-min-max").split(",");
-        } catch (err) {
+    } catch (err) {
         // 如果发生异常，例如  不存在，赋值一个空数组
         var objectiveMinMax = [];
+    }
+
+
+    if (JSON.stringify(objectiveNames) !== '[]') {                // Clear existing rows in the table body
+            $('#objective-table tbody').empty();
+            // Add rows based on parameterNames and parameterBounds
+            for (let i = 0; i < objectiveNames.length; i++) {
+                let nameParts = objectiveNames[i].split('/');
+                let lowerBound = objectiveBounds[2 * i];
+                let upperBound = objectiveBounds[2 * i + 1];
+                
+                let htmlNewRow = "<tr>";
+                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-name'>${nameParts[0]}</td>`;
+                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-unit'>${nameParts[1] || ''}</td>`;
+                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${lowerBound}</td>`;
+                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>${upperBound}</td>`;
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-1' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+
+                htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>";
+                htmlNewRow += "</td></tr>";
+
+                $("#objective-table tbody").append(htmlNewRow);
+                $(window.document).on('click', ".record-delete", deleteParameterTable);
+
+            }
+        }
+    else{
+            addExampleObjectivesTable();
+            addExampleObjectivesTable();
         }
 
 
-        if (JSON.stringify(objectiveNames) !== '[]') {                // Clear existing rows in the table body
-                $('#objective-table tbody').empty();
-                // Add rows based on parameterNames and parameterBounds
-                for (let i = 0; i < objectiveNames.length; i++) {
-                    let nameParts = objectiveNames[i].split('/');
-                    let lowerBound = objectiveBounds[2 * i];
-                    let upperBound = objectiveBounds[2 * i + 1];
-                    
-                    let htmlNewRow = "<tr>";
-                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-name'>${nameParts[0]}</td>`;
-                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-unit'>${nameParts[1] || ''}</td>`;
-                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${lowerBound}</td>`;
-                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>${upperBound}</td>`;
-                    htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-1' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+    function finishObjs() {
 
-                    htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>";
-                    htmlNewRow += "</td></tr>";
+        // saveFormData();
 
-                    $("#objective-table tbody").append(htmlNewRow);
-                    $(window.document).on('click', ".record-delete", deleteParameterTable);
+        var noError = true;
 
-                }
-            }
-        else{
-                addExampleObjectivesTable();
-                addExampleObjectivesTable();
-            }
+        var objectiveNames = [];
+        var objectiveBounds = [];
+        var objectiveMinMax = [];
 
 
-        // $(document).ready(function() {
-        //     const firstCell = $('#objective-table tbody tr:first td:first');
-        //     firstCell.focus();
-
-        //     $('.record-data').on('focus', function() {
-        //         if ($(this).css('color') === 'rgb(128, 128, 128)') { // gray color in rgb
-        //             $(this).css('color', 'black');
-        //         }
-        //     });
-        // });
-
-
-        function finishObjs() {
-
-            // saveFormData();
-
-            var noError = true;
-
-            var objectiveNames = [];
-            var objectiveBounds = [];
-            var objectiveMinMax = [];
-
-
-            // Find all the objective names and bounds
-            var tableObjs = $("#objective-table tbody");
-                
-            tableObjs.find('tr').each(function() {
-                var $objCols = $(this).find("td");
-                var objRowEntries = [];
-
-                $.each($objCols, function() {
-                    objRowEntries.push($(this).text());
-                });
-                
-                var objName = objRowEntries[0];
-                var unit = objRowEntries[1];
-                if ((unit === "None") || (unit === "")) {
-                    objectiveNames.push(objName);
-                }
-                else {
-                    objectiveNames.push(objName+"/"+unit);
-
-                }
-
-    
-                var objLowerBound = objRowEntries[2];
-                var objUpperBound = objRowEntries[3];
-                var validLowerBound = (!isNaN(parseFloat(objLowerBound)) && isFinite(objLowerBound));
-                var validUpperBound = (!isNaN(parseFloat(objUpperBound)) && isFinite(objUpperBound));
-
-                if (validLowerBound && validUpperBound){
-                    if (parseFloat(objLowerBound) < parseFloat(objUpperBound)){
-                        var rowBounds = [parseFloat(objLowerBound), parseFloat(objUpperBound)];
-                        objectiveBounds.push(rowBounds);
-                    }
-                    else {
-                       noError = false;
-                    }
-                }
-                else {
-                    noError = false;
-                }
+        // Find all the objective names and bounds
+        var tableObjs = $("#objective-table tbody");
             
-                var selectedOption = $(this).find('select option:selected').text();
-                objectiveMinMax.push(selectedOption);
+        tableObjs.find('tr').each(function() {
+            var $objCols = $(this).find("td");
+            var objRowEntries = [];
 
+            $.each($objCols, function() {
+                objRowEntries.push($(this).text());
             });
-
-
-
-            // if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
-            //     noError = false;
-            // }
-
-            if (objectiveBounds.length != objectiveNames.length){
-                noError = false;
-            }
-    
-            if (noError){
-
-                localStorage.setItem("objective-names", objectiveNames);
-                localStorage.setItem("objective-bounds", objectiveBounds);
-                localStorage.setItem("objective-min-max", objectiveMinMax);
-
-                $.ajax({
-                            url: "confirm.php",
-                            type: "post",
-                            data: {
-                            'objective-names'    :String(objectiveNames),
-                            'objective-bounds'   :String(objectiveBounds)
-                            },
-                            beforeSend: function() {
-                            // 显示 loading 动画和文字
-                            $('#loadingContainer').show();
-                            },
-                            success: function(response) {
-                                var url = "confirm.php";
-                                window.location.href = url;
-                            },
-                            error: function(response) {
-                                console.log("Error sending data to confirm.php");
-                            }
-                        });
-                    $('#loadingContainer').hide();
+            
+            var objName = objRowEntries[0];
+            var unit = objRowEntries[1];
+            if ((unit === "None") || (unit === "")) {
+                objectiveNames.push(objName);
             }
             else {
-                alert("Invalid entry");
-            }    
+                objectiveNames.push(objName+"/"+unit);
+
+            }
+
+
+            var objLowerBound = objRowEntries[2];
+            var objUpperBound = objRowEntries[3];
+            var validLowerBound = (!isNaN(parseFloat(objLowerBound)) && isFinite(objLowerBound));
+            var validUpperBound = (!isNaN(parseFloat(objUpperBound)) && isFinite(objUpperBound));
+
+            if (validLowerBound && validUpperBound){
+                if (parseFloat(objLowerBound) < parseFloat(objUpperBound)){
+                    var rowBounds = [parseFloat(objLowerBound), parseFloat(objUpperBound)];
+                    objectiveBounds.push(rowBounds);
+                }
+                else {
+                   noError = false;
+                }
+            }
+            else {
+                noError = false;
+            }
+        
+            var selectedOption = $(this).find('select option:selected').text();
+            objectiveMinMax.push(selectedOption);
+
+        });
+
+
+
+        // if (parameterBounds.length != parameterNames.length && parameterBounds.length <= 1){
+        //     noError = false;
+        // }
+
+        if (objectiveBounds.length != objectiveNames.length){
+            noError = false;
         }
 
+        if (noError){
 
-        function addDesignObjectivesTable(){
-            var htmlNewRow = ""
-            htmlNewRow += "<tr>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
-            htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
+            localStorage.setItem("objective-names", objectiveNames);
+            localStorage.setItem("objective-bounds", objectiveBounds);
+            localStorage.setItem("objective-min-max", objectiveMinMax);
 
-            htmlNewRow += "</td></tr>"
-            $("#objective-table", window.document).append(htmlNewRow);  
-            $(window.document).on('click', ".record-delete", deleteObjectiveTable);
+            $.ajax({
+                        url: "confirm.php",
+                        type: "post",
+                        data: {
+                        'objective-names'    :String(objectiveNames),
+                        'objective-bounds'   :String(objectiveBounds)
+                        },
+                        beforeSend: function() {
+                        // 显示 loading 动画和文字
+                        $('#loadingContainer').show();
+                        },
+                        success: function(response) {
+                            var url = "confirm.php";
+                            window.location.href = url;
+                        },
+                        error: function(response) {
+                            console.log("Error sending data to confirm.php");
+                        }
+                    });
+                $('#loadingContainer').hide();
         }
+        else {
+            alert("Invalid entry");
+        }    
+    }
 
-        function addExampleObjectivesTable(){
-            var htmlNewRow = ""
-            htmlNewRow += "<tr>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'>Input objectives here</td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>Input number</td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>Input number</td>"
-            htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
-            htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
 
-            htmlNewRow += "</td></tr>"
-            $("#objective-table", window.document).append(htmlNewRow);  
-            $(window.document).on('click', ".record-delete", deleteObjectiveTable);
-        }
-        function deleteObjectiveTable(){
-            $(this).parents('tr').remove();
-        }
-        // document.getElementById('objective-table').addEventListener('input', saveFormData);
-        // document.getElementById('objective-table').addEventListener('change', saveFormData);
-    </script>
-    
-    </body>
+    function addDesignObjectivesTable(){
+        var htmlNewRow = ""
+        htmlNewRow += "<tr>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'></td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'></td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'></td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+        htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
+
+        htmlNewRow += "</td></tr>"
+        $("#objective-table", window.document).append(htmlNewRow);  
+        $(window.document).on('click', ".record-delete", deleteObjectiveTable);
+    }
+
+    function addExampleObjectivesTable(){
+        var htmlNewRow = ""
+        htmlNewRow += "<tr>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'>Input objectives here</td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>Input number</td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>Input number</td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+        htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
+
+        htmlNewRow += "</td></tr>"
+        $("#objective-table", window.document).append(htmlNewRow);  
+        $(window.document).on('click', ".record-delete", deleteObjectiveTable);
+    }
+    function deleteObjectiveTable(){
+        $(this).parents('tr').remove();
+    }
+    // document.getElementById('objective-table').addEventListener('input', saveFormData);
+    // document.getElementById('objective-table').addEventListener('change', saveFormData);
+</script>
+
+</body>
 </html>
-
-

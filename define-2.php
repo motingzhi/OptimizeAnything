@@ -307,7 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     var parameterNames = localStorage.getItem("parameter-names").split(",");
 
-    var paraString = dparameterNames.join(', ');
+    var paraString = parameterNames.join(', ');
     document.querySelector('.variables').innerText = paraString;
 
 

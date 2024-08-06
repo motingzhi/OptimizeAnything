@@ -156,7 +156,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .custom-card .card-body {
             padding: 10px; /* 内边距 */
-            width: 60%;
 
         }
 

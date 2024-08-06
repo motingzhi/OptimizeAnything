@@ -216,7 +216,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="centered-content">
         <div class="card-body" id="secondCard">
-                <div>
                     <p>You want to</p>
                     <table class="table table-bordered" id="objective-table" >
                         <tbody>                        
@@ -227,8 +226,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <tbody>                        
                         </tbody>
                     </table>
-                </div>
-
         </div>
 </div>
 

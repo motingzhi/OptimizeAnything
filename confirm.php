@@ -232,7 +232,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="bottom-bar">
         <div class="d-flex justify-content-between">
-        <button class="btn btn-outline-success" id="back-button" onclick="history.back()" style="width: 20%;">Redefine</button>
+        <button class="btn btn-outline-success" id="back-button" onclick="history.back()" style="width: 20%;">Back</button>
         <button class="btn btn-success" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
         </div>
 </div>

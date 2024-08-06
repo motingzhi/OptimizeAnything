@@ -226,17 +226,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="card-body">
-                    <p>You want to</p>
-                    <table class="table table-bordered" id="objective-table" >
-                        <tbody>                        
-                        </tbody>
-                    </table>
-                    <p>by changing</p>
+                    <p>You want to optimize</p>
                     <table class="table table-bordered" id="parameter-table" >
                         <tbody>                        
                         </tbody>
                     </table>
-
+                    <p>to</p>
+                    <table class="table table-bordered" id="objective-table" >
+                        <tbody>                        
+                        </tbody>
+                    </table>
         </div>
 </div>
 

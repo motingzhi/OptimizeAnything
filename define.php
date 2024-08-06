@@ -309,7 +309,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         
     </div>
-    <div class="centered-content">
+    <div class="bottom-bar">
 
         <label style="margin-bottom: 20px;">Variables</label></br>
             <!-- <label style="margin-bottom: 20px;">For example, you can input gram of fruit, or portions of spagetti, or gram of carbon, etc</label> -->

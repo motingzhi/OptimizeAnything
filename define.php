@@ -182,11 +182,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- <form action="tutorial_1.php">
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
             </form>     -->
+    
+        <div class="container">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <p class="card-title"> Your optimization task:</p>
+                        <label > <strong class="text-primary">Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</strong>
+                        </label></br>
+                </div>
+            </div>
+        </div>
 
-        <h5 for="optimizeScenario">Your optimization task: </h5>
 
-        <label > <strong class="text-primary">Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</strong>
-        </label></br>
+
+
         <!-- <h2 style="margin-top: 20px;">Specify variables</h2> -->
         <!-- <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p> -->
         <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>

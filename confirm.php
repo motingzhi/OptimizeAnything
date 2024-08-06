@@ -217,13 +217,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="centered-content">
         <div class="card-body" id="secondCard">
                 <div>
-                    <p>You want to make 
-                        <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="what"> 
-                        as 
-                        <input type="text" id="defineGood" class="form-control mb-2 inline-input" placeholder="i.e.'low'/ 'high'"> 
-                        as possible for 
+                    <p>You want to </p><br>
+                    <table class="table table-bordered" id="objective-table" >
+                        <thead>   
+                        </thead>  
+                        <tbody>                        
+                        </tbody>
+                    </table>
+                        for 
                         <input type="text" id="defineFor" class="form-control mb-2 inline-input" readonly>
-                        that you just input.
                     </p>
                 </div>
 
@@ -260,12 +262,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // objectiveNames = document.getElementById('defineGood').value;
             // objectiveMinMax = document.getElementById('defineFor').value;
 
+            for (let i = 0; i < objectiveNames.length; i++) {
+                let nameParts = objectiveNames[i]
+                let minmax = objectiveMinMax[i];
+                
+                let htmlNewRow = "<tr>";
+                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${minmax}</td>`;
+                htmlNewRow += `<td contenteditable='false' class='record-data' id='record-objective-name'>${nameParts}</td>`;
+                htmlNewRow += "</td></tr>";
+
+                $("#objective-table tbody").append(htmlNewRow);
+
+            }
+
+
+
+
+
+
             function confirmDefinitions() {
             // localStorage.setItem("parameter-names", parameterNames);
             // localStorage.setItem("parameter-bounds", parameterBounds);
             // localStorage.setItem("objective-names", objectiveNames);
             // localStorage.setItem("objective-bounds", objectiveBounds);
             // localStorage.setItem("objective-min-max", objectiveMinMax);
+
 
 
 

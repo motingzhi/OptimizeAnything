@@ -271,8 +271,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>  
             </thead>  
             <tbody>
- 
-        </tbody>
+            
+            </tbody>
         </table>
         <button class="btn btn-outline-primary" id="add-record-button" onclick="addDesignObjectivesTable()" >Add Objective</button>
     <!-- <div id="progressBar"><div class="progress"></div> -->

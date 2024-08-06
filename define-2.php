@@ -200,27 +200,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="top-bar">
         <div class="container">
 
-        <div class="stepper">
-                <div class="step">
-                <span>1</span>
-                <div>Define Variables</div>
-                </div>
-                <div class="step active">
-                <span>2</span>
-                <div>Define Objectives</div>
-                </div>
-                <div class="step">
-                <span>3</span>
-                <div>Confirm Definition</div>
-                </div>
+            <div class="stepper">
+                    <div class="step">
+                        <span>1</span>
+                        <div>Define Variables</div>
+                    </div>
+                    <div class="step active">
+                        <span>2</span>
+                        <div>Define Objectives</div>
+                    </div>
+                    <div class="step">
+                        <span>3</span>
+                        <div>Confirm Definition</div>
+                    </div>
+            </div>
         </div>
+</div>
 
-
-        </div>
-
-        </div>
-
-        <div class="centered-content">
+<div class="centered-content">
         <!-- <form action="tutorial_1.php">
             <button type="submit" class="btn btn-outline-primary">Tutorial</button>
         </form>     -->
@@ -279,13 +276,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </tbody>
         </table>
         <button class="btn btn-outline-primary" id="add-record-button" onclick="addDesignObjectivesTable()" >Add Objective</button>
-    </div>
     <!-- <div id="progressBar"><div class="progress"></div> -->
     <br>
 
     <div id="loadingContainer">
-    <div id="loadingIcon"></div>
-    <div id="loadingText">Loading...</div>
+        <div id="loadingIcon"></div>
+        <div id="loadingText">Loading...</div>
     </div>
 
     <div class="bottom-bar">

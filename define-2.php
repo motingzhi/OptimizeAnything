@@ -287,10 +287,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="bottom-bar">
         <div class="container d-flex justify-content-between">
             <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify Variables</button>
-        </div>
-        <div class="container d-flex justify-content-between">
             <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
+
         </div>
+
 
     </div>
 </div>

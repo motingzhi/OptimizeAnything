@@ -221,12 +221,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <tbody>                        
                         </tbody>
                     </table>
-                    <p>by selecting</p>
+                    <p>by optimizing</p>
                     <table class="table table-bordered" id="parameter-table" >
                         <tbody>                        
                         </tbody>
                     </table>
-                    <p>proposed by AI.</p>
 
         </div>
 </div>

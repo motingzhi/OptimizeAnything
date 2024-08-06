@@ -265,7 +265,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <th id="record-objective-unit" width="40%"> Unit(if have) </th>     
                 <th id="record-objective-lower-bound"> Minimum </th>  
                 <th id="record-objective-upper-bound"> Maximum </th> 
-                <th id="record-objective-min-max"> Minimise or Maximise </th>  
+                <th id="record-objective-min-max"> Minimize or Maximize </th>  
                 <th class="delete"> Delete </th>   
 
                 </tr>  
@@ -343,7 +343,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-unit'>${nameParts[1] || ''}</td>`;
                 htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${lowerBound}</td>`;
                 htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>${upperBound}</td>`;
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-1' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-1' style='font-family: calibri; font-size: medium;'><option value='minimize' selected='selected'>minimize</option><option value='maximize'>maximize</option></select></td>"
 
                 htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>";
                 htmlNewRow += "</td></tr>";
@@ -465,7 +465,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'></td>"
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'></td>"
-        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimize' selected='selected'>minimize</option><option value='maximize'>maximize</option></select></td>"
         htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
 
         htmlNewRow += "</td></tr>"
@@ -480,7 +480,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>Input number</td>"
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>Input number</td>"
-        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimise' selected='selected'>minimise</option><option value='maximise'>maximise</option></select></td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-3' style='font-family: calibri; font-size: medium;'><option value='minimize' selected='selected'>minimize</option><option value='maximize'>maximize</option></select></td>"
         htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>"
 
         htmlNewRow += "</td></tr>"

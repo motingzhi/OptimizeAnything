@@ -217,12 +217,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="centered-content">
         <div class="card-body" id="secondCard">
                 <div>
-                    <p>You want to</p><br>
+                    <p>You want to</p>
                     <table class="table table-bordered" id="objective-table" >
                         <tbody>                        
                         </tbody>
                     </table>
-                    <p>for</p><br> 
+                    <p>for</p>
                     <table class="table table-bordered" id="parameter-table" >
                         <tbody>                        
                         </tbody>

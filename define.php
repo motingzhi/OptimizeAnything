@@ -200,7 +200,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-bottom-color: #000000;
             color: #000000;
         }
-
+        .inline-input {
+            width: auto;
+            display: inline-block;
+            min-width: 100px;
+            max-width: 200px;
+        }
+        .colored-placeholder::placeholder {
+            color: blue;
+        }
 
     </style>
 </head>

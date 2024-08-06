@@ -310,7 +310,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
         </tbody>
         </table>
-        <button class="btn btn-primary" id="add-record-button" onclick="addDesignObjectivesTable()" >Add Objective</button>
+        <button class="btn btn-outline-primary" id="add-record-button" onclick="addDesignObjectivesTable()" >Add Objective</button>
     </div>
     <!-- <div id="progressBar"><div class="progress"></div> -->
     <br>
@@ -322,8 +322,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="bottom-bar">
     <div class="container d-flex justify-content-between">
-        <button class="btn btn-outline-success" id="back-button" style="width: 20%;" onclick="goBack()">Modify the variables</button>
-        <button class="btn btn-success" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
+        <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify the variables</button>
+        <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Ready</button>
 
     </div>
     </div>

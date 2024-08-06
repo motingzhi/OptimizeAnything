@@ -238,7 +238,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="card custom-card">
             <p class="text-primary"> Your optimization task:</p>
                 <div class="card-body">
-                        <label > Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you specify here?</label></br>
+                        <label > Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</label></br>
                 </div>
             </div>
         </div>
@@ -248,10 +248,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                             You want to optimize
-                            <input type="text" id="variables" class="form-control mb-2 inline-input" readonly>Variables: To be specified</input>
+                            <span class="highlight"><span class="underline variables">Variables: To be specified</span></span>
                             to
-                            <span class="normal">minimize/maximize</span> 
-                            <input type="text" id="variables" class="form-control mb-2 inline-input" readonly>Objectives: To be specified</input>
+                            <span class="highlight"><span class="underline normal">minimize/maximize</span></span> 
+                            <span class="highlight"><span class="underline objectives">Objectives: To be specified</span></span> 
                 </div>
                         
             </div>

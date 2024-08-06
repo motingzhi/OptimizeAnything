@@ -202,11 +202,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <span>1</span>
                         <div>Define Variables</div>
                     </div>
-                    <div class="step active">
+                    <div class="step">
                         <span>2</span>
                         <div>Define Objectives</div>
                     </div>
-                    <div class="step">
+                    <div class="step active">
                         <span>3</span>
                         <div>Confirm Definition</div>
                     </div>

@@ -119,15 +119,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             height: 2px;
             background: #ddd;
             position: absolute;
-            top: 50%;
-            right: 0;
-            width: 100%;
+            top: 30%;
+            right: 100;
+            /* right: 0%; */
+            width:100%;
             z-index: -1;
-        }
-
-        .step.active span {
-            font-weight: bold;
-            color: #007bff;
         }
 
         .step span {
@@ -139,29 +135,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .step.active span {
+            font-weight: bold;
+            color: #007bff;
             border-color: #007bff;
             background: white;
         }
+
+        .custom-card {
+            margin: 10px; /* 外边距 */
+            display: inline-block; /* 使卡片宽度根据内容自适应 */
+            width: 60%;
+        }
+        .custom-card .card-body {
+            padding: 10px; /* 内边距 */
+
+        }
+
 
 
     </style>
 </head>
 <body>
 <div class="top-bar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1>1. Define</h1>
-            <form action="tutorial_1.php">
-                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
-            </form>
+        <div class="container">
+
+        <div class="stepper">
+                <div class="step">
+                <span>1</span>
+                <div>Define Variables</div>
+                </div>
+                <div class="step active">
+                <span>2</span>
+                <div>Define Objectives</div>
+                </div>
+                <div class="step">
+                <span>3</span>
+                <div>Confirm Definition</div>
+                </div>
         </div>
-    </div>
 
-    
-    <div class="centered-content">
 
-    <h5 for="optimizeScenario">Your optimization task: </h5>
-    <label > <strong class="text-primary">Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</strong>
-        </label></br>
+        </div>
+
+        </div>
+
+        <div class="centered-content">
+        <!-- <form action="tutorial_1.php">
+            <button type="submit" class="btn btn-outline-primary">Tutorial</button>
+        </form>     -->
+
+        <div class="container">
+        <div class="card custom-card">
+            <div class="card-body">
+                <p class="text-primary"> Your optimization task:</p>
+                    <label > Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</label></br>
+            </div>
+        </div>
+        </div>
+
 <!-- 
         <h2 style="margin-top: 20px;">Specify objectives of optimization</h2>
         <p><i>Describe your objectives for optimization. You can include also subjective measurements, even opinions.</i></p>

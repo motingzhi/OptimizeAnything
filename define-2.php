@@ -193,11 +193,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-bottom-color: #000000;
             color: #000000;
         }
-        .inline-input {
+        /* .inline-input {
             width: auto;
             display: inline-block;
             min-width: 100px;
-        }
+        } */
         .colored-placeholder::placeholder {
             color: blue;
         }

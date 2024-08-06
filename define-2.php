@@ -233,10 +233,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="container">
             <div class="card custom-card">
-              <p class="text-primary"> Hints</p>
+              <p class="text-primary">Hints</p>
 
                 <div class="card-body">
-                        <div class="description">Optimize means: To  
+                        <div class="description">Optimize: To  
                             <span class="highlight"><span class="underline normal">minimize/maximize</span></span> 
                             <span class="highlight"><span class="underline objectives">Objectives</span></span> 
                             by changing 

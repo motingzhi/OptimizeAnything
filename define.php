@@ -204,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             width: auto;
             display: inline-block;
             min-width: 100px;
-            max-width: 200px;
+            max-width: 400px;
         }
         .colored-placeholder::placeholder {
             color: blue;

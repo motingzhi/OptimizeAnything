@@ -221,7 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <tbody>                        
                         </tbody>
                     </table>
-                    <p>by optimizing</p>
+                    <p>by changing</p>
                     <table class="table table-bordered" id="parameter-table" >
                         <tbody>                        
                         </tbody>

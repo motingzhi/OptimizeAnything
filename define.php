@@ -256,11 +256,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                             You want to optimize
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables(To be specified)" readonly> 
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly> 
                             <!-- <span class="underline">Variables: To be specified</span> -->
                             by
                             <span class="normal">minimizing/maximizing</span></span> 
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives(To be specified)" readonly>                            
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>                            
                 </div>
                         
             </div>

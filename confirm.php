@@ -31,30 +31,190 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimization Page 1</title>
+    <title>1. Define</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        .hidden {
+        .top-bar {
+            position: fixed;
+            top: calc(100vh / 12);
+            width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none;
+        }
+
+        .centered-content {
+            overflow-y: auto; /* 添加垂直滚动条 */
+            max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            text-align: center;
+            width: 50%; /* Content width as 1/3 of the page */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            /* margin-top: 100px; */
+            bottom: 0px;
+            width: 100%;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+            padding: 10px 0;
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
+        }
+
+        #loadingContainer {
             display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-        .inline-input {
-            width: auto;
+
+        #loadingIcon {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #53A451;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #loadingText {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            width: 80%;
+
+        }
+
+        .step {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            top: 30%;
+            right: 100;
+            /* right: 0%; */
+            width:100%;
+            z-index: -1;
+        }
+
+        .step span {
             display: inline-block;
-            min-width: 100px;
-            max-width: 200px;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            border: 2px solid #ddd;
         }
-        .colored-placeholder::placeholder {
-            color: blue;
+
+        .step.active span {
+            font-weight: bold;
+            color: #007bff;
+            border-color: #007bff;
+            background: white;
         }
+
+        .custom-card {
+            margin: 10px; /* 外边距 */
+            display: inline-block; /* 使卡片宽度根据内容自适应 */
+            width: 60%;
+        }
+        .custom-card .card-body {
+            padding: 10px; /* 内边距 */
+            text-align: left;
+
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .description {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1em;
+        }
+        .underline {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border-bottom: 2px solid;
+            font-size: 1em;
+        }
+        .variables {
+            border-bottom-color: #000000;
+            color: #E08AE9;
+        }
+        .objectives {
+            border-bottom-color: #000000;
+            color: #fb923c;
+        }
+        .normal {
+            border-bottom-color: #000000;
+            color: #000000;
+        }
+
     </style>
 </head>
 <body>
+<div class="top-bar">
+        <div class="container">
+
+            <div class="stepper">
+                    <div class="step">
+                        <span>1</span>
+                        <div>Define Variables</div>
+                    </div>
+                    <div class="step active">
+                        <span>2</span>
+                        <div>Define Objectives</div>
+                    </div>
+                    <div class="step">
+                        <span>3</span>
+                        <div>Confirm Definition</div>
+                    </div>
+            </div>
+        </div>
+</div>
+
+<div class="centered-content">
         <div class="card-body" id="secondCard">
                 <div>
                     <p>You want to make 
@@ -67,11 +227,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </p>
                 </div>
 
-            </div>
+        </div>
+</div>
 
+<div class="bottom-bar">
+        <div class="d-flex justify-content-between">
         <button class="btn btn-outline-success" id="back-button" onclick="history.back()" style="width: 20%;">Redefine</button>
-
         <button class="btn btn-success" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
+        </div>
+</div>
+       
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 

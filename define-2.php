@@ -193,6 +193,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-bottom-color: #000000;
             color: #000000;
         }
+        .inline-input {
+            width: auto;
+            display: inline-block;
+            min-width: 100px;
+            max-width: 200px;
+
+        }
+        .colored-placeholder::placeholder {
+            color: blue;
+        }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
 
     </style>
 </head>
@@ -240,10 +276,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                             You want to optimize
-                            <span class="highlight"><span class="underline variables"></span></span>
-                            to
-                            <span class="highlight"><span class="underline normal">minimize/maximize</span></span> 
-                            <span class="highlight"><span class="underline objectives">Objectives: To be specified</span></span> 
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
+                            by
+                            <span class="normal">minimizing/maximizing</span></span> 
+                            <span class="tooltip-container">
+                                    <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
+                                    <span class="tooltip-text">to be specified</span>
+                            </span>
                 </div>
                         
             </div>
@@ -308,8 +347,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var parameterNames = localStorage.getItem("parameter-names").split(",");
 
     var paraString = parameterNames.join(', ');
-    document.querySelector('.variables').innerText = paraString;
+    // document.querySelector('.variables').innerText = paraString;
 
+    document.getElementById('defineFor').value = paraString;
 
 
     function goBack() {

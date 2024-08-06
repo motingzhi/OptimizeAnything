@@ -203,6 +203,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .inline-input {
             width: auto;
             display: inline-block;
+            min-width: 100px;
+            max-width: 200px;
 
         }
         .colored-placeholder::placeholder {

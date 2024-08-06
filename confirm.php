@@ -200,11 +200,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="stepper">
                     <div class="step">
                         <span>1</span>
-                        <div>Define Variables</div>
+                        <div>Specify Variables</div>
                     </div>
                     <div class="step">
                         <span>2</span>
-                        <div>Define Objectives</div>
+                        <div>Specify Objectives</div>
                     </div>
                     <div class="step active">
                         <span>3</span>
@@ -215,7 +215,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <div class="centered-content">
-        <div class="card-body" id="secondCard">
+
+        <div class="container">
+            <div class="card custom-card">
+            <p class="text-primary"> Your optimization task:</p>
+                <div class="card-body">
+                        <label > Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</label></br>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body">
                     <p>You want to</p>
                     <table class="table table-bordered" id="objective-table" >
                         <tbody>                        

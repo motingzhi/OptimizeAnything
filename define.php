@@ -210,7 +210,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .colored-placeholder::placeholder {
             color: blue;
         }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
 
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -257,12 +282,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                             You want to optimize
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly> 
-                            <!-- <span class="underline">Variables: To be specified</span> -->
+                            <span class="tooltip-container">
+                                <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
+                                <span class="tooltip-text">to be specified</span>
+                            </span>                            <!-- <span class="underline">Variables: To be specified</span> -->
                             by
                             <span class="normal">minimizing/maximizing</span></span> 
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>                            
-                </div>
+                            <span class="tooltip-container">
+                                    <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
+                                    <span class="tooltip-text">to be specified</span>
+                            </span>
+                    </div>
                         
             </div>
 

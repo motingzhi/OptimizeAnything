@@ -114,6 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            width: 80%;
         }
 
         .step {

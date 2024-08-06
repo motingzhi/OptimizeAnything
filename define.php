@@ -179,9 +179,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     
     <div class="centered-content">
-    <form action="tutorial_1.php">
+    <!-- <form action="tutorial_1.php">
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
-            </form>    
+            </form>     -->
 
         <h5 for="optimizeScenario">Your optimization task: </h5>
 
@@ -206,23 +206,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>  
             </thead>  
             <tbody>
-
-
-                <!-- <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name">Input variable here</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">Input number</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">Input number</td>
-                    <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
-                </tr>
-                <tr>
-                    <td contenteditable="true" class="record-data" id="record-parameter-name"> Input variable here</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-unit"></td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">Input number</td>
-                    <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">Input number</td>
-                    <td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>
-                </tr>
-                 -->
 
   
             </tbody>

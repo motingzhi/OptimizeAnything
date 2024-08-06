@@ -249,7 +249,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <p class="text-primary"> Hints</p>
 
                 <div class="card-body">
-                        <div class="description">How optimizer works: To  
+                        <div class="description">Optimize means: To  
                             <span class="highlight"><span class="underline normal">minimize/maximize</span></span> 
                             <span class="highlight"><span class="underline objectives">Objectives</span></span> 
                             by changing 

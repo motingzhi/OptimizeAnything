@@ -205,7 +205,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             position: relative;
             display: inline-block;
         }
-
         .tooltip-container .tooltip-text {
             visibility: hidden;
             width: 200px;
@@ -223,11 +222,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             transition: opacity 0.3s;
         }
 
-        .tooltip-container:hover .tooltip-text {
+        .tooltip-container.show-tooltip .tooltip-text {
             visibility: visible;
             opacity: 1;
         }
-
     </style>
 </head>
 <body>
@@ -266,13 +264,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="card custom-card">
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
-                            You want to optimize
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
-                            by
-                            <span class="normal">minimizing/maximizing</span></span> 
+                            You want to change
+                                <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
+                            to minimize/maximize
                             <span class="tooltip-container">
                                     <input type="text" id="defineFor" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
-                                    <span class="tooltip-text">to be specified</span>
+                                    <span class="tooltip-text">to be specified in the table below</span>
                             </span>
                 </div>
                         
@@ -366,6 +363,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (err) {
         // 如果发生异常，例如   不存在，赋值一个空数组
         var objectiveNames = [];
+        document.querySelector('.tooltip-container').classList.add('show-tooltip');
+
     }
 
     try {

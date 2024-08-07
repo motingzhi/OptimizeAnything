@@ -291,8 +291,8 @@ if (!isset($_SESSION['ProlificID'])) {
                 </div>
             </div>
         </div>
+        
         <div class="container">
-
             <div class="card custom-card">
                     <p class="text-primary">Hints</p>
 

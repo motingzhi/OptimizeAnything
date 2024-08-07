@@ -208,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="step active">
                         <span>3</span>
-                        <div>Confirm Definition</div>
+                        <div>Confirm Specification</div>
                     </div>
             </div>
         </div>

@@ -190,6 +190,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-bottom-color: #000000;
             color: #000000;
         }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container2 {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            width: 600px;
+            height: 600px;
+            overflow: visible;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .variable, .objective {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+        .selected {
+            background-color: white !important;
+            color: black !important;
+        }
+        .title {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
     </style>
 </head>
@@ -225,18 +264,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
 
-        <div class="card-body">
-                    <p>You want to optimize</p>
-                    <table class="table table-bordered" id="parameter-table" >
-                        <tbody>                        
-                        </tbody>
-                    </table>
-                    <p>by</p>
-                    <table class="table table-bordered" id="objective-table" >
-                        <tbody>                        
-                        </tbody>
-                    </table>
+
+        <div class="container2" id="container2">
+            <div class="column" id="variables-column">
+                <div class="title">Your variables</div>
+                <div class="variables" id="variables">
+                    <!-- Variables will be inserted here -->
+                </div>
+            </div>
+            <canvas id="canvas" width="800" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
+            <div class="column" id="objectives-column">
+                <div class="title">Your objectives</div>
+                <div class="objectives" id="objectives">
+                    <!-- Objectives will be inserted here -->
+                </div>
+            </div>
         </div>
+
+
 </div>
 
 <div class="bottom-bar">
@@ -269,30 +314,111 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // objectiveNames = document.getElementById('defineGood').value;
             // objectiveMinMax = document.getElementById('defineFor').value;
 
-            for (let i = 0; i < objectiveNames.length; i++) {
-                let nameParts = objectiveNames[i];
-                let minmax = objectiveMinMax[i];
+            const capitalizedObjectiveMinMax = objectiveMinMax.map(obj => obj.charAt(0).toUpperCase() + obj.slice(1));
+            const combinedList = capitalizedObjectiveMinMax.map((obj, index) => obj + ' ' + objectiveNames[index]);
+
+
+
+            // for (let i = 0; i < objectiveNames.length; i++) {
+            //     let nameParts = objectiveNames[i];
+            //     let minmax = objectiveMinMax[i];
                 
-                let htmlNewRow = "<tr>";
-                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${minmax}</td>`;
-                htmlNewRow += `<td contenteditable='false' class='record-data' id='record-objective-name'>${nameParts}</td>`;
-                htmlNewRow += "</td></tr>";
+            //     let htmlNewRow = "<tr>";
+            //     htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${minmax}</td>`;
+            //     htmlNewRow += `<td contenteditable='false' class='record-data' id='record-objective-name'>${nameParts}</td>`;
+            //     htmlNewRow += "</td></tr>";
 
-                $("#objective-table tbody").append(htmlNewRow);
+            //     $("#objective-table tbody").append(htmlNewRow);
 
-            }
+            // }
 
-            for (let i = 0; i < parameterNames.length; i++) {
-                    let nameParts = parameterNames[i];
+            // for (let i = 0; i < parameterNames.length; i++) {
+            //         let nameParts = parameterNames[i];
                       
-                    let htmlNewRow = "<tr>";
-                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-name'>${nameParts}</td>`;
-                    htmlNewRow += "</td></tr>";
+            //         let htmlNewRow = "<tr>";
+            //         htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-name'>${nameParts}</td>`;
+            //         htmlNewRow += "</td></tr>";
 
-                    $("#parameter-table tbody").append(htmlNewRow);
+            //         $("#parameter-table tbody").append(htmlNewRow);
 
+            // }
+
+
+            function drawArrow(ctx, fromX, fromY, toX, toY) {
+                const headlen = 10; // length of head in pixels
+                const angle = Math.atan2(toY - fromY, toX - fromX);
+
+                // Calculate midpoint
+                const midX = (fromX + toX) / 2;
+                const midY = (fromY + toY) / 2;
+
+                // Draw line from start to midpoint
+                ctx.moveTo(fromX, fromY);
+                ctx.lineTo(midX, midY);
+
+                // Draw arrow at midpoint
+                ctx.lineTo(midX - headlen * Math.cos(angle - Math.PI / 6), midY - headlen * Math.sin(angle - Math.PI / 6));
+                ctx.moveTo(midX, midY);
+                ctx.lineTo(midX - headlen * Math.cos(angle + Math.PI / 6), midY - headlen * Math.sin(angle + Math.PI / 6));
+
+                // Continue line from midpoint to end
+                ctx.moveTo(midX, midY);
+                ctx.lineTo(toX, toY);
             }
 
+            function drawLines(objectiveIndex) {
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const objectiveElement = document.querySelectorAll('.objective')[objectiveIndex];
+                const variablesElements = document.querySelectorAll('.variable');
+                const objectiveRect = objectiveElement.getBoundingClientRect();
+                const containerRect = document.getElementById('container2').getBoundingClientRect();
+
+                variablesElements.forEach(variableElement => {
+                    const variableRect = variableElement.getBoundingClientRect();
+                    const fromX = variableRect.right - containerRect.left;
+                    const fromY = variableRect.top + variableRect.height / 2 - containerRect.top;
+                    const toX = objectiveRect.left - containerRect.left;
+                    const toY = objectiveRect.top + objectiveRect.height / 2 - containerRect.top;
+                    ctx.beginPath();
+                    drawArrow(ctx, fromX, fromY, toX, toY);
+                    ctx.stroke();
+                });
+            }
+
+            function updateSelectedObjective(index) {
+                document.querySelectorAll('.objective').forEach((el, i) => {
+                    if (i === index) {
+                        el.classList.add('selected');
+                    } else {
+                        el.classList.remove('selected');
+                    }
+                });
+                drawLines(index);
+            }
+
+            function populateFields() {
+                const variablesContainer = document.getElementById('variables');
+                parameterNames.forEach(variable => {
+                    const button = document.createElement('button');
+                    button.className = 'btn btn-secondary variable';
+                    button.textContent = variable;
+                    variablesContainer.appendChild(button);
+                });
+
+                const objectivesContainer = document.getElementById('objectives');
+                combinedList.forEach((objective, index) => {
+                    const button = document.createElement('button');
+                    button.className = 'btn btn-secondary objective';
+                    button.textContent = objective;
+                    button.onclick = () => updateSelectedObjective(index);
+                    objectivesContainer.appendChild(button);
+                });
+                updateSelectedObjective(0);
+            }
+
+            document.addEventListener('DOMContentLoaded', populateFields);
 
 
 

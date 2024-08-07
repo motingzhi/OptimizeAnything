@@ -285,9 +285,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!-- Objectives will be inserted here -->
                 </div>
             </div>
-            <div id="loadingContainer">
-            <div id="loadingIcon"></div>
-            <div id="loadingText">Loading...</div>
         </div>
 
 
@@ -299,7 +296,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button class="btn btn-primary" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
         </div>
 </div>
-       
+    
+<div id="loadingContainer">
+        <div id="loadingIcon"></div>
+        <div id="loadingText">Loading...</div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 

@@ -267,7 +267,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
 
-        <div class="container container2" id="container2">
+        <div class="container2" id="container2">
             <div class="column" id="variables-column">
                 <div class="title">Your variables</div>
                 <div class="variables" id="variables">

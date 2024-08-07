@@ -367,6 +367,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (err) {
         // 如果发生异常，例如   不存在，赋值一个空数组
         var objectiveNames = [];
+        document.querySelector('.tooltip-container').classList.add('show-tooltip');
 
 
     }
@@ -492,9 +493,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         type: "post",
                         data: {
                         'objective-names'    :String(objectiveNames),
-                        'objective-bounds'   :String(objectiveBounds)
+                        'objective-bounds'   :String(objectiveBounds),
                         'objective-min-max'   :String(objectiveMinMax)
-
                         },
                         beforeSend: function() {
                         // 显示 loading 动画和文字

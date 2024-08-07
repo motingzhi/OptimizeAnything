@@ -12,14 +12,16 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objectiveNames = json_encode($_POST['objective-names']);
     $objectiveBounds = json_encode($_POST['objective-bounds']);
+    $objectiveminmax = json_encode($_POST['objective-min-max']);
+
     $objective_timestamp = json_encode(date("Y-m-d H:i:s")); // 将时间戳转换为JSON格式/ 格式化时间戳为字符串
 
-    $stmt = $conn->prepare("UPDATE data SET objectivename = ?, objectivebounds = ?, objective_timestamp = ? WHERE prolific_ID = ?");
+    $stmt = $conn->prepare("UPDATE data SET objectivename = ?, objectivebounds = ?, objectiveminmax = ?, objective_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {
         die("Prepare failed: " . $conn->error);
     }
 
-    $stmt->bind_param("ssss", $objectiveNames, $objectiveBounds, $objective_timestamp, $userID);
+    $stmt->bind_param("sssss", $objectiveNames, $objectiveBounds,  $objectiveminmax, $objective_timestamp, $userID);
     if ($stmt->execute()) {
         echo "Record updated successfully";
     } else {

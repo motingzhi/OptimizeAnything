@@ -494,6 +494,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         data: {
                         'objective-names'    :String(objectiveNames),
                         'objective-bounds'   :String(objectiveBounds)
+                        'objective-min-max'   :String(objectiveMinMax)
+
                         },
                         beforeSend: function() {
                         // 显示 loading 动画和文字

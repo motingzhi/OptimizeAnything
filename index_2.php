@@ -4,16 +4,6 @@ require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prolificID = $_POST['Prolific'];
-    $solutionlist = ''; // 默认值
-    $savedsolutions = ''; // 默认值
-    $savedobjectives = ''; // 默认值
-    $parameterNames = ''; // 默认值
-    $parameterBounds = '';
-    $parameter_timestamp = '';
-    $objectiveNames = ''; // 默认值
-    $objectiveBounds = ''; // 默认值
-    $objective_timestamp = '';
-    $saved_timestamp = '';
 
     $solutionlist = ''; // 默认值
     $savedsolutions = ''; // 默认值
@@ -25,6 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objectiveBounds = ''; // 默认值
     $objective_timestamp = '';
     $saved_timestamp = '';
+    $objectiveminmax = '';
+
 
    // 将数组转换为 JSON 格式
    $solutionlist = json_encode($solutionList);
@@ -37,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $parameter_timestamp = json_encode($parameter_timestamp);
    $objective_timestamp = json_encode($objective_timestamp);
    $saved_timestamp = json_encode($saved_timestamp);
+   $objectiveminmax = json_encode($objectiveminmax);
 
 
     if (empty($prolificID)) {
@@ -55,7 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'objectivename' => $objectiveNames,
         'objectivebounds' => $objectiveBounds,
         'objective_timestamp' => $objective_timestamp,
-        'saved_timestamp' => $saved_timestamp
+        'saved_timestamp' => $saved_timestamp,
+        'objectiveminmax' => $objectiveminmax
+
     ];
 
     // 动态生成列名和占位符

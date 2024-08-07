@@ -159,8 +159,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             height: 100vh;
             margin: 0;
-            text-align: center;
-            overflow: hidden;
+            /* text-align: center; */
+            /* overflow: hidden; */
 
         }
         .container {
@@ -212,8 +212,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             position: relative;
             display: flex;
             justify-content: space-between;
-            width: 100%;
-            height: 20%;
+            width: 1000px;
+            height: 600px;
             overflow: visible;
         }
         .column {
@@ -374,6 +374,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // }
 
             selectedObjectiveIndex = 0;
+
             function drawArrow(ctx, fromX, fromY, toX, toY) {
                 const headlen = 10; // length of head in pixels
                 const angle = Math.atan2(toY - fromY, toX - fromX);
@@ -401,18 +402,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 const toObjectiveElement = document.getElementById('to-objective');
-
-                const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
                 const variablesElements = document.querySelectorAll('.variable');
-                const objectiveRect = objectiveElement.getBoundingClientRect();
+                const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
+                const toObjectiveRect = toObjectiveElement.getBoundingClientRect();
                 const containerRect = document.getElementById('container2').getBoundingClientRect();
 
                 variablesElements.forEach(variableElement => {
                     const variableRect = variableElement.getBoundingClientRect();
                     const fromX = variableRect.right - containerRect.left;
                     const fromY = variableRect.top + variableRect.height / 2 - containerRect.top;
-                    const toX = objectiveRect.left - containerRect.left;
-                    const toY = objectiveRect.top + objectiveRect.height / 2 - containerRect.top;
+                    const toX = toObjectiveRect.left - containerRect.left;
+                    const toY = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
                     ctx.beginPath();
                     drawArrow(ctx, fromX, fromY, toX, toY);
                     ctx.stroke();

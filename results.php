@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="container"></div>
         <!-- <button class="btn btn-outline-primary" id="download-button">Download</button> -->
 
-        <p>Please don't close this window yet</p>
+        <p>Please don't close this window yet!</p>
 
         <div style="display: flex; justify-content: space-between;">
 

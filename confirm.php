@@ -201,7 +201,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .container2 {
             align-items: center;
-
             text-align: center;
             padding: 20px;
             border-radius: 10px;
@@ -209,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            height: 600px;
+            height: 100px;
             overflow: visible;
         }
         .column {
@@ -266,7 +265,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-
+        </br>
         <label style="margin-bottom: 20px;">This is a summary model of your specifications; you can click different objectives to check the correspondence relationship.</label></br>
         <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label>
 

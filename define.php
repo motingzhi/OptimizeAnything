@@ -228,7 +228,7 @@ if (!isset($_SESSION['ProlificID'])) {
             transition: opacity 0.3s;
         }
 
-        .tooltip-container.show-tooltip .tooltip-text {
+        .tooltip-container.show-tooltip:hover .tooltip-text {
             visibility: visible;
             opacity: 1;
         }

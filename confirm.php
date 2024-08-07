@@ -285,10 +285,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!-- Objectives will be inserted here -->
                 </div>
             </div>
+            <div id="loadingContainer">
+            <div id="loadingIcon"></div>
+            <div id="loadingText">Loading...</div>
         </div>
-        <div id="loadingContainer">
-        <div id="loadingIcon"></div>
-        <div id="loadingText">Loading...</div>
+
 
 </div>
 

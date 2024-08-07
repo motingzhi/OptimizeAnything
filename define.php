@@ -348,7 +348,7 @@ if (!isset($_SESSION['ProlificID'])) {
         } catch (err) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterNames = [];
-        document.getElementById('what').classList.add('show-tooltip');
+        document.querySelector('.tooltip-container').classList.add('show-tooltip');
 
         }
 
@@ -364,11 +364,11 @@ if (!isset($_SESSION['ProlificID'])) {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
         var objString = objectiveNames.join(', ');
 
-        document.getElementById('defineFor').value = paraString;
+        document.getElementById('defineFor').value = objString;
 
         } catch (err) {
             // 如果发生异常，例如   不存在，赋值一个空数组
-            document.getElementById('for').classList.add('show-tooltip');
+            document.querySelector('.tooltip-container').classList.add('show-tooltip');
 
 
         }

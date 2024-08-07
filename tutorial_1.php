@@ -27,7 +27,7 @@
     <div class="top-bar">
         <div class="container d-flex justify-content-between align-items-center">
         <h4>Let's go through a short tutorial to learn what "Variable" and "Objective" mean in optimization.</h4><br>
-            <form action="define.php">
+            <form action="intro.php">
                 <button type="submit" class="btn btn-outline-primary">Skip</button>
             </form>
         </div>

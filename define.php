@@ -187,6 +187,24 @@ if (!isset($_SESSION['ProlificID'])) {
 
         <div class="card card-custom">
             <div class="card-body">
+                    <p class="text-primary">Your specification overview:</p>
+                    <div>
+                        You want to optimize
+                        <span class="tooltip-container">
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
+                            <span class="tooltip-text">to be specified in the table below</span>
+                        </span>
+                        by
+                        <span class="normal">minimizing/maximizing</span>
+                        <span class="tooltip-container">
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
+                            <span class="tooltip-text">to be specified in the table below</span>
+                        </span>
+                    </div>
+                </div>
+
+
+            <div class="card-body">
                 <p class="text-primary">Your optimization task:</p>
                 <label>Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you specify here?</label>
             </div>
@@ -241,26 +259,11 @@ if (!isset($_SESSION['ProlificID'])) {
             </div>
         </div>
 
-        <div class="separator"></div>
+        <!-- <div class="separator"></div>
 
         <div class="card card-custom">
-            <div class="card-body">
-                <p class="text-primary">Your specification overview:</p>
-                <div>
-                    You want to optimize
-                    <span class="tooltip-container">
-                        <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
-                        <span class="tooltip-text">to be specified in the table below</span>
-                    </span>
-                    by
-                    <span class="normal">minimizing/maximizing</span>
-                    <span class="tooltip-container">
-                        <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
-                        <span class="tooltip-text">to be specified in the table below</span>
-                    </span>
-                </div>
-            </div>
-        </div>
+            
+        </div> -->
     </div>
 
     <div id="loadingContainer">

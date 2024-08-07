@@ -8,35 +8,35 @@ if (!isset($_SESSION['ProlificID'])) {
     exit();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userID = $_SESSION['ProlificID'];
-    $parameterNames = json_encode($_POST['parameter-names']);
-    $parameterBounds = json_encode($_POST['parameter-bounds']);
-    $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $userID = $_SESSION['ProlificID'];
+//     $parameterNames = json_encode($_POST['parameter-names']);
+//     $parameterBounds = json_encode($_POST['parameter-bounds']);
+//     $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));
 
     
-//   // 输出调试信息
-//     echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
-//     echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
-//     echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
-//     echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
+// //   // 输出调试信息
+// //     echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
+// //     echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
+// //     echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
+// //     echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
 
-    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
-    if ($stmt === false) {
-        die("Prepare failed: " . $conn->error);
-    }
+//     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
+//     if ($stmt === false) {
+//         die("Prepare failed: " . $conn->error);
+//     }
 
-    $stmt->bind_param("ssss", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
-    if ($stmt->execute()) {
-        header("Location: define-2.php");
-        exit();
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+//     $stmt->bind_param("ssss", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
+//     if ($stmt->execute()) {
+//         header("Location: define-2.php");
+//         exit();
+//     } else {
+//         echo "Error: " . $stmt->error;
+//     }
 
-    $stmt->close();
-    $conn->close();
-}
+//     $stmt->close();
+//     $conn->close();
+// }
 ?>
 
 <!DOCTYPE html>

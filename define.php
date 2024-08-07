@@ -228,11 +228,10 @@ if (!isset($_SESSION['ProlificID'])) {
             transition: opacity 0.3s;
         }
 
-        .tooltip-container:hover .tooltip-text {
+        .tooltip-container.show-tooltip .tooltip-text {
             visibility: visible;
             opacity: 1;
         }
-
 
     </style>
 </head>
@@ -268,13 +267,13 @@ if (!isset($_SESSION['ProlificID'])) {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                         You want to change
-                        <span class="tooltip-container">
+                        <span class="tooltip-container" id="what">
                             <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
                             <span class="tooltip-text">to be specified in the table below</span>
                         </span>
                         to minimize/maximize
                         <!-- <span class="normal"></span> -->
-                        <span class="tooltip-container">
+                        <span class="tooltip-container" id="for">
                             <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
                             <span class="tooltip-text">to be specified in the table below</span>
                         </span>
@@ -291,7 +290,7 @@ if (!isset($_SESSION['ProlificID'])) {
                 </div>
             </div>
         </div>
-        
+
         <div class="container">
             <div class="card custom-card">
                     <p class="text-primary">Hints</p>
@@ -343,9 +342,14 @@ if (!isset($_SESSION['ProlificID'])) {
 
         try {
         var parameterNames = localStorage.getItem("parameter-names").split(",");
+        var paraString = parameterNames.join(', ');
+        document.getElementById('defineWhat').value = paraString;
+
         } catch (err) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterNames = [];
+        document.getElementById('what').classList.add('show-tooltip');
+
         }
 
         try {
@@ -353,6 +357,20 @@ if (!isset($_SESSION['ProlificID'])) {
         } catch (err) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterBounds = [];
+        }
+
+
+        try {
+        var objectiveNames = localStorage.getItem("objective-names").split(",");
+        var objString = objectiveNames.join(', ');
+
+        document.getElementById('defineFor').value = paraString;
+
+        } catch (err) {
+            // 如果发生异常，例如   不存在，赋值一个空数组
+            document.getElementById('for').classList.add('show-tooltip');
+
+
         }
     
 

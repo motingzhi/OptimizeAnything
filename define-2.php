@@ -362,7 +362,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
         var objString = objectiveNames.join(', ');
 
-        document.getElementById('defineFor').value = paraString;
+        document.getElementById('defineFor').value = objString;
 
     } catch (err) {
         // 如果发生异常，例如   不存在，赋值一个空数组

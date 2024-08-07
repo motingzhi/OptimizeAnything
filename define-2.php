@@ -367,7 +367,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch (err) {
         // 如果发生异常，例如   不存在，赋值一个空数组
         var objectiveNames = [];
-        // document.querySelector('.tooltip-container').classList.add('show-tooltip');
 
 
     }

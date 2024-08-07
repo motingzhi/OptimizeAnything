@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="container mt-4">
-        <p><strong>3. Start optimization process:</strong> Evaluate alternatives proposed by AI with objectives you defined, until you find the optimal one</p>
+        <p><strong>3. Start optimization process:</strong> Evaluate solutions proposed by AI with objectives you defined, until you find the optimal one</p>
+        <p>The solutions are constructed by variables you defined before</p>
+
         <br>
         <br>
         <br> 

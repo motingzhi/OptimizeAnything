@@ -200,6 +200,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             overflow: hidden;
         }
         .container2 {
+            align-items: center;
+
             text-align: center;
             padding: 20px;
             border-radius: 10px;

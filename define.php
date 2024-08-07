@@ -48,111 +48,38 @@ if (!isset($_SESSION['ProlificID'])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .container-fluid {
-            display: flex;
-            height: 100vh;
-            justify-content: space-between;
-        }
-        .card-custom {
-            width: 25%;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        .main-content {
-            width: 50%;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .stepper {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
+               .top-bar {
+            position: fixed;
+            top: calc(100vh / 12);
             width: 100%;
+            background: transparent;
+            padding: 10px 0;
+            box-shadow: none;
         }
-        .step {
-            flex-grow: 1;
+
+        .centered-content {
+            overflow-y: auto; /* 添加垂直滚动条 */
+            max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
             text-align: center;
-            position: relative;
+            width: 50%; /* Content width as 1/3 of the page */
+            margin-left: auto;
+            margin-right: auto;
         }
-        .step:not(:last-child)::after {
-            content: '';
-            height: 2px;
-            background: #ddd;
-            position: absolute;
-            top: 30%;
-            /* right: 0%; */
-            width:100%;
-            z-index: -1;
-        }
-        .step span {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #f8f9fa;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-        }
-        .step.active span {
-            font-weight: bold;
-            color: #007bff;
-            border-color: #007bff;
-            background: white;
-        }
-        .tooltip-container {
-            position: relative;
-            display: inline-block;
-        }
-        .tooltip-container .tooltip-text {
-            visibility: hidden;
-            width: 200px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 100%;
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .tooltip-container:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
-        .table-container {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-        .separator {
-            border-left: 1px solid #ddd;
-            height: 100%;
-        }
+
         .bottom-bar {
+            position: fixed;
+            /* margin-top: 100px; */
+            bottom: 0px;
             width: 100%;
-            background: #f8f9fa;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
             padding: 10px 0;
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
         }
-        .top-bar {
-            width: 100%;
-            padding: 10px 0;
-            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
-        }
+
         #loadingContainer {
             display: none;
             position: fixed;
@@ -179,6 +106,133 @@ if (!isset($_SESSION['ProlificID'])) {
             text-align: center;
             margin-top: 20px;
         }
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            width: 80%;
+
+        }
+
+        .step {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            top: 30%;
+            right: 100;
+            /* right: 0%; */
+            width:100%;
+            z-index: -1;
+        }
+
+        .step span {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+
+        .step.active span {
+            font-weight: bold;
+            color: #007bff;
+            border-color: #007bff;
+            background: white;
+        }
+
+        .custom-card {
+            margin: 10px; /* 外边距 */
+            display: inline-block; /* 使卡片宽度根据内容自适应 */
+            width: 60%;
+        }
+        .custom-card .card-body {
+            padding: 10px; /* 内边距 */
+            text-align: left;
+
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .description {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            display: inline-flex;
+            align-items: center;
+            font-size: 1em;
+        }
+        .underline {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border-bottom: 2px solid;
+            font-size: 1em;
+        }
+        .variables {
+            border-bottom-color: #000000;
+            color: #E08AE9;
+        }
+        .objectives {
+            border-bottom-color: #000000;
+            color: #fb923c;
+        }
+        .normal {
+            border-bottom-color: #000000;
+            color: #000000;
+        }
+        /* .inline-input {
+            width: auto;
+            display: inline-block;
+            min-width: 100px;
+        } */
+        .colored-placeholder::placeholder {
+            color: blue;
+        }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
 
     </style>
 </head>
@@ -189,19 +243,19 @@ if (!isset($_SESSION['ProlificID'])) {
             <div class="card-body">
                     <p class="text-primary">Your specification overview:</p>
                     <div>
-                        You want to optimize
+                        You want to change
                         <span class="tooltip-container">
                             <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
                             <span class="tooltip-text">to be specified in the table below</span>
                         </span>
-                        by
-                        <span class="normal">minimizing/maximizing</span>
+                        to minimize/maximize
+                        <!-- <span class="normal"></span> -->
                         <span class="tooltip-container">
                             <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
                             <span class="tooltip-text">to be specified in the table below</span>
                         </span>
                     </div>
-                </div>
+            </div>
 
 
             <div class="card-body">

@@ -8,78 +8,151 @@ if (!isset($_SESSION['ProlificID'])) {
     exit();
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userID = $_SESSION['ProlificID'];
-    $parameterNames = json_encode($_POST['parameter-names']);
-    $parameterBounds = json_encode($_POST['parameter-bounds']);
-    $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $userID = $_SESSION['ProlificID'];
+//     $parameterNames = json_encode($_POST['parameter-names']);
+//     $parameterBounds = json_encode($_POST['parameter-bounds']);
+//     $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));
 
     
-//   // 输出调试信息
-//     echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
-//     echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
-//     echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
-//     echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
+// //   // 输出调试信息
+// //     echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
+// //     echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
+// //     echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
+// //     echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
 
-    $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
-    if ($stmt === false) {
-        die("Prepare failed: " . $conn->error);
-    }
+//     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
+//     if ($stmt === false) {
+//         die("Prepare failed: " . $conn->error);
+//     }
 
-    $stmt->bind_param("ssss", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
-    if ($stmt->execute()) {
-        header("Location: define-2.php");
-        exit();
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+//     $stmt->bind_param("ssss", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
+//     if ($stmt->execute()) {
+//         header("Location: define-2.php");
+//         exit();
+//     } else {
+//         echo "Error: " . $stmt->error;
+//     }
 
-    $stmt->close();
-    $conn->close();
-}
+//     $stmt->close();
+//     $conn->close();
+// }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1. Define</title>
+    <title>1. Specify Variables</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        .top-bar {
-            position: fixed;
-            top: calc(100vh / 12);
-            width: 100%;
-            background: transparent;
-            padding: 10px 0;
-            box-shadow: none;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
-
-        .centered-content {
-            overflow-y: auto; /* 添加垂直滚动条 */
-            max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
-            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+        .container-fluid {
+            display: flex;
+            height: 100vh;
+            justify-content: space-between;
+        }
+        .card-custom {
+            width: 25%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .main-content {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
             text-align: center;
-            width: 50%; /* Content width as 1/3 of the page */
-            margin-left: auto;
-            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-
-        .bottom-bar {
-            position: fixed;
-            /* margin-top: 100px; */
-            bottom: 0px;
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
             width: 100%;
-            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
-            padding: 10px 0;
-            /* box-shadow: none; */
-             /* Shadow for the bottom bar */
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
         }
-
+        .step {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+        }
+        .step:not(:last-child)::after {
+            content: '';
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            top: 30%;
+            /* right: 0%; */
+            width:100%;
+            z-index: -1;
+        }
+        .step span {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+        }
+        .step.active span {
+            font-weight: bold;
+            color: #007bff;
+            border-color: #007bff;
+            background: white;
+        }
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .separator {
+            border-left: 1px solid #ddd;
+            height: 100%;
+        }
+        .bottom-bar {
+            width: 100%;
+            background: #f8f9fa;
+            padding: 10px 0;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        .top-bar {
+            width: 100%;
+            padding: 10px 0;
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+        }
         #loadingContainer {
             display: none;
             position: fixed;
@@ -107,202 +180,95 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-top: 20px;
         }
 
-        /* .record-data {
-            color: black;
-        } */
-        .stepper {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            width: 80%;
-        }
-
-        .step {
-            flex-grow: 1;
-            text-align: center;
-            position: relative;
-        }
-
-        .step:not(:last-child)::after {
-            content: '';
-            height: 2px;
-            background: #ddd;
-            position: absolute;
-            top: 30%;
-            right: 100;
-            /* right: 0%; */
-            width:100%;
-            z-index: -1;
-        }
-
-        .step span {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #f8f9fa;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-        }
-
-        .step.active span {
-            font-weight: bold;
-            color: #007bff;
-            border-color: #007bff;
-            background: white;
-        }
-
-        .custom-card {
-            margin: 10px; /* 外边距 */
-            display: inline-block; /* 使卡片宽度根据内容自适应 */
-            width: 60%;
-        }
-        .custom-card .card-body {
-            padding: 10px; /* 内边距 */
-            text-align: left;
-
-        }
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .description {
-            font-size: 1em;
-            margin-bottom: 20px;
-        }
-        .highlight {
-            display: inline-flex;
-            align-items: center;
-            font-size: 1em;
-        }
-        .underline {
-            margin: 0 5px;
-            padding: 5px 10px;
-            border-bottom: 2px solid;
-            font-size: 1em;
-        }
-        .variables {
-            border-bottom-color: #000000;
-            color: #E08AE9;
-        }
-        .objectives {
-            border-bottom-color: #000000;
-            color: #fb923c;
-        }
-        .normal {
-            border-bottom-color: #000000;
-            color: #000000;
-        }
-
-
     </style>
 </head>
 <body>
-    <div class="top-bar">
-        <!-- <div class="container d-flex justify-content-between align-items-center"> -->
-        <!-- <div class="container">
+    <div class="container-fluid">
 
-            <div class="stepper">
-                    <div class="step active">
-                    <span>1</span>
-                    <div>Define Variables</div>
-                    </div>
-                    <div class="step">
-                    <span>2</span>
-                    <div>Define Objectives</div>
-                    </div>
-                    <div class="step">
-                    <span>3</span>
-                    <div>Confirm Definition</div>
+        <div class="card card-custom">
+            <div class="card-body">
+                    <p class="text-primary">Your specification overview:</p>
+                    <div>
+                        You want to change
+                        <span class="tooltip-container">
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
+                            <span class="tooltip-text">to be specified in the table below</span>
+                        </span>
+                        to minimize/maximize
+                        <!-- <span class="normal"></span> -->
+                        <span class="tooltip-container">
+                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
+                            <span class="tooltip-text">to be specified in the table below</span>
+                        </span>
                     </div>
             </div>
 
 
-        </div> -->
-
-    </div>
-    
-    <div class="centered-content">
-    <!-- <form action="tutorial_1.php">
-                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
-            </form>     -->
-    
-        <div class="container">
-            <div class="card custom-card">
-            <p class="text-primary"> Your optimization task:</p>
-                <div class="card-body">
-                        <label > Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you input here?</label></br>
-                </div>
+            <div class="card-body">
+                <p class="text-primary">Your optimization task:</p>
+                <label>Imagine you have decided to eat more healthily. You want to choose a diet that is enjoyable, helps you lose weight, and keeps you healthy at the same time. What variables and objectives will you specify here?</label>
             </div>
-        </div>
-
-        <div class="container">
-
-                        <div class="description">
-                            Solve the optimization task: By changing 
-                            <span class="highlight"><span class="underline variables">Variables</span></span>
-                            ,
-                            <span class="highlight"><span class="underline normal">minimize/maximize</span></span> 
-                            <span class="highlight"><span class="underline objectives">Objectives</span></span> 
-                           .
-                        </div>
-                        
-
-            <div class="card custom-card">
+            <div class="card-body">
                 <p class="text-primary">Hints</p>
-
-                <div class="card-body">
-                        <label >1. The solution generated by AI will be constructed by <span style="color: violet;">Variables</span> defined here, and the value generated will be inside the minimum and maximum values you defined.</label></br>
-                        <label >2. <span style="color: violet;">Variables</span> shall not be equal to <span style="color: orange;">Objectives</span>.</label></br>
-                        <label >3. The <span style="color: orange;">Objectives</span> are to evaluate the solution generated by AI.</label></br>
-                </div>
+                <label>1. The solution generated by AI will be constructed by <strong>Variables</strong> specified here, and the value generated will be inside the minimum and maximum values you specified.</label><br>
+                <label>2. The <strong>Objectives</strong> are the criteria to evaluate the solution generated by AI.</label><br>
+                <label>3. The specification for <strong>Variables</strong> shall not be equal to <strong>Objectives</strong>.</label><br>
             </div>
+
         </div>
 
 
+        <div class="separator"></div>
 
-        <!-- <h2 style="margin-top: 20px;">Specify variables</h2> -->
-        <!-- <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p> -->
-        <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
-        <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p> -->
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="stepper">
+                    <div class="step active">
+                        <span>1</span>
+                        <div>Specify Variables</div>
+                    </div>
+                    <div class="step">
+                        <span>2</span>
+                        <div>Specify Objectives</div>
+                    </div>
+                    <div class="step">
+                        <span>3</span>
+                        <div>Confirm Specification</div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-container">
+                <label style="margin-bottom: 20px;">Variables</label>
+                <table class="table table-bordered" id="parameter-table">
+                    <thead>  
+                        <tr>  
+                            <th id="record-parameter-name" width="40%"> Variable Name </th>   
+                            <th id="record-parameter-unit" width="40%"> Unit(if have) </th>   
+                            <th id="record-parameter-lower-bound"> Minimum </th>  
+                            <th id="record-parameter-upper-bound"> Maximum </th>  
+                            <th class="delete"> Delete </th>   
+                        </tr>  
+                    </thead>  
+                    <tbody>
+                    </tbody>
+                </table>
+                <button class="btn btn-outline-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button>
+            </div>
+            <div class="bottom-bar">
+                <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
+            </div>
+        </div>
 
-        <!-- <label style="margin-bottom: 20px;">Variables</label></br>
+        <!-- <div class="separator"></div>
 
-        <table class="table table-bordered" id="parameter-table">
-            <thead>  
-                <tr>  
-                    <th id="record-parameter-name" width="40%"> Variable Name </th>   
-                    <th id="record-parameter-unit" width="40%"> Unit(if have) </th>   
-                    <th id="record-parameter-lower-bound"> Minimum </th>  
-                    <th id="record-parameter-upper-bound"> Maximum </th>  
-                    <th class="delete"> Delete </th>   
-                </tr>  
-            </thead>  
-            <tbody>
-
-  
-            </tbody>
-        </table>
-        <button class="btn btn-outline-primary" id="add-record-button" onclick="addDesignParametersTable()">Add Variable</button> -->
+        <div class="card card-custom">
+            
+        </div> -->
     </div>
-    
+
     <div id="loadingContainer">
         <div id="loadingIcon"></div>
         <div id="loadingText">Loading...</div>
-    </div>
-
-    <div class="bottom-bar">
-        <div class="container text-right">
-            <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
-        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

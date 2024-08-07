@@ -270,10 +270,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </br>
         <label style="margin-bottom: 20px;">This is a summary model of your specifications; you can click different objectives to check the correspondence relationship.</label></br>
         <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label>
+        <label style="margin-bottom: 20px;"><strong>Note: Irrational specification will result in inaccurate optimization.</strong></label>
+
 
         <div class="container2" id="container2">
             <div class="column" id="variables-column">
-                <div class="title">Your variables</div>
+                <div class="title">Change of your variables</div>
                 <div class="variables" id="variables">
                     <!-- Variables will be inserted here -->
                 </div>

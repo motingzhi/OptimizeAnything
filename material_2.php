@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container mt-4">
-        <p><strong>2. Specify objectives:</strong> Then add objectives, based on which you can optimize variables.</p>
+        <p><strong>2. Specify objectives:</strong> Then add objectives, which are what you want to achieve by changing variables.</p>
 
         <br>
         <br>

@@ -267,13 +267,13 @@ if (!isset($_SESSION['ProlificID'])) {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                         You want to change
-                        <span class="tooltip-container">
+                        <span class="tooltip-container" id="0">
                             <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
                             <span class="tooltip-text">to be specified in the table below</span>
                         </span>
                         to minimize/maximize
                         <!-- <span class="normal"></span> -->
-                        <span class="tooltip-container">
+                        <span class="tooltip-container" id="1">
                             <input type="text" id="defineFor" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
                             <span class="tooltip-text">to be specified in the table below</span>
                         </span>
@@ -369,7 +369,7 @@ if (!isset($_SESSION['ProlificID'])) {
 
         } catch (err) {
             // 如果发生异常，例如   不存在，赋值一个空数组
-            document.querySelector('.tooltip-container').classList.add('show-tooltip');
+            document.getElementById('1').classList.add('show-tooltip');
 
 
         }

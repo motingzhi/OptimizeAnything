@@ -286,7 +286,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-
+        <div id="loadingContainer">
+        <div id="loadingIcon"></div>
+        <div id="loadingText">Loading...</div>
 
 </div>
 

@@ -241,7 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div id="form-options-3" style="display: inline-block; margin: 0 auto;">
-            <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Submit</button>
+            <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
     </div>
 
     <br>

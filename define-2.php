@@ -406,10 +406,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 htmlNewRow += "</td></tr>";
 
                 $("#objective-table tbody").append(htmlNewRow);
-                $(window.document).on('click', ".record-delete", deleteParameterTable);
+                $(window.document).on('click', ".record-delete", deleteObjectiveTable);
 
             }
         }
+
     else{
             addExampleObjectivesTable();
             addExampleObjectivesTable();

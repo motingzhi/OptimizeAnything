@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="dataDisplay"></div>
 
         <div id="container"></div>
-        <button class="btn btn-outline-primary" id="download-button">Download</button>
+        <!-- <button class="btn btn-outline-primary" id="download-button">Download</button> -->
 
             
         <div style="display: flex; justify-content: space-between;">

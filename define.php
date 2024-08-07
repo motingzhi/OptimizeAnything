@@ -78,8 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .stepper {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             margin-bottom: 20px;
+            width: 80%;
         }
         .step {
             flex-grow: 1;
@@ -91,9 +92,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             height: 2px;
             background: #ddd;
             position: absolute;
-            top: 50%;
-            right: -50%;
-            width: 100%;
+            top: 30%;
+            right: 100;
+            /* right: 0%; */
+            width:100%;
             z-index: -1;
         }
         .step span {
@@ -150,8 +152,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .top-bar {
             width: 100%;
             padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
         }
+        #loadingContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #loadingIcon {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #53A451;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #loadingText {
+            text-align: center;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>

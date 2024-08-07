@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
-            width: 80%;
+            width: 100%;
         }
         .step {
             flex-grow: 1;
@@ -215,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="step">
                         <span>3</span>
-                        <div>Confirm Definition</div>
+                        <div>Confirm Specification</div>
                     </div>
                 </div>
             </div>

@@ -212,8 +212,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             position: relative;
             display: flex;
             justify-content: space-between;
-            width: 1000px;
-            height: 600px;
+            width: 100%;
+            height: 20%;
             overflow: visible;
         }
         .column {
@@ -224,6 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .variable, .objective, .to-objective  {
             display: block;
             width: 100%;
+            min-width: 30px;
             margin: 10px 0;
             transition: background-color 0.3s;
         }

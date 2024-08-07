@@ -92,12 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="container"></div>
         <!-- <button class="btn btn-outline-primary" id="download-button">Download</button> -->
 
-            
+        <p>Please don't close this window yet</p>
+
         <div style="display: flex; justify-content: space-between;">
+
             <!-- <button class="btn btn-outline-success" id="back-button" onclick="history.back()">Go Back</button> -->
             <form action="define.php"><button id="restart-button" class="btn btn-outline-success" type="submit">Restart</button></form>
             <form action="https://link.webropolsurveys.com/S/645BAC578DBFDD62"><button id="restart-button" class="btn btn-success" type="submit">Continue to the questionnaire</button></form>
-            <p>Please don't close this window yet</p>
 
         </div>
     

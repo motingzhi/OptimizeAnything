@@ -350,6 +350,7 @@ if (!isset($_SESSION['ProlificID'])) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterNames = [];
         // document.querySelector('.tooltip-container').classList.add('show-tooltip');
+        document.getElementById('0').classList.add('show-tooltip');
 
         }
 

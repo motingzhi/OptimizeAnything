@@ -222,7 +222,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             transition: opacity 0.3s;
         }
 
-        .tooltip-container.show-tooltip .tooltip-text {
+        .tooltip-container.show-tooltip:hover .tooltip-text {
             visibility: visible;
             opacity: 1;
         }

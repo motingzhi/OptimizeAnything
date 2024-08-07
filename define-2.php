@@ -400,7 +400,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-unit'>${nameParts[1] || ''}</td>`;
                 htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${lowerBound}</td>`;
                 htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>${upperBound}</td>`;
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-1' style='font-family: calibri; font-size: medium;'><option value='minimize' selected='selected'>minimize</option><option value='maximize'>maximize</option></select></td>"
+                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-1' style='font-family: calibri; font-size: medium;'><option value='minimize' selected='selected'>minimize</option><option value='maximize'>maximize</option></select></td>";
 
                 htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>";
                 htmlNewRow += "</td></tr>";

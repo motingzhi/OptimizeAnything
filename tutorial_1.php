@@ -36,6 +36,13 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        
 
         <!-- <h3>Let's go through a short tutorial to learn what "Variable" and "Objective" mean in optimization.</h3><br> -->
         <div class="explanatory-text">

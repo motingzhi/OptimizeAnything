@@ -39,9 +39,9 @@
 
         <!-- <h3>Let's go through a short tutorial to learn what "Variable" and "Objective" mean in optimization.</h3><br> -->
         <div class="explanatory-text">
-            <p><strong>Variables</strong> are the factors that make up the optimization problem.</p><p>For example, when optimizing the material design for a car body, variables might include material thickness, strength, and density.</p>
+            <p><strong>Variables</strong> are the factors that we want to change.</p><p>For example, when optimizing the material design for a car body, variables might include material thickness, strength, and density.</p>
             <br>
-            <p><strong>Objectives</strong> are the goals we aim to achieve by optimizing these variables.</p><p>For example, objectives might include minimizing the car's cost and maximizing the durability of the car body.</p>
+            <p><strong>Objectives</strong> are the goals we aim to achieve by changing these variables.</p><p>For example, objectives might include minimizing the car's cost and maximizing the durability of the car body.</p>
             <br>
         </div>
         <!-- Placeholder for the GIF image -->

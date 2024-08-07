@@ -208,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             position: relative;
             display: flex;
             justify-content: space-between;
-            width: 600px;
+            width: 100%;
             height: 600px;
             overflow: visible;
         }

@@ -387,29 +387,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    if (JSON.stringify(objectiveNames) !== '[]') {                // Clear existing rows in the table body
-            $('#objective-table tbody').empty();
-            // Add rows based on parameterNames and parameterBounds
-            for (let i = 0; i < objectiveNames.length; i++) {
-                let nameParts = objectiveNames[i].split('/');
-                let lowerBound = objectiveBounds[2 * i];
-                let upperBound = objectiveBounds[2 * i + 1];
-                
-                let htmlNewRow = "<tr>";
-                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-name'>${nameParts[0]}</td>`;
-                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-unit'>${nameParts[1] || ''}</td>`;
-                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${lowerBound}</td>`;
-                htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>${upperBound}</td>`;
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'><select id='min-max-1' style='font-family: calibri; font-size: medium;'><option value='minimize' selected='selected'>minimize</option><option value='maximize'>maximize</option></select></td>";
+    if (JSON.stringify(objectiveNames) !== '[]') {                
+        // Clear existing rows in the table body
+        $('#objective-table tbody').empty();
 
-                htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>";
-                htmlNewRow += "</td></tr>";
+        // Add rows based on parameterNames and parameterBounds
+        for (let i = 0; i < objectiveNames.length; i++) {
+            let nameParts = objectiveNames[i].split('/');
+            let lowerBound = objectiveBounds[2 * i];
+            let upperBound = objectiveBounds[2 * i + 1];
 
-                $("#objective-table tbody").append(htmlNewRow);
-                $(window.document).on('click', ".record-delete", deleteObjectiveTable);
+            let isMinimize = objectiveMinMax[i] === 'minimize';
+            let minimizeSelected = isMinimize ? "selected='selected'" : "";
+            let maximizeSelected = !isMinimize ? "selected='selected'" : "";
 
-            }
+            let htmlNewRow = "<tr>";
+            htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-name'>${nameParts[0]}</td>`;
+            htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-unit'>${nameParts[1] || ''}</td>`;
+            htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>${lowerBound}</td>`;
+            htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>${upperBound}</td>`;
+            htmlNewRow += `<td contenteditable='true' class='record-data' id='record-objective-min-max'>
+                            <select id='min-max-1' style='font-family: calibri; font-size: medium;'>
+                                <option value='minimize' ${minimizeSelected}>minimize</option>
+                                <option value='maximize' ${maximizeSelected}>maximize</option>
+                            </select>
+                        </td>`;
+            htmlNewRow += "<td button class='record-delete' id='record-delete'><img src='./Pictures/delete.png' style='width: 20px'></td>";
+            htmlNewRow += "</tr>";
+
+            $("#objective-table tbody").append(htmlNewRow);
+            $(window.document).on('click', ".record-delete", deleteObjectiveTable);
         }
+    }
 
     else{
             addExampleObjectivesTable();

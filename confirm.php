@@ -268,9 +268,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <label style="margin-bottom: 20px;">This is a summary model of your specifications; you can click different objectives to check the correspondence relationship.</label></br>
-        <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label></br>
-
-
+        <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label>
 
         <div class="container2" id="container2">
             <div class="column" id="variables-column">

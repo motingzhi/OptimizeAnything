@@ -224,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .variable, .objective, .to-objective  {
             display: block;
             width: 100%;
-            margin: 0px 0;
+            margin: 10px 0;
             transition: background-color 0.3s;
         }
         .selected {

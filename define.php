@@ -93,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #ddd;
             position: absolute;
             top: 30%;
-            right: 100;
             /* right: 0%; */
             width:100%;
             z-index: -1;

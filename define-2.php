@@ -360,10 +360,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
+        var objString = objectiveNames.join(', ');
+
+        document.getElementById('defineFor').value = paraString;
+
     } catch (err) {
         // 如果发生异常，例如   不存在，赋值一个空数组
         var objectiveNames = [];
         document.querySelector('.tooltip-container').classList.add('show-tooltip');
+
 
     }
 

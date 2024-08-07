@@ -275,7 +275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="container2" id="container2">
             <div class="column" id="variables-column">
-                <div class="title">Change of your variables</div>
+                <div class="title">Your want to change</div>
                 <div class="variables" id="variables">
                     <!-- Variables will be inserted here -->
                 </div>

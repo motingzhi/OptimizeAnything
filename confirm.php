@@ -255,6 +255,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 </div>
 
+
 <div class="centered-content">
 
         <div class="container">
@@ -265,6 +266,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
+
+        <label style="margin-bottom: 20px;">This is a summary model of your specifications; you can click different objectives to check the correspondence relationship.</label></br>
+        <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label></br>
+
 
 
         <div class="container2" id="container2">
@@ -288,7 +293,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="bottom-bar">
         <div class="d-flex justify-content-between">
-        <button class="btn btn-outline-primary" id="back-button" onclick="history.back()" style="width: 20%;">Back</button>
+        <button class="btn btn-outline-primary" id="back-button" onclick="goBack()" style="width: 20%;">Back</button>
         <button class="btn btn-primary" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
         </div>
 </div>
@@ -309,6 +314,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var objectiveNames = localStorage.getItem("objective-names").split(",");
             var objectiveBounds = localStorage.getItem("objective-bounds").split(",");
             var objectiveMinMax = localStorage.getItem("objective-min-max").split(",");
+
+            function goBack() {
+                // saveFormData();
+                location.href = "define-2.php";
+            }
+
 
             console.log(parameterBounds);
 

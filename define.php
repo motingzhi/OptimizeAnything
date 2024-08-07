@@ -48,7 +48,7 @@ if (!isset($_SESSION['ProlificID'])) {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-               .top-bar {
+        .top-bar {
             position: fixed;
             top: calc(100vh / 12);
             width: 100%;
@@ -62,7 +62,8 @@ if (!isset($_SESSION['ProlificID'])) {
             max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
             margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
             text-align: center;
-            width: 50%; /* Content width as 1/3 of the page */
+            width: auto; /* Content width as 1/3 of the page */
+            min-width: 50%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -150,7 +151,8 @@ if (!isset($_SESSION['ProlificID'])) {
         .custom-card {
             margin: 10px; /* 外边距 */
             display: inline-block; /* 使卡片宽度根据内容自适应 */
-            width: 60%;
+            width:auto;
+            min-width: 60%;
         }
         .custom-card .card-body {
             padding: 10px; /* 内边距 */
@@ -210,7 +212,6 @@ if (!isset($_SESSION['ProlificID'])) {
             position: relative;
             display: inline-block;
         }
-
         .tooltip-container .tooltip-text {
             visibility: hidden;
             width: 200px;

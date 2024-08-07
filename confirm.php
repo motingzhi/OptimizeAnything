@@ -56,7 +56,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
             margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
             text-align: center;
-            width: 50%; /* Content width as 1/3 of the page */
+            width: auto;
+            min-width: 50%; /* Content width as 1/3 of the page */
             margin-left: auto;
             margin-right: auto;
         }
@@ -159,6 +160,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             height: 100vh;
             margin: 0;
             text-align: center;
+            overflow: hidden;
+
         }
         .container {
             display: flex;
@@ -218,7 +221,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             flex-direction: column;
             align-items: center;
         }
-        .variable, .objective {
+        .variable, .objective, .to-objective  {
             display: block;
             width: 100%;
             margin: 10px 0;
@@ -231,6 +234,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .title {
             margin-bottom: 20px;
             font-weight: bold;
+        }
+        .to-objective {
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: gray;
+            color: white;
+            cursor: default;
+            transition: background-color 0.3s;
         }
 
     </style>
@@ -275,10 +286,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="container2" id="container2">
             <div class="column" id="variables-column">
-                <div class="title">Your want to change</div>
+                <div class="title">Your want to change:</div>
                 <div class="variables" id="variables">
                     <!-- Variables will be inserted here -->
                 </div>
+            </div>
+            <div class="column" id="to-objective-column">
+                <div id="to-objective" class="to-objective">to objective</div>
             </div>
             <canvas id="canvas" width="800" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
             <div class="column" id="objectives-column">
@@ -332,8 +346,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // objectiveNames = document.getElementById('defineGood').value;
             // objectiveMinMax = document.getElementById('defineFor').value;
 
-            const capitalizedObjectiveMinMax = objectiveMinMax.map(obj => obj.charAt(0).toUpperCase() + obj.slice(1));
-            const combinedList = capitalizedObjectiveMinMax.map((obj, index) => obj + ' ' + objectiveNames[index]);
 
 
 
@@ -361,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // }
 
-
+            selectedObjectiveIndex = 0;
             function drawArrow(ctx, fromX, fromY, toX, toY) {
                 const headlen = 10; // length of head in pixels
                 const angle = Math.atan2(toY - fromY, toX - fromX);
@@ -384,11 +396,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ctx.lineTo(toX, toY);
             }
 
-            function drawLines(objectiveIndex) {
+            function drawLines() {
                 const canvas = document.getElementById('canvas');
                 const ctx = canvas.getContext('2d');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                const objectiveElement = document.querySelectorAll('.objective')[objectiveIndex];
+                const toObjectiveElement = document.getElementById('to-objective');
+
+                const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
                 const variablesElements = document.querySelectorAll('.variable');
                 const objectiveRect = objectiveElement.getBoundingClientRect();
                 const containerRect = document.getElementById('container2').getBoundingClientRect();
@@ -403,9 +417,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     drawArrow(ctx, fromX, fromY, toX, toY);
                     ctx.stroke();
                 });
+                const fromX = toObjectiveRect.right - containerRect.left;
+                const fromY = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
+                const toX = objectiveElement.getBoundingClientRect().left - containerRect.left;
+                const toY = objectiveElement.getBoundingClientRect().top + objectiveElement.getBoundingClientRect().height / 2 - containerRect.top;
+                ctx.beginPath();
+                drawArrow(ctx, fromX, fromY, toX, toY);
+                ctx.stroke();
             }
 
             function updateSelectedObjective(index) {
+                selectedObjectiveIndex = index;
+                document.getElementById('to-objective').textContent = `to ${objectiveMinMax[index]}`;
                 document.querySelectorAll('.objective').forEach((el, i) => {
                     if (i === index) {
                         el.classList.add('selected');
@@ -413,7 +436,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         el.classList.remove('selected');
                     }
                 });
-                drawLines(index);
+                drawLines();
             }
 
             function populateFields() {
@@ -426,14 +449,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 });
 
                 const objectivesContainer = document.getElementById('objectives');
-                combinedList.forEach((objective, index) => {
+                objectiveNames.forEach((objective, index) => {
                     const button = document.createElement('button');
                     button.className = 'btn btn-secondary objective';
                     button.textContent = objective;
                     button.onclick = () => updateSelectedObjective(index);
                     objectivesContainer.appendChild(button);
                 });
-                updateSelectedObjective(0);
+                updateSelectedObjective(selectedObjectiveIndex);
             }
 
             document.addEventListener('DOMContentLoaded', populateFields);

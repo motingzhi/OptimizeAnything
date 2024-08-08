@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 300px;
+            max-width: 900px;
         }
         .description {
             font-size: 1em;

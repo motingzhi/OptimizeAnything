@@ -248,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
         }
         .to-objective {
-            padding: 10px 20px;
+            padding: 0px 20px;
             border-radius: 20px;
             background-color: gray;
             color: white;

@@ -234,6 +234,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-size: 24px;
             font-weight: bold;
             margin: 5px 0;
+            color: black;
         }
         .selected {
             background-color: white !important;

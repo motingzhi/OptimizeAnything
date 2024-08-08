@@ -273,14 +273,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="centered-content">
 
-        <!-- <div class="container">
+        <div class="container">
             <div class="card custom-card">
             <p class="text-primary"> Your optimization task:</p>
                 <div class="card-body">
                         <label > Imagine you are a runner preparing for a marathon. You want to optimize your diet to lose weight and stay healthy at the same time. What variables and objectives will you specify here?</label></br>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- </br>
         <label style="margin-bottom: 20px;">This is a summary model of your specifications; you can click different objectives to check the correspondence relationship.</label></br>
         <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label>

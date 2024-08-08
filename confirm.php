@@ -215,8 +215,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 1000px;
-            height: 600px;
+            width: 100%;
+            height: 20%;
             overflow: visible;
         }
         .column {

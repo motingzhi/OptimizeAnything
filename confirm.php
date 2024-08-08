@@ -60,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             width: 100%;
             min-width: 50%; /* Content width as 1/3 of the page */
-            /* margin-left: auto;
-            margin-right: auto; */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .bottom-bar {

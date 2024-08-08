@@ -230,7 +230,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .variable, .objective, .to-objective {
             display: block;
             width: 100%;
-            margin: 10px 0;
+            margin: 0px 0;
             transition: background-color 0.3s;
         }
         .plus-sign {
@@ -248,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
         }
         .to-objective {
-            padding: 0px 20px;
+            padding: 10px 20px;
             border-radius: 20px;
             background-color: gray;
             color: white;

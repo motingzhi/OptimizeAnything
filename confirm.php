@@ -52,29 +52,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .centered-content {
-            overflow-y: auto; /* 添加垂直滚动条 */
-            max-height: calc(100vh - 350px); 
-            /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
-            margin-top: calc(100vh / 10 + 100px); 
-            /* Offset by the height of top-bar */
+            overflow-y: auto;
+            max-height: calc(100vh - 350px);
+            margin-top: calc(100vh / 10 + 100px);
             text-align: center;
             width: auto;
-            min-width: 60%; /* Content width as 1/3 of the page */
-            /* margin-left: auto;
-            margin-right: auto; */
+            min-width: 60%;
         }
 
         .bottom-bar {
             position: fixed;
-            /* margin-top: 100px; */
             bottom: 0px;
             width: 100%;
-            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+            background: #f8f9fa;
             padding: 10px 0;
-            /* box-shadow: none; */
-             /* Shadow for the bottom bar */
-
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
         }
 
         #loadingContainer {
@@ -108,7 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             justify-content: space-between;
             margin-bottom: 20px;
             width: 80%;
-
         }
 
         .step {
@@ -123,8 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #ddd;
             position: absolute;
             top: 30%;
-            right: 100;
-            /* right: 0%; */
+            right: 0;
             width:100%;
             z-index: -1;
         }
@@ -145,14 +135,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .custom-card {
-            margin: 10px; /* 外边距 */
-            display: inline-block; /* 使卡片宽度根据内容自适应 */
+            margin: 10px;
+            display: inline-block;
             width: 60%;
         }
         .custom-card .card-body {
-            padding: 10px; /* 内边距 */
+            padding: 10px;
             text-align: left;
-
         }
         body {
             font-family: Arial, sans-serif;
@@ -161,9 +150,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             height: 100vh;
             margin: 0;
-            /* text-align: center; */
-            /* overflow: hidden; */
-
         }
         .container {
             display: flex;
@@ -215,12 +201,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: auto;
-            height: 20%;
+            width: 80%;
+            height: 60%;
             overflow: visible;
             border: 1px solid #000000;
             border-radius: 8px;
-
         }
         .column {
             display: flex;
@@ -258,34 +243,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-<div class="top-bar">
+    <div class="top-bar">
         <div class="container">
-
             <div class="stepper">
-                    <div class="step">
-                        <span>1</span>
-                        <div>Specify Variables</div>
-                    </div>
-                    <div class="step">
-                        <span>2</span>
-                        <div>Specify Objectives</div>
-                    </div>
-                    <div class="step active">
-                        <span>3</span>
-                        <div>Confirm Specification</div>
-                    </div>
+                <div class="step">
+                    <span>1</span>
+                    <div>Specify Variables</div>
+                </div>
+                <div class="step">
+                    <span>2</span>
+                    <div>Specify Objectives</div>
+                </div>
+                <div class="step active">
+                    <span>3</span>
+                    <div>Confirm Specification</div>
+                </div>
             </div>
         </div>
-</div>
+    </div>
 
-
-<div class="centered-content">
-
+    <div class="centered-content">
         <div class="container">
             <div class="card custom-card">
-            <p class="text-primary"> Your optimization task:</p>
+                <p class="text-primary">Your optimization task:</p>
                 <div class="card-body">
-                        <label > Imagine you are a runner preparing for a marathon. You want to optimize your diet to lose weight and stay healthy at the same time. What variables and objectives will you specify here?</label></br>
+                    <label>Imagine you are a runner preparing for a marathon. You want to optimize your diet to lose weight and stay healthy at the same time. What variables and objectives will you specify here?</label></br>
                 </div>
             </div>
         </div>
@@ -295,42 +277,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Below is a summary model of your specifications; you can click different <strong>objectives</strong> to check the correspondence relationship.<br>If you think this specification seems irrational from the model, you can go back and modify it.</p>
             <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
         </div>
+
         <div class="container">
             <div class="card custom-card">
-                    <p class="text-primary">Hints</p>
-
-                    <div class="card-body">
-                            <label >1. The solution generated by AI will be constructed by <strong>Variables</strong> specified here, and the value generated will be inside the minimum and maximum values you specified.</label></br>
-                            <label >2. The <strong>Objectives</strong> are the criteria to evaluate the solution generated by AI.</label></br>
-                            <label >3. Changes in <strong>Variables</strong> are to achieve overall <strong>Objectives</strong>. There is no one-to-one correspondence between variables and objectives. </label></br>
-         
-                    </div>
+                <p class="text-primary">Hints</p>
+                <div class="card-body">
+                    <label>1. The solution generated by AI will be constructed by <strong>Variables</strong> specified here, and the value generated will be inside the minimum and maximum values you specified.</label></br>
+                    <label>2. The <strong>Objectives</strong> are the criteria to evaluate the solution generated by AI.</label></br>
+                    <label>3. Changes in <strong>Variables</strong> are to achieve overall <strong>Objectives</strong>. There is no one-to-one correspondence between variables and objectives.</label></br>
                 </div>
+            </div>
         </div>
 
         <div class="container2" id="container2">
-
-                <div class="column" id="variables-column">
-                    <div class="title">You want to change variable(s) below</div>
-                    <div class="variables" id="variables">
-                        <!-- Variables and plus signs will be inserted here -->
-                    </div>
+            <div class="column" id="variables-column">
+                <div class="title">You want to change variable(s) below</div>
+                <div class="variables" id="variables">
+                    <!-- Variables and plus signs will be inserted here -->
                 </div>
-                <div class="column" id="to-objective-column">
-                    <div id="to-objective" class="to-objective">to minimize</div>
+            </div>
+            <div class="column" id="to-objective-column">
+                <div id="to-objective" class="to-objective">to minimize</div>
+            </div>
+            <canvas id="canvas" width="1000" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
+            <div class="column" id="objectives-column">
+                <div class="title">Objective(s)</div>
+                <div class="objectives" id="objectives">
+                    <!-- Objectives will be inserted here -->
                 </div>
-                <canvas id="canvas" width="1000" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
-                <div class="column" id="objectives-column">
-                    <div class="title">Objective(s)</div>
-                    <div class="objectives" id="objectives">
-                        <!-- Objectives will be inserted here -->
-                    </div>
-                </div>
+            </div>
         </div>
-  
-</div>
-
-
+    </div>
 
 
 
@@ -402,7 +379,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // }
 
             let selectedObjectiveIndex = 0;  // Default selected objective
-
+            
             function drawArrow(ctx, fromX, fromY, toX, toY) {
                 const headlen = 10; // length of head in pixels
                 const angle = Math.atan2(toY - fromY, toX - fromX);
@@ -446,15 +423,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ctx.stroke();
                 });
 
-                const fromX = toObjectiveRect.right - containerRect.left;
-                const fromY = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
-                const toX = objectiveElement.getBoundingClientRect().left - containerRect.left;
-                const toY = objectiveElement.getBoundingClientRect().top + objectiveElement.getBoundingClientRect().height / 2 - containerRect.top;
+                const fromX2 = toObjectiveRect.right - containerRect.left;
+                const fromY2 = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
+                const toX2 = objectiveElement.getBoundingClientRect().left - containerRect.left;
+                const toY2 = objectiveElement.getBoundingClientRect().top + objectiveElement.getBoundingClientRect().height / 2 - containerRect.top;
                 ctx.beginPath();
-                drawArrow(ctx, fromX, fromY, toX, toY);
+                drawArrow(ctx, fromX2, fromY2, toX2, toY2);
                 ctx.stroke();
             }
-
 
             function updateSelectedObjective(index) {
                 selectedObjectiveIndex = index;
@@ -498,8 +474,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 updateSelectedObjective(selectedObjectiveIndex);
             }
 
+            window.addEventListener('resize', drawLines);
             document.addEventListener('DOMContentLoaded', populateFields);
-
 
 
             function confirmDefinitions() {

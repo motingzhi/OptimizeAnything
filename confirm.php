@@ -220,6 +220,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width:100%
         }
         .variable, .objective, .to-objective  {
             display: block;
@@ -297,7 +298,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <canvas id="canvas" width="800" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
             <div class="column" id="objectives-column">
-                <div class="title">  </div>
                 <div class="objectives" id="objectives">
                     <!-- Objectives will be inserted here -->
                 </div>

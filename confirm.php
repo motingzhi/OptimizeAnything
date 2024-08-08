@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             overflow-y: auto; /* 添加垂直滚动条 */
             /* max-height: calc(100vh - 350px);  */
             /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
-            /* margin-top: calc(100vh / 10 + 100px);  */
+            margin-top: calc(100vh / 10 + 100px); 
             /* Offset by the height of top-bar */
             text-align: center;
             /* width: auto;
@@ -271,7 +271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 
-<div class="centered-content">
+<!-- <div class="centered-content"> -->
 
         <div class="container">
             <div class="card custom-card">
@@ -306,7 +306,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     
-</div>
+<!-- </div> -->
 
 
 

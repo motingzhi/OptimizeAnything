@@ -290,9 +290,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="container2" id="container2">
-            <div class="title">You want to change:</div>
 
             <div class="column" id="variables-column">
+            <div class="title">You want to change:</div>
+
                 <div class="variables" id="variables">
                     <!-- Variables will be inserted here -->
                 </div>
@@ -302,6 +303,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <canvas id="canvas" width="1000" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
             <div class="column" id="objectives-column">
+            <div class="title">(Objectives)</div>
+
                 <div class="objectives" id="objectives">
                     <!-- Objectives will be inserted here -->
                 </div>

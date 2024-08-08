@@ -100,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             justify-content: space-between;
             margin-bottom: 20px;
             width: 80%;
+
         }
 
         .step {
@@ -114,7 +115,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #ddd;
             position: absolute;
             top: 30%;
-            right: 0;
+            right: 100;
+            /* right: 0%; */
             width:100%;
             z-index: -1;
         }
@@ -133,6 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-color: #007bff;
             background: white;
         }
+
 
         .custom-card {
             margin: 10px;

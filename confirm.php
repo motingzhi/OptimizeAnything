@@ -208,15 +208,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             overflow: hidden;
         }
         .container2 {
-            align-items: center;
             text-align: center;
             padding: 20px;
             border-radius: 10px;
             position: relative;
             display: flex;
             justify-content: space-between;
-            width: 100%;
-            height: 20%;
+            align-items: center;
+            width: 1000px;
+            height: 600px;
             overflow: visible;
         }
         .column {

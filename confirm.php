@@ -463,7 +463,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     button.textContent = variable;
                     variablesContainer.appendChild(button);
 
-                    if (index < variables.length - 1) {
+                    if (index < parameterNames.length - 1) {
                         const plusSign = document.createElement('div');
                         plusSign.className = 'plus-sign';
                         plusSign.textContent = '+';

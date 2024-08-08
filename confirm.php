@@ -293,25 +293,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
         </div>
 
-        <div class="container2" id="container2">
 
-                <div class="column" id="variables-column">
-                    <div class="title">You want to change variable(s) below</div>
-                    <div class="variables" id="variables">
-                        <!-- Variables and plus signs will be inserted here -->
-                    </div>
-                </div>
-                <div class="column" id="to-objective-column">
-                    <div id="to-objective" class="to-objective">to minimize</div>
-                </div>
-                <canvas id="canvas" width="1000" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
-                <div class="column" id="objectives-column">
-                    <div class="title">Objective(s)</div>
-                    <div class="objectives" id="objectives">
-                        <!-- Objectives will be inserted here -->
-                    </div>
-                </div>
-        </div>
 
     
 </div>

@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             /* Offset by the height of top-bar */
             text-align: center;
             width: auto;
-            min-width: 70%; /* Content width as 1/3 of the page */
+            min-width: 60%; /* Content width as 1/3 of the page */
             /* margin-left: auto;
             margin-right: auto; */
         }

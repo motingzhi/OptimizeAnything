@@ -58,10 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin-top: calc(100vh / 10 + 100px); 
             /* Offset by the height of top-bar */
             text-align: center;
-            width: auto;
+            width: 100%;
             min-width: 50%; /* Content width as 1/3 of the page */
-            margin-left: auto;
-            margin-right: auto;
+            /* margin-left: auto;
+            margin-right: auto; */
         }
 
         .bottom-bar {

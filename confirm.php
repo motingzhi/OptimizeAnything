@@ -373,7 +373,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // }
 
-            selectedObjectiveIndex = 0;
+            let selectedObjectiveIndex = 0;  // Default selected objective
 
             function drawArrow(ctx, fromX, fromY, toX, toY) {
                 const headlen = 10; // length of head in pixels
@@ -405,7 +405,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 const variablesElements = document.querySelectorAll('.variable');
                 const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
                 const toObjectiveRect = toObjectiveElement.getBoundingClientRect();
-                const containerRect = document.getElementById('container2').getBoundingClientRect();
+                const containerRect = document.getElementById('container').getBoundingClientRect();
 
                 variablesElements.forEach(variableElement => {
                     const variableRect = variableElement.getBoundingClientRect();
@@ -417,6 +417,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     drawArrow(ctx, fromX, fromY, toX, toY);
                     ctx.stroke();
                 });
+
                 const fromX = toObjectiveRect.right - containerRect.left;
                 const fromY = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
                 const toX = objectiveElement.getBoundingClientRect().left - containerRect.left;
@@ -456,6 +457,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     button.onclick = () => updateSelectedObjective(index);
                     objectivesContainer.appendChild(button);
                 });
+
+                // 默认选中第一个objective
                 updateSelectedObjective(selectedObjectiveIndex);
             }
 

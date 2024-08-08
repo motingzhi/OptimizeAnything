@@ -282,9 +282,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
 
-        <p>This is a summary model of your specifications; you can click different objectives to check the correspondence relationship.</p> 
-        <p>If you think this specification seems irrational from the model, you can go back and modify it.</p>
-        <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
+        <div class="container">
+
+            <p>This is a summary model of your specifications; you can click different objectives to check the correspondence relationship.</p> 
+            <p>If you think this specification seems irrational from the model, you can go back and modify it.</p>
+            <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
+        </div>
 
         <div class="container2" id="container2">
             <div class="title">You want to change:</div>

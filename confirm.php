@@ -271,7 +271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 
-<!-- <div class="centered-content"> -->
+<div class="centered-content">
 
         <div class="container">
             <div class="card custom-card">
@@ -306,7 +306,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     
-<!-- </div> -->
+</div>
 
 
 

@@ -284,9 +284,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label>
         <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
 
-</div>
-
- <div class="container2" id="container2">
+        <div class="container2" id="container2">
             <div class="column" id="variables-column">
                 <div class="title">Your want to change:</div>
                 <div class="variables" id="variables">
@@ -302,7 +300,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <!-- Objectives will be inserted here -->
                 </div>
             </div>
+        </div>
+
+
+    
+    
+    
 </div>
+
+
 
 
 

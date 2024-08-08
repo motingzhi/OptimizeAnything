@@ -58,8 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             /* width: auto;
             min-width: 50%; /* Content width as 1/3 of the page */
-            margin-left: auto;
-            margin-right: auto; */
+            /* margin-left: auto;
+            margin-right: auto; */ */
         }
 
         .bottom-bar {
@@ -284,12 +284,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label style="margin-bottom: 20px;">If you think this specification seems irrational from the model, you can go back and modify it.</label>
         <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
 
-
-
-    
-</div>
-
-<div class="container2" id="container2">
+        <div class="container2" id="container2">
             <div class="title">You want to change:</div>
 
             <div class="column" id="variables-column">
@@ -307,6 +302,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
+
+    
+</div>
+
+
 
 
 

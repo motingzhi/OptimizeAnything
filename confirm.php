@@ -218,7 +218,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             width: auto;
             height: 20%;
             overflow: visible;
-            border: 2px solid #000000;
+            border: 1px solid #000000;
             border-radius: 8px;
 
         }

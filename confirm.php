@@ -444,7 +444,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             function updateSelectedObjective(index) {
                 selectedObjectiveIndex = index;
-                document.getElementById('to-objective').textContent = `to ${objectives[index]}`;
+                document.getElementById('to-objective').textContent = `to ${objectiveMinMax[index]}`;
                 document.querySelectorAll('.objective').forEach((el, i) => {
                     if (i === index) {
                         el.classList.add('selected');
@@ -457,7 +457,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             function populateFields() {
                 const variablesContainer = document.getElementById('variables');
-                variables.forEach((variable, index) => {
+                parameterNames.forEach((variable, index) => {
                     const button = document.createElement('button');
                     button.className = 'btn btn-secondary variable';
                     button.textContent = variable;
@@ -472,7 +472,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 });
 
                 const objectivesContainer = document.getElementById('objectives');
-                objectives.forEach((objective, index) => {
+                objectiveNames.forEach((objective, index) => {
                     const button = document.createElement('button');
                     button.className = 'btn btn-secondary objective';
                     button.textContent = objective;

@@ -293,7 +293,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
         </div>
 
-        <div class="container2" id="container2">
+        
+
+    
+</div>
+
+
+<div class="container2" id="container2">
 
                 <div class="column" id="variables-column">
                     <div class="title">You want to change variable(s) below</div>
@@ -312,12 +318,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
         </div>
-
-    
-</div>
-
-
-
 
 
 <div class="bottom-bar">

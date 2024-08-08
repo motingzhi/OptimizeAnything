@@ -223,13 +223,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width:100%;
         }
-        .variable, .objective, .to-objective  {
+        .variable, .objective, .to-objective {
             display: block;
             width: 100%;
             margin: 10px 0;
             transition: background-color 0.3s;
+        }
+        .plus-sign {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 5px 0;
         }
         .selected {
             background-color: white !important;
@@ -247,7 +251,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             cursor: default;
             transition: background-color 0.3s;
         }
-
     </style>
 </head>
 <body>
@@ -292,24 +295,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="container2" id="container2">
 
-            <div class="column" id="variables-column">
-            <div class="title">You want to change:</div>
-
-                <div class="variables" id="variables">
-                    <!-- Variables will be inserted here -->
+                <div class="column" id="variables-column">
+                    <div class="title">You want to change variable(s) below</div>
+                    <div class="variables" id="variables">
+                        <!-- Variables and plus signs will be inserted here -->
+                    </div>
                 </div>
-            </div>
-            <div class="column" id="to-objective-column">
-                <div id="to-objective" class="to-objective">to objective</div>
-            </div>
-            <canvas id="canvas" width="1000" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
-            <div class="column" id="objectives-column">
-            <div class="title">(Objectives)</div>
-
-                <div class="objectives" id="objectives">
-                    <!-- Objectives will be inserted here -->
+                <div class="column" id="to-objective-column">
+                    <div id="to-objective" class="to-objective">to minimize</div>
                 </div>
-            </div>
+                <canvas id="canvas" width="1000" height="600" style="position:absolute; top:0; left:0; pointer-events:none;"></canvas>
+                <div class="column" id="objectives-column">
+                    <div class="title">Objective(s)</div>
+                    <div class="objectives" id="objectives">
+                        <!-- Objectives will be inserted here -->
+                    </div>
+                </div>
         </div>
 
     
@@ -418,7 +419,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 const variablesElements = document.querySelectorAll('.variable');
                 const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
                 const toObjectiveRect = toObjectiveElement.getBoundingClientRect();
-                const containerRect = document.getElementById('container2').getBoundingClientRect();
+                const containerRect = document.getElementById('container').getBoundingClientRect();
 
                 variablesElements.forEach(variableElement => {
                     const variableRect = variableElement.getBoundingClientRect();
@@ -440,9 +441,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ctx.stroke();
             }
 
+
             function updateSelectedObjective(index) {
                 selectedObjectiveIndex = index;
-                document.getElementById('to-objective').textContent = `to ${objectiveMinMax[index]}`;
+                document.getElementById('to-objective').textContent = `to ${objectives[index]}`;
                 document.querySelectorAll('.objective').forEach((el, i) => {
                     if (i === index) {
                         el.classList.add('selected');
@@ -455,15 +457,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             function populateFields() {
                 const variablesContainer = document.getElementById('variables');
-                parameterNames.forEach(variable => {
+                variables.forEach((variable, index) => {
                     const button = document.createElement('button');
                     button.className = 'btn btn-secondary variable';
                     button.textContent = variable;
                     variablesContainer.appendChild(button);
+
+                    if (index < variables.length - 1) {
+                        const plusSign = document.createElement('div');
+                        plusSign.className = 'plus-sign';
+                        plusSign.textContent = '+';
+                        variablesContainer.appendChild(plusSign);
+                    }
                 });
 
                 const objectivesContainer = document.getElementById('objectives');
-                objectiveNames.forEach((objective, index) => {
+                objectives.forEach((objective, index) => {
                     const button = document.createElement('button');
                     button.className = 'btn btn-secondary objective';
                     button.textContent = objective;

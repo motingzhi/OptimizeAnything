@@ -405,7 +405,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 const variablesElements = document.querySelectorAll('.variable');
                 const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
                 const toObjectiveRect = toObjectiveElement.getBoundingClientRect();
-                const containerRect = document.getElementById('container').getBoundingClientRect();
+                const containerRect = document.getElementById('container2').getBoundingClientRect();
 
                 variablesElements.forEach(variableElement => {
                     const variableRect = variableElement.getBoundingClientRect();

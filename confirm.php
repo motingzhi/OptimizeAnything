@@ -215,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
+            width: auto;
             height: 20%;
             overflow: visible;
             border: 2px solid #000000;

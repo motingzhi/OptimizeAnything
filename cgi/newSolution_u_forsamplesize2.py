@@ -135,7 +135,7 @@ obj = [float(x) for x in objective_Measurements]
 for i in range(len(currentSolutions)):
     currentSolutions[i] = float(currentSolutions[i])
 
-nested_list = [currentSolutions[i:i + num_parameters] for i in range(0, len(currentSolutions), num_parameters)]
+# nested_list = [currentSolutions[i:i + num_parameters] for i in range(0, len(currentSolutions), num_parameters)]
 
 
 if (len(objectivesInput) != 0):

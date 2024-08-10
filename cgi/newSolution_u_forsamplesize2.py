@@ -146,14 +146,14 @@ if (len(objectivesInput) != 0):
         # objectivesInputPlaceholder.append([float(objectivesInput[2*i]), float(objectivesInput[2*i+1]),float(objectivesInput[2*i+2])])
     objectivesInput = objectivesInputPlaceholder
 objectivesInput.append(obj)
-
-
-
-# savedSolutions.append(currentSolutions[len(savedObjectives) - len(parameterNames) + 1 : len(savedObjectives) + 1 ])#这是错的，因为1应该调整为和num(parameter)相关的 (num(parameter)-1)。
-savedSolutions.append(nested_list[len(savedObjectives)/len(objectiveNames)-1])
-
 savedObjectives.append(obj)
 solutionNameList.append(solutionName)
+
+test=len(savedObjectives)/len(objectiveNames)
+
+# savedSolutions.append(currentSolutions[len(savedObjectives) - len(parameterNames) + 1 : len(savedObjectives) + 1 ])#这是错的，因为1应该调整为和num(parameter)相关的 (num(parameter)-1)。
+savedSolutions.append(test)
+
 # savedSolutions.append(currentSolutions[len(savedObjectives) - 1  : len(savedObjectives) + (len(parameterNames)-1) ])
 
 #“：”后面是切片的结束位置，切片的结束位置不包括在切片得出的结果内。

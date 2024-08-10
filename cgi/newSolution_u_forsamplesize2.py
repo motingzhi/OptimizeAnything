@@ -138,6 +138,9 @@ for i in range(len(currentSolutions)):
 nested_list = [currentSolutions[i:i + num_parameters] for i in range(0, len(currentSolutions), num_parameters)]
 
 
+for i in range(len(savedSolutions)):
+    savedSolutions[i] = float(savedSolutions[i])
+
 if (len(objectivesInput) != 0):
     objectivesInputPlaceholder = []
     for i in range(int(len(objectivesInput)/len(objectiveNames))):
@@ -149,9 +152,9 @@ objectivesInput.append(obj)
 
 
 test=len(savedObjectives)/len(objectiveNames)
-test2=float(nested_list[test-1])
+
 # savedSolutions.append(currentSolutions[len(savedObjectives) - len(parameterNames) + 1 : len(savedObjectives) + 1 ])#这是错的，因为1应该调整为和num(parameter)相关的 (num(parameter)-1)。
-savedSolutions.append(test2)
+savedSolutions.append(test)
 savedObjectives.append(obj)
 solutionNameList.append(solutionName)
 # savedSolutions.append(currentSolutions[len(savedObjectives) - 1  : len(savedObjectives) + (len(parameterNames)-1) ])

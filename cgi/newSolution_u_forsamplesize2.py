@@ -149,7 +149,7 @@ objectivesInput.append(obj)
 
 
 test=len(savedObjectives)/len(objectiveNames)
-test2=nested_list[test-1]
+test2=float(nested_list[test-1])
 # savedSolutions.append(currentSolutions[len(savedObjectives) - len(parameterNames) + 1 : len(savedObjectives) + 1 ])#这是错的，因为1应该调整为和num(parameter)相关的 (num(parameter)-1)。
 savedSolutions.append(test2)
 savedObjectives.append(obj)

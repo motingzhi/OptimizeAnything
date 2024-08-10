@@ -150,8 +150,8 @@ savedObjectives.append(obj)
 solutionNameList.append(solutionName)
 
 
-savedSolutions.append(currentSolutions[len(savedObjectives) - len(parameterNames) + 1 : len(savedObjectives) + 1 ])#这是错的，因为1应该调整为和num(parameter)相关的 (num(parameter)-1)。
-# savedSolutions.append(nested_list[len(savedObjectives)/len(objectiveNames)])
+# savedSolutions.append(currentSolutions[len(savedObjectives) - len(parameterNames) + 1 : len(savedObjectives) + 1 ])#这是错的，因为1应该调整为和num(parameter)相关的 (num(parameter)-1)。
+savedSolutions.append(nested_list[len(savedObjectives)/len(objectiveNames)])
 
 # savedSolutions.append(currentSolutions[len(savedObjectives) - 1  : len(savedObjectives) + (len(parameterNames)-1) ])
 

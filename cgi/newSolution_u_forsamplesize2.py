@@ -135,6 +135,9 @@ obj = [float(x) for x in objective_Measurements]
 for i in range(len(currentSolutions)):
     currentSolutions[i] = float(currentSolutions[i])
 
+nested_list = [currentSolutions[i:i + num_parameters] for i in range(0, len(currentSolutions), num_parameters)]
+
+
 if (len(objectivesInput) != 0):
     objectivesInputPlaceholder = []
     for i in range(int(len(objectivesInput)/len(objectiveNames))):
@@ -148,7 +151,9 @@ solutionNameList.append(solutionName)
 
 
 #savedSolutions.append(currentSolutions[len(savedObjectives) - len(parameterNames) + 1 : len(savedObjectives) + 1 ])这是错的，因为1应该调整为和num(parameter)相关的 (num(parameter)-1)。
-savedSolutions.append(currentSolutions[len(savedObjectives) - 1  : len(savedObjectives) + (len(parameterNames)-1) ])
+savedSolutions.append(currentSolutions[len(savedObjectives)/len(objectiveNames)])
+
+# savedSolutions.append(currentSolutions[len(savedObjectives) - 1  : len(savedObjectives) + (len(parameterNames)-1) ])
 
 #“：”后面是切片的结束位置，切片的结束位置不包括在切片得出的结果内。
 

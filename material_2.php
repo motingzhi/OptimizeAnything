@@ -153,7 +153,7 @@
                 <p>Specify Objectives</p>
             </div>
         </div>
-        <p><strong>Specify variables:</strong> You will need to add variables to the form.</p>
+        <p><strong>Specify objectives:</strong> Then add obejectives, which are what you want to achieve by changing variables.</p>
         
         <!-- Example Table -->
         <div class="text-center mb-4">

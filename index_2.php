@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container text-center top-bar">
         <h1>Welcome to the user study on the service "Optimize anything"!</h1>
-        <h4>This service will help you to make the best decision with AI.<br>Here is an example on how it works:</h4>
+        <h5>This service will help you to make the best decision with AI.<br>Here is an example on how it works:</h5>
     </div>
 
     <div class="container text-center centered-content image-section">

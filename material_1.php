@@ -131,7 +131,7 @@
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
-        <h5>Let us learn how to use this service</h5>
+        <h5>Let's learn how to use this service</h5>
         <nav class="nav">
             <a class="nav-link active" href="#">Specify</a>
             <a class="nav-link" href="#">Optimize</a>

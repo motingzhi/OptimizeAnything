@@ -39,14 +39,16 @@ require_once 'config.php';
 
         <div class="row justify-content-center">
             <div class="col-12">
-                <iframe src="InformedConsentForm (2).pdf" class="pdf-viewer" frameborder="0"></iframe>
+                <iframe src="InformedConsentForm (3).pdf" class="pdf-viewer" frameborder="0"></iframe>
             </div>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-12 text-left mt-3">
                 <div class="form-check">
-                    <p><strong>1. Please select one of below options:</strong></p>
+                    <p><strong>1. You understand that a fully anonymized subset of the data may be released to other research groups for the purposes mentioned above, if you give permission to it. </strong></p>
+                    <p>Please select one of below options</p>
+
                     <input class="form-check-input" type="radio" name="dataRelease" id="agreeRelease" value="agreeRelease">
                     <label class="form-check-label" for="agreeRelease">
                         I agree to releasing anonymized extracts from my data.
@@ -62,7 +64,7 @@ require_once 'config.php';
                 </div>
 
                 <div class="form-check mt-3">
-                    <p><strong>2. You understand that extracts from possible interviews/questionnaires may be quoted in subsequent publications, and I agree to anonymized quotation/publication of extracts from my interview/ questionnaires.</strong></p>
+                    <p><strong>2. You understand that extracts from possible interviews/questionnaires may be quoted in subsequent publications, and you agree to anonymized quotation/publication of extracts from the interview/ questionnaires.</strong></p>
                     <input class="form-check-input" type="radio" name="quotationPermission" id="agreeQuotation" value="agreeQuotation">
                     <label class="form-check-label" for="agreeQuotation">
                          I understand and agree.
@@ -74,7 +76,7 @@ require_once 'config.php';
                 </div>
 
                 <div class="form-check mt-3">
-                    <p><strong>3. By select this option, You confirm my participation in this study and agree to volunteer as a study subject:</strong></p>
+                    <p><strong>3. By selecting this option, you agree to all other terms in the PDF consent form displayed on this web, confirm your participation in this study and agree to volunteer as a study subject.</strong></p>
                     <input class="form-check-input" type="checkbox" id="confirmParticipation">
                     <label class="form-check-label" for="confirmParticipation">
                         I confirm my participation in this study and agree to volunteer as a study subject.

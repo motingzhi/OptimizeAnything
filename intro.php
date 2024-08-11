@@ -182,7 +182,7 @@ if (!isset($_SESSION['ProlificID'])) {
 </head>
 <body>
     <div class="top-bar">
-        <h3>Solve an optimization task</h3>
+        <h2>Solve an optimization task</h2>
         <!-- <div class="container d-flex justify-content-between align-items-center"> -->
         <!-- <div class="container">
 

@@ -31,11 +31,11 @@ require_once 'config.php';
 
     <div class="container">
         <h1 class="text-center">User Consent Form</h1>
-        <h2 class="text-center">Please read the form carefully</h2>
+        <h3 class="text-center">Please read the form carefully</h3>
 
-        <h2 class="text-center">In this task:</h2>
-        <h2 class="text-center">1. You need to perform an optimization task through using the service "optimize anything"  </h2>
-        <h2 class="text-center"> 2. Answer the questionnaire after the task is completed. </h2>
+        <h4 class="text-center">In this task:</h4>
+        <h4 class="text-center">1. You need to perform an optimization task through using the service "optimize anything"  </h4>
+        <h4 class="text-center"> 2. Answer the questionnaire after the task is completed. </h4>
 
         <div class="row justify-content-center">
             <div class="col-12">
@@ -82,6 +82,9 @@ require_once 'config.php';
                         I confirm my participation in this study and agree to volunteer as a study subject.
                     </label>
                 </div>
+
+                <p><strong>If you don't agree with this consent form, you can leave the study.</strong></p>
+
             </div>
         </div>
 

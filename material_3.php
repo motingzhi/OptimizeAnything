@@ -152,7 +152,8 @@
                 <p>Specify Objectives</p>
             </div>
         </div> -->
-        <p><strong>Start the optimization process:</strong> Evaluate solutions proposed by AI with the objectives you defined, until you find the optimal one.</p>
+        <p><strong>Start the optimization process:</strong> </p>
+        <p> Evaluate solutions proposed by AI with the objectives you defined, until you find the optimal one.</p>
         <p> The solutions are constructed by the variables you specified before</p>
 
         <!-- Example Table -->

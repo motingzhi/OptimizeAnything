@@ -307,7 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <thead>  
                 <tr>  
                 <th id="record-objective-name" width="40%"> Name </th> 
-                <th id="record-objective-unit" width="40%"> Unit(if have) </th>     
+                <th id="record-objective-unit" width="40%"> Unit (if any) </th>     
                 <th id="record-objective-lower-bound"> Minimum </th>  
                 <th id="record-objective-upper-bound"> Maximum </th> 
                 <th id="record-objective-min-max"> Minimize or Maximize </th>  

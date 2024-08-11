@@ -158,7 +158,7 @@
 
         <!-- Example Table -->
         <div class="text-center mb-4">
-            <img src="Pictures/objective.gif" alt="Specify variables" class="img-fluid">
+            <img src="Pictures/optimize.gif" alt="Specify variables" class="img-fluid">
         </div>
     </div>
 

@@ -45,8 +45,8 @@ require_once 'config.php';
 
         <div class="row justify-content-center">
             <div class="col-12 text-center mt-3">
-                <div class="form-check">
-                    <p>1. Please select one of below options:</p>
+                <div class="form-check" width:50%>
+                    <p><strong>1. Please select one of below options:</strong></p>
                     <input class="form-check-input" type="radio" name="dataRelease" id="agreeRelease" value="agreeRelease">
                     <label class="form-check-label" for="agreeRelease">
                         I agree to releasing anonymized extracts from my data.
@@ -62,19 +62,19 @@ require_once 'config.php';
                 </div>
 
                 <div class="form-check mt-3">
-                    <p>2. I understand that extracts from possible interviews/questionnaires may be quoted in subsequent publications if I give permission below:</p>
+                    <p><strong>2. I understand that extracts from possible interviews/questionnaires may be quoted in subsequent publications, and I agree to anonymized quotation/publication of extracts from my interview/ questionnaires.</strong></p>
                     <input class="form-check-input" type="radio" name="quotationPermission" id="agreeQuotation" value="agreeQuotation">
                     <label class="form-check-label" for="agreeQuotation">
-                        I agree to anonymized quotation/publication of extracts from my interview/ questionnaires.
+                         I understand and agree.
                     </label><br>
                     <input class="form-check-input" type="radio" name="quotationPermission" id="disagreeQuotation" value="disagreeQuotation">
                     <label class="form-check-label" for="disagreeQuotation">
-                        I do not agree to quotation/publication of extracts from my interview/ questionnaires.
+                        I do not agree.
                     </label>
                 </div>
 
                 <div class="form-check mt-3">
-                    <p>3. By select this option, I confirm my participation in this study and agree to volunteer as a study subject:</p>
+                    <p><strong>3. By select this option, I confirm my participation in this study and agree to volunteer as a study subject:</strong></p>
                     <input class="form-check-input" type="checkbox" id="confirmParticipation">
                     <label class="form-check-label" for="confirmParticipation">
                         I confirm my participation in this study and agree to volunteer as a study subject.

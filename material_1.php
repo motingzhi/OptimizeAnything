@@ -10,7 +10,7 @@
 <body>
     <div class="container mt-4">
         <h2>Let us learn how to use this service.</h2><br>
-        <p><strong>1. Specify variables:</strong> You will need to add variables into the form.</p>
+        <p><strong>1. Specify variables:</strong> You will need to add variables to the form.</p>
         <br>
         <br>
         <br>

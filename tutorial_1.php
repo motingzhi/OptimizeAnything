@@ -58,7 +58,7 @@
         <!-- Navigation Buttons -->
         <div class="row">
             <div class="col text-left">
-                <a href="index.html" class="btn btn-outline-primary">Previous</a>
+                <a href="index_2.php" class="btn btn-outline-primary">Previous</a>
             </div>
             <div class="col text-right">
                 <a href="material_1.php" class="btn btn-primary">I understand</a>

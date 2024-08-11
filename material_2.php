@@ -24,7 +24,7 @@
                 <a href="material_1.php" class="btn btn-outline-primary">Previous</a>
             </div>
             <div class="col text-right">
-                <a href="material_3.php" class="btn btn-primary">Next</a>
+                <a href="material_3.php" class="btn btn-primary">I understand</a>
             </div>
         </div>
     </div>

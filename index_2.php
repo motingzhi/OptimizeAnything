@@ -152,8 +152,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container text-center top-bar">
-        <h1>Welcome to the user study on the service "Optimize anything".</h1>
-        <p class="subheading">This service will help you to make the best decision with AI.<br>Here is an example on how it works:</p>
+        <h1>Welcome to the user study on the service "Optimize anything"!</h1>
+        <h3>This service will help you to make the best decision with AI.<br>Here is an example on how it works:</h3>
     </div>
 
     <div class="container text-center centered-content image-section">

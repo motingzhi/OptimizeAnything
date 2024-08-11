@@ -161,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="container text-center content-description">
-        <p>To start, please go through the tutorial first:</p>
+        <p>To start, please go through the tutorial of this service first:</p>
     </div>
 
     <div class="container card-section">
@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="tutorial_1.php" class="card-link">
                     <div class="card fixed-size-card">
                         <div class="card-body">
-                            <h4 class="card-title">Use this service to optimize the design of car material</h4>
+                            <h4 class="card-title">Optimize the design of car material</h4>
                         </div>
                     </div>
                 </a>

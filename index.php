@@ -42,48 +42,47 @@ require_once 'config.php';
                 <iframe src="InformedConsentForm (2).pdf" class="pdf-viewer" frameborder="0"></iframe>
             </div>
         </div>
+
         <div class="row justify-content-center">
             <div class="col-12 text-center mt-3">
                 <div class="form-check">
-                    <p>Please select one of below options:</p>
-                    <input class="form-check-input" type="checkbox" id="option1">
-                    <label class="form-check-label" for="option1">
+                    <p>1. Please select one of below options:</p>
+                    <input class="form-check-input" type="radio" name="dataRelease" id="agreeRelease" value="agreeRelease">
+                    <label class="form-check-label" for="agreeRelease">
                         I agree to releasing anonymized extracts from my data.
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="option2">
-                    <label class="form-check-label" for="option2">
+                    </label><br>
+                    <input class="form-check-input" type="radio" name="dataRelease" id="conditionalRelease" value="conditionalRelease">
+                    <label class="form-check-label" for="conditionalRelease">
                         I agree to releasing anonymized extracts from my data only if I am informed about the research groups in question. I have been told what that subset will be.
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="option3">
-                    <label class="form-check-label" for="option3">
+                    </label><br>
+                    <input class="form-check-input" type="radio" name="dataRelease" id="disagreeRelease" value="disagreeRelease">
+                    <label class="form-check-label" for="disagreeRelease">
                         I do not agree to releasing extracts from my data.
                     </label>
                 </div>
+
                 <div class="form-check mt-3">
-                    <p>Please select one of options:</p>
-                    <input class="form-check-input" type="checkbox" id="option4">
-                    <label class="form-check-label" for="option4">
-                        I agree to anonymized quotation/publication of extracts from my interview/questionnaires.
+                    <p>2. I understand that extracts from possible interviews/questionnaires may be quoted in subsequent publications if I give permission below:</p>
+                    <input class="form-check-input" type="radio" name="quotationPermission" id="agreeQuotation" value="agreeQuotation">
+                    <label class="form-check-label" for="agreeQuotation">
+                        I agree to anonymized quotation/publication of extracts from my interview/ questionnaires.
+                    </label><br>
+                    <input class="form-check-input" type="radio" name="quotationPermission" id="disagreeQuotation" value="disagreeQuotation">
+                    <label class="form-check-label" for="disagreeQuotation">
+                        I do not agree to quotation/publication of extracts from my interview/ questionnaires.
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="option5">
-                    <label class="form-check-label" for="option5">
-                        I do not agree to quotation/publication of extracts from my interview/questionnaires.
-                    </label>
-                </div>
+
                 <div class="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" id="option6">
-                    <label class="form-check-label" for="option6">
+                    <p>3. By select this option, I confirm my participation in this study and agree to volunteer as a study subject:</p>
+                    <input class="form-check-input" type="checkbox" id="confirmParticipation">
+                    <label class="form-check-label" for="confirmParticipation">
                         I confirm my participation in this study and agree to volunteer as a study subject.
                     </label>
                 </div>
             </div>
         </div>
+
         <div class="row justify-content-center">
             <div class="col-12 text-center mt-3">
                 <button id="startButton" class="btn btn-primary" disabled>Start</button>
@@ -96,32 +95,36 @@ require_once 'config.php';
             localStorage.clear();
         };
 
-        // Function to check if the Start button should be enabled or disabled
-        function updateStartButtonState() {
-            const option3 = document.getElementById('option3').checked;
-            const option5 = document.getElementById('option5').checked;
-            const option6 = document.getElementById('option6').checked;
+        const startButton = document.getElementById('startButton');
+        const confirmParticipation = document.getElementById('confirmParticipation');
 
-            const startButton = document.getElementById('startButton');
+        const dataReleaseOptions = document.getElementsByName('dataRelease');
+        const quotationOptions = document.getElementsByName('quotationPermission');
 
-            if (option3 || option5 || option6) {
-                startButton.disabled = true;
+        function checkConsent() {
+            const selectedDataRelease = Array.from(dataReleaseOptions).find(option => option.checked);
+            const selectedQuotation = Array.from(quotationOptions).find(option => option.checked);
+
+            if (selectedDataRelease && selectedQuotation && confirmParticipation.checked) {
+                if (
+                    selectedDataRelease.id !== 'disagreeRelease' &&
+                    selectedQuotation.id !== 'disagreeQuotation'
+                ) {
+                    startButton.disabled = false;
+                } else {
+                    startButton.disabled = true;
+                }
             } else {
-                startButton.disabled = false;
+                startButton.disabled = true;
             }
         }
 
-        // Event listeners for checkboxes
-        document.getElementById('option1').addEventListener('change', updateStartButtonState);
-        document.getElementById('option2').addEventListener('change', updateStartButtonState);
-        document.getElementById('option3').addEventListener('change', updateStartButtonState);
-        document.getElementById('option4').addEventListener('change', updateStartButtonState);
-        document.getElementById('option5').addEventListener('change', updateStartButtonState);
-        document.getElementById('option6').addEventListener('change', updateStartButtonState);
+        dataReleaseOptions.forEach(option => option.addEventListener('change', checkConsent));
+        quotationOptions.forEach(option => option.addEventListener('change', checkConsent));
+        confirmParticipation.addEventListener('change', checkConsent);
 
-        // Navigate to the next page when the start button is clicked
         document.getElementById('startButton').addEventListener('click', function() {
-            window.location.href = 'index_id.php';
+            window.location.href = 'index_id.php';  // 跳转到index_id.php页面
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

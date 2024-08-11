@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container text-center top-bar">
-        <h1>Welcome to the user study on the service "Optimize anything" from prolific.</h1>
+        <h1>Welcome to the user study on the service "Optimize anything".</h1>
         <p class="subheading">This service will help you to make the best decision with AI.<br>Here is an example on how it works:</p>
     </div>
 

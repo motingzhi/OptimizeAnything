@@ -111,6 +111,8 @@
             max-height: calc(100vh - 350px);
             margin-top: 20%; /* Positioned 100px below the top-bar */
             margin-left: 20%;
+            margin-bottom: 10%;
+
             width: 60%;
             text-align: center;
         }

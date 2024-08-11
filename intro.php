@@ -176,6 +176,12 @@ if (!isset($_SESSION['ProlificID'])) {
             min-width: 100px;
             max-width: 200px;
         }
+        .underline-text {
+        display: inline-block;
+        font-weight: bold;
+        border-bottom: 2px solid black; /* Creates the underline */
+        margin: 0 5px; /* Adds some spacing around the text */
+    }
 
 
     </style>
@@ -220,17 +226,16 @@ if (!isset($_SESSION['ProlificID'])) {
                         </br>
 
                         <label > How to solve the optimization task using our service?</label></br>
-                            1. Specify
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
-                            and 
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
-                            for the task to AI.
-                            <br>
-                            2. AI will help you to change 
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
-                            to achieve your
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
-                            .
+                                                    1. Specify
+                                <span class="underline-text">Variables</span>
+                                and
+                                <span class="underline-text">Objectives</span>
+                                for the task to AI.
+                                <br>
+                                2. AI will help you to change
+                                <span class="underline-text">Variables</span>
+                                to achieve your
+                                <span class="underline-text">Objectives</span>.
                         </div>
                         
 

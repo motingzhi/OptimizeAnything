@@ -83,6 +83,7 @@ require_once 'config.php';
                     </label>
                 </div>
 
+                <br>
                 <p><strong>If you don't agree with this consent form, you can leave the study.</strong></p>
 
             </div>

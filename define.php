@@ -313,7 +313,7 @@ if (!isset($_SESSION['ProlificID'])) {
                     <thead>  
                         <tr>  
                             <th id="record-parameter-name" width="40%"> Variable Name </th>   
-                            <th id="record-parameter-unit" width="40%"> Unit(if have) </th>   
+                            <th id="record-parameter-unit" width="40%"> Unit (if any) </th>   
                             <th id="record-parameter-lower-bound"> Minimum </th>  
                             <th id="record-parameter-upper-bound"> Maximum </th>  
                             <th class="delete"> Delete </th>   
@@ -446,12 +446,11 @@ if (!isset($_SESSION['ProlificID'])) {
                 
                 var paramName = paramRowEntries[0];
                 var unit = paramRowEntries[1];
-                if (unit === "None"){
+                if (unit === "None" || unit === "" || unit === null) {
                     parameterNames.push(paramName);
                 } 
                 else {
-                    parameterNames.push(paramName+"/"+unit);
-
+                    parameterNames.push(paramName + "/" + unit);
                 }
 
                 var paramLowerBound = paramRowEntries[2];

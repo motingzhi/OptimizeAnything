@@ -152,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="container text-center top-bar">
-        <h1>Optimize Anything!</h1>
+        <h1>Welcome to the user study on the service "Optimize anything" from prolific.</h1>
         <p class="subheading">This service will help you to make the best decision with AI.<br>Here is an example on how it works:</p>
     </div>
 
@@ -161,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="container text-center content-description">
-        <p>To start, select an example that interests you to go through the tutorial first.</p>
+        <p>To start, please go through the tutorial first:</p>
     </div>
 
     <div class="container card-section">
@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a href="tutorial_1.php" class="card-link">
                     <div class="card fixed-size-card">
                         <div class="card-body">
-                            <h4 class="card-title">Optimize car material</h4>
+                            <h4 class="card-title">Use this service to optimize the design of car material</h4>
                         </div>
                     </div>
                 </a>

@@ -9,31 +9,54 @@
     <style>
         .top-bar {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 5%;
+            left: 20%;
+            right: 20%;
+            width: 60%;
             background: transparent;
-            padding: 10px 0;
+            padding: 0;
             box-shadow: none;
             z-index: 1000;
         }
 
+        .top-bar h5 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 10%; /* Distance between title and nav */
+        }
+
+        .top-bar .nav {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Control the width of the progress bar */
+        }
+
         .top-bar .nav-link {
             color: #6c757d;
-            font-weight: bold;
-            text-transform: uppercase;
+            background-color: #e9ecef;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 33.333333%; /* Ensure consistent width for each link */
+            margin: 0px;
+            flex-grow: 1;
         }
 
         .top-bar .nav-link.active {
-            color: #007bff;
+            color: white;
+            background-color: #007bff;
+            font-weight: bold;
         }
 
         .stepper {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 5vh; /* Distance between stepper and content below it */
             width: 80%;
             margin: 0 auto;
-            margin-top: 60px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+
         }
 
         .step {
@@ -55,10 +78,22 @@
 
         .step span {
             display: inline-block;
-            padding: 10px 20px;
+            width: 50px;  /* Fixed width */
+            height: 50px;  /* Fixed height */
+            line-height: 50px;  /* Match the height to center the text */
+            text-align: center;  /* Center the text horizontally */
+            color: #8C8E97;
             background: #f8f9fa;
-            border-radius: 50%;
+            border-radius: 50%;  /* Make it circular */
             border: 2px solid #ddd;
+        }
+
+        .step p {
+            color: #8C8E97; /* Specify the color */
+        }
+
+        .step.active p {
+            color: #007bff; /* Specify the color for active step */
         }
 
         .step.active span {
@@ -68,45 +103,62 @@
             background: white;
         }
 
-        .content {
-            margin-top: 140px;
+        .centered-content {
+            overflow-y: auto;
+            max-height: calc(100vh - 350px);
+            margin-top: 20%; /* Positioned 100px below the top-bar */
+            margin-left: 20%;
+            width: 60%;
+            text-align: center;
+        }
+
+        .bottom-bar {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            background: #f8f9fa;
+            padding: 10px 0;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .bottom-bar .row {
+            width: 100%;
+            max-width: 60%;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
-        <div class="container">
-            <nav class="nav justify-content-center">
-                <a class="nav-link active" href="#">Specify</a>
-                <a class="nav-link" href="#">Optimize</a>
-                <a class="nav-link" href="#">Get results</a>
-            </nav>
-        </div>
+        <h5>Let us learn how to use this service</h5>
+        <nav class="nav">
+            <a class="nav-link active" href="#">Specify</a>
+            <a class="nav-link" href="#">Optimize</a>
+            <a class="nav-link" href="#">Get results</a>
+        </nav>
     </div>
 
-    <!-- Stepper -->
-    <div class="stepper">
-        <div class="step active">
-            <span>1</span>
-            <p>Specify Variables</p>
+    <div class="centered-content">
+        <div class="stepper">
+            <div class="step active">
+                <span>1</span>
+                <p>Specify Variables</p>
+            </div>
+            <div class="step">
+                <span>2</span>
+                <p>Specify Objectives</p>
+            </div>
         </div>
-        <div class="step">
-            <span>2</span>
-            <p>Specify Objectives</p>
-        </div>
-    </div>
-
-    <div class="container content">
-        <h2>Let us learn how to use this service.</h2><br>
         <p><strong>Specify variables:</strong> You will need to add variables to the form.</p>
         
         <!-- Example Table -->
         <div class="text-center mb-4">
             <img src="Pictures/varible.gif" alt="Specify variables" class="img-fluid">
         </div>
-        
-        <!-- Navigation Buttons -->
+    </div>
+
+    <div class="bottom-bar">
         <div class="row">
             <div class="col text-left">
                 <a href="tutorial_1.php" class="btn btn-outline-primary">Previous</a>

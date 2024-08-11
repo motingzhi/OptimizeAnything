@@ -165,10 +165,10 @@
     <div class="bottom-bar">
         <div class="row">
             <div class="col text-left">
-                <a href="material_1.php" class="btn btn-outline-primary">Previous</a>
+                <a href="material_2.php" class="btn btn-outline-primary">Previous</a>
             </div>
             <div class="col text-right">
-                <a href="material_3.php" class="btn btn-primary">I understand</a>
+                <a href="material_4.php" class="btn btn-primary">I understand</a>
             </div>
         </div>
     </div>

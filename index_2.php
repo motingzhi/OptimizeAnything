@@ -161,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="container text-center content-description">
-        <p>To start, please go through the tutorial of this service first:</p>
+    <h5>To start, please go through the tutorial of this service first:</h5>
     </div>
 
     <div class="container card-section">

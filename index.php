@@ -30,8 +30,8 @@ require_once 'config.php';
 <body>
 
     <div class="container">
-        <h1 class="text-center">Welcome to the user study on the service "Optimize anything"!😄</h1>
-        <h3 class="text-center">First please read and agree with the consent form.</h3>
+        <h1 class="text-center">Welcome to the user study on the service "Optimize anything"!😄</h1><br><br>
+        <h3 class="text-center">First please read the task description and agree with the consent form.</h3><br>
 
         <h4 class="text-center">In this task:</h4>
         <h4 class="text-center">1. You need to perform an optimization task through using the service "optimize anything"  </h4>

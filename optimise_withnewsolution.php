@@ -40,77 +40,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         .top-bar {
-                    position: fixed;
-                    top: 5%;
-                    left: 20%;
-                    right: 20%;
-                    width: 60%;
-                    background: transparent;
-                    padding: 0;
-                    box-shadow: none;
-                    z-index: 1000;
-                }
-                .top-bar h5 {
-                    text-align: center;
-                    margin: 0;
-                    margin-bottom: 10%; /* Distance between title and nav */
-                }
-                .top-bar .nav {
-                    display: flex;
-                    justify-content: center;
-                    width: 100%; /* Control the width of the progress bar */
-                }
-                
-                .top-bar .nav-link {
-                    color: #6c757d;
-                    background-color: #e9ecef;
-                    padding: 10px 20px;
-                    text-align: center;
-                    width: 100%;
-                    max-width: 33.333333%; /* Ensure consistent width for each link */
-                    margin: 0px;
-                    flex-grow: 1;
-                }
-                .top-bar .nav-link.active {
-                    color: white;
-                    background-color: #007bff;
-                    font-weight: bold;
-                }
-                .top-bar .nav-link.passed {
-                    color: white;
-                    background-color: #82AAF2;
-                }
+            position: fixed;
+            top: 5%;
+            left: 20%;
+            right: 20%;
+            width: 60%;
+            background: transparent;
+            padding: 0;
+            box-shadow: none;
+            z-index: 1000;
+        }
+        .top-bar h5 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 10%; /* Distance between title and nav */
+        }
+        .top-bar .nav {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Control the width of the progress bar */
+        }
+        
+        .top-bar .nav-link {
+            color: #6c757d;
+            background-color: #e9ecef;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 33.333333%; /* Ensure consistent width for each link */
+            margin: 0px;
+            flex-grow: 1;
+        }
+        .top-bar .nav-link.active {
+            color: white;
+            background-color: #007bff;
+            font-weight: bold;
+        }
+        .top-bar .nav-link.passed {
+            color: white;
+            background-color: #82AAF2;
+        }
 
-                .centered-content {
-                        overflow-y: auto; /* 添加垂直滚动条 */
-                        max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
-                        margin-top: calc(100vh / 10); /* Offset by the height of top-bar */
-                        text-align: center;
-                        width: auto; /* Content width as 1/3 of the page */
-                        min-width: 50%;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
+        .centered-content {
+                overflow-y: auto; /* 添加垂直滚动条 */
+                max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+                margin-top: calc(100vh / 10); /* Offset by the height of top-bar */
+                text-align: center;
+                width: auto; /* Content width as 1/3 of the page */
+                min-width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-                    .bottom-bar {
-                        position: fixed;
-                        /* margin-top: 100px; */
-                        bottom: 0px;
-                        width: 100%;
-                        background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
-                        padding: 10px 0;
-                        /* box-shadow: none; */
-                        /* Shadow for the bottom bar */
+            .bottom-bar {
+                position: fixed;
+                /* margin-top: 100px; */
+                bottom: 0px;
+                width: 100%;
+                background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
+                padding: 10px 0;
+                /* box-shadow: none; */
+                /* Shadow for the bottom bar */
 
-                        box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
-                    }
+                box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
+            }
 
-                    .bottom-bar .row {
-                        width: 100%;
-                        max-width: 60%;
-                        margin: 0 auto;
-                    }
-      
+            .bottom-bar .row {
+                width: 100%;
+                max-width: 60%;
+                margin: 0 auto;
+            }
+
 
         
 
@@ -183,14 +183,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div id="background">
 <div class="top-bar">
-<nav class="nav">
+            <nav class="nav">
                 <a class="nav-link passed " href="#">Specify</a>
                 <a class="nav-link active" href="#">Optimize</a>
                 <a class="nav-link" href="#">Get results</a>
             </nav>
 </div>
 
- <div class="centered-content">
+<div class="centered-content">
     <div id="RequirementDisplay"></div>
     <div id="dataDisplay"></div>
 
@@ -226,7 +226,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button class="btn btn-primary" id="evaluate-button" style="width: 40%;" onclick="evaluateSolution()">I want to evaluate this</button>
         <button class="btn btn-outline-primary" id="skip-button" style="width: 40%;" onclick="newSolution()">Skip. I know it's not good</button>
     </div>
+
     <br>
+
     <div id="evaluate-solution" style="display: none;">
         <label for="solution_name">Name the alternative: </label>
         <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
@@ -273,6 +275,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </tbody>
         </table>
     </div>
+
     <div id="form-options-1" style="display: inline-block; margin: 0 auto;">
             <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Give me the next one</button>
             <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">I want to refine this</button>
@@ -293,13 +296,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div id="loadingContainer">
-    <div id="loadingIcon"></div>
-    <div id="loadingText">Loading...</div>
+        <div id="loadingIcon"></div>
+        <div id="loadingText">Loading...</div>
     </div>
 
-    </div>
-    </div>
-    </div>
+ 
+</div>
+
 
     <script>
         var userID = '<?php echo $userID; ?>';

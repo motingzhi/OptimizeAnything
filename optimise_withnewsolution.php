@@ -257,10 +257,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br>
     <div class="container">
         <div id="evaluate-solution" style="display: none;">
-            <label for="solution_name"><strong>Name the alternative</strong> </label><br>
+            <label for="solution_name">Name the alternative </label><br>
             <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
-            <label for="solution_name"><strong>Enter your measurements</strong> </label><br>
+            <label for="solution_name">Enter your measurements</label><br>
             <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
                 <thead>  
                     <tr>  

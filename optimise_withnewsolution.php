@@ -236,72 +236,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <br>
+    <div class="container">
+        <div id="evaluate-solution" style="display: none;">
+            <label for="solution_name">Name the alternative: </label>
+            <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
+            <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
 
-    <div id="evaluate-solution" style="display: none;">
-        <label for="solution_name">Name the alternative: </label>
-        <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
+        <div id="form-options-1" style="display: inline-block; margin: 0 auto;">
+                <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Give me the next one</button>
+                <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">I want to refine this</button>
+        </div>
 
+        
+        <div id="form-options-2" style="display: inline-block; margin: 0 auto;">
+                <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
+        </div>
 
+        <div id="form-options-3" style="display: inline-block; margin: 0 auto;">
+                <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
+        </div>
 
-        <!-- 原有的用来显示measurement的代码  -->
-
-        <!-- <label for="obj1" class="objective_1_name"></label>
-        <input size="30" type="text" id="obj1" name="obj1" placeholder="Enter measurement"><br>
-        <label for="obj2" class="objective_2_name"></label>
-        <input size="30" type="text" id="obj2" name="obj2" placeholder="Enter measurement"><br>
-        <br> -->
-
-        <!-- 原有的用来显示measurement的代码  -->
-
-
-
-        <!-- 我新加的 -->
-
-        <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
-            <!-- <thead>  
-                <tr>  
-                <th id="record-parameter-name" width="40%"> Name </th>   
-                <th id="record-parameter-lower-bound"> Minimum </th>  
-                <th id="record-parameter-upper-bound"> Maximum </th>  
-                </tr>  
-            </thead>   -->
-            
-            <tbody>
-            <!-- <tr>
-                <td contenteditable="true" class="record-data" id="display-measurement-name"></td>
-                <td contenteditable="true" class="record-data" id="record-measurement"></td>
-            </tr> -->
-            <!-- <tr>
-                <td contenteditable="true" class="record-data" id="display-measurement-name"></td>
-                <td contenteditable="true" class="record-data" id="record-measurement"></td>
-            </tr> -->
-            <!-- <tr>
-                <td contenteditable="true" class="record-data" id="record-parameter-name">Number of flight connections</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-lower-bound">0</td>
-                <td contenteditable="true" class="record-data" id="record-parameter-upper-bound">3</td>
-            </tr> -->
-            </tbody>
-        </table>
+        <br>
+        <div id="done-button" class="btn btn-success" style="text-align: right;">
+            <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
+        </div>
     </div>
 
-    <div id="form-options-1" style="display: inline-block; margin: 0 auto;">
-            <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Give me the next one</button>
-            <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">I want to refine this</button>
-    </div>
 
-    
-    <div id="form-options-2" style="display: inline-block; margin: 0 auto;">
-            <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
-    </div>
 
-    <div id="form-options-3" style="display: inline-block; margin: 0 auto;">
-            <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
-    </div>
-
-    <br>
-    <div id="done-button" class="btn btn-success" style="text-align: right;">
-        <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
-    </div>
 
     <div id="loadingContainer">
         <div id="loadingIcon"></div>

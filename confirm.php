@@ -294,6 +294,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             margin: 10px 0;
         }
+
+        .objective input[type="radio"] {
+            transform: scale(1.5); /* 将单选按钮放大1.5倍 */
+            margin-right: 10px; /* 调整与文本的间距 */
+        }
         .objective-btn {
             transition: background-color 0.3s, color 0.3s;
         }

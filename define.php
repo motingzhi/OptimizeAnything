@@ -283,7 +283,18 @@ if (!isset($_SESSION['ProlificID'])) {
             visibility: visible;
             opacity: 1;
         }
-
+        .underline {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border-bottom: 2px solid;
+            font-size: 1em;
+        }
+        .underline-text {
+        display: inline-block;
+        font-weight: bold;
+        border-bottom: 2px solid black; /* Creates the underline */
+        margin: 0 5px; /* Adds some spacing around the text */
+    }
     </style>
 </head>
 <body>
@@ -318,16 +329,11 @@ if (!isset($_SESSION['ProlificID'])) {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                         You want to change
-                        <span class="tooltip-container" id="0">
-                            <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
-                            <span class="tooltip-text">to be specified in the table below</span>
-                        </span>
+                        <span class="underline-text">Variables (To be specified)</span>
                         to minimize/maximize
                         <!-- <span class="normal"></span> -->
-                        <span class="tooltip-container" id="1">
-                            <input type="text" id="defineFor" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
-                            <span class="tooltip-text">to be specified in the table below</span>
-                        </span>
+                        <span class="underline-text">Objectives (To be specified)</span>
+
                 </div>
                         
             </div>

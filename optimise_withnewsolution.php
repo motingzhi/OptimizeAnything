@@ -197,6 +197,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="centered-content">
     <div class="container">
+    <br>
+        <label><strong>Optimize</strong> </label>
+        <br>
 
         <div id="RequirementDisplay"></div>
         <div id="dataDisplay"></div>

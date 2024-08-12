@@ -243,6 +243,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="solution_name"><strong>Enter your measurements</strong> </label><br>
             <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
+                <thead>  
+                    <tr>  
+                    <th id="record-objective-name" width="40%">Objective</th> 
+                    <th id="record-objective-range" width="40%">Ranges of your objective </th>     
+                    <th id="record-objective-measurement" width="40%"> Enter measurements </th>    
+                    </tr>  
+                </thead>  
                 <tbody>
                 </tbody>
             </table>

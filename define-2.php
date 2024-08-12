@@ -394,13 +394,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 <div class="bottom-bar">
     <div class="row">
+    <div class="col text-left">
+    <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify Variables</button>
+    </div>
     <div class="col text-right">
     <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Save</button>
     </div>
 
-    <div class="col text-left">
-    <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify Variables</button>
-    </div>
+ 
         </div>
     </div>
 

@@ -47,6 +47,10 @@
             background-color: #007bff;
             font-weight: bold;
         }
+        .top-bar .nav-link.passed {
+            color: white;
+            background-color: #82AAF2;
+        }
 
         .stepper {
             display: flex;
@@ -135,7 +139,7 @@
     <div class="top-bar">
         <h5>Let's learn how to use this service</h5>
         <nav class="nav">
-            <a class="nav-link" href="#">Specify</a>
+            <a class="nav-link passed" href="#">Specify</a>
             <a class="nav-link active" href="#">Optimize</a>
             <a class="nav-link" href="#">Get results</a>
         </nav>

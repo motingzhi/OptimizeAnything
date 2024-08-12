@@ -112,7 +112,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
 
-        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+        }
 
         .custom-card {
             margin: 10px; /* 外边距 */
@@ -191,8 +196,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <div class="centered-content">
-    <div id="RequirementDisplay"></div>
-    <div id="dataDisplay"></div>
+    <div class="container">
+
+        <div id="RequirementDisplay"></div>
+        <div id="dataDisplay"></div>
+    </div>
 
     <div class="container">
         <div class="card custom-card">

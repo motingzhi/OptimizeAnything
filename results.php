@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             position: fixed;
             /* margin-top: 100px; */
             bottom: 20px;
-            width: 100%;
+            width: 60%;
             background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
             padding: 10px 0;
             /* box-shadow: none; */

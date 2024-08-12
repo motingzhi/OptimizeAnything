@@ -360,7 +360,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	
 	var displayDiv = document.getElementById("dataDisplay");
-        displayDiv.innerHTML =  "You have evaluated  <strong>" + parseInt(savedSolutions.length/parameterNames.length) + " alternatives.</strong>" + "<br>";
+        displayDiv.innerHTML =  "<br><br>" + "You have evaluated  <strong>" + parseInt(savedSolutions.length/parameterNames.length) + " alternatives.</strong>" + "<br><br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
     RequirementDisplay.innerHTML =  "1. Let AI suggest alternatives of solutions with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " alternatives</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";

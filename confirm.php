@@ -276,12 +276,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             flex-direction: column;
             align-items: center;
         }
-        .variable, .objective, .to-objective {
+        /* .variable, .objective, .to-objective {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        } */
+        .variable, .to-objective {
             display: block;
             width: 100%;
             margin: 10px 0;
             transition: background-color 0.3s;
         }
+
+        .objective {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+
+        .objective input[type="radio"] {
+            margin-right: 10px;
+        }
+
+
         .plus-sign {
             font-size: 24px;
             font-weight: bold;
@@ -474,37 +493,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ctx.lineTo(toX, toY);
             }
 
+            // function drawLines() {
+            //     const canvas = document.getElementById('canvas');
+            //     const ctx = canvas.getContext('2d');
+            //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            //     const toObjectiveElement = document.getElementById('to-objective');
+            //     const variablesElements = document.querySelectorAll('.variables .to-objective'); // 修改选择器
+            //     const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
+
+            //     const toObjectiveRect = toObjectiveElement.getBoundingClientRect();
+            //     const containerRect = document.getElementById('container2').getBoundingClientRect();
+
+            //     variablesElements.forEach(variableElement => {
+            //         const variableRect = variableElement.getBoundingClientRect();
+            //         const fromX = variableRect.right - containerRect.left;
+            //         const fromY = variableRect.top + variableRect.height / 2 - containerRect.top;
+            //         const toX = toObjectiveRect.left - containerRect.left;
+            //         const toY = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
+            //         ctx.beginPath();
+            //         drawArrow(ctx, fromX, fromY, toX, toY);
+            //         ctx.stroke();
+            //     });
+
+            //     const fromX2 = toObjectiveRect.right - containerRect.left;
+            //     const fromY2 = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
+            //     const toX2 = objectiveElement.getBoundingClientRect().left - containerRect.left;
+            //     const toY2 = objectiveElement.getBoundingClientRect().top + objectiveElement.getBoundingClientRect().height / 2 - containerRect.top;
+            //     ctx.beginPath();
+            //     drawArrow(ctx, fromX2, fromY2, toX2, toY2);
+            //     ctx.stroke();
+            // }
+
             function drawLines() {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    const toObjectiveElement = document.getElementById('to-objective');
-    const variablesElements = document.querySelectorAll('.variables .to-objective'); // 修改选择器
-    const objectiveElement = document.querySelectorAll('.objective')[selectedObjectiveIndex];
+                const toObjectiveElement = document.getElementById('to-objective');
+                const variablesElements = document.querySelectorAll('.variables .to-objective'); 
+                const selectedRadio = document.querySelectorAll('input[name="objectiveRadio"]')[selectedObjectiveIndex];
+                const objectiveElement = selectedRadio.closest('.objective');
 
-    const toObjectiveRect = toObjectiveElement.getBoundingClientRect();
-    const containerRect = document.getElementById('container2').getBoundingClientRect();
+                const toObjectiveRect = toObjectiveElement.getBoundingClientRect();
+                const containerRect = document.getElementById('container2').getBoundingClientRect();
 
-    variablesElements.forEach(variableElement => {
-        const variableRect = variableElement.getBoundingClientRect();
-        const fromX = variableRect.right - containerRect.left;
-        const fromY = variableRect.top + variableRect.height / 2 - containerRect.top;
-        const toX = toObjectiveRect.left - containerRect.left;
-        const toY = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
-        ctx.beginPath();
-        drawArrow(ctx, fromX, fromY, toX, toY);
-        ctx.stroke();
-    });
+                variablesElements.forEach(variableElement => {
+                    const variableRect = variableElement.getBoundingClientRect();
+                    const fromX = variableRect.right - containerRect.left;
+                    const fromY = variableRect.top + variableRect.height / 2 - containerRect.top;
+                    const toX = toObjectiveRect.left - containerRect.left;
+                    const toY = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
+                    ctx.beginPath();
+                    drawArrow(ctx, fromX, fromY, toX, toY);
+                    ctx.stroke();
+                });
 
-    const fromX2 = toObjectiveRect.right - containerRect.left;
-    const fromY2 = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
-    const toX2 = objectiveElement.getBoundingClientRect().left - containerRect.left;
-    const toY2 = objectiveElement.getBoundingClientRect().top + objectiveElement.getBoundingClientRect().height / 2 - containerRect.top;
-    ctx.beginPath();
-    drawArrow(ctx, fromX2, fromY2, toX2, toY2);
-    ctx.stroke();
-}
+                const fromX2 = toObjectiveRect.right - containerRect.left;
+                const fromY2 = toObjectiveRect.top + toObjectiveRect.height / 2 - containerRect.top;
+                const toX2 = objectiveElement.getBoundingClientRect().left - containerRect.left;
+                const toY2 = objectiveElement.getBoundingClientRect().top + objectiveElement.getBoundingClientRect().height / 2 - containerRect.top;
+                ctx.beginPath();
+                drawArrow(ctx, fromX2, fromY2, toX2, toY2);
+                ctx.stroke();
+            }
+
 
             function updateSelectedObjective(index) {
                 selectedObjectiveIndex = index;
@@ -519,30 +572,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 drawLines();
             }
 
+//             function populateFields() {
+//     const variablesContainer = document.getElementById('variables');
+//     parameterNames.forEach((variable, index) => {
+//         const div = document.createElement('div');
+//         div.className = 'to-objective';  // 使用与 to-objective 相同的样式
+//         div.textContent = variable;
+//         variablesContainer.appendChild(div);
+
+//         if (index < parameterNames.length - 1) {
+//             const plusSign = document.createElement('div');
+//             plusSign.className = 'plus-sign';
+//             plusSign.textContent = '+';
+//             variablesContainer.appendChild(plusSign);
+//         }
+//     });
+
+//     const objectivesContainer = document.getElementById('objectives');
+//     objectiveNames.forEach((objective, index) => {
+//         const button = document.createElement('button');
+//         button.className = 'btn btn-secondary objective';
+//         button.textContent = objective;
+//         button.onclick = () => updateSelectedObjective(index);
+//         objectivesContainer.appendChild(button);
+//     });
+
+//     // 默认选中第一个objective
+//     updateSelectedObjective(selectedObjectiveIndex);
+// }
+
+
             function populateFields() {
-    const variablesContainer = document.getElementById('variables');
-    parameterNames.forEach((variable, index) => {
-        const div = document.createElement('div');
-        div.className = 'to-objective';  // 使用与 to-objective 相同的样式
-        div.textContent = variable;
-        variablesContainer.appendChild(div);
+                const variablesContainer = document.getElementById('variables');
+                parameterNames.forEach((variable, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'to-objective';  // 使用与 to-objective 相同的样式
+                    div.textContent = variable;
+                    variablesContainer.appendChild(div);
 
-        if (index < parameterNames.length - 1) {
-            const plusSign = document.createElement('div');
-            plusSign.className = 'plus-sign';
-            plusSign.textContent = '+';
-            variablesContainer.appendChild(plusSign);
-        }
-    });
+                    if (index < parameterNames.length - 1) {
+                        const plusSign = document.createElement('div');
+                        plusSign.className = 'plus-sign';
+                        plusSign.textContent = '+';
+                        variablesContainer.appendChild(plusSign);
+                    }
+                });
 
-    const objectivesContainer = document.getElementById('objectives');
-    objectiveNames.forEach((objective, index) => {
-        const button = document.createElement('button');
-        button.className = 'btn btn-secondary objective';
-        button.textContent = objective;
-        button.onclick = () => updateSelectedObjective(index);
-        objectivesContainer.appendChild(button);
-    });
+                const objectivesContainer = document.getElementById('objectives');
+                objectiveNames.forEach((objective, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'objective';
+
+                    // 创建单选按钮
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = 'objectiveRadio';
+                    radio.value = index;
+                    radio.onclick = () => updateSelectedObjective(index);
+
+                    const label = document.createElement('label');
+                    label.textContent = objective;
+                    label.style.marginLeft = '10px';
+
+                    div.appendChild(radio);
+                    div.appendChild(label);
+                    objectivesContainer.appendChild(div);
+                });
 
     // 默认选中第一个objective
     updateSelectedObjective(selectedObjectiveIndex);

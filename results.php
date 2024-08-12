@@ -129,9 +129,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div id="container"></div>
         <!-- <button class="btn btn-outline-primary" id="download-button">Download</button> -->
+        <br>
+        <br>
 
-        <p>Please don't close this window yet! You will need to answer the first question of questionnaire based on the result here</p>
+        <p>Please DO NOT close this window yet! You will need to answer the first question of questionnaire based on the result here</p>
         <p>After answering the questionnaire, you can close this window.</p>
+        <br>
+        <br>
 
 
         <div style="display: flex; justify-content: space-between;">

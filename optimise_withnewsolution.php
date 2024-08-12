@@ -347,7 +347,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         displayDiv.innerHTML =  "You have evaluated " + parseInt(savedSolutions.length/parameterNames.length) + " alternatives." + "<br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
-    RequirementDisplay.innerHTML =  "Let AI suggest alternatives of solutions with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " alternatives</strong> to proceed." + "<br>" + "Then, after several more evaluations, you will see the <strong>Done button<strong>, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";
+    RequirementDisplay.innerHTML =  "Let AI suggest alternatives of solutions with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " alternatives</strong> to proceed." + "<br>" + "Then, after several more evaluations, you will see the <strong>Done button</strong>, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";
 
 
     if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)

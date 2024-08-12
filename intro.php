@@ -258,7 +258,12 @@ if (!isset($_SESSION['ProlificID'])) {
                 <div class="card-body">
                         <label > Imagine you are a runner preparing for a marathon. You want to optimize your diet to lose weight and stay healthy at the same time.</label></br>
                 </div>
-            </div>
+        </div>
+
+        <div class="card custom-card">
+            <img src="Pictures/diet.jpg" alt="diet" class="img-fluid">
+
+        </div>
         <!-- <h2 style="margin-top: 20px;">Specify variables</h2> -->
         <!-- <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p> -->
         <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>

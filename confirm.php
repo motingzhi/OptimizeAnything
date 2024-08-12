@@ -298,53 +298,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* 隐藏默认的单选按钮 */
-        .objective input[type="radio"] {
-            appearance: none;
-            -webkit-appearance: none;
-            width: 100%; /* 使其占满父元素的宽度 */
-            height: 100%; /* 使其占满父元素的高度 */
-            margin-right: 10px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        /* 自定义单选按钮样式 */
-        .objective input[type="radio"]::before {
-            content: '';
-            display: inline-block;
-            width: 30px;  /* 设置自定义单选按钮的宽度 */
-            height: 30px; /* 设置自定义单选按钮的高度 */
-            border-radius: 50%;
-            background-color: #ccc; /* 默认颜色 */
-            border: 2px solid #007bff; /* 边框颜色 */
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-        }
-
-        /* 选中的单选按钮样式 */
-        .objective input[type="radio"]:checked::before {
-            background-color: #007bff; /* 选中后的背景颜色 */
-            box-shadow: 0 0 0 4px white inset; /* 内部阴影模拟选中状态 */
-        }
-
-        /* 确保单选按钮与按钮对齐 */
-        .objective {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
-
-        .objective-btn {
-            flex-grow: 1; /* 使按钮占据剩余空间 */
-            margin-left: 10px;
-            padding: 10px 20px;
-            font-size: 16px; /* 根据需要调整 */
-            height: 30px; /* 与单选按钮大小一致 */
-            line-height: 30px; /* 使文本垂直居中 */
-        }
 
         .plus-sign {
             font-size: 24px;

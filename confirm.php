@@ -380,14 +380,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <div class="bottom-bar">
-<div class="row">
-<div class="col text-left">
+    <div class="row">
+            <div class="col text-left">
             <button class="btn btn-outline-primary" id="back-button" onclick="goBack()" style="width: 20%;">Back</button>
             </div>
-            <div class="col text-left">
-
+            <div class="col text-right">
             <button class="btn btn-primary" id="confirm-definitions-button" onclick="confirmDefinitions()" style="width: 20%;">Confirm</button>
-        </div>
+            </div>
         </div>
 </div>
     

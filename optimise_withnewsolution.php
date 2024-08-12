@@ -130,6 +130,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: left;
 
         }
+        .custom-card .card-body2 {
+            padding: 10px; /* 内边距 */
+            text-align: center;
+
+        }
 
         #loadingContainer {
             display: none;
@@ -218,7 +223,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="container">
         <div class="card custom-card">
-            <div class="card-body">
+            <div class="card-body2">
                 <p class="card-title">New Alternative</p>
                 <!-- <div id="customButton"> -->
                 <!-- <div class="checkmark">
@@ -358,7 +363,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         displayDiv.innerHTML =  "You have evaluated  <strong>" + parseInt(savedSolutions.length/parameterNames.length) + " alternatives.</strong>" + "<br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
-    RequirementDisplay.innerHTML =  "Let AI suggest alternatives of solutions with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " alternatives</strong> to proceed." + "<br>" + "Then, after several more evaluations, you will see the <strong>Done button</strong>, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";
+    RequirementDisplay.innerHTML =  "1. Let AI suggest alternatives of solutions with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " alternatives</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the <strong>Done button</strong>, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";
 
 
     if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)

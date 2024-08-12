@@ -166,32 +166,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="container card-section">
-        <div class="row text-center">
-            <!-- <div class="col-md-4 mb-3">
+    <div class="row justify-content-center text-center">
+        <div class="col-md-4 mb-1">
+            <a href="tutorial_1.php" class="card-link">
                 <div class="card fixed-size-card">
                     <div class="card-body">
-                        <h4 class="card-title">Build a rocket</h4>
+                        <h4 class="card-title">Optimize the design of car material</h4>
                     </div>
                 </div>
-            </div> -->
-            <div class="col-md-8 mb-1">
-                <a href="tutorial_1.php" class="card-link">
-                    <div class="card fixed-size-card">
-                        <div class="card-body">
-                            <h4 class="card-title">Optimize the design of car material</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- <div class="col-md-4 mb-3">
-                <div class="card fixed-size-card">
-                    <div class="card-body">
-                        <h4 class="card-title">Plan a trip</h4>
-                    </div>
-                </div>
-            </div> -->
+            </a>
         </div>
     </div>
+</div>
+
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poTQDC+9m28p4yp0I6i51m8bo7A9oKNV7KLD3yoaz9zT0E4no5Z" crossorigin="anonymous"></script>

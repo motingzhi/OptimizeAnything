@@ -43,19 +43,105 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        .top-bar {
+      
+      .top-bar {
             position: fixed;
-            top: calc(100vh / 12);
-            width: 100%;
+            top: 5%;
+            left: 20%;
+            right: 20%;
+            width: 60%;
             background: transparent;
-            padding: 10px 0;
+            padding: 0;
             box-shadow: none;
+            z-index: 1000;
+        }
+        .top-bar h5 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 10%; /* Distance between title and nav */
+        }
+        .top-bar .nav {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Control the width of the progress bar */
+        }
+        
+        .top-bar .nav-link {
+            color: #6c757d;
+            background-color: #e9ecef;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 33.333333%; /* Ensure consistent width for each link */
+            margin: 0px;
+            flex-grow: 1;
+        }
+        .top-bar .nav-link.active {
+            color: white;
+            background-color: #007bff;
+            font-weight: bold;
+        }
+
+        
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5vh; /* Distance between stepper and content below it */
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 5%;
+            margin-bottom: 5%;
+
+        }
+
+        .step {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            top: 30%;
+            right: -50%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .step span {
+            display: inline-block;
+            width: 50px;  /* Fixed width */
+            height: 50px;  /* Fixed height */
+            line-height: 50px;  /* Match the height to center the text */
+            text-align: center;  /* Center the text horizontally */
+            color: #8C8E97;
+            background: #f8f9fa;
+            border-radius: 50%;  /* Make it circular */
+            border: 2px solid #ddd;
+        }
+
+        .step p {
+            color: #8C8E97; /* Specify the color */
+        }
+
+        .step.active p {
+            color: #007bff; /* Specify the color for active step */
+        }
+
+        .step.active span {
+            font-weight: bold;
+            color: #007bff;
+            border-color: #007bff;
+            background: white;
         }
 
         .centered-content {
             overflow-y: auto; /* 添加垂直滚动条 */
             max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
-            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            margin-top: calc(100vh / 10); /* Offset by the height of top-bar */
             text-align: center;
             width: auto; /* Content width as 1/3 of the page */
             min-width: 50%;
@@ -76,6 +162,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
         }
 
+        .bottom-bar .row {
+            width: 100%;
+            max-width: 60%;
+            margin: 0 auto;
+        }
+      
         #loadingContainer {
             display: none;
             position: fixed;
@@ -102,47 +194,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             margin-top: 20px;
         }
-        .stepper {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            width: 80%;
-
-        }
-
-        .step {
-            flex-grow: 1;
-            text-align: center;
-            position: relative;
-        }
-
-        .step:not(:last-child)::after {
-            content: '';
-            height: 2px;
-            background: #ddd;
-            position: absolute;
-            top: 30%;
-            right: 100;
-            /* right: 0%; */
-            width:100%;
-            z-index: -1;
-        }
-
-        .step span {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #f8f9fa;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-        }
-
-        .step.active span {
-            font-weight: bold;
-            color: #007bff;
-            border-color: #007bff;
-            background: white;
-        }
-
+      
+    
         .custom-card {
             margin: 10px; /* 外边距 */
             display: inline-block; /* 使卡片宽度根据内容自适应 */
@@ -183,6 +236,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-bottom: 2px solid;
             font-size: 1em;
         }
+        .underline-text {
+        display: inline-block;
+        font-weight: bold;
+        border-bottom: 2px solid black; /* Creates the underline */
+        margin: 0 5px; /* Adds some spacing around the text */
+    }
         .variables {
             border-bottom-color: #000000;
             color: #E08AE9;
@@ -233,25 +292,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="top-bar">
         <!-- <div class="container d-flex justify-content-between align-items-center"> -->
-        <div class="container">
-
-            <div class="stepper">
-                    <div class="step">
-                    <span>1</span>
-                    <div>Specify Variables</div>
-                    </div>
-                    <div class="step active">
-                    <span>2</span>
-                    <div>Specify Objectives</div>
-                    </div>
-                    <div class="step">
-                    <span>3</span>
-                    <div>Confirm Specification</div>
-                    </div>
-            </div>
 
 
-        </div>
+        <nav class="nav">
+                <a class="nav-link active" href="#">Specify</a>
+                <a class="nav-link" href="#">Optimize</a>
+                <a class="nav-link" href="#">Get results</a>
+            </nav>
+
+
+
 
     </div>
     
@@ -259,20 +309,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- <form action="tutorial_1.php">
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
             </form>     -->
-    
+        <div class="stepper">
+                        <div class="step active">
+                        <span>1</span>
+                        <div>Specify Variables</div>
+                        </div>
+                        <div class="step">
+                        <span>2</span>
+                        <div>Specify Objectives</div>
+                        </div>
+                        <div class="step">
+                        <span>3</span>
+                        <div>Confirm Specification</div>
+                        </div>
+        </div>
 
 
         <div class="container">
             <div class="card custom-card">
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
-                            You want to change
-                                <input type="text" id="defineWhat" class="form-control mb-2 inline-input" placeholder="Variables" readonly>
-                            to minimize/maximize
-                            <span class="tooltip-container">
-                                    <input type="text" id="defineFor" class="form-control mb-2 inline-input" placeholder="Objectives" readonly>
-                                    <span class="tooltip-text">to be specified in the table below</span>
-                            </span>
+
+                        You want to change
+                        <span id="defineWhat" class="underline-text">Variables (To be specified)</span>
+                        to minimize/maximize
+                        <!-- <span class="normal"></span> -->
+                        <span id="defineFor" class="underline-text">Objectives (To be specified)</span>
                 </div>
                         
             </div>
@@ -293,10 +355,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p class="text-primary">Hints</p>
 
                     <div class="card-body">
-                            <label >1. The solution generated by AI will be constructed by <strong>Variables</strong> specified here, and the value generated will be inside the minimum and maximum values you specified.</label></br>
-                            <label >2. The <strong>Objectives</strong> are the criteria to evaluate the solution generated by AI.</label></br>
-                            <label >3. Changes in <strong>Variables</strong> are to achieve overall <strong>Objectives</strong>. There is no one-to-one correspondence between variables and objectives. </label></br>
-                    </div>
+                            <label >1. The solution generated by AI will be constructed by <strong>Variables</strong> you specified here, and the value generated will be inside the minimum and maximum values you specified.</label></br>
+                            <label >2. Changes in <strong>Variables</strong> are to achieve overall <strong>Objectives</strong>. </label></br>
+                            <label >3. You will evaluate the solution generated by AI later based on the <strong>Objectives</strong> you specified.</label></br>
+                           </div>
                 </div>
         </div>
             
@@ -331,11 +393,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </div>
 <div class="bottom-bar">
-        <div class="d-flex justify-content-between">
-            <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify Variables</button>
-            <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Save</button>
+    <div class="row">
+    <div class="col text-right">
+    <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Save</button>
+    </div>
+
+    <div class="col text-left">
+    <button class="btn btn-outline-primary" id="back-button" style="width: 20%;" onclick="goBack()">Modify Variables</button>
+    </div>
         </div>
-</div>
+    </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>

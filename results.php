@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <p>After answering the questionnaire, you can close this window.</p>
         <br>
         <br>
-        <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between; width: 60%">
                 <form action="define.php"><button id="restart-button" class="btn btn-outline-success" type="submit">Restart</button></form>
                 <form action="https://link.webropolsurveys.com/S/645BAC578DBFDD62" target="_blank">
                         <button id="restart-button" class="btn btn-success" type="submit">Continue to the questionnaire</button>

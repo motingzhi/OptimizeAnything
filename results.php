@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <br>
 
-        <p><strong>Please DO NOT close this window yet!</stromg> </p>
+        <p><strong>Please DO NOT close this window yet!</strong> </p>
         <p> You will need to answer the first question of questionnaire based on the result here</p>
         <p>After answering the questionnaire, you can close this window.</p>
         <br>

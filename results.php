@@ -93,20 +93,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-
         .bottom-bar {
             position: fixed;
             /* margin-top: 100px; */
-            bottom: 20px;
-            width: 60%;
+            bottom: 0px;
+            width: 100%;
             background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
             padding: 10px 0;
             /* box-shadow: none; */
              /* Shadow for the bottom bar */
 
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); Shadow for the bottom bar
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
         }
 
+        .bottom-bar .row {
+            width: 100%;
+            max-width: 60%;
+            margin: 0 auto;
+        }
+      
     </style>  
 </head>
 <body>

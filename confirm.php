@@ -520,10 +520,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             function populateFields() {
                 const variablesContainer = document.getElementById('variables');
                 parameterNames.forEach((variable, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'to-objective';  // 使用与 to-objective 相同的样式
-                    div.textContent = variable;
-                    variablesContainer.appendChild(div);
+                    const button = document.createElement('button');
+                    button.className = 'btn btn-secondary variable';
+                    button.textContent = variable;
+                    variablesContainer.appendChild(button);
 
                     if (index < parameterNames.length - 1) {
                         const plusSign = document.createElement('div');
@@ -546,6 +546,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 updateSelectedObjective(selectedObjectiveIndex);
             }
 
+
+
+            
 
             window.addEventListener('resize', drawLines);
             document.addEventListener('DOMContentLoaded', populateFields);

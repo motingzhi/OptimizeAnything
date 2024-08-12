@@ -208,13 +208,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p class="text-primary">Hints</p>
                 <div class="card-body">
                     <div id="RequirementDisplay"></div>
-                    <div id="dataDisplay"></div>
          
             </div>
             </div>
 
 
     </div>
+    <div id="dataDisplay"></div>
 
     <div class="container">
         <div class="card custom-card">

@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .centered-content {
                 overflow-y: auto; /* 添加垂直滚动条 */
-                max-height: calc(100vh - 100px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+                max-height: calc(100vh - 300px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
                 margin-top: calc(100vh / 6); /* Offset by the height of top-bar */
                 text-align: center;
                 width: auto; /* Content width as 1/3 of the page */
@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     <div class="centered-content">
 
-        <p>Here are the best options we found</p>
+        <p>Here are the best solutions we found</p>
 
 
         <div id="dataDisplay"></div>
@@ -137,7 +137,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <br>
 
-        <p>Please DO NOT close this window yet! </p>
+        <p><strong>Please DO NOT close this window yet!</stromg> </p>
         <p> You will need to answer the first question of questionnaire based on the result here</p>
         <p>After answering the questionnaire, you can close this window.</p>
         <br>
@@ -345,7 +345,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // n = i+1
             // var dataRow = data[i].join("<br>"); // 数组逐行显示
-            displayDiv.innerHTML += "<strong>"+ solutionNameList[BestSolutionIndex[i]] +  "</strong>"+"</b><br>";
+            displayDiv.innerHTML += "<strong>Name of the alternative:"+ solutionNameList[BestSolutionIndex[i]] +  "</strong>"+"</b><br>";
 
             // displayDiv.innerHTML += "<b>Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "</b><br>";
             // displayDiv.innerHTML +=  "<br>";
@@ -355,7 +355,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             // displayDiv.innerHTML +=  "<br>";
 
-            displayDiv.innerHTML += "Objectives: "+ "<br>";
+            displayDiv.innerHTML += "Your measurments for the objectives: "+ "<br>";
 
             if (BestSolutionIndex.length == 1)
             {

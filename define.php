@@ -145,7 +145,7 @@ if (!isset($_SESSION['ProlificID'])) {
         .centered-content {
             overflow-y: auto; /* 添加垂直滚动条 */
             max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
-            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
+            margin-top: calc(100vh / 10); /* Offset by the height of top-bar */
             text-align: center;
             width: auto; /* Content width as 1/3 of the page */
             min-width: 50%;

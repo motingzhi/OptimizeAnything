@@ -420,7 +420,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var paraString = parameterNames.join(', ');
     // document.querySelector('.variables').innerText = paraString;
 
-    document.getElementById('defineWhat').value = paraString;
+    document.getElementById('defineWhat').innerText = paraString;
 
 
     function goBack() {
@@ -432,7 +432,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
         var objString = objectiveNames.join(', ');
 
-        document.getElementById('defineFor').value = objString;
+        document.getElementById('defineFor').innerText = objString;
 
     } catch (err) {
         // 如果发生异常，例如   不存在，赋值一个空数组

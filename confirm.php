@@ -294,21 +294,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             align-items: center;
             margin: 10px 0;
         }
-
-        .objective input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        .objective-btn.selected {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-        }
-
         .objective-btn {
             transition: background-color 0.3s, color 0.3s;
         }
 
+        /* 隐藏默认的单选按钮 */
+        .objective input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%; /* 使其占满父元素的宽度 */
+            height: 100%; /* 使其占满父元素的高度 */
+            margin-right: 10px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* 自定义单选按钮样式 */
+        .objective input[type="radio"]::before {
+            content: '';
+            display: inline-block;
+            width: 30px;  /* 设置自定义单选按钮的宽度 */
+            height: 30px; /* 设置自定义单选按钮的高度 */
+            border-radius: 50%;
+            background-color: #ccc; /* 默认颜色 */
+            border: 2px solid #007bff; /* 边框颜色 */
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        /* 选中的单选按钮样式 */
+        .objective input[type="radio"]:checked::before {
+            background-color: #007bff; /* 选中后的背景颜色 */
+            box-shadow: 0 0 0 4px white inset; /* 内部阴影模拟选中状态 */
+        }
+
+        /* 确保单选按钮与按钮对齐 */
+        .objective {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .objective-btn {
+            flex-grow: 1; /* 使按钮占据剩余空间 */
+            margin-left: 10px;
+            padding: 10px 20px;
+            font-size: 16px; /* 根据需要调整 */
+            height: 30px; /* 与单选按钮大小一致 */
+            line-height: 30px; /* 使文本垂直居中 */
+        }
 
         .plus-sign {
             font-size: 24px;
@@ -581,28 +617,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //     drawLines();
             // }
 
-            function updateSelectedObjective(index) {
-                selectedObjectiveIndex = index;
-                document.getElementById('to-objective').textContent = `to ${objectiveMinMax[index]}`;
 
-                // 更新按钮样式和单选按钮的选中状态
-                document.querySelectorAll('.objective-btn').forEach((btn, i) => {
-                    const radio = btn.previousElementSibling; // 获取对应的单选按钮
-                    if (i === index) {
-                        btn.classList.add('selected');
-                        btn.classList.remove('btn-secondary');
-                        btn.classList.add('btn-primary'); // 选中状态
-                        radio.checked = true;
-                    } else {
-                        btn.classList.remove('selected');
-                        btn.classList.remove('btn-primary');
-                        btn.classList.add('btn-secondary'); // 未选中状态
-                        radio.checked = false;
-                    }
-                });
-
-                drawLines();
-            }
 
 //             function populateFields() {
 //     const variablesContainer = document.getElementById('variables');
@@ -661,7 +676,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     button.textContent = objective;
                     button.onclick = () => updateSelectedObjective(index);
 
-                    // 创建单选按钮
+                    // 创建自定义单选按钮
                     const radio = document.createElement('input');
                     radio.type = 'radio';
                     radio.name = 'objectiveRadio';
@@ -678,6 +693,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // 默认选中第一个objective
                 updateSelectedObjective(selectedObjectiveIndex);
             }
+
+            function updateSelectedObjective(index) {
+                selectedObjectiveIndex = index;
+                document.getElementById('to-objective').textContent = `to ${objectiveMinMax[index]}`;
+
+                // 更新按钮样式和自定义单选按钮的选中状态
+                document.querySelectorAll('.objective-btn').forEach((btn, i) => {
+                    const radio = btn.previousElementSibling; // 获取对应的单选按钮
+                    if (i === index) {
+                        btn.classList.add('selected');
+                        btn.classList.remove('btn-secondary');
+                        btn.classList.add('btn-primary'); // 选中状态
+                        radio.checked = true; // 更新单选按钮的选中状态
+                    } else {
+                        btn.classList.remove('selected');
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-secondary'); // 未选中状态
+                        radio.checked = false; // 取消选中状态
+                    }
+                });
+
+                drawLines(); // 更新箭头的绘制
+            }
+
                         
 
             window.addEventListener('resize', drawLines);

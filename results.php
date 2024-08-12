@@ -345,7 +345,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // n = i+1
             // var dataRow = data[i].join("<br>"); // 数组逐行显示
-            displayDiv.innerHTML += "<strong>Name of the alternative:"+ solutionNameList[BestSolutionIndex[i]] +  "</strong>"+"</b><br>";
+            displayDiv.innerHTML += "<strong>Name of the solution:"+ solutionNameList[BestSolutionIndex[i]] +  "</strong>"+"</b><br>";
 
             // displayDiv.innerHTML += "<b>Option"+ n + ": " + solutionNameList[BestSolutionIndex[i]] + "</b><br>";
             // displayDiv.innerHTML +=  "<br>";
@@ -355,7 +355,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             // displayDiv.innerHTML +=  "<br>";
 
-            displayDiv.innerHTML += "Your measurments for the objectives: "+ "<br>";
+            displayDiv.innerHTML += "Objective measurments for the solution: "+ "<br>";
 
             if (BestSolutionIndex.length == 1)
             {

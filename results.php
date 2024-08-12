@@ -40,20 +40,59 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         .top-bar {
             position: fixed;
-            top: calc(100vh / 12);
-            width: 100%;
+            top: 5%;
+            left: 20%;
+            right: 20%;
+            width: 60%;
             background: transparent;
-            padding: 10px 0;
+            padding: 0;
             box-shadow: none;
+            z-index: 1000;
+        }
+        .top-bar h5 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 10%; /* Distance between title and nav */
+        }
+        .top-bar .nav {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Control the width of the progress bar */
+        }
+        
+        .top-bar .nav-link {
+            color: #6c757d;
+            background-color: #e9ecef;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 33.333333%; /* Ensure consistent width for each link */
+            margin: 0px;
+            flex-grow: 1;
+        }
+        .top-bar .nav-link.active {
+            color: white;
+            background-color: #007bff;
+            font-weight: bold;
+        }
+        .top-bar .nav-link.passed {
+            color: white;
+            background-color: #82AAF2;
         }
 
         .centered-content {
-            margin-top: calc(100vh / 10 + 100px); /* Offset by the height of top-bar */
-            text-align: center;
-            width: 33.33%; /* Content width as 1/3 of the page */
-            margin-left: auto;
-            margin-right: auto;
-        }
+                overflow-y: auto; /* 添加垂直滚动条 */
+                max-height: calc(100vh - 100px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+                margin-top: calc(100vh / 6); /* Offset by the height of top-bar */
+                text-align: center;
+                width: auto; /* Content width as 1/3 of the page */
+                min-width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+
 
         .bottom-bar {
             position: fixed;
@@ -74,13 +113,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="background">
 
     <div class="top-bar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1>3. Results</h1>
-            <form action="tutorial_1.php">
-                <button type="submit" class="btn btn-outline-primary">Tutorial</button>
-            </form>
-        </div>
-    </div>   
+            <nav class="nav">
+                <a class="nav-link passed " href="#">Specify</a>
+                <a class="nav-link passed" href="#">Optimize</a>
+                <a class="nav-link active" href="#">Get results</a>
+            </nav>
+</div>
     
     <div class="centered-content">
 

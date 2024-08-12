@@ -363,7 +363,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="container">
             <br>
-            <p>Below is a summary model of your specifications; you can click different <strong>objectives</strong> to check the correspondence relationship.<br>If you think this specification seems irrational from the model, you can go back and modify it.</p>
+            <p>Below is a summary model of your specifications. <br>If you think this specification seems irrational from the model, you can go back and modify it.</p>
             <p class="text-primary">Note: Irrational specification will result in inaccurate optimization.</p>
         </div>
 
@@ -378,7 +378,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             </div>
         </div>
-
+        <p>you can click different <strong>objectives</strong> to check the correspondence relationship.</p>
         <div class="container2" id="container2">
             <div class="column" id="variables-column">
                 <div class="title">You want to change variable(s) below</div>

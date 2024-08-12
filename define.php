@@ -387,7 +387,7 @@ if (!isset($_SESSION['ProlificID'])) {
 
     <div class="bottom-bar">
     <div class="row">
-    <div class="col text-left">
+    <div class="col text-right">
 
                 <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
             </div>

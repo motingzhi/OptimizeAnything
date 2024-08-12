@@ -293,11 +293,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             align-items: center;
             margin: 10px 0;
-            transition: background-color 0.3s;
         }
 
         .objective input[type="radio"] {
             margin-right: 10px;
+        }
+
+        .objective-btn.selected {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .objective-btn {
+            transition: background-color 0.3s, color 0.3s;
         }
 
 
@@ -559,16 +568,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
 
 
+            // function updateSelectedObjective(index) {
+            //     selectedObjectiveIndex = index;
+            //     document.getElementById('to-objective').textContent = `to ${objectiveMinMax[index]}`;
+            //     document.querySelectorAll('.objective').forEach((el, i) => {
+            //         if (i === index) {
+            //             el.classList.add('selected');
+            //         } else {
+            //             el.classList.remove('selected');
+            //         }
+            //     });
+            //     drawLines();
+            // }
+
             function updateSelectedObjective(index) {
                 selectedObjectiveIndex = index;
                 document.getElementById('to-objective').textContent = `to ${objectiveMinMax[index]}`;
-                document.querySelectorAll('.objective').forEach((el, i) => {
+
+                // 更新按钮样式和单选按钮的选中状态
+                document.querySelectorAll('.objective-btn').forEach((btn, i) => {
+                    const radio = btn.previousElementSibling; // 获取对应的单选按钮
                     if (i === index) {
-                        el.classList.add('selected');
+                        btn.classList.add('selected');
+                        btn.classList.remove('btn-secondary');
+                        btn.classList.add('btn-primary'); // 选中状态
+                        radio.checked = true;
                     } else {
-                        el.classList.remove('selected');
+                        btn.classList.remove('selected');
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-secondary'); // 未选中状态
+                        radio.checked = false;
                     }
                 });
+
                 drawLines();
             }
 
@@ -623,27 +655,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     const div = document.createElement('div');
                     div.className = 'objective';
 
+                    // 创建按钮元素
+                    const button = document.createElement('button');
+                    button.className = 'btn btn-secondary objective-btn';
+                    button.textContent = objective;
+                    button.onclick = () => updateSelectedObjective(index);
+
                     // 创建单选按钮
                     const radio = document.createElement('input');
                     radio.type = 'radio';
                     radio.name = 'objectiveRadio';
                     radio.value = index;
+                    radio.style.marginRight = '10px';
+                    radio.checked = (index === selectedObjectiveIndex);
                     radio.onclick = () => updateSelectedObjective(index);
 
-                    const label = document.createElement('label');
-                    label.textContent = objective;
-                    label.style.marginLeft = '10px';
-
                     div.appendChild(radio);
-                    div.appendChild(label);
+                    div.appendChild(button);
                     objectivesContainer.appendChild(div);
                 });
 
-    // 默认选中第一个objective
-    updateSelectedObjective(selectedObjectiveIndex);
-}
-
-            
+                // 默认选中第一个objective
+                updateSelectedObjective(selectedObjectiveIndex);
+            }
+                        
 
             window.addEventListener('resize', drawLines);
             document.addEventListener('DOMContentLoaded', populateFields);

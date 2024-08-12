@@ -118,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a class="nav-link passed" href="#">Optimize</a>
                 <a class="nav-link active" href="#">Get results</a>
             </nav>
-</div>
+    </div>
     
     <div class="centered-content">
 
@@ -149,6 +149,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     </div>
 
+    <div class="bottom-bar">
+        <div class="row">
+                <div class="col text-left">
+                <form action="define.php"><button id="restart-button" class="btn btn-outline-success" type="submit">Restart</button></form>
+                </div>
+                <div class="col text-right">
+                        <form action="https://link.webropolsurveys.com/S/645BAC578DBFDD62" target="_blank">
+                        <button id="restart-button" class="btn btn-success" type="submit">Continue to the questionnaire</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+    
     </div>
     <script type="module">
         var parameterNames = localStorage.getItem("parameter-names").split(",");

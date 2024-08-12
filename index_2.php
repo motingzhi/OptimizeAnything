@@ -174,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div> -->
-            <div class="col-md-4" style="margin-left:30%; margin-right:30%;">
+            <div class="col-md-4 mb-1">
                 <a href="tutorial_1.php" class="card-link">
                     <div class="card fixed-size-card">
                         <div class="card-body">

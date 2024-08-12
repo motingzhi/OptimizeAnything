@@ -310,11 +310,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <button type="submit" class="btn btn-outline-primary">Tutorial</button>
             </form>     -->
         <div class="stepper">
-                        <div class="step active">
+                        <div class="step ">
                         <span>1</span>
                         <div>Specify Variables</div>
                         </div>
-                        <div class="step">
+                        <div class="step active">
                         <span>2</span>
                         <div>Specify Objectives</div>
                         </div>
@@ -331,7 +331,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-body">
 
                         You want to change
-                        <span id="defineWhat" class="underline-text">Variables (To be specified)</span>
+                        <span id="defineWhat" class="underline-text"></span>
                         to minimize/maximize
                         <!-- <span class="normal"></span> -->
                         <span id="defineFor" class="underline-text">Objectives (To be specified)</span>

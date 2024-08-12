@@ -42,32 +42,132 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
-        .top-bar {
+    
+    .top-bar {
             position: fixed;
-            top: calc(100vh / 12);
-            width: 100%;
+            top: 5%;
+            left: 20%;
+            right: 20%;
+            width: 60%;
             background: transparent;
-            padding: 10px 0;
+            padding: 0;
             box-shadow: none;
+            z-index: 1000;
+        }
+        .top-bar h5 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: 10%; /* Distance between title and nav */
+        }
+        .top-bar .nav {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Control the width of the progress bar */
+        }
+        
+        .top-bar .nav-link {
+            color: #6c757d;
+            background-color: #e9ecef;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 33.333333%; /* Ensure consistent width for each link */
+            margin: 0px;
+            flex-grow: 1;
+        }
+        .top-bar .nav-link.active {
+            color: white;
+            background-color: #007bff;
+            font-weight: bold;
+        }
+
+        
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5vh; /* Distance between stepper and content below it */
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 5%;
+            margin-bottom: 5%;
+
+        }
+
+        .step {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            height: 2px;
+            background: #ddd;
+            position: absolute;
+            top: 30%;
+            right: -50%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .step span {
+            display: inline-block;
+            width: 50px;  /* Fixed width */
+            height: 50px;  /* Fixed height */
+            line-height: 50px;  /* Match the height to center the text */
+            text-align: center;  /* Center the text horizontally */
+            color: #8C8E97;
+            background: #f8f9fa;
+            border-radius: 50%;  /* Make it circular */
+            border: 2px solid #ddd;
+        }
+
+        .step p {
+            color: #8C8E97; /* Specify the color */
+        }
+
+        .step.active p {
+            color: #007bff; /* Specify the color for active step */
+        }
+
+        .step.active span {
+            font-weight: bold;
+            color: #007bff;
+            border-color: #007bff;
+            background: white;
         }
 
         .centered-content {
-            overflow-y: auto;
-            max-height: calc(100vh - 350px);
-            margin-top: calc(100vh / 10 + 100px);
+            overflow-y: auto; /* 添加垂直滚动条 */
+            max-height: calc(100vh - 350px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+            margin-top: calc(100vh / 10); /* Offset by the height of top-bar */
             text-align: center;
-            width: auto;
-            min-width: 60%;
+            width: auto; /* Content width as 1/3 of the page */
+            min-width: 50%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .bottom-bar {
             position: fixed;
+            /* margin-top: 100px; */
             bottom: 0px;
             width: 100%;
-            background: #f8f9fa;
+            background: #f8f9fa; /* Light grey background similar to Bootstrap's default navbar */
             padding: 10px 0;
-            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            /* box-shadow: none; */
+             /* Shadow for the bottom bar */
+
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1); /* Shadow for the bottom bar */
         }
+
+        .bottom-bar .row {
+            width: 100%;
+            max-width: 60%;
+            margin: 0 auto;
+        }
+      
+
 
         #loadingContainer {
             display: none;
@@ -95,46 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             margin-top: 20px;
         }
-        .stepper {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            width: 80%;
 
-        }
-
-        .step {
-            flex-grow: 1;
-            text-align: center;
-            position: relative;
-        }
-
-        .step:not(:last-child)::after {
-            content: '';
-            height: 2px;
-            background: #ddd;
-            position: absolute;
-            top: 30%;
-            right: 100;
-            /* right: 0%; */
-            width:100%;
-            z-index: -1;
-        }
-
-        .step span {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #f8f9fa;
-            border-radius: 50%;
-            border: 2px solid #ddd;
-        }
-
-        .step.active span {
-            font-weight: bold;
-            color: #007bff;
-            border-color: #007bff;
-            background: white;
-        }
 
 
         .custom-card {

@@ -406,7 +406,7 @@ if (!isset($_SESSION['ProlificID'])) {
     <script>
         var tester = 0;
         try {
-        var parameterNames = localStorage.getItem("parameter-names").split(",");
+        var  = localStorage.getItem("parameter-names").split(",");
         var paraString = parameterNames.join(', ');
         document.getElementById('defineWhat').innerText = paraString;
         
@@ -465,6 +465,7 @@ if (!isset($_SESSION['ProlificID'])) {
         else{
                 addExampleParametersTable();
                 addExampleParametersTable();
+                console.log(parameterNames);
             }
 
 

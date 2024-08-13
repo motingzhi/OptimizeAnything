@@ -371,28 +371,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
        
         displayDiv.innerHTML +=  "<br>";
-        document.getElementById('download-button').addEventListener('click', function() {
-        var solutionList = localStorage.getItem("solution-list");
-        var savedSolutions = localStorage.getItem("saved-solutions");
-        var savedObjectives = localStorage.getItem("saved-objectives");
-
-        var content = "Solution List:\n" + solutionList + "\n\n" +
-                      "Saved Solutions:\n" + savedSolutions + "\n\n" +
-                      "Saved Objectives:\n" + savedObjectives + "\n\n";
-
-        var blob = new Blob([content], { type: 'text/plain' });
-        var url = window.URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'solutions.txt';
-
-        document.body.appendChild(a);
-        a.click();
-
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-    });
 
         
     </script>

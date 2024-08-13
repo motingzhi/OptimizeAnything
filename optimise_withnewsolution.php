@@ -1044,7 +1044,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         savedObjectives = result.saved_objectives;
                         solutionNameList = result.solutionNameList;
 
-			DisplaySolutionText = 1;
+			            DisplaySolutionText = 1;
                         
                         localStorage.setItem("solution-list", solutionList);
                         localStorage.setItem("objectives-input", objectivesInput);
@@ -1074,18 +1074,18 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-   		        $('#loadingContainer').hide();
+                        $('#loadingContainer').hide();
 
-                    },
-                    error: function(result){
+                        },
+                        error: function(result){
                         console.log("Error in finishing experiment: " + result.message);
                         console.log(parameterBounds);
-                    console.log("Current solutions: " + solutionList);
-                    console.log("Objectives input: " + objectivesInput);
-                    console.log("Bad solutions: " + badSolutions);
-                    console.log("Saved solutions: " + savedSolutions);
-                    console.log("Saved objectives: " + savedObjectives);
-                    console.log("objectiveMeasurements",objectiveMeasurements)
+                        console.log("Current solutions: " + solutionList);
+                        console.log("Objectives input: " + objectivesInput);
+                        console.log("Bad solutions: " + badSolutions);
+                        console.log("Saved solutions: " + savedSolutions);
+                        console.log("Saved objectives: " + savedObjectives);
+                        console.log("objectiveMeasurements",objectiveMeasurements)
 
                     }
                 });

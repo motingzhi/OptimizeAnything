@@ -408,13 +408,13 @@ if (!isset($_SESSION['ProlificID'])) {
         try {
         var parameterNames = localStorage.getItem("parameter-names").split(",");
         var paraString = parameterNames.join(', ');
-        document.getElementById('defineWhat').value = paraString;
+        document.getElementById('defineWhat').innerText = paraString;
 
         } catch (err) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterNames = [];
         // document.querySelector('.tooltip-container').classList.add('show-tooltip');
-        document.getElementById('0').classList.add('show-tooltip');
+        // document.getElementById('0').classList.add('show-tooltip');
 
         }
 
@@ -430,12 +430,12 @@ if (!isset($_SESSION['ProlificID'])) {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
         var objString = objectiveNames.join(', ');
 
-        document.getElementById('defineFor').value = objString;
+        document.getElementById('defineFor').innerText = objString;
 
         } catch (err) {
             // 如果发生异常，例如   不存在，赋值一个空数组
-            document.getElementById('1').classList.add('show-tooltip');
-
+            // document.getElementById('1').classList.add('show-tooltip');
+            var objectiveNames = [];
 
         }
     

@@ -407,10 +407,6 @@ if (!isset($_SESSION['ProlificID'])) {
         var tester = 0;
         try {
         var parameterNames = localStorage.getItem("parameter-names").split(",");
-        var paraString = parameterNames.join(', ');
-        document.getElementById('defineWhat').innerText = paraString;
-        
-
         } catch (err) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterNames = [];
@@ -418,7 +414,9 @@ if (!isset($_SESSION['ProlificID'])) {
         // document.getElementById('0').classList.add('show-tooltip');
         tester = 1;
         }
-
+        var paraString = parameterNames.join(', ');
+        document.getElementById('defineWhat').innerText = paraString;
+        console.log(tester);
         try {
         var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
         } catch (err) {
@@ -429,9 +427,7 @@ if (!isset($_SESSION['ProlificID'])) {
 
         try {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
-        var objString = objectiveNames.join(', ');
 
-        document.getElementById('defineFor').innerText = objString;
 
         } catch (err) {
             // 如果发生异常，例如   不存在，赋值一个空数组
@@ -439,6 +435,9 @@ if (!isset($_SESSION['ProlificID'])) {
             var objectiveNames = [];
 
         }
+
+        var objString = objectiveNames.join(', ');
+        document.getElementById('defineFor').innerText = objString;
     
 
         if (tester == 0) {                // Clear existing rows in the table body
@@ -465,7 +464,6 @@ if (!isset($_SESSION['ProlificID'])) {
         else{
                 addExampleParametersTable();
                 addExampleParametersTable();
-                console.log(parameterNames);
             }
 
 

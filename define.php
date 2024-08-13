@@ -406,7 +406,7 @@ if (!isset($_SESSION['ProlificID'])) {
     <script>
         var tester = 0;
         try {
-        var  = localStorage.getItem("parameter-names").split(",");
+        var parameterNames = localStorage.getItem("parameter-names").split(",");
         var paraString = parameterNames.join(', ');
         document.getElementById('defineWhat').innerText = paraString;
         

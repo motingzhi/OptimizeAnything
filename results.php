@@ -327,6 +327,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         console.log("Saved solutions: " + savedSolutions);
         console.log("Saved objectives: " + savedObjectives);
         console.log("Normalised objective inputs: " + objectivesNormalised);
+        console.log("BestSolutionIndex " + BestSolutionIndex);
+
         // console.log("Best solutions: " + bestSolutions);
 
 

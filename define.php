@@ -404,18 +404,19 @@ if (!isset($_SESSION['ProlificID'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
  
     <script>
-
+        var tester = 0;
         try {
         var parameterNames = localStorage.getItem("parameter-names").split(",");
         var paraString = parameterNames.join(', ');
         document.getElementById('defineWhat').innerText = paraString;
+        
 
         } catch (err) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterNames = [];
         // document.querySelector('.tooltip-container').classList.add('show-tooltip');
         // document.getElementById('0').classList.add('show-tooltip');
-
+        tester = 1;
         }
 
         try {
@@ -440,7 +441,7 @@ if (!isset($_SESSION['ProlificID'])) {
         }
     
 
-        if (JSON.stringify(parameterNames) !== '[]') {                // Clear existing rows in the table body
+        if (tester == 0) {                // Clear existing rows in the table body
                 $('#parameter-table tbody').empty();
                 // Add rows based on parameterNames and parameterBounds
                 for (let i = 0; i < parameterNames.length; i++) {

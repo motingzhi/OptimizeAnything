@@ -8,35 +8,6 @@ if (!isset($_SESSION['ProlificID'])) {
     exit();
 }
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $userID = $_SESSION['ProlificID'];
-//     $parameterNames = json_encode($_POST['parameter-names']);
-//     $parameterBounds = json_encode($_POST['parameter-bounds']);
-//     $parameter_timestamp = json_encode(date("Y-m-d H:i:s"));
-
-    
-// //   // 输出调试信息
-// //     echo "Prolific ID: " . htmlspecialchars($prolificID) . "<br>";
-// //     echo "Parameter Names: " . htmlspecialchars($parameterNames) . "<br>";
-// //     echo "Parameter Bounds: " . htmlspecialchars($parameterBounds) . "<br>";
-// //     echo "Define Timestamp: " . htmlspecialchars($defineTimestamp) . "<br>";
-
-//     $stmt = $conn->prepare("UPDATE data SET parametername = ?, parameterbounds = ?, parameter_timestamp = ? WHERE prolific_ID = ?");
-//     if ($stmt === false) {
-//         die("Prepare failed: " . $conn->error);
-//     }
-
-//     $stmt->bind_param("ssss", $parameterNames, $parameterBounds, $parameter_timestamp, $userID);
-//     if ($stmt->execute()) {
-//         header("Location: define-2.php");
-//         exit();
-//     } else {
-//         echo "Error: " . $stmt->error;
-//     }
-
-//     $stmt->close();
-//     $conn->close();
-// }
 ?>
 
 <!DOCTYPE html>
@@ -329,10 +300,10 @@ if (!isset($_SESSION['ProlificID'])) {
             <p class="text-primary"> Your specification overview:</p>
                 <div class="card-body">
                         You want to change
-                        <span class="underline-text">Variables (To be specified)</span>
+                        <span id="defineWhat" class="underline-text">Variables (To be specified)</span>
                         to minimize/maximize
                         <!-- <span class="normal"></span> -->
-                        <span class="underline-text">Objectives (To be specified)</span>
+                        <span id="defineFor" class="underline-text">Objectives (To be specified)</span>
 
                 </div>
                         
@@ -394,7 +365,6 @@ if (!isset($_SESSION['ProlificID'])) {
     <div class="bottom-bar">
     <div class="row">
     <div class="col text-right">
-
                 <button class="btn btn-primary" id="finish-objectives-button" style="width: 20%;" onclick="finishObjs()">Next</button>
             </div>
             </div>
@@ -417,6 +387,8 @@ if (!isset($_SESSION['ProlificID'])) {
         var paraString = parameterNames.join(', ');
         document.getElementById('defineWhat').innerText = paraString;
         console.log(tester);
+
+
         try {
         var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
         } catch (err) {
@@ -428,6 +400,8 @@ if (!isset($_SESSION['ProlificID'])) {
         try {
         var objectiveNames = localStorage.getItem("objective-names").split(",");
 
+        var objString = objectiveNames.join(', ');
+        document.getElementById('defineFor').innerText = objString;
 
         } catch (err) {
             // 如果发生异常，例如   不存在，赋值一个空数组
@@ -436,8 +410,6 @@ if (!isset($_SESSION['ProlificID'])) {
 
         }
 
-        var objString = objectiveNames.join(', ');
-        document.getElementById('defineFor').innerText = objString;
     
 
         if (tester == 0) {                // Clear existing rows in the table body

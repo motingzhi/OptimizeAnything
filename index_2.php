@@ -171,7 +171,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="tutorial_1.php" class="card-link">
                 <div class="card fixed-size-card">
                     <div class="card-body">
-                        <h4 class="card-title">Optimize the design of car material</h4>
+                        <h4 class="card-title">Optimize the materials of a car</h4>
                     </div>
                 </div>
             </a>

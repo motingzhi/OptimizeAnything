@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimize the Design of Car Material</title>
+    <title>Optimize the materials of a car</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
@@ -26,7 +26,7 @@
 <body>
     <div class="top-bar">
         <div class="container d-flex justify-content-between align-items-center">
-        <h4>Let's first learn what "Variable" and "Objective" mean in optimization.</h4><br>
+        <h4>Tutorial: Let's first learn what "Variable" and "Objective" mean in optimization.</h4><br>
             <!-- <form action="intro.php">
                 <button type="submit" class="btn btn-outline-primary">Skip</button>
             </form> -->

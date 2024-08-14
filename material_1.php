@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimize the Design of Car Material</title>
+    <title>Optimize the materials of a car/title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
@@ -131,11 +131,11 @@
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
-        <h5>Then let's learn how to use this service</h5>
+        <h5>Tutorial: Then let's learn how to use this service</h5>
         <nav class="nav">
-            <a class="nav-link active" href="#">Specify</a>
-            <a class="nav-link" href="#">Optimize</a>
-            <a class="nav-link" href="#">Get results</a>
+            <a class="nav-link active" href="#">1. Specify</a>
+            <a class="nav-link" href="#">2. Optimize</a>
+            <a class="nav-link" href="#">3. Get results</a>
         </nav>
     </div>
 

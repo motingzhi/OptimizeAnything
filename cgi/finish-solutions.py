@@ -130,11 +130,18 @@ train_obj_actual = torch.tensor(savedObjectives, dtype=torch.float64)
 train_obj_max = Maximise_all_objectives(train_obj_actual)
 pareto_mask = is_non_dominated(train_obj_max)
 
+
 BestSolutionIndex = []
 
 for i in range(pareto_mask.size()[0]):
     if pareto_mask[i] ==  True: 
         BestSolutionIndex.append(i)
+
+# In case users input exact same objectives for pareto front
+for i in range(train_obj_max.size(0)):
+    if any(torch.equal(train_obj_max[i], train_obj_max[idx]) for idx in BestSolutionIndex):
+        if i not in BestSolutionIndex:# 确保不会重复添加
+            BestSolutionIndex.append(i)
 
 # # best_obj_normalised = [-100] * len(objectiveNames)
 # # best_obj_1_normalised = -100

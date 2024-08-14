@@ -151,9 +151,9 @@ def normalise_objectives(obj_tensor_actual):
     obj_tensor_norm = torch.zeros(obj_tensor_actual.size(), dtype=torch.float64)
     for j in range(obj_tensor_actual.size()[0]):
         for i in range (obj_tensor_actual.size()[1]):
-            if (objectives_min_max[i] == "minimise"): # MINIMISE (SMALLER VALUES CLOSER TO 1)
+            if (objectives_min_max[i] == "minimize"): # MINIMISE (SMALLER VALUES CLOSER TO 1)
                 obj_tensor_norm[j][i] = -2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) + 1
-            elif (objectives_min_max[i] == "maximise"): # MAXIMISE (LARGER VALUES CLOSER TO -1)
+            elif (objectives_min_max[i] == "maximize"): # MAXIMISE (LARGER VALUES CLOSER TO -1)
                 obj_tensor_norm[j][i] =  2*((obj_tensor_actual[j][i] - objective_bounds[0][i])/(objective_bounds[1][i] - objective_bounds[0][i])) - 1
     return obj_tensor_norm
 

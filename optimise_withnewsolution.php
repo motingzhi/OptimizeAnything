@@ -225,6 +225,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card custom-card">
             <div class="card-body2">
                 <p class="card-title">New Alternative</p>
+                <div id="colorBlock"></div>
+
                 <!-- <div id="customButton"> -->
                 <!-- <div class="checkmark">
                     <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -235,9 +237,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div> -->
                 <!-- <div id="colorBlock"></div> -->
 
-                <ul id="generatedSolution" class="list-unstyled">
-                    <!-- List items will be dynamically added here -->
-                </ul>
+                <!-- <ul id="generatedSolution" class="list-unstyled">
+                </ul> -->
             </div>
         </div>
     </div>
@@ -468,11 +469,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
 
 
-// // 使用apply方法将颜色数组应用到色块
-// function setColor(r, g, b) {
-//     const colorBlock = document.getElementById('colorBlock');
-//     colorBlock.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-// }      
+// 使用apply方法将颜色数组应用到色块
+function setColor(r, g, b) {
+    const colorBlock = document.getElementById('colorBlock');
+    colorBlock.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}      
 function setButtonProperties(sideMargin, confirmFontSize, buttonRadius, checkmarkSize, checkmarkMargin, checkmarkWeight) {
     const button = document.getElementById('customButton');
     const checkmark = document.querySelector('.checkmark');
@@ -509,55 +510,55 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
     for (var i = 0; i<parameterNames.length; i++) {
             if (savedObjectives[0] == '')
             {
-                // generatedSolution[i] = solutionList[i];
+                generatedSolution[i] = solutionList[i];
 
-                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[i];
+                // generatedSolution[i] = parameterNames[i] + " =  " + solutionList[i];
             }
             else
             {
-                // generatedSolution[i] =  solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i];
+                generatedSolution[i] =  solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i];
 
-                generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i];
+                // generatedSolution[i] = parameterNames[i] + " =  " + solutionList[savedObjectives.length*parameterNames.length/objectiveNames.length+i];
             }
         }
         // setButtonProperties.apply(null, generatedSolution); 
 
-        // setColor.apply(null, generatedSolution);
+        setColor.apply(null, generatedSolution);
         // console.log(generatedSolution);
 
-        // 获取要填充数据的 <ul> 元素
-        var generatedSolutionUI = document.getElementById("generatedSolution");
+        // // 获取要填充数据的 <ul> 元素
+        // var generatedSolutionUI = document.getElementById("generatedSolution");
 
-        // 循环遍历数组并将每个元素添加为列表项
-        generatedSolution.forEach(function(element) {
-        var listItem = document.createElement("li");
-        listItem.textContent = element;
-        generatedSolutionUI.appendChild(listItem);
-        });
+        // // 循环遍历数组并将每个元素添加为列表项
+        // generatedSolution.forEach(function(element) {
+        // var listItem = document.createElement("li");
+        // listItem.textContent = element;
+        // generatedSolutionUI.appendChild(listItem);
+        // });
         
     }   
 
     if (savedSolutions.length/parameterNames.length >= 2*(parameterNames.length+1))
 {
         for (var i = 0; i<parameterNames.length; i++) {
-            // generatedSolution[i] = solutionList[solutionList.length-parameterNames.length+i];
+            generatedSolution[i] = solutionList[solutionList.length-parameterNames.length+i];
 
-            generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];
+            // generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];
         }
-        // setColor.apply(null, generatedSolution);
+        setColor.apply(null, generatedSolution);
         // setButtonProperties.apply(null, generatedSolution);
 
         console.log(generatedSolution);
 
-        // 获取要填充数据的 <ul> 元素
-        var generatedSolutionUI = document.getElementById("generatedSolution");
+        // // 获取要填充数据的 <ul> 元素
+        // var generatedSolutionUI = document.getElementById("generatedSolution");
 
-        // 循环遍历数组并将每个元素添加为列表项
-        generatedSolution.forEach(function(element) {
-        var listItem = document.createElement("li");
-        listItem.textContent = element;
-        generatedSolutionUI.appendChild(listItem);
-        });
+        // // 循环遍历数组并将每个元素添加为列表项
+        // generatedSolution.forEach(function(element) {
+        // var listItem = document.createElement("li");
+        // listItem.textContent = element;
+        // generatedSolutionUI.appendChild(listItem);
+        // });
         
     }   
 
@@ -688,7 +689,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     console.log("Success-newSolution_Reply_list_ends");
                     var url = "optimise_withnewsolution.php";
                     location.href = url;
-		    $('#loadingContainer').hide();
+		            $('#loadingContainer').hide();
 
             
                 },

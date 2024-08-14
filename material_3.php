@@ -139,9 +139,9 @@
     <div class="top-bar">
         <h5>Tutorial: Let's learn how to use this service</h5>
         <nav class="nav">
-            <a class="nav-link passed" href="#">Specify</a>
-            <a class="nav-link active" href="#">Optimize</a>
-            <a class="nav-link" href="#">Get results</a>
+            <a class="nav-link passed" href="#">1. Specify</a>
+            <a class="nav-link active" href="#">2. Optimize</a>
+            <a class="nav-link" href="#">3. Get results</a>
         </nav>
     </div>
 

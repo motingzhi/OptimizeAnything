@@ -271,9 +271,9 @@ if (!isset($_SESSION['ProlificID'])) {
 <body>
     <div class="top-bar">
         <nav class="nav">
-                <a class="nav-link active" href="#">Specify</a>
-                <a class="nav-link" href="#">Optimize</a>
-                <a class="nav-link" href="#">Get results</a>
+                <a class="nav-link active" href="#">1. Specify</a>
+                <a class="nav-link" href="#">2. Optimize</a>
+                <a class="nav-link" href="#">3. Get results</a>
             </nav>
         <!-- <div class="container d-flex justify-content-between align-items-center"> -->
 

@@ -733,6 +733,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     localStorage.setItem("objectives-input", objectivesInput);
                     localStorage.setItem("saved-solutions", savedSolutions);
                     localStorage.setItem("saved-objectives", savedObjectives);
+                    var url = "optimise_withnewsolution.php";
+                    window.location.href = url;
                     //向下一个页面传数据
                     // $.ajax({
                     //         url: "optimise_withnewsolution.php",

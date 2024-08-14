@@ -734,21 +734,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     localStorage.setItem("saved-solutions", savedSolutions);
                     localStorage.setItem("saved-objectives", savedObjectives);
                     //向下一个页面传数据
-                    $.ajax({
-                            url: "optimise_withnewsolution.php",
-                            type: "post",
-                            data: {
-                            'objective-names'    :String(objectiveNames),
-                            'objective-bounds'   :String(objectiveBounds)
-                            },
-                            success: function(response) {
-                                var url = "optimise_withnewsolution.php";
-                                window.location.href = url;
-                            },
-                            error: function(response) {
-                                console.log("Error sending data to define-2.php");
-                            }
-                        });
+                    // $.ajax({
+                    //         url: "optimise_withnewsolution.php",
+                    //         type: "post",
+                    //         data: {
+                    //         'objective-names'    :String(objectiveNames),
+                    //         'objective-bounds'   :String(objectiveBounds)
+                    //         },
+                    //         success: function(response) {
+                    //             var url = "optimise_withnewsolution.php";
+                    //             window.location.href = url;
+                    //         },
+                    //         error: function(response) {
+                    //             console.log("Error sending data to define-2.php");
+                    //         }
+                    //     });
                     console.log("Success");
                     console.log(result.success)
                     console.log("result.parameterNames.length");

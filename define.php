@@ -377,6 +377,8 @@ if (!isset($_SESSION['ProlificID'])) {
         var tester = 0;
         try {
         var parameterNames = localStorage.getItem("parameter-names").split(",");
+        var paraString = parameterNames.join(', ');
+        document.getElementById('defineWhat').innerText = paraString;
         } catch (err) {
         // 如果发生异常，例如 "saved-objectives" 不存在，赋值一个空数组
         var parameterNames = [];
@@ -384,9 +386,7 @@ if (!isset($_SESSION['ProlificID'])) {
         // document.getElementById('0').classList.add('show-tooltip');
         tester = 1;
         }
-        var paraString = parameterNames.join(', ');
-        document.getElementById('defineWhat').innerText = paraString;
-        console.log(tester);
+
 
 
         try {

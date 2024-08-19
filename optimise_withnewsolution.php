@@ -893,7 +893,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestam,false);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,false);
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
 

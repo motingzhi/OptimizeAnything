@@ -601,7 +601,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     savedSolutions: JSON.stringify(savedSolutions),
                     savedObjectives: JSON.stringify(savedObjectives),
                     timestamp: timestamp
-                    // isRefine: isRefine // 新增的标识参数
+                    isRefine: isRefine // 新增的标识参数
                 },
                 success: function(response) {
                     console.log("Database operation successful:", response);
@@ -893,7 +893,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestam,false);
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
 
@@ -1073,7 +1073,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,false);
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;

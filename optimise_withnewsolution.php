@@ -289,7 +289,7 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
  
 </div>
 <div class="bottom-bar">
-        <div id="form-options-1" style="width: 60%; text-align: center; margin-top: 20px;">
+        <div id="form-options-1" style="width: 60%; margin: 0 auto;">
             <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Save and let AI suggest me more solutions</button>
             <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Save and I want to explore solutions closer to this</button>
         </div>

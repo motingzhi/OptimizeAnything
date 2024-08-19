@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $savedSolutions = json_decode($_POST['savedSolutions'], true);
     $savedObjectives = json_decode($_POST['savedObjectives'], true);
     $timestamp = $_POST['timestamp'];
-    $isRefine = isset($_POST['isRefine']) ? $_POST['isRefine'] : false; // 获取是否为refine操作
+    $isRefine = intval($_POST['isRefine']);// 获取是否为refine操作
 
     // 创建表格
     $createTableQuery = "CREATE TABLE IF NOT EXISTS `$userID` (
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // 判断是插入原始列还是refine列
-    if ($isRefine) {
+    if ($isRefine === 2) {
         $stmt = $conn->prepare("INSERT INTO `$userID` (saved_solution_refine, saved_objective_refine, saved_timestamp_refine) VALUES (?, ?, ?)");
     } else {
         $stmt = $conn->prepare("INSERT INTO `$userID` (saved_solution, saved_objective, saved_timestamp) VALUES (?, ?, ?)");

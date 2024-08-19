@@ -590,7 +590,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
         // document.getElementById("solution_2").innerHTML = solution[1];
         // document.getElementById("solution_3").innerHTML = solution[2];
 
-        function executeDatabaseOperation(userID, savedSolutions,savedObjectives, timestamp){
+        function executeDatabaseOperation(userID, savedSolutions, savedObjectives, timestamp, isRefine = false) {
             $.ajax({
                 url: "database_operations.php",
                 type: "post",
@@ -598,7 +598,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     userID: userID,
                     savedSolutions: JSON.stringify(savedSolutions),
                     savedObjectives: JSON.stringify(savedObjectives),
-                    timestamp: timestamp
+                    timestamp: timestamp,
+                    isRefine: isRefine // 新增的标识参数
                 },
                 success: function(response) {
                     console.log("Database operation successful:", response);
@@ -606,10 +607,9 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 error: function(xhr, status, error) {
                     console.log("Database operation failed:", error);
                 }
-            }
-
-            );
+            });
         }
+
 
 
         function newSolution() {
@@ -1187,18 +1187,13 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 	                },
                     success: function(result) {
                         submitReturned = true;
-                        solutionList = result.solution
-                        objectivesInput = result.objectives
+                        solutionList = result.solution;
+                        objectivesInput = result.objectives;
                         badSolutions = result.bad_solutions;
                         savedSolutions = result.saved_solutions;
                         savedObjectives = result.saved_objectives;
                         solutionNameList = result.solutionNameList;
 
-
-                        new_x = result.new_x
-                        console.log(new_x)
-                        console.log(result.solution)
-                        console.log(result.objectives)
                         localStorage.setItem("solution-list", solutionList);
                         localStorage.setItem("objectives-input", objectivesInput);
                         localStorage.setItem("bad-solutions", badSolutions);
@@ -1206,11 +1201,21 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         localStorage.setItem("saved-objectives", savedObjectives);
                         localStorage.setItem("solution-name-list", solutionNameList);
 
+                        // 记录时间
+                        var date = new Date();
+                        var formattedTimestamp = date.getFullYear() + "-" + 
+                                                ("0" + (date.getMonth() + 1)).slice(-2) + "-" +
+                                                ("0" + date.getDate()).slice(-2) + " " +
+                                                ("0" + date.getHours()).slice(-2) + ":" +
+                                                ("0" + date.getMinutes()).slice(-2) + ":" +
+                                                ("0" + date.getSeconds()).slice(-2);
+
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp, true); // 传递一个额外参数来标识 refine 操作
 
                         console.log("Success-refineevaluation");
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-			$('#loadingContainer').hide();
+                        $('#loadingContainer').hide();
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);

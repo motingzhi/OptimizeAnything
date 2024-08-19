@@ -157,7 +157,7 @@
         </div> -->
         <p><strong>Get results:</strong> </p>
         <br>
-        <p>You will see the optimal solutions of variables to achieve your objectives here. The displayed results might include multiple solutions when your objectives include both minimizing and maximizing, and you will need to make trade-off.</p>
+        <p>You will see the optimal solutions of variables to achieve your objectives here. The displayed results might include multiple solutions when your objectives include both minimizing and maximizing, and you will need to make trade-offs.</p>
 
         <!-- Example Table -->
         <div class="text-center mb-4">

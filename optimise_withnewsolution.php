@@ -289,29 +289,24 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
  
 </div>
 <div class="bottom-bar">
-        <!-- 第一个按钮组：添加20px margin -->
-        <div id="form-options-1" style="width: 60%; margin: 0 auto; text-align: center;">
-            <button class="btn btn-primary" id="next-button" style="margin-right: 20px;" onclick="nextEvaluation()">Save and let AI suggest me more solutions</button>
+        <div id="form-options-1" style="width: 60%;text-align: center; margin-top: 20px;">
+            <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Save and let AI suggest me more solutions</button>
             <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Save and I want to explore solutions closer to this</button>
         </div>
 
-        <!-- 第二个按钮组：Submit按钮水平居中 -->
-        <div id="form-options-2" style="text-align: center; margin-top: 20px;">
-            <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
+        
+        <div id="form-options-2" style="display: inline-block; margin: 0 auto; text-align: center;">
+                <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
         </div>
 
-        <!-- 第三个按钮组：Submit按钮水平居中 -->
-        <div id="form-options-3" style="text-align: center; margin-top: 20px;">
-            <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
+        <div id="form-options-3" style="display: inline-block; margin: 0 auto; text-align: center;">
+                <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
         </div>
 
         <br>
-
-        <!-- Done按钮右对齐 -->
-        <div id="done-button" style="text-align: right;">
-            <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>
+        <div id="done-button"  style="text-align: right;">
+            <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
         </div>
-
     </div>
 
     <script>

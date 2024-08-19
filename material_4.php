@@ -156,11 +156,13 @@
             </div>
         </div> -->
         <p><strong>Get results:</strong> </p>
-
+        <br>
+        <p>You will see the optimal result here. The displayed results might include multiple solutions because tradeoffs must be made when the objectives include minimizing and maximizing. 
+        </p>
 
         <!-- Example Table -->
         <div class="text-center mb-4">
-            <img src="Pictures/result.gif" alt="Specify variables" class="img-fluid">
+            <img src="Pictures/result.png" alt="Specify variables" class="img-fluid">
         </div>
     </div>
 

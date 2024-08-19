@@ -276,8 +276,8 @@ if (!isset($_SESSION['ProlificID'])) {
         </div>
 
         <div id="form-options-1" style="display: inline-block; margin: 0 auto;">
-                <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Let AI recommend me the next one</button>
-                <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Explore solutions close to this one</button>
+                <button class="btn btn-primary" id="next-button" onclick="nextEvaluation()">Let AI recommend me<br>the next one</button>
+                <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Explore solutions close<br> to this one</button>
         </div>
 
         

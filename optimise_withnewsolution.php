@@ -592,7 +592,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
         // document.getElementById("solution_2").innerHTML = solution[1];
         // document.getElementById("solution_3").innerHTML = solution[2];
 
-        function executeDatabaseOperation(userID, savedSolutions, savedObjectives, timestamp, isRefine = false) {
+        function executeDatabaseOperation(userID, savedSolutions, savedObjectives, timestamp, isRefine) {
             $.ajax({
                 url: "database_operations.php",
                 type: "post",
@@ -881,6 +881,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         console.log("Success-nextevaluation");
                         console.log(result.solution);
                         console.log(result.saved_objectives);
+                        var tester = 1;
 
                         //记录时间
                         var date = new Date();
@@ -893,7 +894,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,false);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,tester);
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
 
@@ -1059,6 +1060,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         console.log("Success-nextevaluation");
                         console.log(result.solution);
                         console.log(result.saved_objectives);
+                        var tester = 1;
 
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
@@ -1073,7 +1075,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,false);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,tester);
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
@@ -1202,7 +1204,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         localStorage.setItem("saved-solutions", savedSolutions);
                         localStorage.setItem("saved-objectives", savedObjectives);
                         localStorage.setItem("solution-name-list", solutionNameList);
-
+                        var tester = 2;
                         // 记录时间
                         var date = new Date();
                         var formattedTimestamp = date.getFullYear() + "-" + 
@@ -1212,7 +1214,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                                                 ("0" + date.getMinutes()).slice(-2) + ":" +
                                                 ("0" + date.getSeconds()).slice(-2);
 
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp, true); // 传递一个额外参数来标识 refine 操作
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp, tester); // 传递一个额外参数来标识 refine 操作
 
                         console.log("Success-refineevaluation");
                         var url = "optimise_withnewsolution.php";

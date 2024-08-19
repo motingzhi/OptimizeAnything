@@ -83,7 +83,7 @@ if (!isset($_SESSION['ProlificID'])) {
 
         .centered-content {
                 overflow-y: auto; /* 添加垂直滚动条 */
-                max-height: calc(100vh/1.5); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
+                max-height: calc(100vh - 100px); /* 计算中间内容的最大高度减去top-bar和bottom-bar的高度 */
                 margin-top: calc(100vh / 6); /* Offset by the height of top-bar */
                 text-align: center;
                 width: auto; /* Content width as 1/3 of the page */
@@ -275,23 +275,9 @@ if (!isset($_SESSION['ProlificID'])) {
             </table>
         </div>
 
-
-    </div>
-
-    
-
-
-    <div id="loadingContainer">
-        <div id="loadingIcon"></div>
-        <div id="loadingText">Loading...</div>
-    </div>
-
- 
-</div>
-<div class="bottom-bar">
-        <div id="form-options-1" style="width: 60%; margin: 0 auto;">
-            <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Save and let AI suggest me more solutions</button>
-            <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Save and I want to explore solutions closer to this</button>
+        <div id="form-options-1" style="display: inline-block; margin: 0 auto;">
+            <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Give me the next one</button>
+            <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">I want to explore solutions close<br> to this one</button>
         </div>
 
         
@@ -304,10 +290,22 @@ if (!isset($_SESSION['ProlificID'])) {
         </div>
 
         <br>
-        <div id="done-button"  style="text-align: right;">
+        <div id="done-button" class="btn btn-success" style="text-align: right;">
             <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
         </div>
     </div>
+
+
+
+
+    <div id="loadingContainer">
+        <div id="loadingIcon"></div>
+        <div id="loadingText">Loading...</div>
+    </div>
+
+ 
+</div>
+
 
     <script>
         var userID = '<?php echo $userID; ?>';
@@ -592,7 +590,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
         // document.getElementById("solution_2").innerHTML = solution[1];
         // document.getElementById("solution_3").innerHTML = solution[2];
 
-        function executeDatabaseOperation(userID, savedSolutions, savedObjectives, timestamp, isRefine = false) {
+        function executeDatabaseOperation(userID, savedSolutions,savedObjectives, timestamp){
             $.ajax({
                 url: "database_operations.php",
                 type: "post",
@@ -600,8 +598,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     userID: userID,
                     savedSolutions: JSON.stringify(savedSolutions),
                     savedObjectives: JSON.stringify(savedObjectives),
-                    timestamp: timestamp,
-                    isRefine: isRefine // 新增的标识参数
+                    timestamp: timestamp
                 },
                 success: function(response) {
                     console.log("Database operation successful:", response);
@@ -609,9 +606,10 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 error: function(xhr, status, error) {
                     console.log("Database operation failed:", error);
                 }
-            });
-        }
+            }
 
+            );
+        }
 
 
         function newSolution() {
@@ -893,7 +891,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,false);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp);
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
 
@@ -1073,7 +1071,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,false);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp);
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
@@ -1189,13 +1187,18 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 	                },
                     success: function(result) {
                         submitReturned = true;
-                        solutionList = result.solution;
-                        objectivesInput = result.objectives;
+                        solutionList = result.solution
+                        objectivesInput = result.objectives
                         badSolutions = result.bad_solutions;
                         savedSolutions = result.saved_solutions;
                         savedObjectives = result.saved_objectives;
                         solutionNameList = result.solutionNameList;
 
+
+                        new_x = result.new_x
+                        console.log(new_x)
+                        console.log(result.solution)
+                        console.log(result.objectives)
                         localStorage.setItem("solution-list", solutionList);
                         localStorage.setItem("objectives-input", objectivesInput);
                         localStorage.setItem("bad-solutions", badSolutions);
@@ -1203,21 +1206,11 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         localStorage.setItem("saved-objectives", savedObjectives);
                         localStorage.setItem("solution-name-list", solutionNameList);
 
-                        // 记录时间
-                        var date = new Date();
-                        var formattedTimestamp = date.getFullYear() + "-" + 
-                                                ("0" + (date.getMonth() + 1)).slice(-2) + "-" +
-                                                ("0" + date.getDate()).slice(-2) + " " +
-                                                ("0" + date.getHours()).slice(-2) + ":" +
-                                                ("0" + date.getMinutes()).slice(-2) + ":" +
-                                                ("0" + date.getSeconds()).slice(-2);
-
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp, true); // 传递一个额外参数来标识 refine 操作
 
                         console.log("Success-refineevaluation");
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-                        $('#loadingContainer').hide();
+			$('#loadingContainer').hide();
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);

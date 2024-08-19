@@ -259,42 +259,41 @@ if (!isset($_SESSION['ProlificID'])) {
     <div class="container">
         <div id="evaluate-solution" style="display: none;">
             <label for="solution_name">Name the solution </label><br>
-            <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
+            <input size="40" id="solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
             <label for="solution_name">Enter your measurements</label><br>
             <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
-                <thead>  
-                    <tr>  
-                    <th id="record-objective-name" width="40%">Objective</th> 
-                    <th id="record-objective-range" width="40%">Ranges of your objective </th>     
-                    <th id="record-objective-measurement" width="40%"> Enter measurements </th>    
-                    </tr>  
-                </thead>  
+                <thead>
+                    <tr>
+                        <th id="record-objective-name" width="40%">Objective</th>
+                        <th id="record-objective-range" width="40%">Ranges of your objective </th>
+                        <th id="record-objective-measurement" width="40%"> Enter measurements </th>
+                    </tr>
+                </thead>
                 <tbody>
                 </tbody>
             </table>
         </div>
 
-        <div id="form-options-1" style="display: inline-block; margin: 0 auto;">
-            <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Save and suggest me more solutions</button>
+        <!-- Flex container for the two main buttons -->
+        <div class="d-flex justify-content-center mb-4" style="width: 60%; margin: 0 auto;">
+            <button class="btn btn-primary mr-3" id="next-button" onclick="nextEvaluation()">Save and let AI suggest me more solutions</button>
             <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Save and I want to explore solutions closer<br> to this</button>
         </div>
 
-        
-        <div id="form-options-2" style="display: inline-block; margin: 0 auto;">
-                <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
+        <div id="form-options-2" style="display: block; margin: 0 auto;">
+            <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
         </div>
 
-        <div id="form-options-3" style="display: inline-block; margin: 0 auto;">
-                <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
+        <div id="form-options-3" style="display: block; margin: 0 auto;">
+            <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
         </div>
 
         <br>
-        <div id="done-button" class="btn btn-success" style="text-align: right;">
-            <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
+        <div id="done-button" class="text-right">
+            <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>
         </div>
     </div>
-
 
 
 

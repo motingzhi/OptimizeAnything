@@ -163,7 +163,7 @@
         <!-- Example Table -->
         <div class="text-center mb-4">
             <video controls class="img-fluid">
-                <source src="Videos/optimize.mp4" type="video/mp4">
+                <source src="Pictures/optimize.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>

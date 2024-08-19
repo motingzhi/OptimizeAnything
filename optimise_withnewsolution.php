@@ -304,7 +304,7 @@ if (!isset($_SESSION['ProlificID'])) {
         </div>
 
         <br>
-        <div id="done-button" class="btn btn-success" style="text-align: right;">
+        <div id="done-button"  style="text-align: right;">
             <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
         </div>
     </div>

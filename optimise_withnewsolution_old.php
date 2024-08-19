@@ -193,15 +193,17 @@
 
         
 	var DisplaySolutionText = 0;
-
+        var length = 0;
 	
 	var displayDiv = document.getElementById("dataDisplay");
     // 检查 savedSolutions 是否为空字符串，如果为空，则将其长度设置为 0
-        var solutionCount = savedSolutions === '' ? 0 : savedSolutions.length / parameterNames.length;
+        if (savedSolutions === '' ){
+            length = 0;
+        } else{
+            length = savedSolutions.length;
+        }
 
-        displayDiv.innerHTML = "You have evaluated " + parseInt(solutionCount) + " solutions." + "<br>";
-
-        
+        displayDiv.innerHTML =  "You have evaulated " + parseInt(length/parameterNames.length) + " solutions." + "<br>";
 
 
 //////////////////自己加的 

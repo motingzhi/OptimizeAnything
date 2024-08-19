@@ -545,7 +545,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
             generatedSolution[i] = parameterNames[i] + " =  " + solutionList[solutionList.length-parameterNames.length+i];
         }
-        setColor.apply(null, generatedSolution);
+        // setColor.apply(null, generatedSolution);
         // setButtonProperties.apply(null, generatedSolution);
 
         // console.log(generatedSolution);

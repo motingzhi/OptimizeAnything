@@ -158,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <div class="container text-center centered-content image-section">
-        <img src="Pictures/Group 91.png" alt="Example Process">
+        <img src="Pictures/Group 911.png" alt="Example Process">
     </div>
 
     <div class="container text-center content-description">

@@ -203,7 +203,7 @@
             length = savedSolutions.length;
         }
 
-        displayDiv.innerHTML =  "You have evaulated " + parseInt(length/parameterNames.length) + " solutions." + "<br>";
+        displayDiv.innerHTML =  "You have evaulated " + length/parameterNames.length + " solutions." + "<br>";
 
 
 //////////////////自己加的 

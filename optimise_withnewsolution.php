@@ -295,11 +295,11 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
         </div>
 
         
-        <div id="form-options-2" style="display: inline-block; margin: 0 auto; text-align: center;">
+        <div id="form-options-2" style="display: inline-block; margin: 0 auto; ">
                 <button class="btn btn-success" id="next-button" onclick="nextEvaluation2()">Submit</button>
         </div>
 
-        <div id="form-options-3" style="display: inline-block; margin: 0 auto; text-align: center;">
+        <div id="form-options-3" style="display: inline-block; margin: 0 auto;">
                 <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
         </div>
 

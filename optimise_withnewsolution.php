@@ -365,9 +365,13 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
     var displayDiv = document.getElementById("dataDisplay");
 
         // 检查 savedSolutions 是否为空字符串，如果为空，则将其长度设置为 0
-        var solutionCount = savedSolutions === '' ? 0 : savedSolutions.length / parameterNames.length;
+        if (savedSolutions.length === 1  ){
+            count = 0;
+        } else{
+            count = savedSolutions.length/parameterNames.length;
+        }
 
-        displayDiv.innerHTML = "You have evaluated " + parseInt(solutionCount) + " solutions." + "<br>";
+    displayDiv.innerHTML =  "You have evaulated " + count + " solutions." + "<br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
     RequirementDisplay.innerHTML =  "1. Let AI suggest solutions of variables with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " solutions</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>"+ "Processing time may be long, thanks for your patience. ";

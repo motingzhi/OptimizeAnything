@@ -224,7 +224,7 @@ if (!isset($_SESSION['ProlificID'])) {
     <div class="container">
         <div class="card custom-card">
             <div class="card-body2">
-                <p class="card-title">New Alternative</p>
+                <p class="card-title">New Solution</p>
                 <!-- <div id="colorBlock"></div> -->
 
                 <!-- <div id="customButton"> -->
@@ -258,7 +258,7 @@ if (!isset($_SESSION['ProlificID'])) {
     <br>
     <div class="container">
         <div id="evaluate-solution" style="display: none;">
-            <label for="solution_name">Name the alternative </label><br>
+            <label for="solution_name">Name the solution </label><br>
             <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
             <label for="solution_name">Enter your measurements</label><br>
@@ -361,10 +361,10 @@ if (!isset($_SESSION['ProlificID'])) {
 
 	
 	var displayDiv = document.getElementById("dataDisplay");
-        displayDiv.innerHTML =  "<br>" + "You have evaluated  <strong>" + parseInt(savedSolutions.length/parameterNames.length) + " alternatives.</strong>" + "<br><br>";
+        displayDiv.innerHTML =  "<br>" + "You have evaluated  <strong>" + parseInt(savedSolutions.length/parameterNames.length) + " solutions.</strong>" + "<br><br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
-    RequirementDisplay.innerHTML =  "1. Let AI suggest alternatives of solutions with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " alternatives</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";
+    RequirementDisplay.innerHTML =  "1. Let AI suggest solutions of variables with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " solutions</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";
 
 
     if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)

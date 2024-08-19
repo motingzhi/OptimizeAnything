@@ -196,7 +196,7 @@
 	var count = 0;
 	var displayDiv = document.getElementById("dataDisplay");
     // 检查 savedSolutions 是否为空字符串，如果为空，则将其长度设置为 0
-        if (savedSolutions === null ){
+        if (savedSolutions === "" ){
             count = 0;
         } else{
             count = savedSolutions.length/parameterNames.length;

@@ -616,7 +616,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     function addExampleObjectivesTable(){
         var htmlNewRow = ""
         htmlNewRow += "<tr>"
-        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'>Input objectives here</td>"
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-name'>Input objective here</td>"
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-unit'></td>"
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-lower-bound'>Input number</td>"
         htmlNewRow += "<td contenteditable='true' class='record-data' id='record-objective-upper-bound'>Input number</td>"

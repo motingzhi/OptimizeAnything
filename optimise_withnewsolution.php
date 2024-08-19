@@ -8,7 +8,7 @@ if (!isset($_SESSION['ProlificID'])) {
     exit();
 }
 
-// $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
+$userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //     $objectiveNames = json_encode($_POST['objective-names']);

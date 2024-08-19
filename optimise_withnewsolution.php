@@ -366,7 +366,7 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
         displayDiv.innerHTML =  "<br>" + "You have evaluated  <strong>" + parseInt(savedSolutions.length/parameterNames.length) + " solutions.</strong>" + "<br><br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
-    RequirementDisplay.innerHTML =  "1. Let AI suggest solutions of variables with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " solutions</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>";
+    RequirementDisplay.innerHTML =  "1. Let AI suggest solutions of variables with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " solutions</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>"+ "Processing time may be long, thanks for your patience. ";
 
 
     if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)

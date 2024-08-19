@@ -893,7 +893,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         saved_timestamp.push(formattedTimestamp);
                         localStorage.setItem("saved_timestamp", saved_timestamp);
-                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp);
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp,false);
                         // console.log(result.test2);
                         console.log("Success-nextevaluation-reply-ends");
 
@@ -1212,7 +1212,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                                                 ("0" + date.getMinutes()).slice(-2) + ":" +
                                                 ("0" + date.getSeconds()).slice(-2);
 
-                        // executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp, true); // 传递一个额外参数来标识 refine 操作
+                        executeDatabaseOperation(userID, savedSolutions.slice(-1), savedObjectives.slice(-1), formattedTimestamp, true); // 传递一个额外参数来标识 refine 操作
 
                         console.log("Success-refineevaluation");
                         var url = "optimise_withnewsolution.php";

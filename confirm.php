@@ -725,7 +725,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // progressBar.empty();                    
                     // submitReturned = true;
                     submitReturned = true;
-                    solution = result.solution;
+                    //solution = result.solution;//如果是manual的话这行要注释掉。
+                    solution = [];
                     objectivesInput = result.objectives;
                     savedSolutions = result.saved_solutions;
                     savedObjectives = result.saved_objectives;
@@ -733,7 +734,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     localStorage.setItem("objectives-input", objectivesInput);
                     localStorage.setItem("saved-solutions", savedSolutions);
                     localStorage.setItem("saved-objectives", savedObjectives);
-                    var url = "optimise_withnewsolution.php";
+                    var url = "optimise_manual.php";
                     window.location.href = url;
                     //向下一个页面传数据
                     // $.ajax({

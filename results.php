@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br>
         <div style="display: flex; justify-content: space-between; width: 60%;  margin-left: 20%; margin-right: 20%;">
                 <form action="define.php"><button id="restart-button" class="btn btn-outline-success" type="submit">Restart</button></form>
-                <form action="https://link.webropolsurveys.com/S/645BAC578DBFDD62" target="_blank">
+                <form action="https://link.webropolsurveys.com/S/A9AEEE3D03D9B1A6" target="_blank">
                         <button id="restart-button" class="btn btn-success" type="submit">Continue to the questionnaire</button>
                     </form>
         </div>

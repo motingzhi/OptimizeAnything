@@ -1,0 +1,790 @@
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([2.0539e-15, 1.1102e-16, 1.1102e-16, 1.1102e-16], dtype=torch.float64), std = tensor([1.0000, 0.0000, 0.0000, 0.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([6.4393e-15, 1.1102e-16, 1.1102e-16, 1.1102e-16], dtype=torch.float64), std = tensor([1.0000, 0.0000, 0.0000, 0.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([1.1102e-16, 1.1102e-16, 1.1102e-16, 1.1102e-16], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([1.1102e-16, 1.1102e-16, 1.1102e-16, 1.1102e-16], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 227, in <module>
+    sub_list = [float(x) for x in objectivesInput[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 227, in <listcomp>
+    sub_list = [float(x) for x in objectivesInput[len(objectiveNames)*i:len(objectiveNames)*i+len(objectiveNames)]]
+ValueError: could not convert string to float: 'undefined'
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([1.1102e-16, 1.1102e-16, 1.1102e-16, 1.1102e-16], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 59, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 295, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 188, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 320, in forward
+    return self._compute_qehvi(samples=samples, X=X)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 291, in _compute_qehvi
+    overlap_vertices = torch.min(
+RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2539806720 bytes. Error code 12 (Cannot allocate memory)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 295, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 188, in optimize_qehvi
+    candidates, _ = optimize_acqf(
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+    return _optimize_acqf(opt_acqf_inputs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+    return _optimize_acqf_batch(opt_inputs=opt_inputs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+    batch_initial_conditions = opt_inputs.get_ic_generator()(
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+    Y_rnd_curr = acq_function(
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/utils/transforms.py", line 305, in decorated
+    return method(cls, X, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/utils/transforms.py", line 259, in decorated
+    output = method(acqf, X, *args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 320, in forward
+    return self._compute_qehvi(samples=samples, X=X)
+  File "/usr/local/lib/python3.10/dist-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 291, in _compute_qehvi
+    overlap_vertices = torch.min(
+RuntimeError: [enforce fail at alloc_cpu.cpp:117] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2539806720 bytes. Error code 12 (Cannot allocate memory)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([-1.1102e-16, -1.1102e-16, -1.1102e-16, -1.1102e-16,  0.0000e+00,
+        -8.4377e-15], dtype=torch.float64), std = tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 1.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([-1.4012e-14, -1.1102e-16, -1.1102e-16, -1.1102e-16,  1.1102e-16,
+         7.2223e-15], dtype=torch.float64), std = tensor([1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 1.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([ 2.4813e-14,  0.0000e+00,  0.0000e+00,  0.0000e+00,  1.1102e-16,
+        -3.9524e-15], dtype=torch.float64), std = tensor([1.0000, 0.0000, 0.0000, 0.0000, 0.0000, 1.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 296, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 203, in optimize_qehvi
+    while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 165, in checkForbiddenRegions
+    if (proposed_solution[0][y]) < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05:
+IndexError: index 2 is out of bounds for dimension 0 with size 2
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 296, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 203, in optimize_qehvi
+    while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 165, in checkForbiddenRegions
+    if (proposed_solution[0][y]) < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05:
+IndexError: index 2 is out of bounds for dimension 0 with size 2
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 296, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler)
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 203, in optimize_qehvi
+    while (checkForbiddenRegions(bad_solutions, new_x_actual) == False):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 165, in checkForbiddenRegions
+    if (proposed_solution[0][y]) < float(bad_solutions[i][0])+parameter_bounds_range[0]*0.05 and proposed_solution[0][y] > float(bad_solutions[i][0])-parameter_bounds_range[0]*0.05:
+IndexError: index 2 is out of bounds for dimension 0 with size 2
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 231, in <module>
+    savedSolutions[i] = float(savedSolutions[i])
+ValueError: could not convert string to float: ''
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([ 0.0000e+00, -8.3267e-17], dtype=torch.float64), std = tensor([0.0000, 1.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([ 5.5511e-17, -5.5511e-17,  0.0000e+00], dtype=torch.float64), std = tensor([1.0000, 1.0000, 0.0000], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([1., 1., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next-evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py:432: BadInitialCandidatesWarning: Unable to find non-zero acquisition function values - initial conditions are being selected randomly.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next_evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next_evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'

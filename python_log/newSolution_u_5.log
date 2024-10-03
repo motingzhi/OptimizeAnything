@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 157, in <module>
+    savedSolutions.append(nested_list[test])
+TypeError: list indices must be integers or slices, not float
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 157, in <module>
+    savedSolutions.append(nested_list[8.0])
+TypeError: list indices must be integers or slices, not float
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 55, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 55, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 55, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 55, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 55, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/newSolution_u_forsamplesize2.py", line 55, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'

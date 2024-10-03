@@ -135,33 +135,40 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
             text-align: center;
 
         }
-
         #loadingContainer {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+    display: flex;  /* 使用flex布局 */
+    flex-direction: column;  /* 纵向排列 */
+    justify-content: center;  /* 垂直居中 */
+    align-items: center;  /* 水平居中 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;  /* 替换 display: none; 以便布局生效，同时保持不可见 */
+}
 
-        #loadingIcon {
-            border: 8px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 8px solid #53A451;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
+#loadingContainer.show {
+    visibility: visible;  /* 当需要显示时，将其设置为可见 */
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+#loadingIcon {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #53A451;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
 
-        #loadingText {
-            text-align: center;
-            margin-top: 20px;
-        }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingText {
+    text-align: center;
+    margin-top: 20px;
+}
 
         #colorBlock {
             width: 100px;
@@ -261,13 +268,13 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
             <label for="solution_name">Name the solution </label><br>
             <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
-            <label for="solution_name">Enter your measurements</label><br>
+            <label for="solution_name">Evaluate the solution by entering the measurements for your objectives</label><br>
             <table class="table table-bordered" id="measurement-table" class="measurement-table" width="100%">
                 <thead>  
                     <tr>  
                     <th id="record-objective-name" width="40%">Objective</th> 
                     <th id="record-objective-range" width="40%">Ranges of your objective </th>     
-                    <th id="record-objective-measurement" width="40%"> Enter measurements </th>    
+                    <th id="record-objective-measurement" width="40%"> Measurements</th>    
                     </tr>  
                 </thead>  
                 <tbody>
@@ -282,16 +289,16 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
 
     <div id="loadingContainer">
-        <div id="loadingIcon"></div>
-        <div id="loadingText">Loading...</div>
+        <div id="loadingIcon" style="text-align: center"></div>
+        <div id="loadingText">Processing...</div>
     </div>
 
  
 </div>
 <div class="bottom-bar">
         <div id="form-options-1" style="width: 60%; margin: 0 auto; text-align: center;">
-            <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Save and let AI suggest me more solutions</button>
-            <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Save and I want to explore solutions closer to this</button>
+            <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Confirm and let AI suggest a new solution</button>
+            <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Confirm and let AI suggest a solution close to THIS one</button>
         </div>
 
         
@@ -374,7 +381,9 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
     displayDiv.innerHTML =  "You have evaulated " + count + " solutions." + "<br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
-    RequirementDisplay.innerHTML =  "1. Let AI suggest solutions of variables with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " solutions</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>"+ "Processing time may be long, thanks for your patience. ";
+    RequirementDisplay.innerHTML =  "1. Let AI suggest solutions for variables to you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " solutions</strong> to proceed." + "<br>" + 
+    "2. Then, after <strong>" + parseInt(2*parameterNames.length) + " more </strong>rounds of evaluations, you will see the Done button, you can either choose to continue until you find an optimal solution, or directly finish." 
+    + "<br>"+ "3. You need to evaluate the solution by yourself. How to evaluate the solution? You enter the measurement value for each objective. The value can be based on your personal preferences, experience or knowledge."+ "<br>"+  "Processing time may be long, thanks for your patience. ";
 
 
     if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1)-1)
@@ -406,10 +415,12 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
            for (i = 0; i < objectiveNames.length; i++) {
                 var htmlNewRow = "" 
                 htmlNewRow += "<tr>" 
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>" 
+                htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>" 
                 htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "(" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>" // placeholder的效果怎么做
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' style='width: 25%;' placeholder=''> </td>"
-                htmlNewRow += "</td></tr>"
+                // 使用 <textarea> 实现自动换行效果
+                htmlNewRow += "<td contenteditable='false' class='record-data' style='width: 25%; padding: 0;'>"; 
+                htmlNewRow += "<textarea class='measurement-input' placeholder='Enter the measurement' style='width: 100%; min-height: 40px; height: auto; resize: none; box-sizing: border-box;'></textarea>";
+                htmlNewRow += "</td></tr>";
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
     }
@@ -461,10 +472,12 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
            for (i = 0; i < objectiveNames.length; i++) {
                 var htmlNewRow = "" 
                 htmlNewRow += "<tr>" 
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>" 
+                htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>" 
                 htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>" // placeholder的效果怎么做
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' style='width: 25%;' placeholder=''> </td>"
-                htmlNewRow += "</td></tr>"
+                // 使用 <textarea> 实现自动换行效果
+                htmlNewRow += "<td contenteditable='false' class='record-data' style='width: 25%; padding: 0;'>"; 
+                htmlNewRow += "<textarea class='measurement-input' placeholder='Enter the measurement' style='width: 100%; min-height: 40px; height: auto; resize: none; box-sizing: border-box;'></textarea>";
+                htmlNewRow += "</td></tr>";
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
 
@@ -588,7 +601,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
             document.getElementById("done-button").style.display = 'none';
         }
 
-        if (savedSolutions.length < 2) {
+        if (savedSolutions == '') {
             document.getElementById("solution_name").value = 'Solution 1';
         }
         else {
@@ -653,7 +666,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
             $.ajax({
                 // url: "./cgi/newSolution_u_copy.py",
-                url: "./cgi/newSolution_u_2.py",
+                url: "./cgi/newSolution_optimize.py",
 
                 type: "post",
                 datatype: "json",
@@ -677,7 +690,13 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         'objective-measurements'        :String(objectiveMeasurements)},
                 beforeSend: function() {
                 // 显示 loading 动画和文字
-                $('#loadingContainer').show();
+
+                // 显示loadingContainer
+                $('#loadingContainer').addClass('show');
+
+                // // 隐藏loadingContainer
+                // $('#loadingContainer').removeClass('show');
+
                 },
                 success: function(result) {
                     submitReturned = true;
@@ -699,7 +718,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     console.log("Success-newSolution_Reply_list_ends");
                     var url = "optimise_withnewsolution.php";
                     location.href = url;
-                    $('#loadingContainer').hide();
+                    $('#loadingContainer').removeClass('show');
 
             
                 },
@@ -763,11 +782,12 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
            for (i = 0; i < objectiveNames.length; i++) {
                 var htmlNewRow = ""
                 htmlNewRow += "<tr>"
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
+                htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>"
                 htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "Enter measurement (" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>"// placeholder的效果怎么做
-                htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' style='width: 25%;' placeholder=''> </td>"
-                // htmlNewRow += "<td id='record-data-buttons'>"
-                htmlNewRow += "</td></tr>"
+                // 使用 <textarea> 实现自动换行效果
+                htmlNewRow += "<td contenteditable='false' class='record-data' style='width: 25%; padding: 0;'>"; 
+                htmlNewRow += "<textarea class='measurement-input' placeholder='Enter the measurement' style='width: 100%; min-height: 40px; height: auto; resize: none; box-sizing: border-box;'></textarea>";
+                htmlNewRow += "</td></tr>";
                 $("#measurement-table", window.document).append(htmlNewRow);
             }
         
@@ -798,7 +818,9 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 var $paramCols = $(this).find("td");
 
                 // 获取当前行的第二列数据
-                var objElement = $paramCols.eq(2).text();
+                // var objElement = $paramCols.eq(2).text();
+                var objElement = $paramCols.eq(2).find("textarea").val(); // 使用 .val() 获取 textarea 的值
+
 
                 // 将第二列数据填充到objectiveMeasurements对应的位置
                 objectiveMeasurements[index] = objElement;
@@ -843,7 +865,9 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
 
                 $.ajax({
-                    url: "./cgi/newSolution_u_forsamplesize2.py",
+                    // url: "./cgi/newSolution_u_forsamplesize2.py",
+                    url: "./cgi/newSolution_initial.py",
+
                     type: "post",
                     datatype: "json",
                     data: { 'parameter-names'    :String(parameterNames),
@@ -868,8 +892,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                             'objective-measurements'   :String(objectiveMeasurements)},
                 beforeSend: function() {
                     // 显示 loading 动画和文字
-                    $('#loadingContainer').show();
-                    },
+                    $('#loadingContainer').addClass('show');
+                },
                     success: function(result) {
                         submitReturned = true;
                         solutionList = result.solution;
@@ -908,7 +932,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-                $('#loadingContainer').hide();
+                        $('#loadingContainer').removeClass('show');
 
                     },
                     error: function(result){
@@ -954,7 +978,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 var $paramCols = $(this).find("td");
 
                 // 获取当前行的第二列数据
-                var objElement = $paramCols.eq(2).text();
+                // var objElement = $paramCols.eq(2).text();
+                var objElement = $paramCols.eq(2).find("textarea").val(); // 使用 .val() 获取 textarea 的值
 
                 // 将第二列数据填充到objectiveMeasurements对应的位置
                 objectiveMeasurements[index] = objElement;
@@ -1020,7 +1045,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
     
                 $.ajax({
-                    url: "./cgi/next-evaluation.py",
+                    url: "./cgi/next_evaluation.py",
                     type: "post",
                     datatype: "json",
                     data: { 'parameter-names'    :String(parameterNames),
@@ -1045,8 +1070,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                             'objective-measurements'   :String(objectiveMeasurements)},
                 beforeSend: function() {
                     // 显示 loading 动画和文字
-                    $('#loadingContainer').show();
-                    },
+                    $('#loadingContainer').addClass('show');
+                },
                     success: function(result) {
                         submitReturned = true;
                         solutionList = result.solution;
@@ -1087,7 +1112,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-                        $('#loadingContainer').hide();
+                        $('#loadingContainer').removeClass('show');
 
                         },
                         error: function(result){
@@ -1126,8 +1151,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                     var $paramCols = $(this).find("td");
     
                     // 获取当前行的第二列数据
-                    var objElement = $paramCols.eq(2).text();
-    
+                // var objElement = $paramCols.eq(2).text();
+                var objElement = $paramCols.eq(2).find("textarea").val(); // 使用 .val() 获取 textarea 的值
                     // 将第二列数据填充到objectiveMeasurements对应的位置
                     objectiveMeasurements[index] = objElement;
                 });
@@ -1169,7 +1194,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                 console.log("objectivesInput",objectivesInput)
     
                 $.ajax({
-                    url: "./cgi/refine-solution.py",
+                    url: "./cgi/refine_solution.py",
                     type: "post",
                     datatype: "json",
                     data: { 'parameter-names'    :String(parameterNames),
@@ -1195,8 +1220,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                 beforeSend: function() {
                     // 显示 loading 动画和文字
-                    $('#loadingContainer').show();
-                    },
+                    $('#loadingContainer').addClass('show');
+                },
                     success: function(result) {
                         submitReturned = true;
                         solutionList = result.solution;
@@ -1227,7 +1252,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         console.log("Success-refineevaluation");
                         var url = "optimise_withnewsolution.php";
                         location.href = url;
-                        $('#loadingContainer').hide();
+                        $('#loadingContainer').removeClass('show');
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);
@@ -1273,8 +1298,8 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
 
                 beforeSend: function() {
                     // 显示 loading 动画和文字
-                    $('#loadingContainer').show();
-                    },
+                    $('#loadingContainer').addClass('show');
+                },
                     success: function(result) {
                         submitReturned = true;
                         // solutionList = result.solution;
@@ -1324,7 +1349,7 @@ if (savedSolutions.length/parameterNames.length < 2*(parameterNames.length+1))
                         // location.href = url;
                     console.log("solutionNameList",solutionNameList);
                     console.log("Success");
-                    $('#loadingContainer').hide();
+                    $('#loadingContainer').removeClass('show');
                     },
                     error: function(result){
                         console.log("Error in finishing experiment: " + result.message);

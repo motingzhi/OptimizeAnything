@@ -1,294 +1,239 @@
+
+
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
 Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 294, in <module>
+    new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler, parameter_bounds_range_refined)
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 210, in optimize_qehvi
+    new_x_actual = unnormalise_parameters(new_x, parameter_bounds)
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 183, in unnormalise_parameters
+    x_actual[0][i] = x_tensor[0][i]*(x_bounds[1][i] - x_bounds[0][i]) + x_bounds[0][i]
+IndexError: invalid index of a 0-dim tensor. Use `tensor.item()` in Python or `tensor.item<T>()` in C++ to convert a 0-dim tensor to a number
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/models/exact_prediction_strategies.py", line 47, in __init__
     train_labels = train_labels.reshape(
-                   ^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: shape '[2, 6]' is invalid for input of size 2
+RuntimeError: shape '[2, 18]' is invalid for input of size 2
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/refine-solution.py", line 277, in <module>
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 294, in <module>
     new_x, new_x_actual = optimize_qehvi(model, train_obj, qehvi_sampler, parameter_bounds_refined)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/refine-solution.py", line 194, in optimize_qehvi
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 199, in optimize_qehvi
     candidates, _ = optimize_acqf(
-                    ^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 563, in optimize_acqf
     return _optimize_acqf(opt_acqf_inputs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 584, in _optimize_acqf
     return _optimize_acqf_batch(opt_inputs=opt_inputs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/optimize.py", line 274, in _optimize_acqf_batch
     batch_initial_conditions = opt_inputs.get_ic_generator()(
-                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/initializers.py", line 417, in gen_batch_initial_conditions
     Y_rnd_curr = acq_function(
-                 ^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
     return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
     return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 305, in decorated
+  File "/usr/local/lib/python3.10/dist-packages/botorch/utils/transforms.py", line 305, in decorated
     return method(cls, X, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/transforms.py", line 259, in decorated
+  File "/usr/local/lib/python3.10/dist-packages/botorch/utils/transforms.py", line 259, in decorated
     output = method(acqf, X, *args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
+  File "/usr/local/lib/python3.10/dist-packages/botorch/acquisition/multi_objective/monte_carlo.py", line 318, in forward
     posterior = self.model.posterior(X)
-                ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/models/gpytorch.py", line 383, in posterior
+  File "/usr/local/lib/python3.10/dist-packages/botorch/models/gpytorch.py", line 388, in posterior
     mvn = self(X)
-          ^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_gp.py", line 294, in __call__
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/models/exact_gp.py", line 294, in __call__
     self.prediction_strategy = prediction_strategy(
-                               ^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/models/exact_prediction_strategies.py", line 37, in prediction_strategy
     return cls(train_inputs, train_prior_dist, train_labels, likelihood)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/kernels/scale_kernel.py", line 124, in prediction_strategy
     return self.base_kernel.prediction_strategy(train_inputs, train_prior_dist, train_labels, likelihood)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/kernels/kernel.py", line 445, in prediction_strategy
     return exact_prediction_strategies.DefaultPredictionStrategy(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/models/exact_prediction_strategies.py", line 51, in __init__
     raise RuntimeError(
-RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 6]).
+RuntimeError: Flattening the training labels failed. The most common cause of this error is that the shapes of the prior mean and the training labels are mismatched. The shape of the train targets is torch.Size([2, 1]), while the reported shape of the mean is torch.Size([2, 18]).
+/usr/local/lib/python3.10/dist-packages/botorch/models/transforms/outcome.py:304: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  stdvs = Y.std(dim=-2, keepdim=True)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:194: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  Ymean, Ystd = torch.mean(Y, dim=-2), torch.std(Y, dim=-2)
 Traceback (most recent call last):
-  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/refine-solution.py", line 281, in <module>
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 290, in <module>
     fit_gpytorch_model(mll)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 164, in fit_gpytorch_model
+  File "/usr/local/lib/python3.10/dist-packages/botorch/fit.py", line 164, in fit_gpytorch_model
     mll = fit_gpytorch_mll(
-          ^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 105, in fit_gpytorch_mll
+  File "/usr/local/lib/python3.10/dist-packages/botorch/fit.py", line 105, in fit_gpytorch_mll
     return FitGPyTorchMLL(
-           ^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/dispatcher.py", line 93, in __call__
+  File "/usr/local/lib/python3.10/dist-packages/botorch/utils/dispatcher.py", line 93, in __call__
     return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 252, in _fit_fallback
+  File "/usr/local/lib/python3.10/dist-packages/botorch/fit.py", line 252, in _fit_fallback
     optimizer(mll, closure=closure, **optimizer_kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/fit.py", line 92, in fit_gpytorch_mll_scipy
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/fit.py", line 92, in fit_gpytorch_mll_scipy
     result = scipy_minimize(
-             ^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/core.py", line 109, in scipy_minimize
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/core.py", line 109, in scipy_minimize
     raw = minimize_with_timeout(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/utils/timeout.py", line 80, in minimize_with_timeout
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/utils/timeout.py", line 80, in minimize_with_timeout
     return optimize.minimize(
-           ^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_minimize.py", line 710, in minimize
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_minimize.py", line 713, in minimize
     res = _minimize_lbfgsb(fun, x0, args, jac, bounds,
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_lbfgsb_py.py", line 307, in _minimize_lbfgsb
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_lbfgsb_py.py", line 309, in _minimize_lbfgsb
     sf = _prepare_scalar_function(fun, x0, jac=jac, args=args, epsilon=eps,
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 383, in _prepare_scalar_function
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_optimize.py", line 402, in _prepare_scalar_function
     sf = ScalarFunction(fun, x0, args, grad, hess,
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 158, in __init__
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_differentiable_functions.py", line 166, in __init__
     self._update_fun()
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 251, in _update_fun
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_differentiable_functions.py", line 262, in _update_fun
     self._update_fun_impl()
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 155, in update_fun
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_differentiable_functions.py", line 163, in update_fun
     self.f = fun_wrapped(self.x)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 137, in fun_wrapped
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_differentiable_functions.py", line 145, in fun_wrapped
     fx = fun(np.copy(x), *args)
-         ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 77, in __call__
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_optimize.py", line 78, in __call__
     self._compute_if_needed(x, *args)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 71, in _compute_if_needed
+  File "/usr/local/lib/python3.10/dist-packages/scipy/optimize/_optimize.py", line 72, in _compute_if_needed
     fg = self.fun(x, *args)
-         ^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 160, in __call__
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/closures/core.py", line 160, in __call__
     value, grads = _handle_numerical_errors(e, x=self.state, dtype=np_float64)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/utils/common.py", line 52, in _handle_numerical_errors
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/utils/common.py", line 52, in _handle_numerical_errors
     raise error  # pragma: nocover
-    ^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 150, in __call__
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/closures/core.py", line 150, in __call__
     value_tensor, grad_tensors = self.closure(**kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 64, in __call__
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/closures/core.py", line 64, in __call__
     values = self.forward(**kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/model_closures.py", line 176, in closure
+  File "/usr/local/lib/python3.10/dist-packages/botorch/optim/closures/model_closures.py", line 176, in closure
     log_likelihood = mll(
-                     ^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/module.py", line 31, in __call__
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/module.py", line 31, in __call__
     outputs = self.forward(*inputs, **kwargs)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/mlls/exact_marginal_log_likelihood.py", line 64, in forward
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/mlls/exact_marginal_log_likelihood.py", line 64, in forward
     res = output.log_prob(target)
-          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/distributions/multivariate_normal.py", line 171, in log_prob
+  File "/usr/local/lib/python3.10/dist-packages/gpytorch/distributions/multivariate_normal.py", line 171, in log_prob
     return super().log_prob(value)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/distributions/multivariate_normal.py", line 248, in log_prob
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributions/multivariate_normal.py", line 248, in log_prob
     M = _batch_mahalanobis(self._unbroadcasted_scale_tril, diff)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/distributions/multivariate_normal.py", line 58, in _batch_mahalanobis
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributions/multivariate_normal.py", line 58, in _batch_mahalanobis
     flat_L = bL.reshape(-1, n, n)  # shape = b x n x n
-             ^^^^^^^^^^^^^^^^^^^^
-RuntimeError: shape '[-1, 7, 7]' is invalid for input of size 2
+RuntimeError: shape '[-1, 2, 2]' is invalid for input of size 2
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.], dtype=torch.float64), std = tensor([0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0.], dtype=torch.float64), std = tensor([0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0.0000e+00, 0.0000e+00, 5.5511e-17], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:202: InputDataWarning: Input data is not standardized (mean = tensor([0., 0., 0.], dtype=torch.float64), std = tensor([0., 0., 0.], dtype=torch.float64)). Please consider scaling the input to zero mean and unit variance.
+  warnings.warn(msg, InputDataWarning)
+/usr/local/lib/python3.10/dist-packages/botorch/models/utils/assorted.py:174: InputDataWarning: Input data is not contained to the unit cube. Please consider min-max scaling the input data.
+  warnings.warn(msg, InputDataWarning)
 Traceback (most recent call last):
-  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/refine-solution.py", line 281, in <module>
-    fit_gpytorch_model(mll)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 164, in fit_gpytorch_model
-    mll = fit_gpytorch_mll(
-          ^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 105, in fit_gpytorch_mll
-    return FitGPyTorchMLL(
-           ^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/dispatcher.py", line 93, in __call__
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 252, in _fit_fallback
-    optimizer(mll, closure=closure, **optimizer_kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/fit.py", line 92, in fit_gpytorch_mll_scipy
-    result = scipy_minimize(
-             ^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/core.py", line 109, in scipy_minimize
-    raw = minimize_with_timeout(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/utils/timeout.py", line 80, in minimize_with_timeout
-    return optimize.minimize(
-           ^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_minimize.py", line 710, in minimize
-    res = _minimize_lbfgsb(fun, x0, args, jac, bounds,
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_lbfgsb_py.py", line 307, in _minimize_lbfgsb
-    sf = _prepare_scalar_function(fun, x0, jac=jac, args=args, epsilon=eps,
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 383, in _prepare_scalar_function
-    sf = ScalarFunction(fun, x0, args, grad, hess,
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 158, in __init__
-    self._update_fun()
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 251, in _update_fun
-    self._update_fun_impl()
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 155, in update_fun
-    self.f = fun_wrapped(self.x)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 137, in fun_wrapped
-    fx = fun(np.copy(x), *args)
-         ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 77, in __call__
-    self._compute_if_needed(x, *args)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 71, in _compute_if_needed
-    fg = self.fun(x, *args)
-         ^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 160, in __call__
-    value, grads = _handle_numerical_errors(e, x=self.state, dtype=np_float64)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/utils/common.py", line 52, in _handle_numerical_errors
-    raise error  # pragma: nocover
-    ^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 150, in __call__
-    value_tensor, grad_tensors = self.closure(**kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 64, in __call__
-    values = self.forward(**kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/model_closures.py", line 176, in closure
-    log_likelihood = mll(
-                     ^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/module.py", line 31, in __call__
-    outputs = self.forward(*inputs, **kwargs)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/mlls/exact_marginal_log_likelihood.py", line 64, in forward
-    res = output.log_prob(target)
-          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/distributions/multivariate_normal.py", line 171, in log_prob
-    return super().log_prob(value)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/distributions/multivariate_normal.py", line 248, in log_prob
-    M = _batch_mahalanobis(self._unbroadcasted_scale_tril, diff)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/distributions/multivariate_normal.py", line 58, in _batch_mahalanobis
-    flat_L = bL.reshape(-1, n, n)  # shape = b x n x n
-             ^^^^^^^^^^^^^^^^^^^^
-RuntimeError: shape '[-1, 7, 7]' is invalid for input of size 2
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
 Traceback (most recent call last):
-  File "/Applications/XAMPP/xamppfiles/htdocs/OptimizeAnything/cgi/refine-solution.py", line 281, in <module>
-    fit_gpytorch_model(mll)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 164, in fit_gpytorch_model
-    mll = fit_gpytorch_mll(
-          ^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 105, in fit_gpytorch_mll
-    return FitGPyTorchMLL(
-           ^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/utils/dispatcher.py", line 93, in __call__
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/fit.py", line 252, in _fit_fallback
-    optimizer(mll, closure=closure, **optimizer_kwargs)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/fit.py", line 92, in fit_gpytorch_mll_scipy
-    result = scipy_minimize(
-             ^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/core.py", line 109, in scipy_minimize
-    raw = minimize_with_timeout(
-          ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/utils/timeout.py", line 80, in minimize_with_timeout
-    return optimize.minimize(
-           ^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_minimize.py", line 710, in minimize
-    res = _minimize_lbfgsb(fun, x0, args, jac, bounds,
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_lbfgsb_py.py", line 307, in _minimize_lbfgsb
-    sf = _prepare_scalar_function(fun, x0, jac=jac, args=args, epsilon=eps,
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 383, in _prepare_scalar_function
-    sf = ScalarFunction(fun, x0, args, grad, hess,
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 158, in __init__
-    self._update_fun()
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 251, in _update_fun
-    self._update_fun_impl()
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 155, in update_fun
-    self.f = fun_wrapped(self.x)
-             ^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_differentiable_functions.py", line 137, in fun_wrapped
-    fx = fun(np.copy(x), *args)
-         ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 77, in __call__
-    self._compute_if_needed(x, *args)
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/scipy/optimize/_optimize.py", line 71, in _compute_if_needed
-    fg = self.fun(x, *args)
-         ^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 160, in __call__
-    value, grads = _handle_numerical_errors(e, x=self.state, dtype=np_float64)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/utils/common.py", line 52, in _handle_numerical_errors
-    raise error  # pragma: nocover
-    ^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 150, in __call__
-    value_tensor, grad_tensors = self.closure(**kwargs)
-                                 ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/core.py", line 64, in __call__
-    values = self.forward(**kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/botorch/optim/closures/model_closures.py", line 176, in closure
-    log_likelihood = mll(
-                     ^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/module.py", line 31, in __call__
-    outputs = self.forward(*inputs, **kwargs)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/mlls/exact_marginal_log_likelihood.py", line 64, in forward
-    res = output.log_prob(target)
-          ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/gpytorch/distributions/multivariate_normal.py", line 171, in log_prob
-    return super().log_prob(value)
-           ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/distributions/multivariate_normal.py", line 248, in log_prob
-    M = _batch_mahalanobis(self._unbroadcasted_scale_tril, diff)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/torch/distributions/multivariate_normal.py", line 58, in _batch_mahalanobis
-    flat_L = bL.reshape(-1, n, n)  # shape = b x n x n
-             ^^^^^^^^^^^^^^^^^^^^
-RuntimeError: shape '[-1, 7, 7]' is invalid for input of size 2
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/refine-solution.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/refine_solution.py", line 277, in <module>
+    parameter_bounds_refined[0][i] = parametersPlaceholder[len(parametersPlaceholder)-num_parameters+i] - parameter_bounds_range[i]*0.05
+TypeError: unsupported operand type(s) for -: 'list' and 'float'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/refine_solution.py", line 277, in <module>
+    parameter_bounds_refined[0][i] = savedSolutions[len(savedSolutions)-num_parameters+i] - parameter_bounds_range[i]*0.05
+TypeError: unsupported operand type(s) for -: 'list' and 'float'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/refine_solution.py", line 277, in <module>
+    parameter_bounds_refined[0][i] = savedSolutions[len(savedSolutions)-num_parameters+i] - parameter_bounds_range[i]*0.05
+TypeError: unsupported operand type(s) for -: 'list' and 'float'

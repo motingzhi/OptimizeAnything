@@ -14,7 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $savedsolutions = json_encode($_POST['saved-solutions']);
     $savedobjectives = json_encode($_POST['saved-objectives']);
     $solutionlist = json_encode($_POST['solution-list']);
-    $saved_timestamp = json_encode(date("Y-m-d H:i:s"));
+
+        
+    $datetime = new DateTime("now", new DateTimeZone("Europe/Helsinki"));
+    $saved_timestamp = json_encode($datetime->format("Y-m-d H:i:s")); // 格式化时间戳为字符串
+    // $saved_timestamp = json_encode(date("Y-m-d H:i:s"));
 
     $stmt = $conn->prepare("UPDATE data SET Savedsolutions = ?, Savedobjectives = ?, Solutionlist = ?, saved_timestamp = ? WHERE prolific_ID = ?");
     if ($stmt === false) {
@@ -132,21 +136,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div id="dataDisplay"></div>
 
+
+
+
         <div id="container"></div>
         <!-- <button class="btn btn-outline-primary" id="download-button">Download</button> -->
         <br>
         <br>
+        <div id="solution-container" style="display: none;">
+            <p>Please choose one solution that you like the best:</p>
+            <!-- 修改为下拉框 -->
+            <select id="solution-select" style="width: 20%; margin-left:40%" class="form-control">
+                <!-- 动态生成选项 -->
+            </select>
+            <button id="confirm-button" class="btn btn-primary">Confirm</button>
+        </div>
 
-        <p><strong>Please DO NOT close this window yet!</strong> </p>
-        <p> You will need to answer the first question of questionnaire based on the result here</p>
-        <p>After answering the questionnaire, you can close this window.</p>
-        <br>
-        <br>
+        <div id="info" style="display: none;">
+            <p><strong>Please DO NOT close this window yet!</strong></p>
+            <p>You need to answer the questionnaire based on the result here</p>
+            <p>After answering the questionnaire, you can close this window.</p>
+            <br><br>
+        </div>
         <div style="display: flex; justify-content: space-between; width: 60%;  margin-left: 20%; margin-right: 20%;">
                 <form action="define.php"><button id="restart-button" class="btn btn-outline-success" type="submit">Restart</button></form>
-                <form action="https://link.webropolsurveys.com/S/A9AEEE3D03D9B1A6" target="_blank">
-                        <button id="restart-button" class="btn btn-success" type="submit">Continue to the questionnaire</button>
-                    </form>
+                <form >
+                    <button id="question-button" class="btn btn-success" type="submit" style="display: none;" onclick="tosurvey()">Continue to the questionnaire</button>
+                </form>
         </div>
 
 
@@ -174,8 +190,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         var BestSolutionIndex = localStorage.getItem("BestSolutionIndex").split(",");
     
         import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
            
-        if (objectiveNames.length <= 2)
+        if (objectiveNames.length == 2 )
             {
                   const width = 720;
                   const height = 500;
@@ -305,8 +322,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
+        var ismanual = localStorage.getItem("ismanual");
+        function tosurvey(){
+            if (ismanual == 1){
+                window.open("https://link.webropolsurveys.com/S/BEC3741519803258", "_blank");
+            }
+            else {
+                window.open("https://link.webropolsurveys.com/S/C14C36FE7DC6A054", "_blank");
+tosurvey
+            }
+        }
         var parameterNames = localStorage.getItem("parameter-names").split(",");
         var parameterBounds = localStorage.getItem("parameter-bounds").split(",");
         var objectiveNames = localStorage.getItem("objective-names").split(",");
@@ -330,8 +358,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         console.log("BestSolutionIndex " + BestSolutionIndex);
 
         // console.log("Best solutions: " + bestSolutions);
+        if (BestSolutionIndex.length>1){
+            // document.getElementById('solution-container').style.display = 'block';
+
+            document.getElementById('solution-container').style.display = 'block';
+
+            // 动态生成下拉框选项
+            var solutionSelect = document.getElementById('solution-select');
+            for (var i = 0; i < BestSolutionIndex.length; i++) {
+                var option = document.createElement('option');
+                option.value = BestSolutionIndex[i];
+                option.text = solutionNameList[BestSolutionIndex[i]];
+                solutionSelect.add(option);
+            }
+
+        } else{
+            document.getElementById('solution-container').style.display = 'none';
+                // 显示隐藏的元素
+                document.getElementById('info').style.display = 'block';
+                document.getElementById('question-button').style.display = 'inline-block';
+        }
+
+        // document.getElementById('confirm-button').addEventListener('click', function() {
+        //     var solutionInput = document.getElementById('solution-input').value.trim();
 
 
+        //     if (solutionInput.length > 0) {
+        //         // 将用户输入的方案名称存储到 localStorage 或做其他处理
+        //         localStorage.setItem('chosenSolution', solutionInput);
+
+        //                 // 将用户输入的方案名称通过 AJAX 请求发送到服务器
+        //         $.ajax({
+        //             url: "chosen_solution.php",  // 新的PHP文件，用于处理保存操作
+        //             type: "post",
+        //             data: {
+        //                 'chosen_solution': solutionInput  // 传递用户输入的方案名称
+        //             },
+        //             success: function(response) {
+                        
+        //                 // 显示隐藏的元素
+        //                 document.getElementById('info').style.display = 'block';
+        //                 document.getElementById('question-button').style.display = 'inline-block';
+        //             },
+        //             error: function(response) {
+        //                 console.log("Error sending data to save_solution.php");
+        //             }
+        //         });
+        //     } else {
+        //         alert("Please input a solution name.");
+        //     }
+        // });
+        // 确认按钮点击事件
+        document.getElementById('confirm-button').addEventListener('click', function() {
+            var selectedSolutionIndex = document.getElementById('solution-select').value;
+
+            // 将用户选择的 BestSolutionIndex 存储到 localStorage
+            localStorage.setItem('chosenSolution', selectedSolutionIndex);
+
+            // 通过 AJAX 请求将用户选择的方案发送到服务器
+            $.ajax({
+                url: "chosen_solution.php",
+                type: "post",
+                data: {
+                    'chosen_solution': selectedSolutionIndex  // 传递用户选择的 BestSolutionIndex
+                },
+                success: function(response) {
+                    // 显示隐藏的元素
+                    document.getElementById('info').style.display = 'block';
+                    document.getElementById('question-button').style.display = 'inline-block';
+                },
+                error: function(response) {
+                    console.log("Error sending data to chosen_solution.php");
+                }
+            });
+        });
 
 
         var displayDiv = document.getElementById("dataDisplay");

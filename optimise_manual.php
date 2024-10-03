@@ -10,6 +10,25 @@ if (!isset($_SESSION['ProlificID'])) {
 
 $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     $randomizerstatus = json_encode($_POST['randomizerstatus']);
+//     $ismanual = json_encode($_POST['ismanual']);
+
+//     $stmt = $conn->prepare("UPDATE data SET randomizerstatus = ?,  ismanual = ? WHERE prolific_ID = ?");
+//     if ($stmt === false) {
+//         die("Prepare failed: " . $conn->error);
+//     }
+//     $stmt->bind_param("sss", $randomizerstatus,  $ismanual, $userID);
+//     if ($stmt->execute()) {
+//         echo "Record updated successfully";
+//     } else {
+//         echo "Error: " . $stmt->error;
+//     }
+
+//     $stmt->close();
+//     $conn->close();
+// }
+
 
 ?>
 
@@ -97,8 +116,9 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 900px;
-        }
+            max-width: 90%;
+            width: 70%;
+                }
 
         .custom-card {
             margin: 10px; /* 外边距 */
@@ -193,9 +213,11 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
             <div class="card custom-card">
                 <p class="text-primary">Hints</p>
                 <div class="card-body">
-                    <div id="RequirementDisplay"></div>
-         
-            </div>
+
+                <label>1. To compare the optimization effect between humans and AI, now you are assigned to the group conducting optimization manually. So you will need to propose different solutions by yourself.                    
+                </label></br>
+                <div id="RequirementDisplay"></div>                           
+                </div>
             </div>
 
 
@@ -205,15 +227,14 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
     <div class="container">
         <div class="card custom-card">
             <div class="card-body2">
-                <p class="card-title">New Solution</p>
+                <p class="card-title">Propose NEW Solution by Yourself</p>
 
                 <table class="table table-bordered" id="variable-table">
                     <thead>  
                         <tr>  
-                            <th id="record-parameter-name" width="40%"> Variable Name </th>   
-                            <th id="record-parameter-unit" width="40%"> Unit (if any) </th>   
-                            <th id="record-parameter-bound"> Range </th>  
-                            <th id="record-parameter-vale"> Value </th>  
+                            <th id="record-parameter-name" width="30%"> Variable </th>   
+                            <th id="record-parameter-bound" width="30%"> Ranges of your variable </th>  
+                            <th id="record-parameter-vale" width="30%"> Enter value </th>  
                         </tr>  
                     </thead>  
                     <tbody>
@@ -240,7 +261,7 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
 
     <br>
     <div class="container">
-        <div id="evaluate-solution" style="display: none;">
+        <div id="evaluate-solution" style="display: block;">
             <label for="solution_name">Name the solution </label><br>
             <input size="40" id = "solution_name" placeholder="Give a memorable name to this idea"><br><br>
 
@@ -268,31 +289,42 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
         <div id="loadingIcon"></div>
         <div id="loadingText">Loading...</div>
     </div>
-
+    </div>
  
 </div>
-<div class="bottom-bar">
-        <!-- <div id="form-options-1" style="width: 60%; margin: 0 auto; text-align: center;">
-            <button class="btn btn-primary" id="next-button" style="margin-right: 10px;" onclick="nextEvaluation()">Save and let AI suggest me more solutions</button>
-            <button class="btn btn-outline-primary" id="refine-button" onclick="refineSolution()">Save and I want to explore solutions closer to this</button>
-        </div> -->
+<!-- <div class="bottom-bar">
+
 
         
-        <div id="form-options-2" style="display: inline-block; margin: 0 auto;text-align: center;  ">
+        <div id="form-options-2" style="display: inline-block; margin: 0 auto; text-align: center;  ">
                 <button class="btn btn-outline-success" id="next-button" onclick="submitManual()">Submit</button>
         </div>
 
-        <!-- <div id="form-options-3" style="display: inline-block; margin: 0 auto; text-align: center;">
-                <button class="btn btn-success" id="next-button" onclick="nextEvaluation()">Submit</button>
-        </div> -->
 
         <br>
         <div id="done-button"  style="text-align: right;">
             <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>    
         </div>
+</div> -->
+
+
+<div class="bottom-bar">
+    <div style="display: table; width: 100%; height: 100%;">
+        <div style="display: table-cell; text-align: center; vertical-align: middle;">
+            <div id="form-options-2" style="display: inline-block; margin-right: 10px;">
+                <button class="btn btn-outline-success" id="next-button" onclick="submitManual()">Submit</button>
+            </div>
+            <div id="done-button" style="display: inline-block;">
+                <button class="btn btn-success" id="done" onclick="finishSolutions()">I'm done</button>
+            </div>
+        </div>
     </div>
+</div>
 
     <script>
+
+
+
         var userID = '<?php echo $userID; ?>';
 
         var parameterNames = localStorage.getItem("parameter-names").split(",");
@@ -305,9 +337,9 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
         var solutionList = localStorage.getItem("solution-list").split(",");
         var savedSolutions = localStorage.getItem("saved-solutions").split(",");
         var savedObjectives = localStorage.getItem("saved-objectives").split(",");
-        
         var saved_timestamp = [];
         localStorage.setItem("saved_timestamp", saved_timestamp);
+    //     var ismanual = localStorage.getItem("ismanual"); 
 
         try {
         var objectiveMeasurements = localStorage.getItem("objective-Measurements").split(",");
@@ -357,31 +389,40 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
     displayDiv.innerHTML =  "You have evaulated " + count + " solutions." + "<br>";
 
     var RequirementDisplay = document.getElementById("RequirementDisplay");
-    RequirementDisplay.innerHTML =  "1. Let AI suggest solutions of variables with you. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)) + " solutions</strong> to proceed." + "<br>" + "2. Then, after several more evaluations, you will see the Done button, you can choose to continue until you find an optimal solution, or directly finish." + "<br>"+ "Processing time may be long, thanks for your patience. ";
-
-
-
+    RequirementDisplay.innerHTML =  "2. Please evaluate at least <strong>" + parseInt(2*(parameterNames.length+1)+2*parameterNames.length) + " solutions</strong> to proceed."  + " Then, you will see the Done button; you can either choose to continue until you think you have optimal solutions or directly finish."
++ 
+"<br><br>3. How to evaluate a solution:<br>" +"You estimate the objective's measurement value based on the values of new solutions." + "<a href='material_1.php' target='_blank'> Back to the tutorial</a>";
+   
     $('#variable-table tbody').empty();
                 // Add rows based on parameterNames and parameterBounds
-                for (let i = 0; i < parameterNames.length; i++) {
-                    let nameParts = parameterNames[i].split('/');
-                    let lowerBound = parameterBounds[2 * i];
-                    let upperBound = parameterBounds[2 * i + 1];
+    for (let i = 0; i < parameterNames.length; i++) {
+        let lowerBound = parameterBounds[2 * i];
+        let upperBound = parameterBounds[2 * i + 1];
+        let htmlNewRow = "<tr>";
 
-                    htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "(" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>" // placeholder的效果怎么做
 
-                    
-                    let htmlNewRow = "<tr>";
-                    htmlNewRow += `<td contenteditable='false' class='record-data' id='record-parameter-name'>${nameParts[0]}</td>`;
-                    htmlNewRow += `<td contenteditable='false' class='record-data' id='record-parameter-unit'>${nameParts[1] || ''}</td>`;
-                    htmlNewRow += "<td contenteditable='false' class='record-data' id='record-parameter-bound'> " + "(" + lowerBound + "-" + upperBound  + ")"+ " </td>" // placeholder的效果怎么做
-                    htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-value'></td>`;
-                    htmlNewRow += "</td></tr>";
+        
+        htmlNewRow += `<td contenteditable='false' class='record-data' id='record-parameter-name'>${parameterNames[i]}</td>`;
+        htmlNewRow += "<td contenteditable='false' class='record-data' id='record-parameter-bound'> " + "(" + lowerBound + "-" + upperBound  + ")"+ " </td>" // placeholder的效果怎么做
+        htmlNewRow += `<td contenteditable='true' class='record-data' id='record-parameter-value'></td>`;
+        htmlNewRow += "</td></tr>";
 
-                    $("#variable-table tbody").append(htmlNewRow);
+        $("#variable-table tbody").append(htmlNewRow);
 
-                }
+    }
 
+    $('#measurement-table tbody').empty();
+
+    
+    for (i = 0; i < objectiveNames.length; i++) {
+        var htmlNewRow = "" 
+        htmlNewRow += "<tr>" 
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='display-measurement-name'> " + objectiveNames[i]  +  " </td>" 
+        htmlNewRow += "<td contenteditable='false' class='record-data' id='display-measurement-bounds'> " + "(" + objectiveBounds[2*i] + "-" + objectiveBounds[2*i+1]  + ")"+ " </td>" // placeholder的效果怎么做
+        htmlNewRow += "<td contenteditable='true' class='record-data' id='record-measurement' style='width: 25%;' placeholder=''> </td>"
+        htmlNewRow += "</td></tr>"
+        $("#measurement-table", window.document).append(htmlNewRow);
+    }
 
 
 
@@ -781,13 +822,20 @@ $userID = $_SESSION['ProlificID']; // 从会话中获取用户 ID
                 // localStorage.setItem("saved-objectives", savedObjectives);
             
                 submitReturned = true;
-                
 
-                // Append the solution array to solutionList
-                solutionList.push(solution);
-                savedObjectives.push(solution);
-                savedObjectives.push(objectiveMeasurements);
-                solutionNameList.push(solutionName);
+
+                
+                solutionList = solutionList == "" ? solution : solutionList.concat(solution);
+                savedSolutions = savedSolutions == "" ? solution : savedSolutions.concat(solution);
+                savedObjectives = savedObjectives == "" ? objectiveMeasurements : savedObjectives.concat(objectiveMeasurements);
+                solutionNameList = solutionNameList == "" ? solutionName : solutionNameList.concat(solutionName);
+
+
+                // // Append the solution array to solutionList
+                // solutionList.push(solution);
+                // savedObjectives.push(solution);
+                // savedObjectives.push(objectiveMeasurements);
+                // solutionNameList.push(solutionName);
                 // Save the updated solutionList back to localStorage
                 // localStorage.setItem("solution-list", solutionList.join(","));
 

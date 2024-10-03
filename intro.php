@@ -188,7 +188,7 @@ if (!isset($_SESSION['ProlificID'])) {
 </head>
 <body>
     <div class="top-bar">
-        <h2>Solve an optimization task</h2>
+        <h2>Approach your own optimization task</h2>
         <!-- <div class="container d-flex justify-content-between align-items-center"> -->
         <!-- <div class="container">
 
@@ -224,8 +224,11 @@ if (!isset($_SESSION['ProlificID'])) {
 
                         <div class="description">
                         </br>
+                        <!-- <label >Here you can use this service for your own optimization task. Please first propose an optimization task, you can describe it here in your own words.</label></br>                        
+                        <label >You will then go through 3 phases for approaching your optimization task: Specify, optimize, and get results, same as the tutorial.</label></br>                 -->
 
-                        <label > How to solve the optimization task using our service?</label></br>
+                        <!-- <label >Here we will provide you with one optimization task. You need to go through 3 phases: Specify, optimize, and get results, same as the tutorial.</label></br>                         -->
+                        <!-- <label > How to solve the optimization task using our service?</label></br>
                                                     1. Specify
                                 <span class="underline-text">Variables</span>
                                 and
@@ -235,7 +238,7 @@ if (!isset($_SESSION['ProlificID'])) {
                                 2. AI will help you to change
                                 <span class="underline-text">Variables</span>
                                 to achieve your
-                                <span class="underline-text">Objectives</span>.
+                                <span class="underline-text">Objectives</span>. -->
                         </div>
                         
 
@@ -254,16 +257,16 @@ if (!isset($_SESSION['ProlificID'])) {
         </br>
 
         <div class="card custom-card">
-            <p class="text-primary"> Your optimization task:</p>
+                <p class="text-primary">Your optimization task: (Type in the text area below)</p>
                 <div class="card-body">
-                        <label > Imagine you are a runner preparing for a marathon. You want to optimize your diet to lose weight and stay healthy at the same time.</label></br>
+                    <textarea id="marathonPlan" rows="5" style="width:100%;"></textarea>
                 </div>
-        </div>
+            </div>
 
-        <div class="card custom-card">
+        <!-- <div class="card custom-card">
             <img src="Pictures/diet.jpg" alt="diet" class="img-fluid">
 
-        </div>
+        </div> -->
         <!-- <h2 style="margin-top: 20px;">Specify variables</h2> -->
         <!-- <p><i>Describe each varible that you want to change for optimization. Here a pre-filled example is for the travel scenario, and varibles for the travel are “destination distance”, “number of days” or "number of flight connections".</i></p> -->
         <!-- <p><i>You can modify those values in the form directly to what you want to optimize for your own scenario.</i></p>
@@ -293,19 +296,66 @@ if (!isset($_SESSION['ProlificID'])) {
         <div id="loadingIcon"></div>
         <div id="loadingText">Loading...</div>
     </div>
-
     <div class="bottom-bar">
         <div class="container text-right">
-            <a href="define.php" class="btn btn-primary">Start by specifying variables</a>
+            <button id="startButton" class="btn btn-primary" onclick="next()">Start by specifying variables</button>
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- 
-    <script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">    </script>
+
+    <script>
+        const marathonPlanInput = document.getElementById('marathonPlan');
+
+        const startButton = document.getElementById('startButton');
+
+        // 点击按钮时的处理
+        function next() {
+            const wordCount = marathonPlanInput.value.trim().split(/\s+/).length;
+
+            if (wordCount < 8) {
+                event.preventDefault(); // 阻止页面跳转
+                alert("Invalid: Please enter at least 8 words.");
+            } else {
+
+                // 保存内容到 local storage
+                localStorage.setItem('marathonPlan', marathonPlanInput.value);
+                $.ajax({
+                        url: "define.php",
+                        type: "post",
+                        data: {
+                        'taskdescription'    :String(marathonPlanInput.value),
+
+                        },
+ 
+                        success: function(response) {
+                                            // 允许页面跳转
+
+                            var url = "define.php";
+                            window.location.href = url;
+                        },
+                        error: function(response) {
+                            console.log("Error sending data to define.php");
+                        }
+                        });
+
+
+
+                // startButton.href = "define.php";
+            }
+        };
+
+        // 从 local storage 加载数据，如果有的话
+        window.onload = function() {
+            if (localStorage.getItem('marathonPlan')) {
+                marathonPlanInput.value = localStorage.getItem('marathonPlan');
+            }
+        };
 
     </script>
+
+
     
     </body>
 </html>

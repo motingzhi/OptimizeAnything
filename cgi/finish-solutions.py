@@ -8,8 +8,8 @@ import sys
 import os
 import json
 import cgi
-import sqlite3
-import requests
+# import sqlite3
+# import requests
 # import os
 
 ####From import_all

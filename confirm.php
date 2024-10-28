@@ -934,6 +934,7 @@ $conn->close(); // 现在关闭数据库连接
                 },
                 error: function(result){
                     console.log("Error");
+                    $('#loadingContainer').hide();
                 }
                 // complete: function() {
                 // // 隐藏 loading 动画和文字

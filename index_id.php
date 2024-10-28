@@ -84,7 +84,10 @@ require_once 'config.php';
 </html>
 
 
-<!-- <?php if ($showGoogleLogin): ?> -->
+<?php if ($showGoogleLogin): ?> 
                 <!-- 只有在 $showGoogleLogin 为 true 时才显示 Google 登录按钮 -->
-                <!-- <a href="<?php echo $client->createAuthUrl(); ?>" class="btn-google">Login with Google</a> -->
-            <!-- <?php endif; ?> -->
+                <!-- <a href="-->
+                <!-- php echo $client->createAuthUrl(); ?> -->
+        
+                <!-- < class="btn-google">Login with Google</a> -->
+            <!-- <?php endif; ?>

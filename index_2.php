@@ -4,7 +4,7 @@ require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $prolificID = $_POST['Prolific'];
+    $prolificID =$_POST['Prolific'];
 
 
    

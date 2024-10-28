@@ -788,3 +788,15 @@ Traceback (most recent call last):
   File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
     raise KeyError(key)
 KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next_evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'
+Traceback (most recent call last):
+  File "/var/www/OptimiseAnything/cgi/next_evaluation.py", line 60, in <module>
+    parameterNames = (formData['parameter-names'].value).split(',')
+  File "/usr/lib/python3.10/cgi.py", line 528, in __getitem__
+    raise KeyError(key)
+KeyError: 'parameter-names'

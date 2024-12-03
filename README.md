@@ -10,14 +10,24 @@
 ## Access the service: http://optimizeanything.dice.aalto.fi/
 
 ## Paper and Authors list：
-Paper: link
-Fengyu Li, [Antti Oulasvirta](https://users.aalto.fi/~oulasvir/), Aalto University, Finland
-[John Dudley](https://www.jjdudley.com/),  [Per Ola Kristensson](https://pokristensson.com/),  University of Cambridge, UK
-[LiWei Chan](https://people.cs.nycu.edu.tw/~liweichan/), National Yang Ming Chiao Tung University, Taiwan
+Paper: link<br>
+Fengyu Li, [Antti Oulasvirta](https://users.aalto.fi/~oulasvir/), Aalto University, Finland<br>
+[John Dudley](https://www.jjdudley.com/),  [Per Ola Kristensson](https://pokristensson.com/),  University of Cambridge, UK<br>
+[LiWei Chan](https://people.cs.nycu.edu.tw/~liweichan/), National Yang Ming Chiao Tung University, Taiwan<br>
 
 
 
 The project builds on the previous work on MOBO by [L. Chan et. al](https://dl.acm.org/doi/pdf/10.1145/3491102.3501850)<sup>1</sup>, [Y. -C. Liao et al.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10024515)<sup>2</sup>, and [G. Mo](https://github.com/georgemo535/D3MOBO)<sup>3</sup>.
+
+## How to install
+Apache is used to run the program locally and so ensure you have [XAMPP](https://www.apachefriends.org/) installed first before use. To run the program: 
+1. Download the files as a zip folder.
+2. Copy the folder into `htdocs` within the `xampp` folder in your Local Disk.
+3. Ensure the first line of the Python files in the `cgi` folder contains the file path to Python on your local system.
+4. Click "Start" on the Apache module in the XAMPP Control Panel.
+5. Copy the file path to the `welcome.php` page into a web browser using the following format: `http://localhost/Demo/welcome.php` where `Demo` is the filepath to `welcome.php` from the folder `htdocs`.
+6. Follow the instructions and proceed with the application.
+
 
 ## Front-end
 The PHP files represent the front-end of the program. The sequence of pages is:
@@ -40,14 +50,7 @@ The `cgi` folder contains the Python scripts that form the back-end to the progr
 
 The `cgi` Python module is used to store the necessary variables and information to transfer between the server and client sides of the program. 
 
-## Application
-Apache is used to run the program locally and so ensure you have [XAMPP](https://www.apachefriends.org/) installed first before use. To run the program: 
-1. Download the files as a zip folder.
-2. Copy the folder into `htdocs` within the `xampp` folder in your Local Disk.
-3. Ensure the first line of the Python files in the `cgi` folder contains the file path to Python on your local system.
-4. Click "Start" on the Apache module in the XAMPP Control Panel.
-5. Copy the file path to the `welcome.php` page into a web browser using the following format: `http://localhost/Demo/welcome.php` where `Demo` is the filepath to `welcome.php` from the folder `htdocs`.
-6. Follow the instructions and proceed with the application.
+
 
 ## Miscellaneous
 The `Archive` folder includes previous copies of files for testing and reference purposes. The `Pictures` folder includes the images used in the front-end in the program. 

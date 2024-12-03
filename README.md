@@ -59,13 +59,6 @@ The `cgi` Python module is used to store the necessary variables and information
 ## Miscellaneous
 The `Archive` folder includes previous copies of files for testing and reference purposes. The `Pictures` folder includes the images used in the front-end in the program. 
 
-## References
-1. Chan, L. et al. (2022) ‘Investigating positive and negative qualities of human-in-the-loop optimization for designing interaction techniques’, CHI Conference on Human Factors in Computing Systems [Preprint]. doi:10.1145/3491102.3501850.
-2. Y. -C. Liao et al., "Interaction Design With Multi-Objective Bayesian Optimization," in IEEE Pervasive Computing, vol. 22, no. 1, pp. 29-38, 1 Jan.-March 2023, doi: 10.1109/MPRV.2022.3230597.
-3. Mo, G. D3MOBO, GitHub. Available at: https://github.com/georgemo535/D3MOBO. 
-
-# OptimiseAnything
-
 
 nano /etc/apache2/sites-available/000-default.conf - 
 <Directory /var/www/OptimiseAnything/>
@@ -102,3 +95,15 @@ nano /etc/apache2/conf-available/serve-cgi-bin.conf -
 
 https://medium.com/@rohan_precise/step-by-step-guide-setting-up-and-connecting-mysql-on-ec2-ubuntu-instance-72c627e6c27f
 https://askubuntu.com/questions/668734/the-requested-url-phpmyadmin-was-not-found-on-this-server
+
+
+
+
+
+
+## References
+1. Chan, L. et al. (2022) ‘Investigating positive and negative qualities of human-in-the-loop optimization for designing interaction techniques’, CHI Conference on Human Factors in Computing Systems [Preprint]. doi:10.1145/3491102.3501850.
+2. Y. -C. Liao et al., "Interaction Design With Multi-Objective Bayesian Optimization," in IEEE Pervasive Computing, vol. 22, no. 1, pp. 29-38, 1 Jan.-March 2023, doi: 10.1109/MPRV.2022.3230597.
+3. Mo, G. D3MOBO, GitHub. Available at: https://github.com/georgemo535/D3MOBO. 
+
+

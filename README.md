@@ -11,11 +11,10 @@
 
 ## Paper and Authors list：
 Paper: link
-Fengyu Li
-John Dudley (https://dl.acm.org/doi/pdf/10.1145/3491102.3501850)
-Liwei Chan
-Per Ola Kristensson
-Antti Oulasvirta
+Fengyu Li, [Antti Oulasvirta](https://users.aalto.fi/~oulasvir/), Aalto University, Finland
+[John Dudley](https://www.jjdudley.com/),  [Per Ola Kristensson](https://pokristensson.com/),  University of Cambridge, UK
+[LiWei Chan](https://people.cs.nycu.edu.tw/~liweichan/), National Yang Ming Chiao Tung University, Taiwan
+
 
 
 The project builds on the previous work on MOBO by [L. Chan et. al](https://dl.acm.org/doi/pdf/10.1145/3491102.3501850)<sup>1</sup>, [Y. -C. Liao et al.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10024515)<sup>2</sup>, and [G. Mo](https://github.com/georgemo535/D3MOBO)<sup>3</sup>.

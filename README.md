@@ -7,9 +7,9 @@
 ## Introduction
 "Optimise Anything!" is a web service that enables non-expert people to interactively utilize Bayesian optimization in the back end to solve optimization problems. 
 
-## Access the service: http://optimizeanything.dice.aalto.fi/
+## Access the service http://optimizeanything.dice.aalto.fi/
 
-## Paper and Authors list：
+## Paper and Authors list
 Paper: link<br>
 Fengyu Li, [Antti Oulasvirta](https://users.aalto.fi/~oulasvir/), Aalto University, Finland<br>
 [John Dudley](https://www.jjdudley.com/),  [Per Ola Kristensson](https://pokristensson.com/),  University of Cambridge, UK<br>
@@ -20,6 +20,10 @@ Fengyu Li, [Antti Oulasvirta](https://users.aalto.fi/~oulasvir/), Aalto Universi
 The project builds on the previous work on MOBO by [L. Chan et. al](https://dl.acm.org/doi/pdf/10.1145/3491102.3501850)<sup>1</sup>, [Y. -C. Liao et al.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10024515)<sup>2</sup>, and [G. Mo](https://github.com/georgemo535/D3MOBO)<sup>3</sup>.
 
 ## How to install
+
+###Step 1. Install Botorch 
+
+###Step 2. Install Apache 
 Apache is used to run the program locally and so ensure you have [XAMPP](https://www.apachefriends.org/) installed first before use. To run the program: 
 1. Download the files as a zip folder.
 2. Copy the folder into `htdocs` within the `xampp` folder in your Local Disk.

@@ -1,7 +1,7 @@
 # Optimise Anything!
 
 <p align="center" width="100%">
-<img src="cover.png" alt="Overview" style="width: 80%; min-width: 300px; display: block; margin: auto;">
+<img src="overview.png" alt="Overview" style="width: 80%; min-width: 300px; display: block; margin: auto;">
 </p>
 
 ## Introduction

@@ -1,4 +1,5 @@
-# Optimise Anything: UROP 2023
+# Optimise Anything!
+Use the service online: http://optimizeanything.dice.aalto.fi/
 
 ## Introduction
 The purpose of this project is to develop a program to perform multi-objective Bayesian optimisation (MOBO) aimed at the everyday person. It includes the ability to define design parameters and design objectives to be minimised and/or maximised. The user is also able to define solutions that are already known to not be satisfactory which the AI takes into account when performing the optimisation. The interface has been designed to be as simple as possible in order to ensure ease of use. 

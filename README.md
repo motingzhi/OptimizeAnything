@@ -21,10 +21,10 @@ The project is built on the previous work on MOBO by [L. Chan et. al](https://dl
 
 ## How to install
 
-###Step 1. Install Botorch 
+### Step 1. Install Botorch 
 1. Go to
 
-###Step 2. Install Apache 
+### Step 2. Install Apache 
 Apache is used to run the program locally and so ensure you have [XAMPP](https://www.apachefriends.org/) installed first before use. To run the program: 
 1. Download the files as a zip folder.
 2. Copy the folder into `htdocs` within the `xampp` folder in your Local Disk.

@@ -10,8 +10,8 @@ This service is one of the outputs of the paper "The Awareness Effect in Human-i
 
 ## Access the service http://optimizeanything.dice.aalto.fi/
 
-## Paper and Authors list
-Paper: The Awareness Effect in Human-in-the-Loop Optimization [link]()
+## Paper
+**The Awareness Effect in Human-in-the-Loop Optimization [link]()**<br>
 Authors:
 Fengyu Li, [Antti Oulasvirta](https://users.aalto.fi/~oulasvir/), Aalto University, Finland<br>
 [John Dudley](https://www.jjdudley.com/),  [Per Ola Kristensson](https://pokristensson.com/),  University of Cambridge, UK<br>

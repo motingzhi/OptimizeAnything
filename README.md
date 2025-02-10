@@ -5,24 +5,27 @@
 </p>
 
 ## Introduction
-"Optimise Anything!" is a web service that enables non-expert people to interactively utilize Bayesian optimization in the back end to solve optimization problems. 
+"Optimise Anything!" is a web service that allows non-experts to solve optimization problems by interactively utilizing a Bayesian optimizer in the backend, without requiring knowledge of Bayesian methods.
+This service is one of the outputs of the paper "The Awareness Effect in Human-in-the-Loop Optimization".
 
 ## Access the service http://optimizeanything.dice.aalto.fi/
 
 ## Paper and Authors list
-Paper: link<br>
+Paper: The Awareness Effect in Human-in-the-Loop Optimization [link]()
+Authors:
 Fengyu Li, [Antti Oulasvirta](https://users.aalto.fi/~oulasvir/), Aalto University, Finland<br>
 [John Dudley](https://www.jjdudley.com/),  [Per Ola Kristensson](https://pokristensson.com/),  University of Cambridge, UK<br>
 [LiWei Chan](https://people.cs.nycu.edu.tw/~liweichan/), National Yang Ming Chiao Tung University, Taiwan<br>
 
-
+## Supplementary materials for the paper
+All source files of the questionnaire and content analysis can be found in the "Content analysis code" folder.
 
 The project is built on the previous work on MOBO by [L. Chan et. al](https://dl.acm.org/doi/pdf/10.1145/3491102.3501850)<sup>1</sup>, [Y. -C. Liao et al.](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10024515)<sup>2</sup>, and [G. Mo](https://github.com/georgemo535/D3MOBO)<sup>3</sup>.
 
 ## How to install
 
 ### Step 1. Install Botorch 
-1. Go to
+1. Go to [Botorch repo](https://github.com/pytorch/botorch).
 
 ### Step 2. Install Apache 
 Apache is used to run the program locally and so ensure you have [XAMPP](https://www.apachefriends.org/) installed first before use. To run the program: 

@@ -1,0 +1,4 @@
+,Satisfaction,Confidence,Agency
+Specify,How much do you feel you are satisfied with the specifications you made in the 'Specify' step?,How confident do you think your specifications in the 'Specify' step are reasonable for your optimization task?,How much do you feel you are involved in specifying variables and objectives?
+Optimize,How much do you feel you are satisfied with the optimization process?,How confident do you feel for your optimization process?,How much do you feel you are involved in the optimization process?
+Review Results,How much do you feel you are satisfied with the optimization result you got?,How confident do you feel the final result is optimal?,How much do you feel you are involved in getting the optimal result?
